@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-const ForogorPassword = ({ forgotPasswordText }) => {
+const ForgotPassword = ({ forgotPasswordText }) => {
   const forgotPasswordStyle = useMemo(() => {
     return {
       textDecoration: forgotPasswordText,
@@ -23,4 +23,4 @@ const ForogorPassword = ({ forgotPasswordText }) => {
   );
 };
 
-export default ForogorPassword;
+export default ForgotPassword;

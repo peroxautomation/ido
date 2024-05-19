@@ -1,5 +1,5 @@
 import IncorrectPasswordText from "./IncorrectPasswordText";
-import ForogorPassword from "./ForogorPassword";
+import ForogorPassword from "./ForgotPasswordLogin";
 import OnboardingInput from "./OnboardingInput";
 import LoginButton from "./LoginButton";
 

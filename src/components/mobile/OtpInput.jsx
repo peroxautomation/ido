@@ -6,6 +6,6 @@ const OtpInput = () => {
       type="text"
     />
   );
-};
+}
 
 export default OtpInput;

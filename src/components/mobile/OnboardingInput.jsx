@@ -9,7 +9,7 @@ const OnboardingInput = ({ label, inputPlaceholder, type }) => {
         />
       </div>
       <input
-        className="[border:none] [outline:none] font-button-2-semibold text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-neutral-600"
+        className="[border:none] [outline:none] font-button-2-semibold text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white"
         placeholder={inputPlaceholder}
         type={type}
       />
