@@ -1,22 +1,46 @@
-import IncorrectPasswordText from "./IncorrectPasswordText";
+import IncorrectPassword from "./PasswordErrorMessage";
 import ForogorPassword from "./ForgotPasswordLogin";
 import OnboardingInput from "./OnboardingInput";
 import LoginButton from "./LoginButton";
 
+/**
+ * Login page main component
+ * @returns A JSX element
+ */
 const LoginMain = () => {
+
+  /********************************{event listeners}********************************* */
+  const onClick = (event) => {
+    //TODO: Add password validation here
+    const password = document.getElementById("loginPass").value;
+    const errMsg = document.getElementById("loginPasswordError");
+    if (!password)
+    {
+      if(errMsg.classList.contains('hidden'))
+        errMsg.classList.remove('hidden');
+    }
+    else {
+      if(!errMsg.classList.contains('hidden'))
+        errMsg.classList.add('hidden');
+    }
+  }
+
   return (
     <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
     <div className="self-stretch flex flex-col items-start justify-start">
       <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
         <OnboardingInput
           label="Email"
-          inputPlaceholder="Enter your email"
-          type="text"
+          inputplaceholder="Enter your email"
+          type="email"
+          name="email"
         />
         <OnboardingInput
           label="Password"
-          inputPlaceholder="Enter your password"
+          inputplaceholder="Enter your password"
           type="password"
+          name="password"
+          id="loginPass"
         />
       </div>
       <ForogorPassword forgotPasswordText="none" />
@@ -33,6 +57,7 @@ const LoginMain = () => {
         statePrimarySizeDefaultVTop="unset"
         statePrimarySizeDefaultVLeft="unset"
         statePrimarySizeDefaultVWidth="unset"
+        onCTAClick = {onClick}
       />
     </a>
   </div>

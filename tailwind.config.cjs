@@ -8,9 +8,10 @@ module.exports = {
         "primary-500": "#cc0f3c",
         "neutral-200": "#e9e9e9",
         "white-8": "rgba(255, 255, 255, 0.08)",
-        white: "#fff",
-        darkslategray: "#424242",
+        "white": "#fff",
+        "darkslategray": "#424242",
         "neutral-900": "#0b0b0b",
+        "error-red": "#CC240E"
       },
       spacing: {},
       fontFamily: {
