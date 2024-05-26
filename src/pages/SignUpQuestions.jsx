@@ -6,6 +6,11 @@ import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
+
+/**
+ * Sign up all questions Page
+ * @returns JSX element
+ */
 const AllQuestionsForSignUpIn = () => {
   const navigate = useNavigate();
 

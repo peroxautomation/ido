@@ -23,6 +23,8 @@ import SelectCountry from "./pages/SelectCountry";
 import MainPage from "./pages/MainPage";
 import TrendingNow from "./pages/TrendingNow";
 import RecentlyAdded from "./pages/RecentlyAdded";
+import Search from "./pages/Search";
+import SearchResult from "./pages/SearchResult";
 
 function App() {
   const action = useNavigationType();
@@ -89,26 +91,33 @@ function App() {
 
       <Route path="/" element={<OnboardingPrime />} />
 
-      {/*************************************** { Login } ************************************************/}
+      {/******************************************************** { Login } **********************************************************/}
       <Route path="/login" element={<Login />} />
 
-      {/*************************************** { Forgot Password } ************************************************/}
+      {/******************************************************** { Forgot Password } ************************************************/}
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/otp" element={<OTP />} />
       <Route path="/processing" element={<Processing />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       
-      {/*************************************** { Signup } ************************************************/}
+      {/******************************************************** { Signup } *********************************************************/}
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-up-birthday" element={<SignUpBirthday />} />
       <Route path="/sign-up-country" element={<SelectCountry />} />
       <Route path="/sign-up-questions" element={<AllQuestionsForSignUpIn />} />
       <Route path="/sign-up-info" element={<SignUpAllInfo />} />
 
-      {/*************************************** { Home Screen } ************************************************/}
+      {/*************************************** { Onboarding subscription Screen } **************************************************/}
+
+      {/************************************************* { Home Screen } ***********************************************************/}
       <Route path="/home" element={<MainPage />} />
       <Route path="/home/trending" element={<TrendingNow />} />
       <Route path="/home/recently-added" element={<RecentlyAdded />} />
+      
+      {/******************************************** { Search Screen } ***************************************************************/}
+      <Route path="/search" element={<Search />} />
+      <Route path="/search-result" element={<SearchResult />} />
+
     </Routes>
   );
 }

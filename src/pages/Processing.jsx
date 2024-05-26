@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import ProcessingIcon from "../components/mobile/ProcessingIcon";
 
+/**
+ * Processing Page
+ * @returns JSX element
+ */
 const Processing = () => {
   const onProcessingContainerClick = useCallback(() => {
     // Please sync "Processing" to the project

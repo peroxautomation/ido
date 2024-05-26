@@ -5,6 +5,10 @@ import Button1Inactive from "../components/mobile/Button1Inactive";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Select Country Page
+ * @returns JSX element
+ */
 const SelectCountry = () => {
 
   const navigate = useNavigate();

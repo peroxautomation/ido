@@ -4,6 +4,10 @@ import EmailInput from "../components/mobile/EmailInput";
 import Button1 from "../components/mobile/Button1";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Forgot Password Page
+ * @returns JSX element
+ */
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const onCTAClick = useCallback(() => {

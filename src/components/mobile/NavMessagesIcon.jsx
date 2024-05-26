@@ -5,7 +5,7 @@ const NavMessagesIcon = ({ className = "" }) => {
     <img
       className={`w-[1.6rem] relative h-[1.6rem] ${className}`}
       alt=""
-      src="/hugeiconcommunicationoutlinemail.svg"
+      src="/NavMessagesIcon.svg"
     />
   );
 };

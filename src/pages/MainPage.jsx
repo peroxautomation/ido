@@ -4,6 +4,10 @@ import Genres from "../components/mobile/Genres";
 import TopNavbar from "../components/mobile/TopNavbar";
 import ButtomNavbar from "../components/mobile/ButtomNavbar";
 
+/**
+ * Main Page
+ * @returns JSX element
+ */
 const MainPage = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-y-auto overflow-x-clip">
@@ -30,7 +34,7 @@ const MainPage = () => {
         />
         <HomePageSection />
       </div>
-      <ButtomNavbar />
+      <ButtomNavbar currentPage="Home" />
     </div>
   );
 };

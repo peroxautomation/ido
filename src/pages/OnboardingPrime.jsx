@@ -2,6 +2,10 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Button1 from "../components/mobile/Button1";
 
+/**
+ * Onboarding Page
+ * @returns JSX element
+ */
 const OnboardingPrime = () => {
   const navigate = useNavigate();
 

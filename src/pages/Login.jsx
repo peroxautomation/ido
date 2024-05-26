@@ -9,12 +9,16 @@ import { useCallback } from "react";
 
 //TODO: Insert <IncorrectPasswordMsg />
 
+/**
+ * Login Page
+ * @returns JSX element
+ */
 const Login = () => {
+  const navigate = useNavigate();
 
-  const naviage = useNavigate();
   const onCTAClick = useCallback(() => {
-    console.log("Logging in...")
-    naviage("/home")
+    console.log("loggin in...")
+    navigate('/home')
   }, []);
 
   return (

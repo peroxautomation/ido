@@ -2,6 +2,10 @@ import { useCallback } from "react";
 import Title from "../components/mobile/Title";
 import OTPInputs from "../components/mobile/OTPInputs";
 
+/**
+ * OTP Page
+ * @returns JSX element
+ */
 const OTP = () => {
   const onAskAgainClick = useCallback(() => {
     //TODO: Call API & Send code again

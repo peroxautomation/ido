@@ -3,6 +3,10 @@ import Button1 from "../components/mobile/Button1";
 import PasswordInput from "../components/mobile/PasswordInput";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Reset Password Page
+ * @returns JSX element
+ */
 const ResetPassword = () => {
   const navigate = useNavigate();
 

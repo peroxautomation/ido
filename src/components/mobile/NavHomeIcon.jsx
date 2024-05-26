@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
 
-const NavHomeIcon = ({ className = "" }) => {
+const NavHomeIcon = ({isSelected, className = ""}) => {
   return (
-    <div
+    <a
       className={`box-border w-[4.5rem] flex flex-row items-center justify-center py-[1rem] px-[0.5rem] border-b-[3px] border-solid border-primary-500 ${className}`}
+      href= { (isSelected) ? "" : '/home'}
     >
       <img
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
         alt=""
-        src="/hugeiconinterfacesolidhome-04.svg"
+        src= {isSelected? "/homeselected.svg" : "/homenotselected.svg"}
       />
-    </div>
+    </a>
   );
 };
 

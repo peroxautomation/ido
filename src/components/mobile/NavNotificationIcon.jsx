@@ -5,7 +5,7 @@ const NavNotificationIcon = ({ className = "" }) => {
     <img
       className={`w-[1.6rem] relative h-[1.6rem] overflow-hidden shrink-0 ${className}`}
       alt=""
-      src="/hugeiconinterfaceoutlinenotification-01.svg"
+      src="/NavNotificationIcon.svg"
     />
   );
 };

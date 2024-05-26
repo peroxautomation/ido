@@ -5,6 +5,10 @@ import SocialMediaLogins from "../components/mobile/SocialMediaLogins";
 import Button1 from "../components/mobile/Button1";
 import { useCallback } from "react";
 
+/**
+ * Sign up Page
+ * @returns JSX element
+ */
 const SignUp = () => {
 
   const navigate = useNavigate();

@@ -2,6 +2,10 @@ import Title from "../components/mobile/Title";
 import HomeVideoCard from "../components/mobile/HomeVideoCard";
 import CategoryRow from "../components/mobile/CategoryRow";
 
+/**
+ * Recently Added Section Page
+ * @returns JSX element
+ */
 const RecentlyAdded = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">

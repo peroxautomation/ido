@@ -1,9 +1,20 @@
 import PropTypes from "prop-types";
 
-const AddToPlaylistBtn1 = ({ className = "" }) => {
-  const onClickCTA = () => {
-    console.log("Open playlist popup")
+const VideoOptionsBtn = ({ className = "" }) => {
+
+  // Display the Add To Playlist component
+  const onClickCTA = (event) => {
+    const targetElement = event.target.parentElement.children[0];
+
+    // Prevent hiding another element
+    if(targetElement.getAttribute("name") == "saveToPlaylist")
+    {
+      targetElement.classList.toggle('flex')
+      targetElement.classList.toggle('hidden')
+    }
   }
+
+  // Returned Component
   return (
     <button
       className={`cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0.5rem] right-[0.5rem] w-[1.5rem] h-[1.5rem] overflow-hidden ${className}`}
@@ -18,8 +29,8 @@ const AddToPlaylistBtn1 = ({ className = "" }) => {
   );
 };
 
-AddToPlaylistBtn1.propTypes = {
+VideoOptionsBtn.propTypes = {
   className: PropTypes.string,
 };
 
-export default AddToPlaylistBtn1;
+export default VideoOptionsBtn;

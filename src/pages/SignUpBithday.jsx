@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import BirthdayWheelPicker from "../components/mobile/BirthdayWheelPicker";
 import Title from "../components/mobile/Title";
 
+/**
+ * Sign up birthday Page
+ * @returns JSX element
+ */
 const SignUpBithday1 = () => {
   const navigate = useNavigate();
 

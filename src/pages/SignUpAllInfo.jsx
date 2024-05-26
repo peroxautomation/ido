@@ -6,6 +6,11 @@ import PasswordInput from "../components/mobile/PasswordInput";
 import GenderDropdown1 from "../components/mobile/GenderDropdown1"
 import Button1Inactive from "../components/mobile/Button1Inactive";
 import { useNavigate } from "react-router-dom";
+
+/**
+ * Sign up all info page
+ * @returns JSX element
+ */
 const SignUpAllInfo = () => {
   const navigate = useNavigate();
 
