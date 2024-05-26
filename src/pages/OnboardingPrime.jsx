@@ -1,43 +1,39 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginButton from "../components/mobile/LoginButton";
+import Button1 from "../components/mobile/Button1";
 
 const OnboardingPrime = () => {
   const navigate = useNavigate();
 
-  const onCTAClick = () => {
+  const onCTAClick = useCallback(() => {
     navigate("/login");
-  }
+  }, [navigate]);
 
   return (
-    <div className="w-full relative bg-white h-[667px] overflow-hidden text-center text-xl text-white font-button-2-semibold">
+    <div className="grid grid-rows-3 justify-items-center w-full relative bg-white h-[100vh] overflow-hidden text-center text-xl text-white font-button-1-semibold">
       <img
-        className="absolute top-[calc(50%_-_333.5px)] left-[calc(50%_-_187.5px)] w-[375px] h-[667px] overflow-hidden"
+        className="absolute w-[100vw] min-h-screen overflow-hidden object-cover"
         alt=""
-        src="/bg.svg"
+        src="/devicemobile.svg"
       />
-      <div className="absolute top-[461px] left-[20px] w-[335px] flex flex-row items-center justify-center">
+      <img
+        className="relative top-[5vh] w-[300px] h-[348px] object-cover"
+        alt=""
+        src="/polygons@2x.png"
+      />
+      <div className="relative top-[calc(348px_-_35vh)] w-[335px] flex flex-row items-center justify-center">
         <div className="flex-1 relative leading-[28px] font-semibold">
           Get ready to immerse yourself
         </div>
       </div>
-      <LoginButton
-        text="Get started"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil@2x.png"
-        icon={false}
-        statePrimarySizeDefaultVBorder="none"
-        statePrimarySizeDefaultVTextDecoration="unset"
-        statePrimarySizeDefaultVAlignSelf="unset"
-        statePrimarySizeDefaultVPosition="absolute"
-        statePrimarySizeDefaultVTop="583px"
-        statePrimarySizeDefaultVLeft="calc(50% - 167.5px)"
-        statePrimarySizeDefaultVWidth="335px"
+      <Button1
         onCTAClick={onCTAClick}
-      />
-      <img
-        className="absolute top-[56px] left-[37px] w-[300px] h-[348px]"
-        alt=""
-        src="/polygons.svg"
+        cTAAlignSelf="unset"
+        cTAPosition="absolute"
+        cTATop="583px"
+        cTALeft="calc(50% - 167.5px)"
+        cTAWidth="335px"
+        cTA="Get started"
       />
     </div>
   );

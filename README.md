@@ -1,7 +1,9 @@
-# Mobile Branch 
+# ido design for export mobile
 
-After pulling the directory, run npm install to install node modules.
+Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
 
-```bash
-npm install 
-```
+To preview and run the project on your device:
+
+1. Open project folder in <a href="https://code.visualstudio.com/download">Visual Studio Code</a>
+2. In the terminal, run `npm install`
+3. Run `npm start` to view project in browser
