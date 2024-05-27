@@ -17,7 +17,7 @@ const SignUpAllInfo = () => {
   const onCTAClick = useCallback(() => {
     // Please sync "OTP" to the project
     console.log("Creating account...")
-    navigate('/home')
+    navigate('/subscription-free')
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const SignUpAllInfo = () => {
       <Title
         titleRight="20px"
         titleLeft="20px"
-        returnPage="/sign-up-questions"
+        returnPage="/sign-up/questions"
         pageName="Sign up"
         titleWidth="calc(100% - 40px)"
         direactionLeft="/direaction-left.svg"

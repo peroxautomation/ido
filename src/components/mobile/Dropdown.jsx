@@ -1,5 +1,8 @@
 import { useMemo } from "react";
 
+/**
+ * Dropdown used in sign-up info page
+ */
 const Dropdown = ({
   className = "",
   showLabel,

@@ -34,7 +34,7 @@ const OnboardingPrime = () => {
         onCTAClick={onCTAClick}
         cTAAlignSelf="unset"
         cTAPosition="absolute"
-        cTATop="583px"
+        cTATop="86%"
         cTALeft="calc(50% - 167.5px)"
         cTAWidth="335px"
         cTA="Get started"

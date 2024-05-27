@@ -11,7 +11,7 @@ const SignUpBithday1 = () => {
   const navigate = useNavigate();
 
   const onCTAClick = useCallback(() => {
-    navigate("/sign-up-country");
+    navigate("/sign-up/country");
   }, [navigate]);
 
   return (

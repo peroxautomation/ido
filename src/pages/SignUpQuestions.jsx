@@ -15,14 +15,14 @@ const AllQuestionsForSignUpIn = () => {
   const navigate = useNavigate();
 
   const onCTAClick = useCallback(() => {
-    navigate("/sign-up-info");
+    navigate("/sign-up/info");
   }, [navigate]);
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
       <Title
         titleRight="20px"
-        returnPage="/sign-up-country"
+        returnPage="/sign-up/country"
         pageName="Sign up"
       />
       <main className="flex flex-col relative items-start top-[12vh] left-[calc(50%_-_167.5px)] w-[85vw] h-[70vh] overflow-y-scroll overflow-x-clip">

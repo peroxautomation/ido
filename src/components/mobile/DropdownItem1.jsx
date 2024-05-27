@@ -1,5 +1,8 @@
 import { useMemo } from "react";
 
+/**
+ * Dropdown Items for the Dropdown2 component
+ */
 const DropdownItem1 = ({
   className = "",
   all,

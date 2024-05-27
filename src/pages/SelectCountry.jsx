@@ -16,7 +16,7 @@ const SelectCountry = () => {
 
   const onCTAClick = useCallback(() => {
     console.log(`Button active state: `)
-    navigate("/sign-up-questions");
+    navigate("/sign-up/questions");
   }, [navigate]);
 
   return (
@@ -24,7 +24,7 @@ const SelectCountry = () => {
       <Title
         titleRight="unset"
         titleLeft="20px"
-        returnPage="/sign-up-birthday"
+        returnPage="/sign-up/birthday"
         pageName="Select country"
         titleWidth="335px"
         direactionLeft="/direaction-left.svg"

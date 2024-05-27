@@ -1,87 +1,82 @@
-import { useMemo } from "react";
-import DropdownSearch from "./DropdownSearch";
-import DropdownItem1 from "./DropdownItem1";
-
+import DropdownItem2 from "./DropdownItem2";
+import PropTypes from "prop-types";
 /**
- * Dropdown list used use in sign-up country pages
+ * Country filter dropdown
  */
-const Dropdown2 = ({
-  className = "",
-  countryDropdownTop,
-  countryDropdownHeight,
-  allHref,
-  allTarget,
-}) => {
-  const countryDropdownStyle = useMemo(() => {
-    return {
-      top: countryDropdownTop,
-      height: countryDropdownHeight,
-    };
-  }, [countryDropdownTop, countryDropdownHeight]);
-
+const CountryDropdown = ({ className = "" }) => {
   return (
     <div
-      className={`absolute top-[160px] left-[20px] rounded-2xl h-[402px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold ${className}`}
-      style={countryDropdownStyle}
+      id="countryDropdown"
+      className={`absolute top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-20 max-h-[50vh] overflow-y-scroll ${className}`}
     >
-      <DropdownSearch />
-      <DropdownItem1 all="Afghanistan" />
-      <DropdownItem1
+      <DropdownItem2
+        all="Afghanistan"
+        allTextDecoration="unset"
+        item2BorderBottom="1px solid #1b1b1b"
+        item2Width="10rem"
+      />
+      <DropdownItem2
         all="Bahrain"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Bahrain"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Cambodia"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Cambodia"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Denmark"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Denmark"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Ecuador"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Ecuador"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Finland"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Finland"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Germany"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Germany"
         allTarget="_blank"
+        item2Width="10rem"
       />
-      <DropdownItem1
+      <DropdownItem2
         all="Zimbabwe"
         allTextDecoration="none"
         item2BorderBottom="unset"
         allHref="https://www.britannica.com/place/Zimbabwe"
         allTarget="_blank"
-      />
-      <DropdownItem1
-        all="Nigeria"
-        allTextDecoration="unset"
-        item2BorderBottom="unset"
+        item2Width="10rem"
       />
     </div>
   );
 };
 
-export default Dropdown2;
+CountryDropdown.propTypes = {
+  className: PropTypes.string,
+};
+
+export default CountryDropdown;

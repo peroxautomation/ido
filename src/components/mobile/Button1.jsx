@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-const Button = ({
+const Button1 = ({
   className = "",
   onCTAClick,
   cTAAlignSelf,
@@ -9,7 +9,7 @@ const Button = ({
   cTALeft,
   cTAWidth,
   cTA,
-  hugeIconeducationsolidpen,
+  icon,
 }) => {
   const cTAStyle = useMemo(() => {
     return {
@@ -27,12 +27,13 @@ const Button = ({
       onClick={onCTAClick}
       style={cTAStyle}
     >
-      <div className="relative text-base leading-[24px] font-semibold font-button-1-semibold text-white text-center">
+      <div className="relative flex py-1 gap-1 text-base leading-[24px] font-semibold font-button-1-semibold text-white text-center">
         {cTA}
+        <img src={icon} alt="" />
       </div>
     </button>
   );
 };
 
 
-export default Button;
+export default Button1;

@@ -20,11 +20,22 @@ import SignUpAllInfo from "./pages/SignUpAllInfo";
 import SignUpBirthday from "./pages/SignUpBithday";
 import AllQuestionsForSignUpIn from "./pages/SignUpQuestions";
 import SelectCountry from "./pages/SelectCountry";
+
+/* Onboarding*/
+import OnboardingFree from "./pages/OnboardingFree";
+import OnboardingPremium from "./pages/OnboardingPremium";
+import StartPremiumPlan from "./pages/StartPremiumPlan";
+import PremiumResut from "./pages/PremiumResut";
+
+/* Home page */
 import MainPage from "./pages/MainPage";
 import TrendingNow from "./pages/TrendingNow";
 import RecentlyAdded from "./pages/RecentlyAdded";
+
+/* Search page */
 import Search from "./pages/Search";
 import SearchResult from "./pages/SearchResult";
+import Filters from "./pages/Filters";
 
 function App() {
   const action = useNavigationType();
@@ -102,13 +113,17 @@ function App() {
       
       {/******************************************************** { Signup } *********************************************************/}
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/sign-up-birthday" element={<SignUpBirthday />} />
-      <Route path="/sign-up-country" element={<SelectCountry />} />
-      <Route path="/sign-up-questions" element={<AllQuestionsForSignUpIn />} />
-      <Route path="/sign-up-info" element={<SignUpAllInfo />} />
+      <Route path="/sign-up/birthday" element={<SignUpBirthday />} />
+      <Route path="/sign-up/country" element={<SelectCountry />} />
+      <Route path="/sign-up/questions" element={<AllQuestionsForSignUpIn />} />
+      <Route path="/sign-up/info" element={<SignUpAllInfo />} />
 
       {/*************************************** { Onboarding subscription Screen } **************************************************/}
-
+      <Route path="/subscription-free" element={<OnboardingFree />} />
+      <Route path="/subscription-premium" element={<OnboardingPremium />} />
+      <Route path="/start-subscription-premium" element={<StartPremiumPlan />} />
+      <Route path="/subscription-premium-result" element={<PremiumResut />} />
+      
       {/************************************************* { Home Screen } ***********************************************************/}
       <Route path="/home" element={<MainPage />} />
       <Route path="/home/trending" element={<TrendingNow />} />
@@ -116,7 +131,8 @@ function App() {
       
       {/******************************************** { Search Screen } ***************************************************************/}
       <Route path="/search" element={<Search />} />
-      <Route path="/search-result" element={<SearchResult />} />
+      <Route path="/search/result" element={<SearchResult />} />
+      <Route path="/search/filter" element={<Filters />} />
 
     </Routes>
   );

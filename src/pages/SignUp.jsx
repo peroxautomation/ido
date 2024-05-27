@@ -8,13 +8,14 @@ import { useCallback } from "react";
 /**
  * Sign up Page
  * @returns JSX element
+ * TODO: Change Button1 to its inactive component
  */
 const SignUp = () => {
 
   const navigate = useNavigate();
 
   const onCTAClick = useCallback(() => {
-    navigate("/sign-up-birthday");
+    navigate("/sign-up/birthday");
   }, [navigate]);
 
   return (
