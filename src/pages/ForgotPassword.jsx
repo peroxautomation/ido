@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
  */
 const ForgotPassword = () => {
   const navigate = useNavigate();
+  
+  // CTA function
   const onCTAClick = useCallback(() => {
     console.log("Sending OTP...")
     navigate('/otp');

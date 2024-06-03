@@ -18,6 +18,8 @@ const Input = ({
   inputWidth1,
   helperTextWidth,
   hugeIconinterfacesolidinf2,
+  hugeIconinterfacesolidinf3,
+  hugeIconinterfacesolidinf4,
 }) => {
   const inputStyle = useMemo(() => {
     return {
@@ -51,7 +53,7 @@ const Input = ({
 
   return (
     <div
-      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-2-bold ${className}`}
+      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
       style={inputStyle}
     >
       <div
@@ -67,7 +69,7 @@ const Input = ({
         )}
       </div>
       <input
-        className="[border:none] [outline:none] font-button-2-bold text-[1rem] bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-[0.625rem] px-[1rem] text-neutral-600"
+        className="[border:none] [outline:none] font-button-1-regular text-[1rem] bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-[0.625rem] px-[1rem] text-neutral-600"
         placeholder={inputPlaceholder}
         type="text"
         style={input1Style}
@@ -89,6 +91,8 @@ Input.propTypes = {
   inputPlaceholder: PropTypes.string,
   hugeIconinterfacesolidinf1: PropTypes.string,
   hugeIconinterfacesolidinf2: PropTypes.string,
+  hugeIconinterfacesolidinf3: PropTypes.string,
+  hugeIconinterfacesolidinf4: PropTypes.string,
 
   /** Style props */
   inputAlignSelf: PropTypes.any,

@@ -14,7 +14,9 @@ import { useCallback } from "react";
  * @returns JSX element
  */
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  // CTA function
   const onCTAClick = useCallback(() => {
     navigate('/home');
   }, []);
