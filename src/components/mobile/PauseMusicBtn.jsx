@@ -8,7 +8,7 @@ const PauseMusicBtn = ({ className = "" }) => {
       <img
         className="absolute h-[58.44%] w-[66.56%] top-[20.94%] right-[16.88%] bottom-[20.63%] left-[16.56%] max-w-full overflow-hidden max-h-full"
         alt=""
-        src="/vector.svg"
+        src="/pauseMusic.svg"
       />
     </button>
   );

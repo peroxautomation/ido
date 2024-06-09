@@ -8,63 +8,63 @@ const GenreDropdown1 = ({ className = "" }) => {
       className={`absolute top-[10rem] left-[1.25rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start ${className} hidden`}
     >
       <DropdownItem1
-        all="Ballroom"
+        placeholder="Ballroom"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Contemporary"
+        placeholder="Contemporary"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Cultural"
+        placeholder="Cultural"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Hip Hop"
+        placeholder="Hip Hop"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Jazz"
+        placeholder="Jazz"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Tap"
+        placeholder="Tap"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Folk"
+        placeholder="Folk"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Modern"
+        placeholder="Modern"
         allTextDecoration="unset"
         item2BorderBottom="1px solid #1b1b1b"
         item2Width="20.938rem"
         hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <DropdownItem1
-        all="Latin"
+        placeholder="Latin"
         allTextDecoration="unset"
         item2BorderBottom="unset"
         item2Width="20.938rem"

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import ViewsIcon from "./ViewsIcon";
 import LikesIcon from "./LikesIcon";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ className = "", cardLeft }) => {
   const cardStyle = useMemo(() => {
@@ -9,9 +10,15 @@ const VideoCard = ({ className = "", cardLeft }) => {
       left: cardLeft,
     };
   }, [cardLeft]);
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate('/moves/:videoId');
+  }
 
   return (
     <div
+      onClick={onClick}
       className={`relative rounded-xl w-[14rem] min-h-full overflow-hidden text-left text-[0.875rem] text-neutral-100 font-button-1-regular mx-[0.5rem] ${className}`}
     >
       <img 

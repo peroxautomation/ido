@@ -10,10 +10,10 @@ import ButtomNavbar from "../components/mobile/ButtomNavbar";
  */
 const MainPage = () => {
   return (
-    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-y-auto overflow-x-clip">
+    <div className="w-full fixed bg-neutral-900 h-[100vh] grid grid-flow-row justify-items-center">
       <TopNavbar />
       <Genres />
-      <div className="relative top-[23vh] left-[1.25rem] h-[50%] overflow-y-scroll">
+      <div className="absolute top-[calc(100vh_-_60vh)] max-h-[calc(100%_-_21.125rem)] overflow-y-scroll">
       <HomeSectionHeading 
         headingOfCategoryTop="12.125rem"
         headingOfCategoryWidth="calc(100% - 20px)"

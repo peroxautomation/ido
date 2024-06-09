@@ -14,7 +14,7 @@ const OnboardingPrime = () => {
   }, [navigate]);
 
   return (
-    <div className="grid grid-rows-3 justify-items-center w-full relative bg-white h-[100vh] overflow-hidden text-center text-xl text-white font-button-1-semibold">
+    <div className="grid grid-rows-3 justify-items-center w-full fixed bg-white h-[100vh] overflow-hidden text-center text-xl text-white font-button-1-semibold">
       <img
         className="absolute w-[100vw] min-h-screen overflow-hidden object-cover"
         alt=""

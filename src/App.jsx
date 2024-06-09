@@ -21,23 +21,23 @@ import SignUpBirthday from "./pages/SignUpBithday";
 import AllQuestionsForSignUpIn from "./pages/SignUpQuestions";
 import SelectCountry from "./pages/SelectCountry";
 
-/* Onboarding*/
+/* Onboarding pages */
 import OnboardingFree from "./pages/OnboardingFree";
 import OnboardingPremium from "./pages/OnboardingPremium";
 import StartPremiumPlan from "./pages/StartPremiumPlan";
 import PremiumResut from "./pages/PremiumResut";
 
-/* Home page */
+/* Home pages */
 import MainPage from "./pages/MainPage";
 import TrendingNow from "./pages/TrendingNow";
 import RecentlyAdded from "./pages/RecentlyAdded";
 
-/* Search page */
+/* Search pages */
 import Search from "./pages/Search";
 import SearchResult from "./pages/SearchResult";
 import Filters from "./pages/Filters";
 
-/* Cover/Challenge page */
+/* Cover/Challenge pages */
 import SelectCoverFromGallery from "./pages/SelectCoverFromGallery";
 import CreateChallengePreview from "./pages/CreateChallengePreview";
 import CreateNew from "./pages/CreateNew";
@@ -59,7 +59,7 @@ import ChallengeQuestion3 from "./pages/ChallengeQuestion3"
 import CreatingCoverDanceQ from "./pages/CreatingCoverDanceQ" 
 import SorryPage from "./pages/SorryPage" 
 
-/* Moves page */
+/* Move pages */
 import Moves from "./pages/Moves" 
 import CreatorView from "./pages/CreatorView"
 import OthersView from "./pages/OthersView"
@@ -67,6 +67,27 @@ import ComparisonPage from "./pages/ComparisonPage"
 import ComparisonResult from "./pages/ComparisonResult"
 import FrameComparisonPage from "./pages/FrameComparisonPage"
 import AddInfoForCover from "./pages/AddInfoForCover"
+
+/* Profile pages */
+import ProfilePrime from "./pages/ProfilePrime";
+import PlaylistInner from "./pages/PlaylistInner";
+import EditPlaylist from "./pages/EditPlaylist";
+import AnotherUserProfile from "./pages/AnotherUserProfile";
+import Relating from "./pages/Relating";
+import LikedVideos from "./pages/LikedVideos"
+import HistoryPage from "./pages/ProfileHistory"
+
+import MyWallet from "./pages/MyWallet";
+import TopupResult from "./pages/TopupResult";
+import TopUp from "./pages/TopUp";
+import MessagePage from "./pages/MessagePage";
+import PaymentMethods from "./pages/PaymentMethods";
+import Payments from "./pages/Payments";
+import Subscriptions from "./pages/Subscriptions";
+import AddCard from "./pages/AddCard";
+import SubscriptionResult from "./pages/SubscriptionResult";
+import RelateRequest from "./pages/RelateRequest";
+import Messages from "./pages/Messages";
 
 function App() {
   const action = useNavigationType();
@@ -202,6 +223,33 @@ function App() {
       <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
       <Route path="/moves/:videoId" element={<OthersView />} />
 
+      {/* ADDED Pages  */}
+      {/******************************************** { Profile Screens } ***************************************************************/}
+      <Route path="/profile" element={<ProfilePrime />} />
+      <Route path="/profile/:userId" element={<AnotherUserProfile />} />
+      <Route path="/profile/playlist" element={<PlaylistInner />} />
+      <Route path="/profile/playlist-edit" element={<EditPlaylist />} />
+      <Route path="/profile/relating" element={<Relating />} />
+      <Route path="/profile/liked-videos" element={<LikedVideos />} />
+      <Route path="/profile/history" element={<HistoryPage />} />
+      <Route path="/profile/relate-request" element={<RelateRequest />} />
+
+      {/******************************************** { Chat Screens } ***************************************************************/}
+      <Route path="/messages" element={<Messages />} />
+      <Route path="/messages/:chatId" element={<MessagePage />} />
+
+      {/******************************************** { Payment Screens } ***************************************************************/}
+      <Route path="/profile/payments" element={<Payments />} />
+      <Route path="/profile/payment-methods" element={<PaymentMethods />} />
+      <Route path="/profile/add-payment" element={<AddCard />} />
+      <Route path="/profile/subscriptions" element={<Subscriptions />} />
+      <Route path="/subscription-cancled" element={<SubscriptionResult />} />
+      <Route path="/profile/my-wallet" element={<MyWallet />} />
+      <Route path="/profile/my-wallet/top-up" element={<TopUp />} />
+      <Route path="/profile/my-wallet/top-up/processing" element={<Processing />} />
+
+      <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
+               
     </Routes>
   );
 }

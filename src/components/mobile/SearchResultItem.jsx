@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 
-const SearchResultItem = ({ className = "", all, item2BorderBottom }) => {
+const SearchResultItem = ({ className = "", placeholder, item2BorderBottom }) => {
   const item21Style = useMemo(() => {
     return {
       borderBottom: item2BorderBottom,
@@ -23,7 +23,7 @@ const SearchResultItem = ({ className = "", all, item2BorderBottom }) => {
         alt=""
         src="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
-      <div className="flex-1 relative leading-[1.5rem]">{all}</div>
+      <div className="flex-1 relative leading-[1.5rem]">{placeholder}</div>
     </div>
   );
 };

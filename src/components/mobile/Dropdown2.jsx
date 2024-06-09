@@ -25,58 +25,58 @@ const Dropdown2 = ({
       style={countryDropdownStyle}
     >
       <DropdownSearch />
-      <DropdownItem1 all="Afghanistan" />
+      <DropdownItem1 placeholder="Afghanistan" />
       <DropdownItem1
-        all="Bahrain"
+        placeholder="Bahrain"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Bahrain"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Cambodia"
+        placeholder="Cambodia"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Cambodia"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Denmark"
+        placeholder="Denmark"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Denmark"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Ecuador"
+        placeholder="Ecuador"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Ecuador"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Finland"
+        placeholder="Finland"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Finland"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Germany"
+        placeholder="Germany"
         allTextDecoration="none"
         item2BorderBottom="1px solid #1b1b1b"
         allHref="https://www.britannica.com/place/Germany"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Zimbabwe"
+        placeholder="Zimbabwe"
         allTextDecoration="none"
         item2BorderBottom="unset"
         allHref="https://www.britannica.com/place/Zimbabwe"
         allTarget="_blank"
       />
       <DropdownItem1
-        all="Nigeria"
+        placeholder="Nigeria"
         allTextDecoration="unset"
         item2BorderBottom="unset"
       />

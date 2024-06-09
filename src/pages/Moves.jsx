@@ -12,10 +12,7 @@ const Moves = () => {
         <Moves1 unrelate="Follow"  cTA={false} showCTA={false}A />
       </div>
       <ButtomNavbar
-        searchBorderBottom="unset"
-        hugeIconinterfacebulksear="/hugeiconinterfaceoutlinesearch-02.svg"
-        movesBorderBottom="3px solid #cc0f3c"
-        hugeIconmultimediaAndAudi="/hugeiconmultimedia-and-audiosolidclapperboard@2x.png"
+        currentPage="Moves"
       />
       <TopNavbar sidebarDesktopHeaderTop="2.5rem" />
     </div>

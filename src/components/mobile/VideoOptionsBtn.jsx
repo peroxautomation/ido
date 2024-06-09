@@ -4,14 +4,9 @@ const VideoOptionsBtn = ({ className = "" }) => {
 
   // Display the Add To Playlist component
   const onClickCTA = (event) => {
-    const targetElement = event.target.parentElement.children[0];
-
-    // Prevent hiding another element
-    if(targetElement.getAttribute("name") == "saveToPlaylist")
-    {
-      targetElement.classList.toggle('flex')
-      targetElement.classList.toggle('hidden')
-    }
+    const targetElement = event.currentTarget.parentElement.children[0];
+    targetElement.classList.toggle('flex');
+    targetElement.classList.toggle('hidden');
   }
 
   // Returned Component

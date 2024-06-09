@@ -5,7 +5,7 @@ import { useMemo } from "react";
  */
 const DropdownItem1 = ({
   className = "",
-  all,
+  placeholder,
   allTextDecoration,
   item2BorderBottom,
   allHref,
@@ -39,7 +39,7 @@ const DropdownItem1 = ({
         src="/hugeicontime-and-datesolidtimequarter-past@2x.png"
       />
       <div className="flex-1 relative leading-[24px]" style={allStyle}>
-        {all}
+        {placeholder}
       </div>
     </div>
   );

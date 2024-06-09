@@ -22,7 +22,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
+    <div className="w-full fixed bg-neutral-900 h-[100vh] overflow-hidden">
       <Title hugeIconarrowssolHref="/" pageName="Log in" returnPage="/" />
       <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] overflow-hidden flex flex-col items-start justify-start gap-[32px] text-left text-base text-white font-button-1-semibold">
         <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">

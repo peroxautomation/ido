@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
-const NavProfileIcon = ({ className = "" }) => {
+const NavProfileIcon = ({ isSelected, className = "" }) => {
+  const navigate = useNavigate();
+  
+  // Navigate to moves page
+  const onMovesClick = useCallback(() => {
+    navigate("/profile");
+  }, [navigate]);
+
   return (
     <a
+      href="/profile"
       className={`[text-decoration:none] w-[5rem] flex flex-row items-center justify-center py-[1rem] px-[0.5rem] box-border ${className}`}
     >
       <img
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
         alt=""
-        src="/hugeiconinterfaceoutlineuser.svg"
+        src={(isSelected)? "NavProfileIconSolid.png" : "/NavProfileIcon.svg"}
       />
     </a>
   );

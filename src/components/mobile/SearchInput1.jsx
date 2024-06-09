@@ -8,9 +8,13 @@ const SearchInput1 = ({
   className = "",
   hugeIconinterfacesolidsea,
   searchPlaceholder,
+  onEnter,
+  onLeave
 }) => {
   return (
     <div
+      onClick={onEnter}
+      onMouseLeave={onLeave}
       className={`flex-1 rounded-xl bg-white-8 flex flex-row items-start justify-start py-[0.5rem] px-[1rem] gap-[0.5rem] ${className}`}
     >
       <img

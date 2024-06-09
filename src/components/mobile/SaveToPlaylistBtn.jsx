@@ -16,12 +16,11 @@ const SaveToPlaylistBtn = ({ className = "" }) => {
   return (
     <button
       name="saveToPlaylist"
-      className={`hidden absolute top-[20%] right-[5%] rounded-lg bg-neutral-800 h-[2.5rem] flex-row items-center justify-center p-[0.5rem] box-border gap-[0.5rem] text-center text-[0.875rem] text-neutral-100 font-button-2-bold ${className}`}
-      onClick={onClick}
+      className={`hidden absolute top-[20%] right-[5%] rounded-lg bg-neutral-800 h-[2.5rem] w-[8.5rem] flex items-center justify-between p-[0.5rem] box-border gap-[0.5rem] text-[0.875rem] text-neutral-100 font-button-2-bold ${className}`}      onClick={onClick}
     >
       <div className="relative leading-[1.25rem] text-nowrap">Save to playlist</div>
       <img
-        className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0"
+        className="w-[1.25rem] relative h-[1rem] overflow-hidden shrink-0"
         alt=""
         src="/savePlaylistIcon.svg"
       />
