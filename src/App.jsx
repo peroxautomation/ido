@@ -218,12 +218,6 @@ function App() {
       <Route path="/create/:flow/confrim-upload" element={<ConfrimUpload />} />
       <Route path="/create/:flow/uploading" element={<Uploading />} />
 
-      {/* NOT YET Linked to any pages but completed */}
-      <Route path="/create/:flow/upload-unsuccessful" element={<UploadUnsuccessful />} />
-      <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
-      <Route path="/moves/:videoId" element={<OthersView />} />
-
-      {/* ADDED Pages  */}
       {/******************************************** { Profile Screens } ***************************************************************/}
       <Route path="/profile" element={<ProfilePrime />} />
       <Route path="/profile/:userId" element={<AnotherUserProfile />} />
@@ -248,6 +242,10 @@ function App() {
       <Route path="/profile/my-wallet/top-up" element={<TopUp />} />
       <Route path="/profile/my-wallet/top-up/processing" element={<Processing />} />
 
+      {/* NOT YET Linked to any pages but completed */}
+      <Route path="/create/:flow/upload-unsuccessful" element={<UploadUnsuccessful />} />
+      <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
+      <Route path="/moves/:videoId" element={<OthersView />} />
       <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
                
     </Routes>
