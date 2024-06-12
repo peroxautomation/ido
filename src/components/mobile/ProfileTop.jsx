@@ -4,13 +4,23 @@ import ProfileEditBtn from "./ProfileEditBtn";
 import ProfileSegmentPicker from "./ProfileSegmentPicker";
 import PropTypes from "prop-types";
 
+/**
+ * Profile screen top component
+ * @returns A JSX element
+ */
 const ProfileTop = ({ onSegmentClick, currentSegment, view = "User" }) => {
-  // Open the profile menu
+  const navigate = useNavigate();
+
+  /**
+   * Event listener to open the profile menu
+   */
   const onMenuClick = () => {
     document.getElementById("profileMenu").classList.toggle("hidden");
   };
 
-  const navigate = useNavigate();
+  /**
+   * Navigate to relating screen
+   */
   const onRelatingClick = () => {
     navigate("/profile/relating");
   };

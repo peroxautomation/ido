@@ -6,10 +6,17 @@ import { useState } from "react";
 import ProfilePlaylistCard from "../components/mobile/ProfilePlaylistCard";
 import ProfileMenu from "../components/mobile/ProfileMenu";
 
+/**
+ * Profile screen component
+ * @returns A JSX element
+ */
 const ProfilePrime = () => {
   let [currentSegment, setCurrentSegment] = useState("MyDance");
 
-  // My Dance segment
+  /**
+   *  My dance segment
+   * @returns JSX Element
+   */
   const MyDance = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-cols-2 items-start justify-items-center gap-y-[0.9rem]">
       <ProfileVideoCard />
@@ -23,7 +30,11 @@ const ProfilePrime = () => {
       <ProfileVideoCard />
     </div>
   );
-  // Cover segment
+
+  /**
+   *  Cover segment
+   * @returns JSX Element
+   */
   const Cover = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-cols-2 items-start justify-items-center gap-y-[0.9rem]">
       <ProfileVideoCard />
@@ -38,7 +49,10 @@ const ProfilePrime = () => {
     </div>
   );
 
-  // Playlist segment
+  /**
+   *  Playlist segment
+   * @returns JSX Element
+   */
   const Playlist = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-flow-row items-start justify-items-center gap-[0.937rem]">
       <ProfilePlaylistCard />
@@ -48,13 +62,15 @@ const ProfilePrime = () => {
     </div>
   );
 
-  // Change the currentSegment to My Dance, Cover or Playlist
+  /**
+   * Event listener for profile segment buttons
+   */
   const onSegmentClick = (event) => {
     const elementName = event.currentTarget.getAttribute("name");
     setCurrentSegment(elementName);
   };
 
-  // Conditional rendering
+  // Conditional return
   if (currentSegment === "MyDance") {
     return (
       <div className="w-full fixed bg-neutral-900 h-screen overflow-y-auto">

@@ -6,14 +6,10 @@ import ProcessingIcon from "../components/mobile/ProcessingIcon";
  * @returns JSX element
  */
 const Processing = () => {
-  const onProcessingContainerClick = useCallback(() => {
-    // Please sync "Processing" to the project
-  }, []);
 
   return (
     <div
-      className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden cursor-pointer text-left text-base text-silver font-sf-pro-text"
-      onClick={onProcessingContainerClick}
+      className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden text-left text-base text-silver font-sf-pro-text"
     >
       <div className="absolute w-[calc(100%_-_40px)] top-[230px] right-[20px] left-[20px] flex flex-col items-center justify-start gap-[19px] text-center text-xl text-white font-button-1-semibold">
         <ProcessingIcon />

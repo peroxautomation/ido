@@ -25,7 +25,17 @@ module.exports = {
       },
       borderRadius: {
         "5xs-6": "7.6px",
+        "21xl": "40px",
+        "12xs": "1px",
+        xl: "20px",
+        "13xl": "32px",
+        "8xl": "27px",
+        "6xs": "7px",
+        "12xs-3": "0.3px",
+        "3xs": "10px",
+        smi: "13px",
       },
+
     },
     fontSize: {
       'base': "16px",
@@ -37,7 +47,11 @@ module.exports = {
       "lg-4": "18.4px",
       "3xl-2": "22.2px",
       'inherit': "inherit",
-    }
+    },
+    animation: {
+      'spin-slow': 'spin 2s linear infinite',
+    },
+    
   },
   corePlugins: {
     preflight: false,

@@ -4,18 +4,18 @@ import CardDropdownMenu from "../components/mobile/CardDropdownMenu";
 import Button2 from "../components/mobile/Button2";
 import { useNavigate } from "react-router-dom";
 
-const TopUp = () => {
+const Widthdraw = () => {
   const navigate = useNavigate();
 
-  // Navigate to top up processing page
-  const onTopUpClick = () => {
-    navigate('/profile/my-wallet/top-up/processing')
+  // Navigate to widthdraw processing page
+  const onWidthdrawClick = () => {
+    navigate('/profile/my-wallet/widthdraw/processing')
   }
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-600 font-button-1-regular grid justify-center">
       <Title
-        pageName="Top up"
+        pageName="Widthdraw"
       />
       <div className="relative top-[6.75rem] flex flex-col items-start justify-start gap-[1rem]">
         <CardDropdown />
@@ -42,12 +42,12 @@ const TopUp = () => {
           cTALeft="unset"
           cTABackgroundColor="#cc0f3c"
           cTAGap="0.5rem"
-          cTA="Top up"
-          onClick={onTopUpClick}
+          cTA="Widthdraw"
+          onClick={onWidthdrawClick}
         />
       </div>
     </div>
   );
 };
 
-export default TopUp;
+export default Widthdraw;

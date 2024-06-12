@@ -15,9 +15,14 @@ const MyWallet = () => {
     document.getElementById('PaymentSearch').classList.toggle('hidden');
   }
 
-  // On Topup click
+  // Navigate to top-up screen
   const onTopUpClick = () => {
     navigate('/profile/my-wallet/top-up')
+  }
+
+  // Navigate to widthdraw screen
+  const onWidthdrawClick = () => {
+    navigate('/profile/my-wallet/widthdraw')
   }
 
   return (
@@ -38,6 +43,7 @@ const MyWallet = () => {
           />
           <MyWalletBtn
             cTA="Withdraw"
+            onClick={onWidthdrawClick}
             hugeIconinterfaceoutlinep="/hugeiconarrowssolidmaximize@2x.png"
           />
         </div>

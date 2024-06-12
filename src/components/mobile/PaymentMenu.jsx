@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const PaymentMenu = ({ className = "", label, onClick }) => {
+const ProfileMenu = ({ className = "", label, onClick }) => {
   return (
     <div
       onClick={onClick}
@@ -23,9 +23,9 @@ const PaymentMenu = ({ className = "", label, onClick }) => {
   );
 };
 
-PaymentMenu.propTypes = {
+ProfileMenu.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
 };
 
-export default PaymentMenu;
+export default ProfileMenu;

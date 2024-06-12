@@ -1,25 +1,24 @@
+
 import CardDropdown from "../components/mobile/CardDropdown";
 import Title from "../components/mobile/Title";
 import CardDropdownMenu from "../components/mobile/CardDropdownMenu";
 import Button2 from "../components/mobile/Button2";
 import { useNavigate } from "react-router-dom";
 
-const TopUp = () => {
+const Donate = () => {
   const navigate = useNavigate();
 
   // Navigate to top up processing page
-  const onTopUpClick = () => {
-    navigate('/profile/my-wallet/top-up/processing')
+  const onNextClick = () => {
+    navigate('/donate/select-payment')
   }
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-600 font-button-1-regular grid justify-center">
       <Title
-        pageName="Top up"
+        pageName="Donate"
       />
       <div className="relative top-[6.75rem] flex flex-col items-start justify-start gap-[1rem]">
-        <CardDropdown />
-        <CardDropdownMenu />
         <div className="flex flex-col items-start justify-start">
           <div className="w-[20.938rem] flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem] box-border text-neutral-100">
             <div className="flex-1 relative leading-[1.5rem]">Amount</div>
@@ -42,12 +41,12 @@ const TopUp = () => {
           cTALeft="unset"
           cTABackgroundColor="#cc0f3c"
           cTAGap="0.5rem"
-          cTA="Top up"
-          onClick={onTopUpClick}
+          cTA="Next"
+          onClick={onNextClick}
         />
       </div>
     </div>
   );
 };
 
-export default TopUp;
+export default Donate;

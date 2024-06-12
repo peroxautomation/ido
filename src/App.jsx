@@ -88,6 +88,18 @@ import AddCard from "./pages/AddCard";
 import SubscriptionResult from "./pages/SubscriptionResult";
 import RelateRequest from "./pages/RelateRequest";
 import Messages from "./pages/Messages";
+import Widthdraw from "./pages/Widthdraw";
+import WidthdrawResult from "./pages/WidthdrawResult";
+import Donate from "./pages/Donate";
+import Settings from "./pages/Settings";
+
+import Privacy from "./pages/Privacy";
+import PushNotifications from "./pages/PushNotifications";
+import AccountControl from "./pages/AccountControl";
+import FAQ from "./pages/FAQ";
+import DonateSelectPayment from "./pages/DonateSelectPayment";
+import ContactUs from "./pages/ContactUs";
+import About from "./pages/About";
 
 function App() {
   const action = useNavigationType();
@@ -238,16 +250,33 @@ function App() {
       <Route path="/profile/add-payment" element={<AddCard />} />
       <Route path="/profile/subscriptions" element={<Subscriptions />} />
       <Route path="/subscription-cancled" element={<SubscriptionResult />} />
+      {/******************************************** { My wallet Screens } ***************************************************************/}
       <Route path="/profile/my-wallet" element={<MyWallet />} />
       <Route path="/profile/my-wallet/top-up" element={<TopUp />} />
       <Route path="/profile/my-wallet/top-up/processing" element={<Processing />} />
+      <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
 
       {/* NOT YET Linked to any pages but completed */}
       <Route path="/create/:flow/upload-unsuccessful" element={<UploadUnsuccessful />} />
       <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
-      <Route path="/moves/:videoId" element={<OthersView />} />
-      <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
-               
+      <Route path="/moves/:videoId" element={<OthersView />} /> 
+
+      {/* Added pages */}
+      <Route path="/profile/my-wallet/widthdraw" element={<Widthdraw />} />
+      <Route path="/profile/my-wallet/widthdraw/processing" element={<Processing />} />
+      <Route path="/profile/my-wallet/widthdraw/result" element={<WidthdrawResult />} />
+
+      <Route path="/donate" element={<Donate />} />
+      <Route path="/donate/select-payment" element={<DonateSelectPayment />} />
+
+      <Route path="/profile/settings" element={<Settings />} />
+      <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
+      <Route path="/profile/settings/privacy" element={<Privacy />} />
+      <Route path="/profile/settings/account-control" element={<AccountControl />} />
+      
+      <Route path="/profile/faq" element={<FAQ />} />
+      <Route path="/profile/contact-us" element={<ContactUs />} />
+      <Route path="/profile/about-us" element={<About />} />
     </Routes>
   );
 }
