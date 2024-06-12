@@ -199,6 +199,7 @@ function App() {
       <Route path="/search/filter" element={<Filters />} />
 
       {/******************************************** { Move Screen } ***************************************************************/}
+      <Route path="/moves/:videoId" element={<OthersView />} /> 
       <Route path="/moves" element={<Moves />} />
       <Route path="/moves/creator-view/:videoId" element={<CreatorView />} />
       <Route path="/moves/comparison-page" element={<ComparisonPage />} />
@@ -229,6 +230,8 @@ function App() {
 
       <Route path="/create/:flow/confrim-upload" element={<ConfrimUpload />} />
       <Route path="/create/:flow/uploading" element={<Uploading />} />
+      <Route path="/create/:flow/upload-unsuccessful" element={<UploadUnsuccessful />} />
+      <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
 
       {/******************************************** { Profile Screens } ***************************************************************/}
       <Route path="/profile" element={<ProfilePrime />} />
@@ -239,10 +242,13 @@ function App() {
       <Route path="/profile/liked-videos" element={<LikedVideos />} />
       <Route path="/profile/history" element={<HistoryPage />} />
       <Route path="/profile/relate-request" element={<RelateRequest />} />
-
-      {/******************************************** { Chat Screens } ***************************************************************/}
-      <Route path="/messages" element={<Messages />} />
-      <Route path="/messages/:chatId" element={<MessagePage />} />
+      <Route path="/profile/settings" element={<Settings />} />
+      <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
+      <Route path="/profile/settings/privacy" element={<Privacy />} />
+      <Route path="/profile/settings/account-control" element={<AccountControl />} />
+      <Route path="/profile/faq" element={<FAQ />} />
+      <Route path="/profile/contact-us" element={<ContactUs />} />
+      <Route path="/profile/about-us" element={<About />} />
 
       {/******************************************** { Payment Screens } ***************************************************************/}
       <Route path="/profile/payments" element={<Payments />} />
@@ -250,33 +256,29 @@ function App() {
       <Route path="/profile/add-payment" element={<AddCard />} />
       <Route path="/profile/subscriptions" element={<Subscriptions />} />
       <Route path="/subscription-cancled" element={<SubscriptionResult />} />
+
       {/******************************************** { My wallet Screens } ***************************************************************/}
       <Route path="/profile/my-wallet" element={<MyWallet />} />
+
+      {/********************************************* {Top up Screens } *******************************************************************/}
       <Route path="/profile/my-wallet/top-up" element={<TopUp />} />
       <Route path="/profile/my-wallet/top-up/processing" element={<Processing />} />
       <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
 
-      {/* NOT YET Linked to any pages but completed */}
-      <Route path="/create/:flow/upload-unsuccessful" element={<UploadUnsuccessful />} />
-      <Route path="/create/:flow/upload-successful" element={<UploadSuccessful />} />
-      <Route path="/moves/:videoId" element={<OthersView />} /> 
 
-      {/* Added pages */}
+      {/********************************************* { Widthdraw Screens } *******************************************************************/}
       <Route path="/profile/my-wallet/widthdraw" element={<Widthdraw />} />
       <Route path="/profile/my-wallet/widthdraw/processing" element={<Processing />} />
       <Route path="/profile/my-wallet/widthdraw/result" element={<WidthdrawResult />} />
 
+      {/********************************************* {Donate Screens } *******************************************************************/}
       <Route path="/donate" element={<Donate />} />
       <Route path="/donate/select-payment" element={<DonateSelectPayment />} />
 
-      <Route path="/profile/settings" element={<Settings />} />
-      <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
-      <Route path="/profile/settings/privacy" element={<Privacy />} />
-      <Route path="/profile/settings/account-control" element={<AccountControl />} />
-      
-      <Route path="/profile/faq" element={<FAQ />} />
-      <Route path="/profile/contact-us" element={<ContactUs />} />
-      <Route path="/profile/about-us" element={<About />} />
+      {/******************************************** { Chat Screens } ***************************************************************/}
+      <Route path="/messages" element={<Messages />} />
+      <Route path="/messages/:chatId" element={<MessagePage />} />
+
     </Routes>
   );
 }
