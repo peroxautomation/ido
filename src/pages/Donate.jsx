@@ -5,6 +5,10 @@ import CardDropdownMenu from "../components/mobile/CardDropdownMenu";
 import Button2 from "../components/mobile/Button2";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Donate Screen
+ * @returns A JSX element
+ */
 const Donate = () => {
   const navigate = useNavigate();
 

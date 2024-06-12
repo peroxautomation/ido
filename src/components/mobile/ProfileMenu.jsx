@@ -11,42 +11,58 @@ import { useNavigate } from "react-router-dom";
 const ProfileMenu = ({ className = "" }) => {
   const navigate = useNavigate();
 
-  // Close the menu
+  /**
+   * Close the profile menu
+   * */
   const onExitClick = () => {
     document.getElementById("profileMenu").classList.toggle("hidden");
   };
 
-  // Navigate to liked videos
+  /**
+   * Navigate to liked videos
+   * */
   const onLikedClick = () => {
     navigate("/profile/liked-videos");
   };
 
-  // Navigate to History page
+  /**
+   * Navigate to History page
+   * */
   const onHistoryClick = () => {
     navigate("/profile/history");
   };
 
-  // Navigate to Payment page
+  /**
+   * Navigate to Payment page
+   * */
   const onPaymentClick = () => {
     navigate("/profile/payments");
   };
 
-  // Navigate to settings page
+  /**
+   * Navigate to settings page
+   * */
   const onSettingsClick = () => {
     navigate("/profile/settings");
   };
 
-  // Navigate to FAQ page
+  /**
+   *Navigate to FAQ page
+   * */
   const onFaqClick = () => {
     navigate("/profile/faq");
   };
 
-  // Navigate to Contact us page
+  /**
+   * Navigate to Contact us page
+   * */
   const onContactUsClick = () => {
     navigate("/profile/contact-us");
   };
 
-  // Navigate to about us page
+  /**
+   * Navigate to about us page
+   * */
   const onAboutUsClick = () => {
     navigate("/profile/about-us");
   };

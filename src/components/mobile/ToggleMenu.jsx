@@ -1,6 +1,11 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Toggle switch component used in settings
+ * @param {*} param0 
+ * @returns 
+ */
 const ToggleMenu = ({
   className = "",
   toggle,

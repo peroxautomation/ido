@@ -2,6 +2,10 @@ import Title from "../components/mobile/Title";
 import CancleSubscriptionBtn from "../components/mobile/CancleSubscriptionBtn";
 import DeletePopup from "../components/mobile/DeletePopup";
 
+/**
+ * Subscriptions page
+ * @returns 
+ */
 const Subscriptions = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-100 font-button-1-regular">
