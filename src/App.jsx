@@ -255,30 +255,39 @@ function App() {
       <Route path="/profile/contact-us" element={<ContactUs />} />
       <Route path="/profile/about-us" element={<About />} />
 
-
+      {/******************************************** { Profile Settings Screens } ***************************************************************/}
       <Route path="/profile/settings" element={<Settings />} />
       <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
       <Route path="/profile/settings/privacy" element={<Privacy />} />
       <Route path="/profile/settings/account-control" element={<AccountControl />} />
-
+      <Route path="/profile/settings/account-control/leaving-questions" element={<WhyAreYouLeavingIdo />} />
+      <Route path="/profile/settings/delete-account/processing" element={<Processing />} />
+      <Route path="/profile/settings/delete-account-agreement" element={<DeleteAccountNotice />} />
+      <Route path="/profile/verify-your-account" element={<VerifyYourAccount />} />
+      <Route path="/profile/settings/account-control/confirm-delete" element={<ConfrimDeleteAccount />} />
       
-      {/******************************************** { Payment Screens } ***************************************************************/}
+      <Route path="/profile/settings/update-password" element={<UpdatePassword />} />
+      <Route path="/profile/settings/forgot-password" element={<ForgotPassword />} />
+      <Route path="/profile/settings/reset-password" element={<ResetPassword2 />} />
+      <Route path="/profile/settings/reset-password/result" element={<ReserPasswordResult />} />
+
+      {/******************************************** { Profile payment Screens } ***************************************************************/}
       <Route path="/profile/payments" element={<Payments />} />
       <Route path="/profile/payment-methods" element={<PaymentMethods />} />
       <Route path="/profile/add-payment" element={<AddCard />} />
       <Route path="/profile/subscriptions" element={<Subscriptions />} />
       <Route path="/subscription-cancled" element={<SubscriptionResult />} />
 
-      {/******************************************** { My wallet Screens } ***************************************************************/}
+      {/******************************************** { Profile my wallet Screens } ***************************************************************/}
       <Route path="/profile/my-wallet" element={<MyWallet />} />
 
-      {/********************************************* {Top up Screens } *******************************************************************/}
+      {/********************************************* { Profile top up Screens } *******************************************************************/}
       <Route path="/profile/my-wallet/top-up" element={<TopUp />} />
       <Route path="/profile/my-wallet/top-up/processing" element={<Processing />} />
       <Route path="/profile/my-wallet/top-up/result" element={<TopupResult />} />
 
 
-      {/********************************************* { Widthdraw Screens } *******************************************************************/}
+      {/********************************************* { Profile widthdraw Screens } *******************************************************************/}
       <Route path="/profile/my-wallet/widthdraw" element={<Widthdraw />} />
       <Route path="/profile/my-wallet/widthdraw/processing" element={<Processing />} />
       <Route path="/profile/my-wallet/widthdraw/result" element={<WidthdrawResult />} />
@@ -291,18 +300,6 @@ function App() {
       <Route path="/messages" element={<Messages />} />
       <Route path="/messages/:chatId" element={<MessagePage />} />
 
-
-      {/** Added pages */}
-      <Route path="/profile/settings/account-control/leaving-questions" element={<WhyAreYouLeavingIdo />} />
-      <Route path="/profile/settings/delete-account/processing" element={<Processing />} />
-      <Route path="/profile/settings/delete-account-agreement" element={<DeleteAccountNotice />} />
-      <Route path="/profile/verify-your-account" element={<VerifyYourAccount />} />
-      <Route path="/profile/settings/account-control/confirm-delete" element={<ConfrimDeleteAccount />} />
-
-      <Route path="/profile/settings/update-password" element={<UpdatePassword />} />
-      <Route path="/profile/settings/forgot-password" element={<ForgotPassword />} />
-      <Route path="/profile/settings/reset-password" element={<ResetPassword2 />} />
-      <Route path="/profile/settings/reset-password/result" element={<ReserPasswordResult />} />
     </Routes>
   );
 }
