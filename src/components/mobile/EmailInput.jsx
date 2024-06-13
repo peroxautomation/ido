@@ -1,4 +1,9 @@
-const EmailInput = ({ className = "", label, inputPlaceholder }) => {
+/**
+ * Component for email inputs
+ * @param {*} param0
+ * @returns A JSX element
+ */
+const EmailInput = ({ className = "", label, inputPlaceholder, id }) => {
   return (
     <div
       className={`self-stretch flex flex-col items-start justify-start text-left text-base text-white font-button-1-semibold ${className}`}
@@ -11,6 +16,7 @@ const EmailInput = ({ className = "", label, inputPlaceholder }) => {
         />
       </div>
       <input
+        id={id}
         className="[border:none] [outline:none] font-button-1-semibold text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white"
         placeholder={inputPlaceholder}
         type="email"

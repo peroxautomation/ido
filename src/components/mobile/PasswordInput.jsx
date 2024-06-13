@@ -1,9 +1,35 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const PasswordInput = ({ inputAndWordPlaceholder, label, className = "" }) => {
-  const onHugeIconinterfacesolideyeClick = useCallback(() => {
-    //TODO: Toggle show password
-  }, []);
+/**
+ * Component for password inputs
+ * @param {*} param0
+ * @returns A JSX element
+ */
+const PasswordInput = ({
+  inputAndWordPlaceholder,
+  label,
+  className = "",
+  id,
+}) => {
+  const [isActive, setIsActive] = useState(false); // Hide password flag
+  const [btnSource, setBtnSource] = useState("hidePasswordIcon.svg"); // Hide password button source
+  const [passwordType, setPaswordType] = useState("password"); // Toggle hide password
+
+  /**
+   * Toggle show/hide password
+   * TODO: Fix bug here. It does not toggle on first click
+   */
+  const onToggleShowPassword = useCallback(() => {
+    setIsActive(!isActive);
+    
+    if (!isActive) {
+      setBtnSource("hidePasswordIcon.svg");
+      setPaswordType("password");
+    } else {
+      setBtnSource("showPasswordIcon.svg");
+      setPaswordType("text");
+    }
+  }, [btnSource, isActive, passwordType]);
 
   return (
     <div
@@ -18,18 +44,19 @@ const PasswordInput = ({ inputAndWordPlaceholder, label, className = "" }) => {
       </div>
       <div className="self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-between py-2.5 px-4">
         <input
+          id={id}
           className="[border:none] [outline:none] font-button-1-semibold text-base bg-[transparent] flex-1 flex flex-row items-center justify-start text-white"
           placeholder={inputAndWordPlaceholder}
-          type="password"
+          type={`${passwordType}`}
         />
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] w-6 relative h-6 overflow-hidden shrink-0"
-          onClick={onHugeIconinterfacesolideyeClick}
+          onClick={onToggleShowPassword}
         >
           <img
             className="absolute h-[72.92%] w-[83.33%] top-[13.75%] right-[8.33%] bottom-[13.33%] left-[8.33%] max-w-full overflow-hidden max-h-full"
             alt=""
-            src="/union.svg"
+            src={`${btnSource}`}
           />
         </button>
       </div>
