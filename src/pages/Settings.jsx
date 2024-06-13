@@ -2,6 +2,10 @@ import Title from "../components/mobile/Title";
 import ProfileMenu from "../components/mobile/PaymentMenu";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Profile settings screen
+ * @returns A JSX element
+ */
 const Settings = () => {
   const navigate = useNavigate();
 
@@ -17,7 +21,7 @@ const Settings = () => {
 
   // Navigate to change password screen
   const onChangePassClick = () => {
-    navigate("/home");
+    navigate("/profile/settings/update-password");
   };
 
   // Navigate to account control screen

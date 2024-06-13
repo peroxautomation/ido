@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 
-const MovesDonate = ({ className = "", donate }) => {
+const MovesDonate = ({ className = "", donate, onClick }) => {
   return (
     !donate && (
       <button
+        onClick={onClick}
         className={`cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 hidden ${className}`}
       >
         <img

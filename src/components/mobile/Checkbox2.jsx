@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
 
-import { useMemo } from "react";
-
 const Checkbox2 = ({ className = "", vector }) => {
 
   return (

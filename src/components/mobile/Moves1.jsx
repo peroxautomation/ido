@@ -13,12 +13,24 @@ import MovesDonate1 from "./MovesDonate1";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Moves component used in the Moves screen
+ * @param {*} param0 
+ * @returns 
+ */
 const Moves1 = ({ className = "" }) => {
   const navigate = useNavigate();
 
   // Navigate to create challenge
   const onChallengeClick = () => {
     navigate('/create/challenge', {state : {flow: "challenge"}});
+  }
+
+  /**
+   * Navigate to donate screen
+   */
+  const onDonateClick = () => {
+    navigate('/donate')
   }
 
   return (
@@ -58,7 +70,7 @@ const Moves1 = ({ className = "" }) => {
           <MovesAddToPlaylist1 />
           <MovesShare1 />
           <MovesChallenge onCTAClick={onChallengeClick} />
-          <MovesDonate1 />
+          <MovesDonate1  onClick={onDonateClick} />
         </div>
       </div>
     </div>

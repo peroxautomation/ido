@@ -101,6 +101,15 @@ import DonateSelectPayment from "./pages/DonateSelectPayment";
 import ContactUs from "./pages/ContactUs";
 import About from "./pages/About";
 
+
+import ConfrimDeleteAccount from "./pages/ConfrimDeleteAccount";
+import VerifyYourAccount from "./pages/VerifyYourAccount";
+import DeleteAccountNotice from "./pages/DeleteAccountNotice";
+import WhyAreYouLeavingIdo from "./pages/WhyAreYouLeavingIdo";
+import ReserPasswordResult from "./pages/ReserPasswordResult";
+import ResetPassword2 from "./pages/ResetPassword2";
+import UpdatePassword from "./pages/UpdatePassword";
+
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -242,14 +251,17 @@ function App() {
       <Route path="/profile/liked-videos" element={<LikedVideos />} />
       <Route path="/profile/history" element={<HistoryPage />} />
       <Route path="/profile/relate-request" element={<RelateRequest />} />
-      <Route path="/profile/settings" element={<Settings />} />
-      <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
-      <Route path="/profile/settings/privacy" element={<Privacy />} />
-      <Route path="/profile/settings/account-control" element={<AccountControl />} />
       <Route path="/profile/faq" element={<FAQ />} />
       <Route path="/profile/contact-us" element={<ContactUs />} />
       <Route path="/profile/about-us" element={<About />} />
 
+
+      <Route path="/profile/settings" element={<Settings />} />
+      <Route path="/profile/settings/push-notifications" element={<PushNotifications />} />
+      <Route path="/profile/settings/privacy" element={<Privacy />} />
+      <Route path="/profile/settings/account-control" element={<AccountControl />} />
+
+      
       {/******************************************** { Payment Screens } ***************************************************************/}
       <Route path="/profile/payments" element={<Payments />} />
       <Route path="/profile/payment-methods" element={<PaymentMethods />} />
@@ -279,6 +291,18 @@ function App() {
       <Route path="/messages" element={<Messages />} />
       <Route path="/messages/:chatId" element={<MessagePage />} />
 
+
+      {/** Added pages */}
+      <Route path="/profile/settings/account-control/leaving-questions" element={<WhyAreYouLeavingIdo />} />
+      <Route path="/profile/settings/delete-account/processing" element={<Processing />} />
+      <Route path="/profile/settings/delete-account-agreement" element={<DeleteAccountNotice />} />
+      <Route path="/profile/verify-your-account" element={<VerifyYourAccount />} />
+      <Route path="/profile/settings/account-control/confirm-delete" element={<ConfrimDeleteAccount />} />
+
+      <Route path="/profile/settings/update-password" element={<UpdatePassword />} />
+      <Route path="/profile/settings/forgot-password" element={<ForgotPassword />} />
+      <Route path="/profile/settings/reset-password" element={<ResetPassword2 />} />
+      <Route path="/profile/settings/reset-password/result" element={<ReserPasswordResult />} />
     </Routes>
   );
 }

@@ -14,7 +14,13 @@ import CommentContainer from "../components/mobile/CommentContainer";
 import StoryContainer from "../components/mobile/StoryContainer";
 import MovesBtn from "../components/mobile/MovesBtn";
 
+/**
+ * Moves screen from another user's perspective
+ * @returns A JSX element
+ */
 const OthersView = () => {
+  const navigate = useNavigate();
+  
   // Show comment section
   const onCommentClick = (event) => {
     const element =
@@ -29,6 +35,13 @@ const OthersView = () => {
         .parentElement.children[1];
     element.classList.toggle("hidden");
   };
+
+  /**
+   * Navigate to donate screen
+   */
+  const onDonateClick = () => {
+    navigate('/donate')
+  }
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-center text-[0.75rem] text-neutral-100 font-button-1-regular">
@@ -52,7 +65,7 @@ const OthersView = () => {
             <MovesAddToPlaylist />
             <MovesShare className="!block" />
             <MovesChallengeIcon className="!block" />
-            <MovesDonate className="!block" />
+            <MovesDonate className="!block" onClick={onDonateClick} />
           </div>
         </div>
       </div>

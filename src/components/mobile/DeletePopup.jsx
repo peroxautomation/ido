@@ -2,19 +2,19 @@ import { useNavigate } from "react-router-dom";
 import ProfileBtn from "./ProfileBtn";
 import PropTypes from "prop-types";
 
-const DeletePopup = ({ className = "", message, current}) => {
-
+const DeletePopup = ({ className = "", message, current }) => {
   const navigate = useNavigate();
 
   const onNoClick = () => {
-    const element = document.getElementById('ProfileDeleteDancePopup');
-    element.classList.toggle('hidden');
-  }
+    const element = document.getElementById("ProfileDeleteDancePopup");
+    element.classList.toggle("hidden");
+  };
 
   const onYesClick = () => {
-   if(current === "Subscription")
-    navigate('/subscription-cancled');
-  }
+    if (current === "Subscription") navigate("/subscription-cancled");
+
+    if (current === "DeleteAccount") navigate("/home"); //TODO: Add to delete user data and navigate to home
+  };
 
   return (
     <div

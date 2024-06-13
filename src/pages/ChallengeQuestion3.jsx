@@ -6,29 +6,40 @@ import { useNavigate } from "react-router-dom";
 import Button1Inactive from "../components/mobile/Button1Inactive";
 import Title from "../components/mobile/Title";
 
+/**
+ * Create challenge question 3 screen
+ * @returns 
+ */
 const ChallengeQuestion3 = () => {
   const navigate = useNavigate();
-  const radioId = "RadioButtonDefault3";
+  const radioId = "RadioButtonDefault3"; // Unique class used to select radios
 
-  // Navigate to Add info for music
+  /**
+   * Navigate to Add info for music
+   */
   const onNextClick = () => {
-    navigate('/create/new-challenge/challenge-add-info-2');
-  }
+    navigate("/create/new-challenge/challenge-add-info-2");
+  };
 
-  // Switch radio button
+  /**
+   * Switch radio button
+   */
   const onRadioClick = () => {
-    const buttons = document.querySelectorAll(`#${radioId} img`);
+    const buttons = document.querySelectorAll(`div .${radioId} img`);
 
     buttons.forEach((element, index) => {
-      if(index%2!=0){
-        element.classList.add('hidden');
-      }});
-    
-    const selectedRadio = document.querySelector(`#${radioId} input[name=hasPostedBefore]:checked`);
+      if (index % 2 != 0) {
+        element.classList.add("hidden");
+      }
+    });
+
+    const selectedRadio = document.querySelector(
+      `.${radioId} input[name=hasPostedBefore]:checked`
+    );
     const children = selectedRadio.parentNode.childNodes;
 
-    children[2].classList.toggle('hidden');
-  }
+    children[2].classList.toggle("hidden");
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-[41.688rem] overflow-hidden text-left text-[1rem] text-neutral-100 font-button-1-regular">
@@ -36,20 +47,21 @@ const ChallengeQuestion3 = () => {
         <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem]">
           <div className="relative leading-[1.75rem] font-semibold w-[20.938rem]">
             Do any of the moves in the dance have meaning?
-            <Radio1 
+            <Radio1
               element={RadioButtonDefault}
-              value={true} onRadioClick={onRadioClick} 
-              radioName={"hasPostedBefore"} 
-              label="Yes" 
-              radioId = {radioId}
+              value={true}
+              onRadioClick={onRadioClick}
+              radioName={"hasPostedBefore"}
+              label="Yes"
+              radioId={radioId}
             />
-            <Radio1 
-              element={RadioButtonDefault} 
-              value={false} 
-              onRadioClick={onRadioClick} 
-              radioName={"hasPostedBefore"} 
-              label="No" 
-              radioId = {radioId}
+            <Radio1
+              element={RadioButtonDefault}
+              value={false}
+              onRadioClick={onRadioClick}
+              radioName={"hasPostedBefore"}
+              label="No"
+              radioId={radioId}
             />
           </div>
         </div>
@@ -69,11 +81,7 @@ const ChallengeQuestion3 = () => {
           dropdownLeft="unset"
         />
       </div>
-      <Title
-        className = ""
-        returnPage = ""
-        pageName="New challenge"
-      />
+      <Title className="" returnPage="" pageName="New challenge" />
       <Button1Inactive
         cTATop="unset"
         cTALeft="1.25rem"

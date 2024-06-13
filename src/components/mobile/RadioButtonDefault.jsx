@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 const RadioButtonDefault = ({ className = "", name, value, id }) => {
   return (
     <div
-      id={id}
-      className={`w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 ${className}`}
+      className={`w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 ${className} ${id}`}
     >
       <input type="radio" name={name} value={value} className="absolute opacity-0 w-0 h-0"/>
       <img 

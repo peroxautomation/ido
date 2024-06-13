@@ -2,6 +2,10 @@ import Moves1 from "../components/mobile/Moves1";
 import ButtomNavbar from "../components/mobile/ButtomNavbar";
 import TopNavbar from "../components/mobile/TopNavbar";
 
+/**
+ * Moves screen
+ * @returns A JSX element
+ */
 const Moves = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden">

@@ -1,6 +1,5 @@
-import CheckboxContainer1 from "../components/mobile/Checkbox1";
+import CheckboxContainer1 from "../components/mobile/CheckboxContainer1";
 import TextInput1 from "../components/mobile/TextInput1";
-import Checkbox1 from "../components/mobile/Checkbox11";
 import Button1Inactive from "../components/mobile/Button1Inactive";
 import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
@@ -115,7 +114,7 @@ const AllQuestionsForSignUpIn = () => {
       </main>
       <Button1Inactive
         onClick={onCTAClick}
-        label="Next"
+        cTA="Next"
       />
     </div>
   );

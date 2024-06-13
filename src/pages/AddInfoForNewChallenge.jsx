@@ -14,7 +14,7 @@ const AddInfoForNewChallenge = () => {
   
   //Navigate to question screen
   const onNextClick = () => {
-    if(flow === "challenge")
+    if(flow === "new-challenge")
       navigate(`/create/new-challenge/challenge-question-1`);
     else
       navigate('/create/cover/cover-add-info')
