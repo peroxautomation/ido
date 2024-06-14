@@ -25,21 +25,17 @@ const ForgotPassword = () => {
   /*************************************************************************************** */
 
   /**
-   * Input validator using formik
-   */
-  const validateInput = () => {
-    // TODO: Add formik validation here
-    if (email !== "") navigate("/otp");
-  };
-
-  /**
    * On Send code click
    */
   const onSendCodeClick = useCallback(() => {
-    setEmail(document.getElementById(id).value);
+    const userEmail = document.getElementById(id).value;
+    if (userEmail !== "") {
+      // TODO: Add formik validation here
+      navigate("/otp");
+    } else {
+      setEmail(userEmail);
+    }
   }, [email]);
-
-  validateInput();
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">

@@ -13,27 +13,16 @@ const OTP = () => {
   const [otp, setOtp] = useState("");
 
   /*************************************************************************************** */
-  /********************************{One Time Password Options}**************************** */
+  /********************************{ Global Variables }*********************************** */
   /*************************************************************************************** */
-  const [otpNotReceived, setOtpNotReceived] = useState(false);
   const [countDown, setCountDown] = useState(30);
+  var currentTime = countDown;
 
   /**
    * Send OTP passowrd again
    */
-  const onAskAgainClick = useCallback(() => {
-    sendOTP();
-    setOtpNotReceived(true);
-  }, [otpNotReceived]);
-
-  /**
-   * Send the OTP password
-   * TODO: Fix timmer bug. The state does not update on time so countdown is inconsistent
-   */
-  const sendOTP = () => {
-    console.log(countDown);
-    if (countDown <= 0) {
-      //TODO: Call API & Send code again
+  const onAskAgainClick = () => {
+    if (currentTime <= 0) {
       console.log("Sending otp...");
       setCountDown(30);
     }
@@ -46,16 +35,12 @@ const OTP = () => {
   const Timmer = () => {
     useEffect(() => {
       if (!countDown) return;
-      // save intervalId to clear the interval when the
-      // component re-renders
+
       const intervalId = setInterval(() => {
         setCountDown(countDown - 1);
       }, 1000);
 
-      // clear interval on re-render to avoid memory leaks
       return () => clearInterval(intervalId);
-      // add timeLeft as a dependency to re-rerun the effect
-      // when we update it
     }, [countDown]);
     return <div>{countDown}</div>;
   };
