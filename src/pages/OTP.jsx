@@ -29,7 +29,7 @@ const OTP = () => {
   };
 
   /**
-   * Send OTP again countdown timer
+   * Dynamic timer component
    * @returns A JSX element
    */
   const Timmer = () => {
@@ -49,12 +49,13 @@ const OTP = () => {
    * Update OTP state
    * @param {*} value
    */
-  const onOTPEnter = (value) => {
-    let otpValue = "";
-    if (value != "" && value !== undefined) {
-      otpValue.concat(value.toString());
+  const onOTPEnter = () => {
+    const otpInputs = document.getElementById('otpInput').children;
+    let currOTP = "";
+    for(let input of otpInputs){
+      currOTP += input.value.toString();
     }
-    console.log(otpValue);
+    setOtp(currOTP);
   };
 
   return (

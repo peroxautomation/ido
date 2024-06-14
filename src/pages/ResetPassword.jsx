@@ -1,38 +1,58 @@
-import Title from "../components/mobile/Title";
-import Button1 from "../components/mobile/Button1";
 import PasswordInput from "../components/mobile/PasswordInput";
+import Button2 from "../components/mobile/Button2";
+import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 /**
- * Reset Password Page
- * @returns JSX element
+ * Reset password screen for profile settings
+ * @returns A JSX element
  */
 const ResetPassword = () => {
+  /**************************************************************************** */
+  /********************************{Form Data}********************************* */
+  /**************************************************************************** */
+  const [password, setPassword] = useState(""); // password
+  const [password2, setPassword2] = useState(""); // confirm password
   const navigate = useNavigate();
 
-  const onClick = () => {
-    console.log("Reseting password...");
-    navigate('/processing')
-  }
+  /**
+   * Navigate to password reset page
+   */
+  const onResetClick = () => {
+    navigate("/profile/settings/reset-password/result");
+  };
 
   return (
-    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        pageName="Reset password"
-        returnPage="/forgot-password"
-      />
-      <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px]">
-        <PasswordInput label="New password" inputAndWordPlaceholder="Enter password" />
-        <Button1
-          cTAAlignSelf="stretch"
-          cTAPosition="unset"
+    <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-center">
+      <Title pageName="Reset password" />
+      <div className="relative top-[6.75rem] flex flex-col items-center justify-start gap-[1rem] w-[85vw]">
+        <PasswordInput
+          inputAndWordPlaceholder="Enter new password"
+          label="New password"
+        />
+        <PasswordInput
+          inputAndWordPlaceholder="Confirm new password"
+          label="Confirm new password"
+        />
+        <Button2
+          onClick={onResetClick}
           cTATop="unset"
           cTALeft="unset"
-          cTAWidth="unset"
+          cTAWidth="20.938rem"
+          cTARight="unset"
+          cTABottom="unset"
           cTA="Reset password"
-          onCTAClick={onClick}
+          hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
+          cTABackgroundColor="#cc0f3c"
+          cTAPosition="unset"
+          cTAGap="0.5rem"
+          cTAFlex="unset"
+          hugeIconeducationsolidpenWidth="1rem"
+          hugeIconeducationsolidpenHeight="1rem"
+          cTAAlignSelf="unset"
         />
-      </main>
+      </div>
     </div>
   );
 };

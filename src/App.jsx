@@ -9,7 +9,6 @@ import {
 /* Login And Onboarding */
 import OnboardingPrime from "./pages/OnboardingPrime";
 import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
 import OTP from "./pages/OTP";
 import Processing from "./pages/Processing";
 import Login from "./pages/Login";
@@ -107,7 +106,7 @@ import VerifyYourAccount from "./pages/VerifyYourAccount";
 import DeleteAccountNotice from "./pages/DeleteAccountNotice";
 import WhyAreYouLeavingIdo from "./pages/WhyAreYouLeavingIdo";
 import ReserPasswordResult from "./pages/ReserPasswordResult";
-import ResetPassword2 from "./pages/ResetPassword2";
+import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 
 function App() {
@@ -268,7 +267,7 @@ function App() {
       
       <Route path="/profile/settings/update-password" element={<UpdatePassword />} />
       <Route path="/profile/settings/forgot-password" element={<ForgotPassword />} />
-      <Route path="/profile/settings/reset-password" element={<ResetPassword2 />} />
+      <Route path="/profile/settings/reset-password" element={<ResetPassword />} />
       <Route path="/profile/settings/reset-password/result" element={<ReserPasswordResult />} />
 
       {/******************************************** { Profile payment Screens } ***************************************************************/}

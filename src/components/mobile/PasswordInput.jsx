@@ -14,15 +14,14 @@ const PasswordInput = ({
   const [isActive, setIsActive] = useState(false); // Hide password flag
   const [btnSource, setBtnSource] = useState("hidePasswordIcon.svg"); // Hide password button source
   const [passwordType, setPaswordType] = useState("password"); // Toggle hide password
-
   /**
    * Toggle show/hide password
-   * TODO: Fix bug here. It does not toggle on first click
    */
   const onToggleShowPassword = useCallback(() => {
+    const showPass = !isActive;
     setIsActive(!isActive);
     
-    if (!isActive) {
+    if (!showPass) {
       setBtnSource("hidePasswordIcon.svg");
       setPaswordType("password");
     } else {
