@@ -3,17 +3,17 @@ import Button2 from "../components/mobile/Button2";
 
 /**
  * Reset password result screen for the user settings
- * @returns 
+ * @returns
  */
-const ReserPasswordResult = () => {
+const ResetPasswordResult = ({ proceedTo }) => {
   const navigate = useNavigate();
 
   /**
    * Navigate back to profile screen
    */
   const onBackClick = () => {
-    navigate('/profile')
-  }
+    navigate(proceedTo);
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-silver font-h3-semibold grid grid-flow-row justify-items-center">
@@ -50,4 +50,4 @@ const ReserPasswordResult = () => {
   );
 };
 
-export default ReserPasswordResult;
+export default ResetPasswordResult;

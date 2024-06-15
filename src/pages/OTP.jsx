@@ -55,6 +55,7 @@ const OTP = () => {
     for(let input of otpInputs){
       currOTP += input.value.toString();
     }
+    console.log(currOTP);
     setOtp(currOTP);
   };
 

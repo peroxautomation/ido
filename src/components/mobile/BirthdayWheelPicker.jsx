@@ -3,16 +3,48 @@ import MonthWheelPicker from "./MonthWheelPicker";
 import DayWheelPicker from "./DayWheelPicker";
 import YearWheelPicker from "./YearWheelPicker";
 
-const BirthdayWheelPicker = ({ className = ""}) => {
+const BirthdayWheelPicker = ({
+  className = "",
+  handleSetDate,
+  selectedDate,
+}) => {
+  const selectedClass = "text-[1.5rem] opacity-[1]";
+
+  const handleMonthSelect = (month) => {
+    handleSetDate({ month });
+  };
+
+  const handleDaySelect = (day) => {
+    handleSetDate({ day });
+  };
+
+  const handleYearSelect = (year) => {
+    handleSetDate({ year });
+  };
+
   return (
     <div
-      className={`absolute top-[453px] left-[calc(50%_-_162.5px)] w-[324px] h-[174px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className}`}
+      className={`relative top-[453px] w-full h-[174px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row justify-items-center`}
     >
-      <SelectedWheelDate />
-      <div className="absolute top-[calc(50%_-_87px)] left-[calc(50%_-_70px)] w-[140px] h-[174px]">
-        <MonthWheelPicker />
-        <DayWheelPicker />
-        <YearWheelPicker />
+      <div className="relative top-[calc(50%_-_87px)] w-[90%] h-[174px] grid grid-flow-col overflow-hidden">
+        <SelectedWheelDate />
+        <MonthWheelPicker
+          selectedClass={selectedClass}
+          id="birthdayMonth"
+          onMonthSelect={handleMonthSelect}
+        />
+        <DayWheelPicker
+          selectedClass={selectedClass}
+          id="birthdayDay"
+          onDaySelect={handleDaySelect}
+          selectedMonth={selectedDate.month}
+          selectedYear={selectedDate.year}
+        />
+        <YearWheelPicker
+          selectedClass={selectedClass}
+          id="birthdayYear"
+          onYearSelect={handleYearSelect}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 const OtpInput = ({ className = "", onInput }) => {
   const validateInput = (event) => {
-    //event.currentTarget.value = event.currentTarget.value.replace(/[^0-9]/g, "")
+    event.currentTarget.value = event.currentTarget.value.replace(/[^0-9]/g, "")
     onInput(); //Update OTP value state
   };
   return (

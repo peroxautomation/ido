@@ -3,24 +3,44 @@ import Button2 from "../components/mobile/Button2";
 import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import ProcessingIcon from "../components/mobile/ProcessingIcon";
 
 /**
  * Reset password screen for profile settings
  * @returns A JSX element
  */
-const ResetPassword = () => {
+const ResetPassword = ({ returnPage }) => {
   /**************************************************************************** */
   /********************************{Form Data}********************************* */
   /**************************************************************************** */
   const [password, setPassword] = useState(""); // password
   const [password2, setPassword2] = useState(""); // confirm password
+
+  /****************************************************************************** */
+  /********************************{Global Data}********************************* */
+  /****************************************************************************** */
   const navigate = useNavigate();
+  const id1 = "password1";
+  const id2 = "password2";
 
   /**
    * Navigate to password reset page
    */
   const onResetClick = () => {
-    navigate("/profile/settings/reset-password/result");
+    const password1 = document.getElementById(id1).value;
+    const password2 = document.getElementById(id2).value;
+    if (password1 !== password2) {
+      document
+        .getElementById(id2)
+        .parentElement.nextElementSibling.classList.remove("hidden");
+    } else {
+      document
+        .getElementById(id2)
+        .parentElement.nextElementSibling.classList.add("hidden");
+    }
+    navigate("/processing", {
+      state: { proceedTo: "/reset-password/result" },
+    });
   };
 
   return (
@@ -28,10 +48,12 @@ const ResetPassword = () => {
       <Title pageName="Reset password" />
       <div className="relative top-[6.75rem] flex flex-col items-center justify-start gap-[1rem] w-[85vw]">
         <PasswordInput
+          id={id1}
           inputAndWordPlaceholder="Enter new password"
           label="New password"
         />
         <PasswordInput
+          id={id2}
           inputAndWordPlaceholder="Confirm new password"
           label="Confirm new password"
         />

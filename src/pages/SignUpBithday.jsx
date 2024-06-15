@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BirthdayWheelPicker from "../components/mobile/BirthdayWheelPicker";
 import Title from "../components/mobile/Title";
 
@@ -7,19 +7,35 @@ import Title from "../components/mobile/Title";
  * Sign up birthday Page
  * @returns JSX element
  */
-const SignUpBithday1 = () => {
+const SignUpBirthday1 = () => {
   const navigate = useNavigate();
+
+  const [selectedDate, setSelectedDate] = useState({
+    day: null,
+    month: null,
+    year: null,
+  });
+
+  const handleSetDate = (newDate) => {
+    setSelectedDate((prevDate) => {
+      const updatedDate = { ...prevDate, ...newDate };
+      console.log("Updated Date:", updatedDate); // Log the updated date
+      return updatedDate;
+    });
+  };
 
   const onCTAClick = useCallback(() => {
     navigate("/sign-up/country");
   }, [navigate]);
 
+  const formattedDate =
+    selectedDate.day && selectedDate.month && selectedDate.year
+      ? `${selectedDate.day}/${selectedDate.month}/${selectedDate.year}`
+      : "Select your birthday";
+
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        returnPage="/sign-up"
-        pageName="Sign up"
-      />
+      <Title returnPage="/sign-up" pageName="Sign up" />
       <section className="absolute w-[calc(100%_-_40px)] top-[121px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px] text-left text-base text-neutral-100 font-button-1-regular">
         <div className="self-stretch flex flex-row items-center justify-center">
           <div className="flex-1 relative leading-[24px]">
@@ -35,9 +51,10 @@ const SignUpBithday1 = () => {
             />
           </div>
           <input
-            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-start py-2.5 px-4 text-neutral-600"
-            placeholder="09/16/2024"
+            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white"
+            placeholder={formattedDate}
             type="text"
+            readOnly
           />
           <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm">
             <div className="flex-1 relative leading-[20px]">Helper text</div>
@@ -57,9 +74,12 @@ const SignUpBithday1 = () => {
           />
         </button>
       </section>
-      <BirthdayWheelPicker />
+      <BirthdayWheelPicker
+        selectedDate={selectedDate}
+        handleSetDate={handleSetDate}
+      />
     </div>
   );
 };
 
-export default SignUpBithday1;
+export default SignUpBirthday1;

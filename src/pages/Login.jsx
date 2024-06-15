@@ -33,6 +33,7 @@ const Login = () => {
   const [isAppleLogin, setIsAppleLogin] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPasswordMsg, setShowPasswordMsg] = useState("hidden");
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
 
   /**************************************************************************************** */
   /********************************{Component Variables}********************************** */
@@ -45,22 +46,21 @@ const Login = () => {
   /*************************************************************************************** */
 
   /**
-   * Input validator using formik
-   */
-  const validateInput = () => {
-    // TODO: Add formik validation here
-    // TODO: Set showPasswordMsg to "" here if password is inccorect
-    if (email !== "" && password !== "") navigate("/home");
-  };
-
-  /**
    * On Login click
    */
   const onLoginClick = useCallback(() => {
-    setEmail(document.getElementById(emailId).value);
-    setPassword(document.getElementById(userPass).value);
+    const userEmail = document.getElementById(emailId).value;
+    const userPassword = document.getElementById(userPass).value;
+
+    // TODO: Add formik validation here
+    // TODO: Set showPasswordMsg to "" here if password is inccorect
+
+    setEmail(userEmail);
+    setPassword(userPassword);
     setIsEmailLogin(!isEmailLogin);
-  }, [email, password]);
+
+    if (email !== "" && password !== "") navigate("/home");
+  }, [email, password, isEmailLogin]);
 
   /**
    * On sign up click
@@ -75,7 +75,7 @@ const Login = () => {
   const onFacebookClick = useCallback(() => {
     console.log("Clicked facebook");
     setIsFacebookLogin(!isFacebookLogin);
-  }, [isSignUp]);
+  }, [isFacebookLogin]);
 
   /**
    * On google click
@@ -83,7 +83,7 @@ const Login = () => {
   const onGoogleClick = useCallback(() => {
     console.log("Clicked google");
     setIsGoogleLogin(!isGoogleLogin);
-  }, [isSignUp]);
+  }, [isGoogleLogin]);
 
   /**
    * On apple click
@@ -91,9 +91,7 @@ const Login = () => {
   const onAppleClick = useCallback(() => {
     console.log("Clicked apple");
     setIsAppleLogin(!isAppleLogin);
-  }, [isSignUp]);
-
-  validateInput();
+  }, [isAppleLogin]);
 
   return (
     <div className="w-full fixed bg-neutral-900 h-[100vh] overflow-hidden">
@@ -139,7 +137,7 @@ const Login = () => {
             <AppleLogin onClick={onAppleClick} />
           </div>
           <div className="self-stretch flex flex-row items-center justify-center py-2 px-0 gap-[8px] text-neutral-200">
-            <div className="relative leading-[24px] font-semibold">{`Don&apos;t have an account? `}</div>
+            <div className="relative leading-[24px] font-semibold">{`Don't have an account? `}</div>
             <a
               onClick={onSignupClick}
               className="[text-decoration:none] relative leading-[24px] font-semibold text-primary-500"

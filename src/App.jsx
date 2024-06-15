@@ -105,7 +105,7 @@ import ConfrimDeleteAccount from "./pages/ConfrimDeleteAccount";
 import VerifyYourAccount from "./pages/VerifyYourAccount";
 import DeleteAccountNotice from "./pages/DeleteAccountNotice";
 import WhyAreYouLeavingIdo from "./pages/WhyAreYouLeavingIdo";
-import ReserPasswordResult from "./pages/ReserPasswordResult";
+import ResetPasswordResult from "./pages/ResetPasswordResult";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 
@@ -180,9 +180,10 @@ function App() {
       {/******************************************************** { Forgot Password } ************************************************/}
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/otp" element={<OTP />} />
-      <Route path="/processing" element={<Processing />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      
+      <Route path="/processing" element={<Processing />} />
+      <Route path="/reset-password/result" element={<ResetPasswordResult proceedTo={'/login'}/>} />
+
       {/******************************************************** { Signup } *********************************************************/}
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-up/birthday" element={<SignUpBirthday />} />
@@ -268,7 +269,7 @@ function App() {
       <Route path="/profile/settings/update-password" element={<UpdatePassword />} />
       <Route path="/profile/settings/forgot-password" element={<ForgotPassword />} />
       <Route path="/profile/settings/reset-password" element={<ResetPassword />} />
-      <Route path="/profile/settings/reset-password/result" element={<ReserPasswordResult />} />
+      <Route path="/profile/settings/reset-password/result" element={<ResetPasswordResult proceedTo={'/profile'} />} />
 
       {/******************************************** { Profile payment Screens } ***************************************************************/}
       <Route path="/profile/payments" element={<Payments />} />

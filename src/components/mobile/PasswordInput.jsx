@@ -59,8 +59,8 @@ const PasswordInput = ({
           />
         </button>
       </div>
-      <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm text-darkslategray">
-        <div className="flex-1 relative leading-[20px]">Helper text</div>
+      <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm text-danger-500">
+        <div className="flex-1 relative leading-[20px]">Passwords do not match</div>
       </div>
     </div>
   );

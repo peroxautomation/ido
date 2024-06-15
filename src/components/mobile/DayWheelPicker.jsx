@@ -1,35 +1,94 @@
-const DayWheelPicker = ({ className = "" }) => {
+import { useEffect, useRef, useState } from "react";
+
+const getDaysInMonth = (month, year) => {
+  if (year && month !== null) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+  return 31; // Default to 31 days if no valid month/year provided
+};
+
+const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, selectedMonth, selectedYear }) => {
+  const wheelRef = useRef(null);
+  const [days, setDays] = useState([]);
+  const [selectedDayIndex, setSelectedDayIndex] = useState(null);
+  useEffect(() => {
+    if (selectedMonth !== null && selectedYear !== null) {
+      const monthIndex = new Date(Date.parse(selectedMonth + " 1, 2020")).getMonth();
+      const daysInMonth = getDaysInMonth(monthIndex, selectedYear);
+      setDays(Array.from({ length: daysInMonth }, (_, i) => i + 1));
+    }
+  }, [selectedMonth, selectedYear]);
+
+  useEffect(() => {
+    const wheel = wheelRef.current;
+    if (wheel) {
+      wheel.scrollTop = wheel.scrollHeight / 3;
+
+      const handleScroll = () => {
+        const selectedDateElement = document.getElementById("selectedDate");
+        if (!selectedDateElement) return;
+
+        const selectedDatePosition = selectedDateElement.getBoundingClientRect();
+        const wheelChildren = wheel.children;
+
+        let foundSelected = false;
+
+        for (let i = 0; i < wheelChildren.length; i++) {
+          const child = wheelChildren[i];
+          const childPosition = child.getBoundingClientRect();
+
+          if (
+            childPosition.top >= selectedDatePosition.top &&
+            childPosition.bottom <= selectedDatePosition.bottom
+          ) {
+            const index = i % days.length;
+            setSelectedDayIndex(index);
+            onDaySelect(days[index]);
+            foundSelected = true;
+            break;
+          }
+        }
+
+        if (!foundSelected) {
+          setSelectedDayIndex(null);
+        }
+
+        const scrollTop = wheel.scrollTop;
+        const scrollHeight = wheel.scrollHeight;
+        const clientHeight = wheel.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+          wheel.scrollTop = scrollTop - scrollHeight / 3;
+        } else if (scrollTop <= 0) {
+          wheel.scrollTop = scrollTop + scrollHeight / 3;
+        }
+      };
+
+      wheel.addEventListener("scroll", handleScroll);
+      return () => wheel.removeEventListener("scroll", handleScroll);
+    }
+  }, [days]);
+
+  const renderDays = () => {
+    return [...days, ...days, ...days].map((day, index) => (
+      <div
+        key={index}
+        className={`relative text-[1rem] opacity-[0.35] ${
+          selectedDayIndex === index % days.length ? selectedClass : ""
+        }`}
+      >
+        {day}
+      </div>
+    ));
+  };
+
   return (
     <div
-      className={`absolute top-[0px] left-[53.2px] w-7 h-[173px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className}`}
+      ref={wheelRef}
+      id={id}
+      className={`no-scrollbar relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row w-max overflow-y-scroll justify-items-center`}
     >
-      <div className="absolute top-[calc(50%_-_11.6px)] left-[calc(50%_-_12px)] text-3xl-2">
-        16
-      </div>
-      <div className="absolute top-[calc(50%_-_40.5px)] left-[calc(50%_-_10.8px)] opacity-[0.35]">
-        15
-      </div>
-      <div className="absolute top-[calc(50%_-_62.3px)] left-[calc(50%_-_8.1px)] text-mini-6 opacity-[0.35]">
-        14
-      </div>
-      <div className="absolute top-[calc(50%_-_80.9px)] left-[calc(50%_-_6.2px)] text-xs-4 opacity-[0.35]">
-        13
-      </div>
-      <div className="absolute top-[calc(50%_-_85.5px)] left-[calc(50%_-_3.5px)] text-7xs-1 opacity-[0.35]">
-        12
-      </div>
-      <div className="absolute top-[calc(50%_+_20.6px)] left-[calc(50%_-_9.4px)] opacity-[0.35]">
-        17
-      </div>
-      <div className="absolute top-[calc(50%_+_48.3px)] left-[calc(50%_-_8.3px)] text-mini-6 opacity-[0.35]">
-        18
-      </div>
-      <div className="absolute top-[calc(50%_+_67.4px)] left-[calc(50%_-_6px)] text-xs-4 opacity-[0.35]">
-        19
-      </div>
-      <div className="absolute top-[calc(50%_+_81.5px)] left-[calc(50%_-_3.1px)] text-7xs-1 opacity-[0.35]">
-        20
-      </div>
+      {renderDays()}
     </div>
   );
 };

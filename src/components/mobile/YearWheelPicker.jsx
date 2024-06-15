@@ -1,35 +1,95 @@
-const YearWheelPicker = ({ className = "" }) => {
+import { useEffect, useRef, useState } from "react";
+
+const generateYears = (startYear, endYear) => {
+  const years = [];
+  for (let year = startYear; year <= endYear; year++) {
+    years.push(year);
+  }
+  return years;
+};
+
+const YearWheelPicker = ({
+  className = "",
+  selectedClass,
+  id,
+  onYearSelect,
+}) => {
+  const currentYear = new Date().getFullYear();
+  const years = generateYears(1900, currentYear);
+  const wheelRef = useRef(null);
+  const [selectedYearIndex, setSelectedYearIndex] = useState(null);
+
+  useEffect(() => {
+    const wheel = wheelRef.current;
+    if (wheel) {
+      wheel.scrollTop = wheel.scrollHeight / 3;
+
+      const handleScroll = () => {
+        const selectedDateElement = document.getElementById("selectedDate");
+        if (!selectedDateElement) return;
+
+        const selectedDatePosition =
+          selectedDateElement.getBoundingClientRect();
+        const wheelChildren = wheel.children;
+
+        let foundSelected = false;
+
+        for (let i = 0; i < wheelChildren.length; i++) {
+          const child = wheelChildren[i];
+          const childPosition = child.getBoundingClientRect();
+
+          if (
+            childPosition.top >= selectedDatePosition.top &&
+            childPosition.bottom <= selectedDatePosition.bottom
+          ) {
+            const index = i % years.length;
+            setSelectedYearIndex(index);
+            onYearSelect(years[index]);
+            foundSelected = true;
+            break;
+          }
+        }
+
+        if (!foundSelected) {
+          setSelectedYearIndex(null);
+        }
+
+        const scrollTop = wheel.scrollTop;
+        const scrollHeight = wheel.scrollHeight;
+        const clientHeight = wheel.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+          wheel.scrollTop = scrollTop - scrollHeight / 3;
+        } else if (scrollTop <= 0) {
+          wheel.scrollTop = scrollTop + scrollHeight / 3;
+        }
+      };
+
+      wheel.addEventListener("scroll", handleScroll);
+      return () => wheel.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
+  const renderYears = () => {
+    return [...years, ...years, ...years].map((year, index) => (
+      <div
+        key={index}
+        className={`relative text-[1rem] opacity-[0.35] ${
+          selectedYearIndex === index % years.length ? selectedClass : ""
+        }`}
+      >
+        {year}
+      </div>
+    ));
+  };
+
   return (
     <div
-      className={`absolute top-[0px] left-[105.4px] w-[33.6px] h-[173px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className}`}
+      ref={wheelRef}
+      id={id}
+      className={`no-scrollbar relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row w-max overflow-y-scroll justify-items-center`}
     >
-      <div className="absolute top-[calc(50%_-_11.7px)] right-[-20px] text-3xl-2 tracking-[-0.95px] text-left">
-        2024
-      </div>
-      <div className="absolute top-[calc(50%_-_40.6px)] right-[-11.4px] tracking-[-0.95px] text-left opacity-[0.35]">
-        2023
-      </div>
-      <div className="absolute top-[calc(50%_-_62.4px)] right-[11.6px] text-mini-6 hidden opacity-[0.35]">
-        am
-      </div>
-      <div className="absolute top-[calc(50%_-_80.9px)] right-[16.6px] text-xs-4 hidden opacity-[0.35]">
-        am
-      </div>
-      <div className="absolute top-[calc(50%_-_85.5px)] right-[25.6px] text-7xs-1 hidden opacity-[0.35]">
-        am
-      </div>
-      <div className="absolute top-[calc(50%_+_20.6px)] right-[3.6px] tracking-[-0.95px] text-left hidden opacity-[0.35]">
-        pm
-      </div>
-      <div className="absolute top-[calc(50%_+_48.2px)] right-[9.6px] text-mini-6 hidden opacity-[0.35]">
-        pm
-      </div>
-      <div className="absolute top-[calc(50%_+_67.4px)] right-[14.6px] text-xs-4 hidden opacity-[0.35]">
-        pm
-      </div>
-      <div className="absolute top-[calc(50%_+_81.5px)] right-[24.6px] text-7xs-1 hidden opacity-[0.35]">
-        pm
-      </div>
+      {renderYears()}
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Processing = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  
   if (location.state !== null) {
     // Navigation placeholder until backend is complete
     setTimeout(() => {
