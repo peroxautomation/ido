@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BirthdayWheelPicker from "../components/mobile/BirthdayWheelPicker";
 import Title from "../components/mobile/Title";
@@ -51,7 +51,7 @@ const SignUpBirthday1 = () => {
             />
           </div>
           <input
-            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white"
+            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-start py-2.5 px-4 text-neutral-600"
             placeholder={formattedDate}
             type="text"
             readOnly

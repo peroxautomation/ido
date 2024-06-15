@@ -7,15 +7,29 @@ const getDaysInMonth = (month, year) => {
   return 31; // Default to 31 days if no valid month/year provided
 };
 
-const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, selectedMonth, selectedYear }) => {
+const DayWheelPicker = ({
+  className = "",
+  selectedClass,
+  id,
+  onDaySelect,
+  selectedMonth,
+  selectedYear,
+}) => {
   const wheelRef = useRef(null);
-  const [days, setDays] = useState([]);
+  const [days, setDays] = useState(Array.from({ length: 31 }, (_, i) => i + 1)); // Default to 31 days
   const [selectedDayIndex, setSelectedDayIndex] = useState(null);
+
   useEffect(() => {
     if (selectedMonth !== null && selectedYear !== null) {
-      const monthIndex = new Date(Date.parse(selectedMonth + " 1, 2020")).getMonth();
+      const monthIndex = new Date(
+        Date.parse(selectedMonth + " 1, 2020")
+      ).getMonth();
       const daysInMonth = getDaysInMonth(monthIndex, selectedYear);
       setDays(Array.from({ length: daysInMonth }, (_, i) => i + 1));
+      console.log(
+        "Updated Days:",
+        Array.from({ length: daysInMonth }, (_, i) => i + 1)
+      ); // Log the days
     }
   }, [selectedMonth, selectedYear]);
 
@@ -28,7 +42,8 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
         const selectedDateElement = document.getElementById("selectedDate");
         if (!selectedDateElement) return;
 
-        const selectedDatePosition = selectedDateElement.getBoundingClientRect();
+        const selectedDatePosition =
+          selectedDateElement.getBoundingClientRect();
         const wheelChildren = wheel.children;
 
         let foundSelected = false;
@@ -43,6 +58,7 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
           ) {
             const index = i % days.length;
             setSelectedDayIndex(index);
+            console.log("Selected Day:", days[index]); // Log the selected day
             onDaySelect(days[index]);
             foundSelected = true;
             break;
@@ -67,7 +83,7 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
       wheel.addEventListener("scroll", handleScroll);
       return () => wheel.removeEventListener("scroll", handleScroll);
     }
-  }, [days]);
+  }, [days, onDaySelect]);
 
   const renderDays = () => {
     return [...days, ...days, ...days].map((day, index) => (

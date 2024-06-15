@@ -3,6 +3,7 @@ import MonthWheelPicker from "./MonthWheelPicker";
 import DayWheelPicker from "./DayWheelPicker";
 import YearWheelPicker from "./YearWheelPicker";
 
+//TODO: There is a bug with the day that sometimes does not render the days
 const BirthdayWheelPicker = ({
   className = "",
   handleSetDate,
@@ -26,7 +27,7 @@ const BirthdayWheelPicker = ({
     <div
       className={`relative top-[453px] w-full h-[174px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row justify-items-center`}
     >
-      <div className="relative top-[calc(50%_-_87px)] w-[90%] h-[174px] grid grid-flow-col overflow-hidden">
+      <div className="relative top-[calc(50%_-_87px)] w-[90%] h-[174px] grid grid-flow-col overflow-hidden justify-items-center">
         <SelectedWheelDate />
         <MonthWheelPicker
           selectedClass={selectedClass}
