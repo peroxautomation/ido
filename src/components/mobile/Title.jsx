@@ -2,6 +2,11 @@ import { useMemo } from "react";
 import Return from "./Return";
 import PropTypes from "prop-types";
 
+/**
+ * Title component
+ * @param {*} param0 
+ * @returns A JSX element
+ */
 const Title = ({
   className = "",
   returnPage,

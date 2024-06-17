@@ -1,35 +1,12 @@
-import { useMemo } from "react";
-
-const Button1 = ({
-  className = "",
-  onCTAClick,
-  cTAAlignSelf,
-  cTAPosition,
-  cTATop,
-  cTALeft,
-  cTAWidth,
-  cTA,
-  icon,
-}) => {
-  const cTAStyle = useMemo(() => {
-    return {
-      alignSelf: cTAAlignSelf,
-      position: cTAPosition,
-      top: cTATop,
-      left: cTALeft,
-      width: cTAWidth,
-    };
-  }, [cTAAlignSelf, cTAPosition, cTATop, cTALeft, cTAWidth]);
-
+const Button1 = ({ className = "", cTA, onCTAClick }) => {
   return (
     <button
-      className={`cursor-pointer [border:none] py-2.5 px-2 bg-primary-500 self-stretch rounded-xl flex flex-row items-center justify-center gap-[8px] ${className}`}
+      name="create-button-1"
       onClick={onCTAClick}
-      style={cTAStyle}
+      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-primary-500 absolute w-[calc(100%_-_40px)] bottom-[2.5rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem] ${className}`}
     >
-      <div className="relative flex py-1 gap-1 text-base leading-[24px] font-semibold font-button-1-semibold text-white text-center">
+      <div className="relative text-[1rem] leading-[1.5rem] font-semibold font-button-1-regular text-neutral-100 text-center">
         {cTA}
-        <img src={icon} alt="" />
       </div>
     </button>
   );

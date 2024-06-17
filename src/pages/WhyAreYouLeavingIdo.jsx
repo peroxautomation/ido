@@ -6,16 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const WhyAreYouLeavingIdo = () => {
   const navigate = useNavigate();
-  /**
-   * Toggle selected icon for CheckboxContainer1
-   * @param {*} event
-   */
-  const onSelect = (event) => {
-    const element = event.currentTarget.children[1];
-
-    element.children[0].classList.toggle("hidden");
-    element.children[1].classList.toggle("hidden");
-  };
 
   /**
    * On next click
@@ -39,32 +29,31 @@ const WhyAreYouLeavingIdo = () => {
       </div>
       <div className="relative top-[calc(100vh_-_41rem)] rounded-3xl p-[1.5rem] box-border gap-[0.5rem] grid grid-flow-row justify-center h-[calc(100vh_-_19rem)] overflow-y-auto">
         <CheckboxContainer1
-          onSelect={onSelect}
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Lost interest"
         />
         <CheckboxContainer1
-          onSelect={onSelect}
+
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Didn't meet my expectations"
         />
         <CheckboxContainer1
-          onSelect={onSelect}
+
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Found a better alternative"
         />
         <CheckboxContainer1
-          onSelect={onSelect}
+
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Encountered too many bugs or issues"
         />
         <CheckboxContainer1
-          onSelect={onSelect}
+
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="App is too difficult to use"
         />
         <CheckboxContainer1
-          onSelect={onSelect}
+
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Not useful for my needs"
         />

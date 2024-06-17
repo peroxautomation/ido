@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * 
+ * @param {*} month 
+ * @param {*} year 
+ * @returns 
+ */
 const getDaysInMonth = (month, year) => {
   if (year && month !== null) {
     return new Date(year, month + 1, 0).getDate();
@@ -7,29 +13,22 @@ const getDaysInMonth = (month, year) => {
   return 31; // Default to 31 days if no valid month/year provided
 };
 
-const DayWheelPicker = ({
-  className = "",
-  selectedClass,
-  id,
-  onDaySelect,
-  selectedMonth,
-  selectedYear,
-}) => {
+/**
+ * Day wheel picker component used in DatePicker component
+ * TODO: There is a bug with the day. It generates 30 days by default regardless of the month and year. Even for febuary until the both the year and the date are set
+ * @param {*} param0 
+ * @returns 
+ */
+const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, selectedMonth, selectedYear }) => {
   const wheelRef = useRef(null);
-  const [days, setDays] = useState(Array.from({ length: 31 }, (_, i) => i + 1)); // Default to 31 days
+  const [days, setDays] = useState(Array.from({length: 30}, (v, i) => i + 1));  //TODO: Initalize this to an empty array to have the day and year chosen before the day can be rendered
   const [selectedDayIndex, setSelectedDayIndex] = useState(null);
 
   useEffect(() => {
     if (selectedMonth !== null && selectedYear !== null) {
-      const monthIndex = new Date(
-        Date.parse(selectedMonth + " 1, 2020")
-      ).getMonth();
+      const monthIndex = new Date(Date.parse(selectedMonth + " 1, 2020")).getMonth();
       const daysInMonth = getDaysInMonth(monthIndex, selectedYear);
       setDays(Array.from({ length: daysInMonth }, (_, i) => i + 1));
-      console.log(
-        "Updated Days:",
-        Array.from({ length: daysInMonth }, (_, i) => i + 1)
-      ); // Log the days
     }
   }, [selectedMonth, selectedYear]);
 
@@ -42,8 +41,7 @@ const DayWheelPicker = ({
         const selectedDateElement = document.getElementById("selectedDate");
         if (!selectedDateElement) return;
 
-        const selectedDatePosition =
-          selectedDateElement.getBoundingClientRect();
+        const selectedDatePosition = selectedDateElement.getBoundingClientRect();
         const wheelChildren = wheel.children;
 
         let foundSelected = false;
@@ -58,7 +56,6 @@ const DayWheelPicker = ({
           ) {
             const index = i % days.length;
             setSelectedDayIndex(index);
-            console.log("Selected Day:", days[index]); // Log the selected day
             onDaySelect(days[index]);
             foundSelected = true;
             break;
@@ -83,7 +80,7 @@ const DayWheelPicker = ({
       wheel.addEventListener("scroll", handleScroll);
       return () => wheel.removeEventListener("scroll", handleScroll);
     }
-  }, [days, onDaySelect]);
+  }, [days]);
 
   const renderDays = () => {
     return [...days, ...days, ...days].map((day, index) => (

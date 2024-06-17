@@ -17,17 +17,6 @@ const SignUp = () => {
   /********************************{Form Data}********************************* */
   /**************************************************************************** */
   const [email, setEmail] = useState("");
-  const [dob, setDob] = useState(1); // day of birth
-  const [mob, setMob] = useState("January"); // month of birth
-  const [yob, setYob] = useState(2000); // year of birth
-
-  //const [birthday, setBirthday] = useState({ dob, mob, yob }); // example scenario
-  const [birthday, setBirthday] = useState({});
-  const [username, setUsername] = useState("");
-  const [gender, setGender] = useState("");
-  const [password, setPassword] = useState(""); // password
-  const [password2, setPassword2] = useState(""); // confirm password
-  const [termsAndCondition, setTermsAndCondition] = useState(false);
 
   /**************************************************************************** */
   /********************************{SignUp Options}**************************** */
@@ -37,25 +26,24 @@ const SignUp = () => {
   const [isGoogleLogin, setIsGoogleLogin] = useState(false);
   const [isAppleLogin, setIsAppleLogin] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const navigate = useNavigate();
 
   /**************************************************************************** */
   /********************************{Global Variables}**************************** */
   /**************************************************************************** */
+  const navigate = useNavigate();
   const id = "userEmail";
 
   /**
    * On click Sign in
    */
-  const onSignInClick = useCallback(() => {
-    const userEmail = document.getElementById(id).value;
-
-    //TODO: Add Formik validation here
-    setEmail(userEmail);
+  const onSignInClick = () => {
+    //TODO: Add Formik validation here and handle isEmail login properly
     setIsEmailLogin(!isEmailLogin);
-    
-    if (userEmail !== "") navigate("/sign-up/birthday");
-  }, [navigate]);
+
+    if (email !== "") {
+      navigate("/sign-up/birthday");
+    }
+  };
 
   /**
    * On login click
@@ -105,8 +93,14 @@ const SignUp = () => {
             label="Email"
             inputPlaceholder="Enter your email"
             id={id}
+            emailValue={email}
+            handleSetEmail={setEmail}
           />
-          <Button1 cTA={"Continue"} onCTAClick={onSignInClick} />
+          <Button1
+            cTA={"Continue"}
+            onCTAClick={onSignInClick}
+            className="relative top-1 left-[0em] right-[0em] w-full"
+          />
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[16px]">
           <div className="self-stretch flex flex-row items-center justify-center p-2">

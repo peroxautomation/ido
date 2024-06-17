@@ -8,30 +8,43 @@ import Title from "../components/mobile/Title";
  * @returns JSX element
  */
 const SignUpBirthday1 = () => {
-  const navigate = useNavigate();
-
+  /**************************************************************************** */
+  /********************************{Form Data}********************************* */
+  /**************************************************************************** */
   const [selectedDate, setSelectedDate] = useState({
     day: null,
     month: null,
     year: null,
   });
 
+  /*********************************************************************************** */
+  /********************************{Global variables}********************************* */
+  /*********************************************************************************** */
+  const navigate = useNavigate();
+  const formattedDate =
+    selectedDate.day && selectedDate.month && selectedDate.year
+      ? `${selectedDate.month}/${selectedDate.day}/${selectedDate.year}`
+      : null;
+  /**
+   * Set date handler
+   * @param {*} newDate
+   */
   const handleSetDate = (newDate) => {
     setSelectedDate((prevDate) => {
       const updatedDate = { ...prevDate, ...newDate };
-      console.log("Updated Date:", updatedDate); // Log the updated date
       return updatedDate;
     });
   };
 
-  const onCTAClick = useCallback(() => {
-    navigate("/sign-up/country");
-  }, [navigate]);
-
-  const formattedDate =
-    selectedDate.day && selectedDate.month && selectedDate.year
-      ? `${selectedDate.day}/${selectedDate.month}/${selectedDate.year}`
-      : "Select your birthday";
+  /**
+   * On next click
+   */
+  const onNextClick = () => {
+    console.log(formattedDate);
+    if (formattedDate) {
+      navigate("/sign-up/country");
+    }
+  }
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
@@ -51,10 +64,10 @@ const SignUpBirthday1 = () => {
             />
           </div>
           <input
-            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-start py-2.5 px-4 text-neutral-600"
-            placeholder={formattedDate}
+            className="[border:none] [outline:none] font-button-1-regular text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-start py-2.5 px-4 text-white"
             type="text"
             readOnly
+            value={formattedDate ? formattedDate : "Select your birthday"}
           />
           <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm">
             <div className="flex-1 relative leading-[20px]">Helper text</div>
@@ -62,7 +75,7 @@ const SignUpBirthday1 = () => {
         </div>
         <button
           className="cursor-pointer [border:none] py-2.5 px-2 bg-primary-500 self-stretch rounded-xl flex flex-row items-center justify-center gap-[8px]"
-          onClick={onCTAClick}
+          onClick={onNextClick}
         >
           <div className="relative text-base leading-[24px] font-semibold font-button-1-regular text-neutral-100 text-center">
             Next

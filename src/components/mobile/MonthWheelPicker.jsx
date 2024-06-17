@@ -15,6 +15,11 @@ const months = [
   "December"
 ];
 
+/**
+ * Month picker wheel for DatePicker
+ * @param {*} param0 
+ * @returns A JSX element
+ */
 const MonthWheelPicker = ({ className = "", selectedClass, id, onMonthSelect }) => {
   const wheelRef = useRef(null);
   const [selectedMonthIndex, setSelectedMonthIndex] = useState(null);

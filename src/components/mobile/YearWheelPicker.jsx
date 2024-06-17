@@ -8,6 +8,11 @@ const generateYears = (startYear, endYear) => {
   return years;
 };
 
+/**
+ * Year picker wheel for DatePicker
+ * @param {*} param0 
+ * @returns A JSX element
+ */
 const YearWheelPicker = ({
   className = "",
   selectedClass,

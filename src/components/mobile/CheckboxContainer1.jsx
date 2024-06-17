@@ -1,29 +1,32 @@
 import { useMemo } from "react";
 
-const CheckboxContainer1 = ({
-  className = "",
-  option1,
-  checkboxWidth,
-  checkboxAlignSelf,
-  onSelect,
-}) => {
-  const checkboxStyle = useMemo(() => {
-    return {
-      width: checkboxWidth,
-      alignSelf: checkboxAlignSelf,
-    };
-  }, [checkboxWidth, checkboxAlignSelf]);
+const CheckboxContainer1 = ({ className = "", option1, handleCheck }) => {
+  /**
+   * Toggle selected icon for CheckboxContainer1
+   * @param {*} event
+   */
+  const onSelect = (event) => {
+    const element = event.currentTarget.children[0];
+    const unCheckedBox = element.children[0];
+    const checkedBox = element.children[1];
 
+    checkedBox.classList.toggle("hidden");
+    unCheckedBox.classList.toggle("hidden");
+
+    if (checkedBox.classList.contains("hidden")) {
+      handleCheck(false, option1);
+    } else {
+      handleCheck(true, option1);
+    }
+  };
   return (
     <div
       onClick={onSelect}
-      className={`w-[85vw] flex flex-col items-start justify-start gap-[8px] text-left text-base text-white font-button-1-regular ${className}`}
-      style={checkboxStyle}
+      className={`w-[85vw] rounded-xl flex flex-col items-start bg-white-8 justify-start gap-[8px] text-left text-base text-white font-button-1-regular ${className}`}
     >
-      <div className="w-[85vw] relative leading-[24px] font-semibold hidden">
-        Question
-      </div>
-      <div className="w-[85vw] rounded-xl bg-white-8 flex flex-row items-center justify-start py-3 px-4 box-border gap-[8px]">
+      <div
+        className={`w-full flex flex-row items-center justify-start py-3 px-4 box-border gap-[8px]`}
+      >
         <svg
           className="block"
           width="22"

@@ -27,15 +27,12 @@ const ForgotPassword = () => {
   /**
    * On Send code click
    */
-  const onSendCodeClick = useCallback(() => {
-    const userEmail = document.getElementById(id).value;
-    if (userEmail !== "") {
+  const onSendCodeClick = () => {
+    if (email !== "") {
       // TODO: Add formik validation here
       navigate("/otp");
-    } else {
-      setEmail(userEmail);
     }
-  }, [email]);
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
@@ -48,8 +45,18 @@ const ForgotPassword = () => {
         returnPage="/login"
       />
       <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px]">
-        <EmailInput label="Email" inputPlaceholder="Enter your email" id={id} />
-        <Button1 onCTAClick={onSendCodeClick} cTA="Send code" />
+        <EmailInput
+          label="Email"
+          inputPlaceholder="Enter your email"
+          id={id}
+          emailValue={email}
+          handleSetEmail={setEmail}
+        />
+        <Button1
+          onCTAClick={onSendCodeClick}
+          cTA="Send code"
+          className="relative top-1 left-[0em] right-[0em] w-full"
+        />
       </main>
     </div>
   );

@@ -9,8 +9,6 @@ import GoogleLogin from "../components/mobile/GoogleLogin";
 import FacebookLogin from "../components/mobile/FacebookLogin";
 import AppleLogin from "../components/mobile/AppleLogin";
 
-//TODO: Ask peter whether the states should be stored in users cookies
-
 /**
  * Login Page
  * @returns JSX element
@@ -32,7 +30,6 @@ const Login = () => {
   const [isGoogleLogin, setIsGoogleLogin] = useState(false);
   const [isAppleLogin, setIsAppleLogin] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const [showPasswordMsg, setShowPasswordMsg] = useState("hidden");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
 
   /**************************************************************************************** */
@@ -49,14 +46,7 @@ const Login = () => {
    * On Login click
    */
   const onLoginClick = useCallback(() => {
-    const userEmail = document.getElementById(emailId).value;
-    const userPassword = document.getElementById(userPass).value;
-
-    // TODO: Add formik validation here
-    // TODO: Set showPasswordMsg to "" here if password is inccorect
-
-    setEmail(userEmail);
-    setPassword(userPassword);
+    // TODO: Add formik validation here and handle is email login properly
     setIsEmailLogin(!isEmailLogin);
 
     if (email !== "" && password !== "") navigate("/home");
@@ -104,13 +94,18 @@ const Login = () => {
                 label="Email"
                 inputPlaceholder="Enter your email"
                 id={emailId}
+                emailValue={email}
+                handleSetEmail={setEmail}
               />
               <PasswordInput
                 id={userPass}
                 label="Password"
                 inputAndWordPlaceholder="Enter your password"
+                handleSetPassword={setPassword}
+                passwordValue={password}
+                validatePass={null} // TODO: Add password validate function here
               />
-              <IncorrectPasswordMsg show={showPasswordMsg} />
+              <IncorrectPasswordMsg />
             </div>
             <div className="self-stretch flex flex-row items-start justify-end py-2 px-0 gap-[145px]">
               <Link
@@ -121,7 +116,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <Button1 onCTAClick={onLoginClick} cTA="Login" />
+          <Button1 onCTAClick={onLoginClick} cTA="Login" className="relative top-1 left-[0em] right-[0em] w-full"/>
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[16px] text-center">
           <div className="self-stretch flex flex-row items-center justify-center p-2">
