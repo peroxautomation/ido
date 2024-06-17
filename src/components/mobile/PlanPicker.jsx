@@ -22,7 +22,7 @@ const PlanPicker = ({
   if( path == "/subscription-free") {
     return (
       <div
-        className={`top-[1%] self-stretch rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-button-2-bold ${className}`}
+        className={`w-full self-stretch rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-button-2-bold ${className}`}
       >
         <div
           className="flex-1 rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem]"

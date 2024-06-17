@@ -13,9 +13,9 @@ const OnboardingPremium = () => {
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <section className="absolute w-full right-[0rem] top-[20vh] h-full left-[0rem] rounded-t-21xl rounded-b-none bg-neutral-800 flex flex-col items-end justify-start pt-[1.25rem] px-[1.25rem] pb-[2.5rem] box-border gap-[2em] text-center text-[2em] text-neutral-100 font-button-2-bold">
-        <Exit />
-        <PlanPicker/>
+      <section className="relative w-full right-[0rem] top-[20vh] h-[calc(100vh_-_20vh)] left-[0rem] rounded-t-21xl rounded-b-none bg-neutral-800 grid grid-flow-row justify-items-center  pt-[1.25rem] px-[1.25rem] pb-[2.5rem] box-border gap-[3rem] text-center text-[2rem] text-neutral-100 font-button-2-bold">
+        <Exit className="justify-self-end" />
+        <PlanPicker className="!w-full" />
         <div className="self-stretch flex flex-row items-center justify-center">
           <div className="flex flex-row items-center justify-center py-[0rem] px-[0.5rem] border-r-[1px] border-solid border-neutral-700">
             <div className="relative leading-[2.5rem] font-semibold">{`$10 `}</div>
@@ -44,21 +44,11 @@ const OnboardingPremium = () => {
             </div>
           </div>
         </div>
-        <div className=" flex-grow flex flex-col items-center min-w-[100%] max-h-[11%] justify-end">
         <Button1
           onCTAClick={onCTAClick}
-          cTAAlignSelf="stretch"
-          cTAPosition="unset"
-          cTATop="unset"
-          cTALeft="unset"
-          cTAWidth="unset"
+          className="relative h-[3em] w-full"
           cTA="Get started"
-          hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-          hugeIconeducationsolidpen1={false}
-          cTARight="unset"
-          cTABottom="unset"
         />
-        </div>
       </section>
     </div>
   );

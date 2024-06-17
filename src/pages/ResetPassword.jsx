@@ -4,6 +4,9 @@ import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ProcessingIcon from "../components/mobile/ProcessingIcon";
+import Button1 from "../components/mobile/Button1";
+import Button1Inactive from "../components/mobile/Button1Inactive";
+import IncorrectPasswordMsg from "../components/mobile/IncorrectPasswordMsg";
 
 /**
  * Reset password screen for profile settings
@@ -16,31 +19,48 @@ const ResetPassword = ({ returnPage }) => {
   const [password, setPassword] = useState(""); // password
   const [password2, setPassword2] = useState(""); // confirm password
 
-  /****************************************************************************** */
-  /********************************{Global Data}********************************* */
-  /****************************************************************************** */
+  /*********************************************************************************** */
+  /********************************{Global vairables}********************************* */
+  /*********************************************************************************** */
   const navigate = useNavigate();
   const id1 = "password1";
   const id2 = "password2";
 
+  /*********************************************************************************** */
+  /********************************{ Functions }************************************** */
+  /*********************************************************************************** */
+
   /**
-   * Navigate to password reset page
+   * Toggle button active
+   * @returns True if all conditions are met, else false.
+   */
+  const isActive = () => {
+    if  ((password.length != 0 && password2.length != 0) && (password === password2) ){
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  /**
+   * Password validator function
+   */
+  const validatePasswords = () => {
+    if (password.length != 0 && password2.length != 0) {
+      if (password === password2)
+        document.getElementById("incoorectPassword").classList.add("hidden");
+      else
+        document.getElementById("incoorectPassword").classList.remove("hidden");
+    } else {
+      document.getElementById("incoorectPassword").classList.add("hidden");
+    }
+  };
+
+  /**
+   * Navigate to the next page
    */
   const onResetClick = () => {
-    const password1 = document.getElementById(id1).value;
-    const password2 = document.getElementById(id2).value;
-    if (password1 !== password2) {
-      document
-        .getElementById(id2)
-        .parentElement.nextElementSibling.classList.remove("hidden");
-    } else {
-      document
-        .getElementById(id2)
-        .parentElement.nextElementSibling.classList.add("hidden");
-    }
-    navigate("/processing", {
-      state: { proceedTo: "/reset-password/result" },
-    });
+    navigate("/processing", { state: { proceedTo: "/reset-password/result" } });
   };
 
   return (
@@ -51,29 +71,28 @@ const ResetPassword = ({ returnPage }) => {
           id={id1}
           inputAndWordPlaceholder="Enter new password"
           label="New password"
+          passwordValue={password}
+          handleSetPassword={setPassword}
+          validatePass={null}
         />
         <PasswordInput
           id={id2}
           inputAndWordPlaceholder="Confirm new password"
           label="Confirm new password"
+          passwordValue={password2}
+          handleSetPassword={setPassword2}
+          validatePass={validatePasswords}
         />
-        <Button2
-          onClick={onResetClick}
-          cTATop="unset"
-          cTALeft="unset"
-          cTAWidth="20.938rem"
-          cTARight="unset"
-          cTABottom="unset"
-          cTA="Reset password"
-          hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-          cTABackgroundColor="#cc0f3c"
-          cTAPosition="unset"
-          cTAGap="0.5rem"
-          cTAFlex="unset"
-          hugeIconeducationsolidpenWidth="1rem"
-          hugeIconeducationsolidpenHeight="1rem"
-          cTAAlignSelf="unset"
-        />
+        <IncorrectPasswordMsg />
+        {isActive() ? (
+          <Button1
+            cTA="Reset password"
+            onCTAClick={onResetClick}
+            className="relative w-full top-[3em]"
+          />
+        ) : (
+          <Button1Inactive cTA="Reset password"  className="relative w-full top-[3em] !left-[0em]"/>
+        )}
       </div>
     </div>
   );

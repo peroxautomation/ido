@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Title from "../components/mobile/Title";
 import OTPInputs from "../components/mobile/OTPInputs";
-
+import { useLocation, useNavigate } from "react-router-dom";
 /**
  * OTP Page
  * @returns JSX element
  */
-const OTP = () => {
+const OTP = ({ proceedTo }) => {
   /**************************************************************************** */
   /********************************{Form Data}********************************* */
   /**************************************************************************** */
@@ -17,6 +17,8 @@ const OTP = () => {
   /*************************************************************************************** */
   const [countDown, setCountDown] = useState(30);
   var currentTime = countDown;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   /**
    * Send OTP passowrd again
@@ -50,13 +52,19 @@ const OTP = () => {
    * @param {*} value
    */
   const onOTPEnter = () => {
-    const otpInputs = document.getElementById('otpInput').children;
+    const otpInputs = document.getElementById("otpInput").children;
     let currOTP = "";
-    for(let input of otpInputs){
+    for (let input of otpInputs) {
       currOTP += input.value.toString();
     }
     console.log(currOTP);
     setOtp(currOTP);
+
+    //Validate OTP and navigate
+    if (currOTP.length == 6)
+      setTimeout(() => {
+        navigate(proceedTo);
+      }, 1000);
   };
 
   return (

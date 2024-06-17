@@ -179,7 +179,7 @@ function App() {
 
       {/******************************************************** { Forgot Password } ************************************************/}
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/otp" element={<OTP />} />
+      <Route path="/otp" element={<OTP proceedTo={'/reset-password'} />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/processing" element={<Processing />} />
       <Route path="/reset-password/result" element={<ResetPasswordResult proceedTo={'/login'}/>} />
@@ -195,6 +195,8 @@ function App() {
       <Route path="/subscription-free" element={<OnboardingFree />} />
       <Route path="/subscription-premium" element={<OnboardingPremium />} />
       <Route path="/start-subscription-premium" element={<StartPremiumPlan />} />
+      <Route path="/start-subscription-premium/processing" element={<Processing />} />
+      <Route path="/start-subscription-premium/otp" element={<OTP proceedTo={'/subscription-premium-result'} />} />
       <Route path="/subscription-premium-result" element={<PremiumResut />} />
       
       {/************************************************* { Home Screen } ***********************************************************/}

@@ -80,7 +80,7 @@ const SignUpAllInfo = () => {
     if (
       username != "" &&
       gender !== null &&
-      (password === password2) &&
+      ((password.length != 0 && password2.length != 0) && (password === password2) ) &&
       termsAndCondition
     ) {
       return true;
@@ -158,7 +158,7 @@ const SignUpAllInfo = () => {
               <Button1
                 cTA="Create Account"
                 onCTAClick={onCreateClick}
-                className=""
+                className="right-[1.25rem] bottom-[2.5rem] left-[1.25rem]"
               />
             ) : (
               <Button1Inactive cTA="Create Account"></Button1Inactive>

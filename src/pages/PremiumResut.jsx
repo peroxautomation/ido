@@ -22,14 +22,8 @@ const PremiumResut = () => {
       </div>
       <Button1
         onCTAClick={onCTAClick}
-        cTAAlignSelf="unset"
-        cTAPosition="absolute"
-        cTATop="88vh"
-        cTALeft="calc(50vw - 45vw)"
-        cTAWidth="calc(100% - 40px)"
         cTA="Back"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil@2x.png"
-        hugeIconeducationsolidpen1={false}
+        className="right-[1.25rem] bottom-[2.5rem] left-[1.25rem]"
       />
     </div>
   );
