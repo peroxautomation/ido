@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/mobile/Title";
 import EmailInput from "../components/mobile/EmailInput";
 import PasswordInput from "../components/mobile/PasswordInput";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import IncorrectPasswordMsg from "../components/mobile/IncorrectPasswordMsg";
 import { useCallback, useState } from "react";
 import GoogleLogin from "../components/mobile/GoogleLogin";
@@ -85,9 +85,9 @@ const Login = () => {
 
   return (
     <div className="w-full fixed bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title hugeIconarrowssolHref="/" pageName="Log in" returnPage="/" />
+      <Title hugeIconarrowssolHref="/" pageName="Log in" />
       <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] overflow-hidden flex flex-col items-start justify-start gap-[32px] text-left text-base text-white font-button-1-semibold">
-        <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[16px]">
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
               <EmailInput
@@ -116,7 +116,11 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <Button1 onCTAClick={onLoginClick} cTA="Login" className="relative top-1 left-[0em] right-[0em] w-full"/>
+          <PrimaryButton
+            onCTAClick={onLoginClick}
+            cTA="Login"
+            isActive={true}
+          />
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[16px] text-center">
           <div className="self-stretch flex flex-row items-center justify-center p-2">

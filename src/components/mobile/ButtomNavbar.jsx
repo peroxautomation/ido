@@ -1,35 +1,45 @@
-import NavHomeIcon from "./NavHomeIcon";
-import NavSearchIcon from "./NavSearchIcon";
-import NavMovesIcon from "./NavMovesIcon";
-import NavProfileIcon from "./NavProfileIcon";
+import NavIcon from "./NavIcon";
 import CreateBtn from "./CreateBtn";
-import PropTypes from "prop-types";
 
 /**
  * Buttom Navbar Component
+ * @param currentPage The screen we are currently on.
  * @returns JSX element
  */
-const ButtomNavbar = ({ currentPage, className = "" }) => {
+const ButtomNavbar = (props) => {
+  const { currentPage } = props;
   return (
     <nav
-      className={`m-0 absolute grid grid-cols-4 justify-items-center w-[100vw] right-[0rem] bottom-[0rem] left-[0rem] [backdrop-filter:blur(20px)] h-[3.5rem] ${className}`}
+      className={`buttom-navbar`}
     >
-      <img
-        className="absolute h-[3.5rem]"
-        alt=""
-        src="/union2.svg"
+      <img className="absolute h-[3.5rem]" alt="" src="/union2.svg" />
+      <NavIcon
+        isSelected={currentPage == "Home" ? true : false}
+        selectedSrc="/homeselected.svg"
+        notSelectedSrc="/homenotselected.svg"
+        linkTo="/home" 
       />
-      <NavHomeIcon isSelected = {(currentPage == 'Home')? true : false} />
-      <NavSearchIcon isSelected = {(currentPage == 'Search')? true : false} />
-      <NavMovesIcon isSelected = {(currentPage == 'Moves')? true : false} />
-      <NavProfileIcon isSelected = {(currentPage == 'Profile')? true : false} />
+      <NavIcon
+        isSelected={currentPage == "Search" ? true : false}
+        selectedSrc="/navbarSearchIconFilled.svg"
+        notSelectedSrc="/navbarSearchIconOutline.svg"
+        linkTo="/search"
+      />
+      <NavIcon
+        isSelected={currentPage == "Moves" ? true : false}
+        selectedSrc="/navMovesIconFilled.png"
+        notSelectedSrc="/navMovesIcon.svg"
+        linkTo="/moves"
+      />
+      <NavIcon
+        isSelected={currentPage == "Profile" ? true : false}
+        selectedSrc="/NavProfileIconSolid.png"
+        notSelectedSrc="/NavProfileIcon.svg"
+        linkTo="/profile"
+      />
       <CreateBtn />
     </nav>
   );
-};
-
-ButtomNavbar.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ButtomNavbar;

@@ -1,55 +1,62 @@
 import Stars from "./Stars";
-import PropTypes from "prop-types";
 /**
- * Ratings dropdown filter
+ * Ratings dropdown list for filter
+ * @param selectHandler Handler to set dropdown value
  */
-const RatingsDropdown = ({ className = "" }) => {
+const RatingsDropdown = (props) => {
+  const { selectHandler } = props;
   return (
     <div
       id="ratingsDropdown"
-      className={`absolute top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-10 max-h-[40vh] overflow-y-scroll ${className}`}
+      className={`search-filter-dropdown-ratings hidden`}
     >
       <Stars
-        hugeIconinterfacesolidsta="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta1="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta2="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta3="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta4="/hugeiconinterfacesolidstar2.svg"
+        star1="/starIcon.svg"
+        star2="/starIcon.svg"
+        star3="/starIcon.svg"
+        star4="/starIcon.svg"
+        star5="/starIcon.svg"
+        value={5}
+        valueHandler={selectHandler}
       />
       <Stars
-        hugeIconinterfacesolidsta="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta1="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta2="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta3="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta4="/hugeiconinterfacesolidstar3.svg"
+        star1="/starIcon.svg"
+        star2="/starIcon.svg"
+        star3="/starIcon.svg"
+        star4="/starIcon.svg"
+        star5="/startIconOutline.svg"
+        value={4}
+        valueHandler={selectHandler}
       />
       <Stars
-        hugeIconinterfacesolidsta="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta1="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta2="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta3="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta4="/hugeiconinterfacesolidstar3.svg"
+        star1="/starIcon.svg"
+        star2="/starIcon.svg"
+        star3="/starIcon.svg"
+        star4="/startIconOutline.svg"
+        star5="/startIconOutline.svg"
+        value={3}
+        valueHandler={selectHandler}
       />
       <Stars
-        hugeIconinterfacesolidsta="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta1="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta2="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta3="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta4="/hugeiconinterfacesolidstar3.svg"
+        star1="/starIcon.svg"
+        star2="/starIcon.svg"
+        star3="/startIconOutline.svg"
+        star4="/startIconOutline.svg"
+        star5="/startIconOutline.svg"
+        value={2}
+        valueHandler={selectHandler}
       />
       <Stars
-        hugeIconinterfacesolidsta="/hugeiconinterfacesolidstar2.svg"
-        hugeIconinterfacesolidsta1="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta2="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta3="/hugeiconinterfacesolidstar3.svg"
-        hugeIconinterfacesolidsta4="/hugeiconinterfacesolidstar3.svg"
+        star1="/starIcon.svg"
+        star2="/startIconOutline.svg"
+        star3="/startIconOutline.svg"
+        star4="/startIconOutline.svg"
+        star5="/startIconOutline.svg"
+        value={1}
+        valueHandler={selectHandler}
       />
     </div>
   );
-};
-
-RatingsDropdown.propTypes = {
-  className: PropTypes.string,
 };
 
 export default RatingsDropdown;

@@ -1,12 +1,11 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Title from "../components/mobile/Title";
 import TextInput1 from "../components/mobile/TextInput1";
 import Dropdown from "../components/mobile/Dropdown";
 import PasswordInput from "../components/mobile/PasswordInput";
-import Button1Inactive from "../components/mobile/Button1Inactive";
 import { useNavigate } from "react-router-dom";
 import DropdownItem1 from "../components/mobile/DropdownItem1";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import CheckboxContainer1 from "../components/mobile/CheckboxContainer1";
 import IncorrectPasswordMsg from "../components/mobile/IncorrectPasswordMsg";
 
@@ -53,7 +52,7 @@ const SignUpAllInfo = () => {
   const onCreateClick = () => {
     // Please sync "OTP" to the project
     console.log("Creating account...");
-    navigate("/subscription-free");
+    navigate("/select-subscription");
   };
 
   /**
@@ -80,7 +79,9 @@ const SignUpAllInfo = () => {
     if (
       username != "" &&
       gender !== null &&
-      ((password.length != 0 && password2.length != 0) && (password === password2) ) &&
+      password.length != 0 &&
+      password2.length != 0 &&
+      password === password2 &&
       termsAndCondition
     ) {
       return true;
@@ -108,18 +109,11 @@ const SignUpAllInfo = () => {
   };
 
   return (
-    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        titleRight="20px"
-        titleLeft="20px"
-        returnPage="/sign-up/questions"
-        pageName="Sign up"
-        titleWidth="calc(100% - 40px)"
-        direactionLeft="/direaction-left.svg"
-      />
-      <main className="relative w-[calc(100%_-_40px)] h-[77%] top-[108px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px] text-center text-base text-neutral-100 font-button-1-regular">
+    <div className="w-full relative bg-neutral-900 h-screen overflow-hidden">
+      <Title pageName="Sign up" />
+      <main className="relative w-[calc(100%_-_40px)] h-[77%] top-[108px] right-[20px] left-[20px] gap-[16px] text-center text-base text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
         <div className="self-stretch flex flex-col items-start justify-start">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[16px] h-[35vh]">
             <TextInput1
               label="Username"
               TextInput1Placeholder="Enter username"
@@ -154,16 +148,12 @@ const SignUpAllInfo = () => {
               className="relative leading-[24px] !bg-transparent !w-full"
               handleCheck={onTermsAndConditionCheck}
             />
-            {isActive() ? (
-              <Button1
-                cTA="Create Account"
-                onCTAClick={onCreateClick}
-                className="right-[1.25rem] bottom-[2.5rem] left-[1.25rem]"
-              />
-            ) : (
-              <Button1Inactive cTA="Create Account"></Button1Inactive>
-            )}
           </div>
+          <PrimaryButton
+            cTA="Create Account"
+            onCTAClick={onCreateClick}
+            isActive={isActive()}
+          />
         </div>
       </main>
     </div>

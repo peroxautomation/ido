@@ -13,10 +13,10 @@ import GalleryAndCameraIcon from "../components/mobile/GalleryAndCameraIcon";
  */
 const CreateNew = () => {
   const navigate = useNavigate();
-
+  
   // Navigate to Create Challege
   const onNextClick = useCallback(() => {
-    navigate(`/create/new-challenge/preview`, {state: {flow: 'new-challenge'}});
+    navigate(`/create/new-challenge/preview`, {state: {flow: 'new-challenge', returnTo: "/create"}});
   }, [navigate]);
 
   // Navigate to home page

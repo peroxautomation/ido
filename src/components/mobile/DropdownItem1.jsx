@@ -1,32 +1,25 @@
-import { useMemo } from "react";
-
 /**
  * Dropdown Items for the Dropdown2 component
+ * @param placeholder item placeholder
+ * @param onSelectItem select item handler
+ * @param isRecent toggle recent icon
+ * @param key the item key
  */
-const DropdownItem1 = ({
-  className = "",
-  placeholder,
-  onSelectItem,
-}) => {
-
+const DropdownItem1 = (props) => {
+  const { placeholder, onSelectItem, isRecent } = props;
   return (
     <div
       onClick={() => onSelectItem(placeholder)}
-      className={`w-full bg-neutral-700 box-border flex flex-row items-center justify-start py-2.5 px-4 gap-[8px] text-left text-base text-white font-button-2-semibold border-b-[1px] border-solid border-neutral-800 ${className}`}
+      className={`dropdown-primary-item`}
     >
-      <img
-        className="w-6 relative h-6 overflow-hidden shrink-0 hidden"
-        alt=""
-        src="/hugeiconmultimedia-and-audiosolidmusic-01.svg"
-      />
-      <img
-        className="w-6 relative h-6 overflow-hidden shrink-0 object-cover hidden"
-        alt=""
-        src="/hugeicontime-and-datesolidtimequarter-past@2x.png"
-      />
-      <div className="flex-1 relative leading-[24px]">
-        {placeholder}
-      </div>
+      {isRecent && (
+        <img
+          className="w-6 relative h-6 overflow-hidden shrink-0 object-cover"
+          alt=""
+          src="/hugeicontime-and-datesolidtimequarter-past@2x.png"
+        />
+      )}
+      <div className="flex-1 relative leading-[24px]">{placeholder}</div>
     </div>
   );
 };

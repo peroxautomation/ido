@@ -1,10 +1,13 @@
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 /**
  * Contact us page
  * @returns A JSX element
  */
 const ContactUs = () => {
+  const onSendClick = () => {
+    console.log("clicked");
+  };
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-center">
       <Title pageName="Contact us" />
@@ -73,20 +76,10 @@ const ContactUs = () => {
             placeholder="Answer for question"
           />
         </div>
-        <Button2
-          cTATop="unset"
-          cTALeft="unset"
-          cTAWidth="20.938rem"
-          cTARight="unset"
-          cTABottom="unset"
+        <PrimaryButton
           cTA="Send message"
-          hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-          cTABackgroundColor="#cc0f3c"
-          cTAPosition="unset"
-          cTAGap="0.5rem"
-          cTAFlex="unset"
-          hugeIconeducationsolidpenWidth="1rem"
-          hugeIconeducationsolidpenHeight="1rem"
+          isActive={true}
+          onCTAClick={onSendClick}
         />
       </form>
     </div>

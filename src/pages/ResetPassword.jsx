@@ -1,18 +1,15 @@
 import PasswordInput from "../components/mobile/PasswordInput";
-import Button2 from "../components/mobile/Button2";
 import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ProcessingIcon from "../components/mobile/ProcessingIcon";
-import Button1 from "../components/mobile/Button1";
-import Button1Inactive from "../components/mobile/Button1Inactive";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import IncorrectPasswordMsg from "../components/mobile/IncorrectPasswordMsg";
 
 /**
  * Reset password screen for profile settings
  * @returns A JSX element
  */
-const ResetPassword = ({ returnPage }) => {
+const ResetPassword = () => {
   /**************************************************************************** */
   /********************************{Form Data}********************************* */
   /**************************************************************************** */
@@ -35,7 +32,11 @@ const ResetPassword = ({ returnPage }) => {
    * @returns True if all conditions are met, else false.
    */
   const isActive = () => {
-    if  ((password.length != 0 && password2.length != 0) && (password === password2) ){
+    if (
+      password.length != 0 &&
+      password2.length != 0 &&
+      password === password2
+    ) {
       return true;
     } else {
       return false;
@@ -84,15 +85,12 @@ const ResetPassword = ({ returnPage }) => {
           validatePass={validatePasswords}
         />
         <IncorrectPasswordMsg />
-        {isActive() ? (
-          <Button1
-            cTA="Reset password"
-            onCTAClick={onResetClick}
-            className="relative w-full top-[3em]"
-          />
-        ) : (
-          <Button1Inactive cTA="Reset password"  className="relative w-full top-[3em] !left-[0em]"/>
-        )}
+        <PrimaryButton
+          cTA="Reset password"
+          onCTAClick={onResetClick}
+          className="relative w-full top-[3em]"
+          isActive={isActive()}
+        />
       </div>
     </div>
   );

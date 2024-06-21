@@ -1,5 +1,5 @@
 import Title from "../components/mobile/Title";
-import CancleSubscriptionBtn from "../components/mobile/CancleSubscriptionBtn";
+import CancelSubscriptionBtn from "../components/mobile/CancelSubscriptionBtn";
 import DeletePopup from "../components/mobile/DeletePopup";
 
 /**
@@ -52,7 +52,7 @@ const Subscriptions = () => {
           </div>
         </div>
       </div>
-      <CancleSubscriptionBtn />
+      <CancelSubscriptionBtn />
       <DeletePopup message={"Are you sure want to cancel subscription?"} current="Subscription" />
     </div>
   );

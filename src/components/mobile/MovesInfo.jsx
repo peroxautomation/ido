@@ -1,63 +1,21 @@
-import { useMemo } from "react";
-import PropTypes from "prop-types";
-
-const MovesInfo = ({
-  className = "",
-  divTextAlign,
-  hipHopTextAlign,
-  dehliTextAlign,
-}) => {
-  const div3Style = useMemo(() => {
-    return {
-      textAlign: divTextAlign,
-    };
-  }, [divTextAlign]);
-
-  const hipHopStyle = useMemo(() => {
-    return {
-      textAlign: hipHopTextAlign,
-    };
-  }, [hipHopTextAlign]);
-
-  const dehliStyle = useMemo(() => {
-    return {
-      textAlign: dehliTextAlign,
-    };
-  }, [dehliTextAlign]);
+const MovesInfo = (props) => {
+  const { date, location, genre } = props;
 
   return (
     <div
-      className={`self-stretch flex flex-col items-end justify-start gap-[0.25rem] text-right text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`self-stretch flex flex-col items-end justify-start gap-[0.25rem] text-right text-[1rem] text-neutral-100 font-button-1-regular`}
     >
-      <div
-        className="self-stretch relative leading-[1.5rem] font-semibold"
-        style={div3Style}
-      >
+      <div className="self-stretch relative leading-[1.5rem] font-semibold">
         06.04.2024
       </div>
-      <div
-        className="self-stretch relative leading-[1.5rem] font-semibold"
-        style={hipHopStyle}
-      >
+      <div className="self-stretch relative leading-[1.5rem] font-semibold">
         Hip-Hop
       </div>
-      <div
-        className="self-stretch relative leading-[1.5rem] font-semibold"
-        style={dehliStyle}
-      >
+      <div className="self-stretch relative leading-[1.5rem] font-semibold">
         Dehli
       </div>
     </div>
   );
-};
-
-MovesInfo.propTypes = {
-  className: PropTypes.string,
-
-  /** Style props */
-  divTextAlign: PropTypes.any,
-  hipHopTextAlign: PropTypes.any,
-  dehliTextAlign: PropTypes.any,
 };
 
 export default MovesInfo;

@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const CommentInput = ({ className = "" }) => {
+const CommentInput = (props) => {
+  const {} = props;
   return (
     <div
-      className={`self-stretch flex flex-row items-center justify-start py-[0.25rem] px-[0rem] gap-[1rem] z-[2] ${className}`}
+      className={`self-stretch flex flex-row items-center justify-start py-[0.25rem] px-[0rem] gap-[1rem] z-[2]`}
     >
       <input
         className="[border:none] [outline:none] font-button-1-regular text-[1rem] bg-white-8 flex-1 rounded-xl flex flex-row items-start justify-start py-[0.5rem] px-[1rem] text-neutral-600"
@@ -19,10 +18,6 @@ const CommentInput = ({ className = "" }) => {
       </button>
     </div>
   );
-};
-
-CommentInput.propTypes = {
-  className: PropTypes.string,
 };
 
 export default CommentInput;

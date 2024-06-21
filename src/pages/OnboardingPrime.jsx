@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 
 /**
  * Onboarding Page
@@ -30,15 +30,13 @@ const OnboardingPrime = () => {
           Get ready to immerse yourself
         </div>
       </div>
-      <Button1
-        onCTAClick={onCTAClick}
-        cTAAlignSelf="unset"
-        cTAPosition="absolute"
-        cTATop="86%"
-        cTALeft="calc(50% - 167.5px)"
-        cTAWidth="335px"
-        cTA="Get started"
-      />
+      <div className="absolute w-[90%] bottom-5">
+        <PrimaryButton
+          onCTAClick={onCTAClick}
+          isActive={true}
+          cTA="Get started"
+        />
+      </div>
     </div>
   );
 };

@@ -12,18 +12,27 @@ const months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 
 /**
  * Month picker wheel for DatePicker
- * @param {*} param0 
+ * @param {*} selectedClass selected class css
+ * @param {*} id Component Id
+ * @param {*} onMonthSelect month select handler
  * @returns A JSX element
  */
-const MonthWheelPicker = ({ className = "", selectedClass, id, onMonthSelect }) => {
+const MonthWheelPicker = (props) => {
+  /***************************************************************************** */
+  /********************************{ Variables }******************************** */
+  /***************************************************************************** */
+  const { selectedClass, id, onMonthSelect } = props;
   const wheelRef = useRef(null);
   const [selectedMonthIndex, setSelectedMonthIndex] = useState(null);
 
+  /**************************************************************************** */
+  /********************************{ Hooks }********************************* */
+  /**************************************************************************** */
   useEffect(() => {
     const wheel = wheelRef.current;
     if (wheel) {
@@ -33,7 +42,8 @@ const MonthWheelPicker = ({ className = "", selectedClass, id, onMonthSelect }) 
         const selectedDateElement = document.getElementById("selectedDate");
         if (!selectedDateElement) return;
 
-        const selectedDatePosition = selectedDateElement.getBoundingClientRect();
+        const selectedDatePosition =
+          selectedDateElement.getBoundingClientRect();
         const wheelChildren = wheel.children;
 
         let foundSelected = false;
@@ -74,6 +84,9 @@ const MonthWheelPicker = ({ className = "", selectedClass, id, onMonthSelect }) 
     }
   }, []);
 
+  /**************************************************************************** */
+  /********************************{ Dynamic component }********************************* */
+  /**************************************************************************** */
   const renderMonths = () => {
     return [...months, ...months, ...months].map((month, index) => (
       <div
@@ -88,11 +101,7 @@ const MonthWheelPicker = ({ className = "", selectedClass, id, onMonthSelect }) 
   };
 
   return (
-    <div
-      ref={wheelRef}
-      id={id}
-      className={`no-scrollbar relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row w-max overflow-y-scroll justify-items-center`}
-    >
+    <div ref={wheelRef} id={id} className={`no-scrollbar birthday-date-wheel`}>
       {renderMonths()}
     </div>
   );

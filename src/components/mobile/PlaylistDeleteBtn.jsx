@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const PlaylistDeleteBtn = ({ className = "" }) => {
+const PlaylistDeleteBtn = () => {
+  const { } = props;
   return (
     <button
-      className={`hidden cursor-pointer [border:none] p-[0.5rem] bg-neutral-800 absolute top-[2rem] right-[1rem] rounded-lg h-[2.25rem] flex flex-row items-center justify-center box-border gap-[0.5rem] ${className}`}
+      className={`hidden cursor-pointer [border:none] p-[0.5rem] bg-neutral-800 absolute top-[2rem] right-[1rem] rounded-lg h-[2.25rem] flex flex-row items-center justify-center box-border gap-[0.5rem] `}
     >
       <div className="relative text-[0.875rem] leading-[1.25rem] font-button-1-regular text-neutral-100 text-center">
         Delete playlist
@@ -15,10 +14,6 @@ const PlaylistDeleteBtn = ({ className = "" }) => {
       />
     </button>
   );
-};
-
-PlaylistDeleteBtn.propTypes = {
-  className: PropTypes.string,
 };
 
 export default PlaylistDeleteBtn;

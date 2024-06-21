@@ -1,7 +1,7 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Title from "../components/mobile/Title";
 import EmailInput from "../components/mobile/EmailInput";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 
 /**
@@ -36,14 +36,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        titleRight="29px"
-        titleLeft="11px"
-        hugeIconarrowssolHref="/login"
-        pageName="Forgot password"
-        titleWidth="calc(100% - 40px)"
-        returnPage="/login"
-      />
+      <Title pageName="Forgot password" />
       <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px]">
         <EmailInput
           label="Email"
@@ -52,10 +45,11 @@ const ForgotPassword = () => {
           emailValue={email}
           handleSetEmail={setEmail}
         />
-        <Button1
+        <PrimaryButton
           onCTAClick={onSendCodeClick}
           cTA="Send code"
           className="relative top-1 left-[0em] right-[0em] w-full"
+          isActive={true}
         />
       </main>
     </div>

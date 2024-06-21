@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
-
-const ProfileMenu = ({ className = "", label, onClick }) => {
+const ProfileMenu = (props) => {
+  const { label, onClick } = props;
   return (
     <div
       onClick={onClick}
-      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular`}
     >
       <div className="self-stretch rounded-2xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] w-[90vw]">
         <img
@@ -21,11 +20,6 @@ const ProfileMenu = ({ className = "", label, onClick }) => {
       </div>
     </div>
   );
-};
-
-ProfileMenu.propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.string,
 };
 
 export default ProfileMenu;

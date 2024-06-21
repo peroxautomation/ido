@@ -5,19 +5,23 @@ import YearWheelPicker from "./YearWheelPicker";
 
 /**
  * Dynamic DatePicker component//TODO: There is a bug with the day. It generates 30 days by default regardless of the month and year. Even for febuary until the both the year and the date are set
- * @param {*} param0 
- * @returns 
+ * @param {*} handleSetDate Set date handler
+ * @param selectedDate The selected date object
+ * @returns
  */
-const BirthdayWheelPicker = ({
-  className = "",
-  handleSetDate,
-  selectedDate,
-}) => {
+const BirthdayWheelPicker = (props) => {
+  /**************************************************************************** */
+  /********************************{ Variables }********************************* */
+  /**************************************************************************** */
+  const { handleSetDate, selectedDate } = props;
   const selectedClass = "text-[1.5rem] opacity-[1]";
 
+  /**************************************************************************** */
+  /********************************{ Methods }********************************* */
+  /**************************************************************************** */
   /**
    * Update selected month
-   * @param {*} month 
+   * @param {*} month
    */
   const handleMonthSelect = (month) => {
     handleSetDate({ month });
@@ -25,7 +29,7 @@ const BirthdayWheelPicker = ({
 
   /**
    * Update selected day
-   * @param {*} day 
+   * @param {*} day
    */
   const handleDaySelect = (day) => {
     handleSetDate({ day });
@@ -33,7 +37,7 @@ const BirthdayWheelPicker = ({
 
   /**
    * Update selected year
-   * @param {*} year 
+   * @param {*} year
    */
   const handleYearSelect = (year) => {
     handleSetDate({ year });
@@ -41,7 +45,7 @@ const BirthdayWheelPicker = ({
 
   return (
     <div
-      className={`relative top-[453px] w-full h-[174px] text-center text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row justify-items-center`}
+      className={`relative top-[453px] w-full h-[174px] text-center text-lg-4 text-neutral-100 font-sf-pro-text grid grid-flow-row justify-items-center`}
     >
       <div className="relative top-[calc(50%_-_87px)] w-[90%] h-[174px] grid grid-flow-col overflow-hidden justify-items-center">
         <SelectedWheelDate />

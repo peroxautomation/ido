@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
-
-const MusicDynamicTimeline = ({ className = "" }) => {
+const MusicDynamicTimeline = (props) => {
+  const { className = "" } = props;
   return (
     <div
       className={`flex flex-col items-center justify-start relative ${className}`}
@@ -47,10 +46,6 @@ const MusicDynamicTimeline = ({ className = "" }) => {
       </div>
     </div>
   );
-};
-
-MusicDynamicTimeline.propTypes = {
-  className: PropTypes.string,
 };
 
 export default MusicDynamicTimeline;

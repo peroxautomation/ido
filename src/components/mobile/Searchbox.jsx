@@ -1,34 +1,29 @@
-import { useCallback } from "react";
 import SearchInput1 from "./SearchInput1";
 import FilterBtn from "./FilterBtn";
-import PropTypes from "prop-types";
 
-const Searchbox = ({ className = "" }) => {
-  const onHugeIconinterfaceoutlinefiClick1 = useCallback(() => {
-    //TODO: Open playlist modal popup
-  }, []);
-
+/**
+ * Search container component
+ * @param searchQuery What is being searched
+ * @param handleSetQuery handler to set the search query
+ * @param handleSetfilterOpen handler to set the filter to opened
+ * @returns A JSX element
+ */
+const Searchbox = (props) => {
+  const { searchQuery, handleSetQuery, handleSetfilterOpen } = props;
   return (
     <div className="relative top-[calc(26%_-_10vh)] display flex flex-row w-[100vw] justify-center">
       <div
-      className={`relative w-[90%] flex flex-row items-center justify-start gap-[1rem] ${className}`}
+        className={`relative w-[90%] flex flex-row items-center justify-start gap-[1rem]`}
       >
         <SearchInput1
-          hugeIconinterfacesolidsea="/searchIcon.svg"
+          searchValue={searchQuery}
+          handleSetValue={handleSetQuery}
           searchPlaceholder="Search"
         />
-        <FilterBtn
-          onHugeIconinterfaceoutlinefiClick={onHugeIconinterfaceoutlinefiClick1}
-          vector="/searchFilterIcon.svg"
-        />
+        <FilterBtn setIsFilterOpen={handleSetfilterOpen} />
       </div>
     </div>
-    
   );
-};
-
-Searchbox.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Searchbox;

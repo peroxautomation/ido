@@ -1,34 +1,38 @@
-import PropTypes from "prop-types";
+const ResultSegmentedPicker = (props) => {
+  const { currentSegment, setCurrent } = props;
 
-const ResultSegmentedPicker = ({ className = "" }) => {
+  const selectedButton =
+    "w-[6.938rem] rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem] box-border gap-[0.5rem]";
+  const selectedText = "relative leading-[1rem] font-semibold text-white text-[0.75rem]";
+
+  const normalButton =
+    "cursor-pointer [border:none] py-[0.75rem] px-[0.25rem] bg-[transparent] w-[7.063rem] rounded-xl flex flex-row items-center justify-center box-border";
+  const normalText =
+    "relative text-[0.75rem] leading-[1rem]  text-neutral-500 text-left";
+
   return (
     <div
-      className={`relative top-[13vh] rounded-xl bg-neutral-800 w-[20.938rem] flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-button-1-regular ${className} self-baseline`}
+      className={`relative top-[13vh] rounded-xl bg-neutral-800 w-[20.938rem] flex flex-row items-center justify-center text-left text-neutral-100 self-baseline`}
     >
-      <div className="w-[6.938rem] rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem] box-border gap-[0.5rem]">
-        <div className="relative leading-[1rem] font-semibold">All</div>
-        <img
-          className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0 hidden"
-          alt=""
-          src="/hugeiconarrowssoliddirectiondown-2.svg"
-        />
-      </div>
-      <button className="cursor-pointer [border:none] py-[0.75rem] px-[0.25rem] bg-[transparent] w-[7.063rem] rounded-xl flex flex-row items-center justify-center box-border">
-        <div className="relative text-[0.75rem] leading-[1rem] font-button-1-regular text-neutral-500 text-left">
-          Similar
-        </div>
+      <button onClick={() => setCurrent("all")}  className={currentSegment == 'all' ? selectedButton : normalButton}>
+        <div   className={currentSegment == 'all' ? selectedText : normalText}>All</div>
       </button>
-      <button className="cursor-pointer [border:none] py-[0.75rem] px-[0.25rem] bg-[transparent] w-[6.938rem] rounded-xl flex flex-row items-center justify-center box-border">
-        <div className="relative text-[0.75rem] leading-[1rem] font-button-1-regular text-neutral-500 text-left">
+      <button 
+        onClick={() => setCurrent("similar")} 
+        className={currentSegment == 'similar' ? selectedButton : normalButton}
+      >
+        <div className={currentSegment == 'similar' ? selectedText : normalText}>Similar</div>
+      </button>
+      <button
+        onClick={() => setCurrent("dissimilar")}
+        className={currentSegment == 'dissimilar' ? selectedButton : normalButton}
+      >
+        <div className={currentSegment == 'dissimilar' ? selectedText : normalText}>
           Dissimilar
         </div>
       </button>
     </div>
   );
-};
-
-ResultSegmentedPicker.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ResultSegmentedPicker;

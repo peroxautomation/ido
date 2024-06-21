@@ -1,7 +1,7 @@
 import ProfileCTA from "./ProfileCTA";
-import PropTypes from "prop-types";
 
-const ProfileCTASection = ({ className = "" }) => {
+const ProfileCTASection = (props) => {
+  const {} = props;
   return (
     <div
       className={`flex flex-row items-start justify-start gap-[1rem] ${className}`}
@@ -30,10 +30,6 @@ const ProfileCTASection = ({ className = "" }) => {
       />
     </div>
   );
-};
-
-ProfileCTASection.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ProfileCTASection;

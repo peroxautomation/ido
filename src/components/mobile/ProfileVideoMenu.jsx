@@ -1,33 +1,29 @@
 import ProfileMenuItem from "./ProfileMenuItem";
-import PropTypes from "prop-types";
 
-const ProfileVideoMenu = ({ className = "" }) => {
+const ProfileVideoMenu = (props) => {
+  const {} = props;
   const onDeleteClick = () => {
-    const element = document.getElementById('ProfileDeleteDancePopup');
-    element.classList.toggle('hidden');
-  }
+    const element = document.getElementById("ProfileDeleteDancePopup");
+    element.classList.toggle("hidden");
+  };
 
   return (
     <div
-      className={`hidden absolute z-10 top-[20%] left-[17%] rounded-lg overflow-hidden flex flex-col items-start justify-start ${className}`}
+      className={`hidden absolute z-10 top-[20%] left-[15%] rounded-lg overflow-hidden flex flex-col items-start justify-start w-[80%]`}
     >
       <ProfileMenuItem
         menuItemGap="unset"
         menuItemAlignSelf="stretch"
         saveToPlaylist="Edit dance"
-        hugeIconinterfaceoutlinet="/hugeiconeducationoutlinepencil1.svg"
+        imageSrc="/hugeiconeducationoutlinepencil1.svg"
       />
       <ProfileMenuItem
         onClick={onDeleteClick}
         saveToPlaylist="Delete dance"
-        hugeIconinterfaceoutlinet="/hugeiconinterfaceoutlinetrash.svg"
+        imageSrc="/hugeiconinterfaceoutlinetrash.svg"
       />
     </div>
   );
-};
-
-ProfileVideoMenu.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ProfileVideoMenu;

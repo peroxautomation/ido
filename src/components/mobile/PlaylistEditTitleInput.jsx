@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const PlaylistEditTitleInput = ({ className = "" }) => {
+const PlaylistEditTitleInput = (props) => {
+  const {  playlistTitle, handleSetTitle } = props;
   return (
     <div
-      className={`flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <div className="w-[20.938rem] flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem] box-border">
         <div className="flex-1 relative leading-[1.5rem]">Title</div>
@@ -22,10 +21,6 @@ const PlaylistEditTitleInput = ({ className = "" }) => {
       </div>
     </div>
   );
-};
-
-PlaylistEditTitleInput.propTypes = {
-  className: PropTypes.string,
 };
 
 export default PlaylistEditTitleInput;

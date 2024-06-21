@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import ProcessingIcon from "../components/mobile/ProcessingIcon";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -7,9 +6,12 @@ import { useLocation, useNavigate } from "react-router-dom";
  * @returns JSX element
  */
 const Processing = () => {
+  /*********************************************************************************** */
+  /********************************{Global Variables}********************************* */
+  /*********************************************************************************** */
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   if (location.state !== null) {
     // Navigation placeholder until backend is complete
     setTimeout(() => {

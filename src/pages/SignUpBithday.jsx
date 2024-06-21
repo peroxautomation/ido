@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BirthdayWheelPicker from "../components/mobile/BirthdayWheelPicker";
 import Title from "../components/mobile/Title";
@@ -25,6 +25,10 @@ const SignUpBirthday1 = () => {
     selectedDate.day && selectedDate.month && selectedDate.year
       ? `${selectedDate.month}/${selectedDate.day}/${selectedDate.year}`
       : null;
+
+  /**************************************************************************** */
+  /********************************{ Methods }********************************* */
+  /**************************************************************************** */
   /**
    * Set date handler
    * @param {*} newDate
@@ -44,11 +48,11 @@ const SignUpBirthday1 = () => {
     if (formattedDate) {
       navigate("/sign-up/country");
     }
-  }
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title returnPage="/sign-up" pageName="Sign up" />
+      <Title pageName="Sign up" />
       <section className="absolute w-[calc(100%_-_40px)] top-[121px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px] text-left text-base text-neutral-100 font-button-1-regular">
         <div className="self-stretch flex flex-row items-center justify-center">
           <div className="flex-1 relative leading-[24px]">

@@ -1,13 +1,16 @@
-const AppleLogin = ({ className = "", onClick }) => {
+/**
+ * Apple login button
+ * @param {*} onClick Action to perform when clicked on
+ * @returns
+ */
+const AppleLogin = (props) => {
+  const { onClick } = props;
   return (
-    <div
-      onClick={onClick}
-      className={`[text-decoration:none] rounded-3xl bg-white-8 flex flex-row items-start justify-start p-3 ${className} cursor-pointer`}
-    >
+    <div onClick={onClick} className={`btn-social-media-login`}>
       <img
-        className="w-6 relative h-6 overflow-hidden shrink-0"
+        className="btn-social-media-login-image"
         alt=""
-        src="/social-icons2.svg"
+        src="/appleIcon1.svg"
       />
     </div>
   );

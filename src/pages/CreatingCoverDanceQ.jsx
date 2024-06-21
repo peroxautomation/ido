@@ -1,6 +1,6 @@
 import CoverInput from "../components/mobile/CoverInput";
 import CoverSource from "../components/mobile/CoverSource";
-import Button3 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const CreatingCoverDanceQ = () => {
   return (
     <div className="w-full fixed bg-neutral-900 h-screen overflow-hidden">
       <Title pageName="New cover" />
-      <div className="absolute w-[calc(100%_-_40px)] top-[5.25rem] right-[1.25rem] left-[1.25rem] h-[73vh] overflow-y-auto flex flex-col items-start justify-start gap-[1rem]">
+      <div className="relative w-[calc(100%_-_40px)] top-[5.25rem] right-[1.25rem] left-[1.25rem] h-[73vh] overflow-y-auto flex flex-col items-start justify-start gap-[1rem]">
         <CoverInput
           label="What is the title of the dance?  "
           placeholder="Answer"
@@ -37,22 +37,9 @@ const CreatingCoverDanceQ = () => {
         </div>
         <CoverInput label="Link" placeholder="URL" />
       </div>
-      <Button3
-        onClick={onNextClick}
-        cTAWidth="calc(100% - 40px)"
-        cTARight="1.25rem"
-        cTABottom="2.5rem"
-        cTATop="unset"
-        cTAPosition="absolute"
-        cTALeft="1.25rem"
-        cTABackgroundColor="#cc0f3c"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        cTA="Next"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-      />
+      <div className="absolute bottom-0 w-[90%] left-[1.25rem] right-[2.5rem]">
+        <PrimaryButton onCTAClick={onNextClick} cTA="Next" isActive={true} />
+      </div>
     </div>
   );
 };

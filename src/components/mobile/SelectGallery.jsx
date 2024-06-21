@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
-
-const SelectGallery = ({ ctaClick, className = "" }) => {
+const SelectGallery = (props) => {
+  const { ctaClick } = props;
   return (
     <div
       onClick={ctaClick}
-      className={`flex flex-row items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100 font-overline-semibold ${className}`}
+      className={`flex flex-row items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100 font-overline-semibold `}
     >
       <div className="relative leading-[1.5rem]">Recents</div>
       <img
@@ -14,10 +13,6 @@ const SelectGallery = ({ ctaClick, className = "" }) => {
       />
     </div>
   );
-};
-
-SelectGallery.propTypes = {
-  className: PropTypes.string,
 };
 
 export default SelectGallery;

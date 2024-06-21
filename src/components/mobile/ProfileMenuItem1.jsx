@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
-
-const ProfileMenuItem1 = ({ className = "", title, onClick}) => {
+//TODO: Check the difference between this and ProfileMenuItem
+const ProfileMenuItem1 = (props) => {
+  const { title, onClick } = props;
   return (
     <div
       onClick={onClick}
-      className={`w-[17.5rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`w-[17.5rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <div className="relative leading-[1.5rem]">{title}</div>
       <img
@@ -14,11 +14,6 @@ const ProfileMenuItem1 = ({ className = "", title, onClick}) => {
       />
     </div>
   );
-};
-
-ProfileMenuItem1.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
 };
 
 export default ProfileMenuItem1;

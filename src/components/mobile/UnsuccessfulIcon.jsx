@@ -1,17 +1,12 @@
-import PropTypes from "prop-types";
-
-const UnsuccessfulIcon = ({ className = "" }) => {
+const UnsuccessfulIcon = (props) => {
+  const {} = props;
   return (
     <img
-      className={`w-[3.5rem] relative h-[3.5rem] overflow-hidden shrink-0 ${className}`}
+      className={`w-[3.5rem] relative h-[3.5rem] overflow-hidden shrink-0 `}
       alt=""
       src="/hugeiconinterfaceoutlinewarning1.svg"
     />
   );
-};
-
-UnsuccessfulIcon.propTypes = {
-  className: PropTypes.string,
 };
 
 export default UnsuccessfulIcon;

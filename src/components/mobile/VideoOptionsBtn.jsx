@@ -1,18 +1,21 @@
-import PropTypes from "prop-types";
-
-const VideoOptionsBtn = ({ className = "" }) => {
-
+/**
+ * Save to playlist button
+ * @param {*} props 
+ * @returns 
+ */
+const VideoOptionsBtn = (props) => {
+  const {} = props;
   // Display the Add To Playlist component
   const onClickCTA = (event) => {
     const targetElement = event.currentTarget.parentElement.children[0];
-    targetElement.classList.toggle('flex');
-    targetElement.classList.toggle('hidden');
-  }
+    targetElement.classList.toggle("flex");
+    targetElement.classList.toggle("hidden");
+  };
 
   // Returned Component
   return (
     <button
-      className={`cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0.5rem] right-[0.5rem] w-[1.5rem] h-[1.5rem] overflow-hidden ${className}`}
+      className={`save-to-playlist-options`}
       onClick={onClickCTA}
     >
       <img
@@ -22,10 +25,6 @@ const VideoOptionsBtn = ({ className = "" }) => {
       />
     </button>
   );
-};
-
-VideoOptionsBtn.propTypes = {
-  className: PropTypes.string,
 };
 
 export default VideoOptionsBtn;

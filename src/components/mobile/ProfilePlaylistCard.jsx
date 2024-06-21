@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const ProfilePlaylistCard = ({ className = "" }) => {
+const ProfilePlaylistCard = (props) => {
+  const {} = props;
   const navigate = useNavigate();
 
   const onSectionClick = () => {
-    navigate('/profile/playlist');
-  }
+    navigate("/profile/playlist");
+  };
 
   return (
     <div
       onClick={onSectionClick}
-      className={`w-[20.938rem] flex flex-row items-start justify-start py-[1rem] px-[0rem] box-border gap-[0.937rem] text-left text-[0.875rem] text-neutral-500 font-button-1-regular ${className}`}
+      className={`w-[20.938rem] flex flex-row items-start justify-start py-[1rem] px-[0rem] box-border gap-[0.937rem] text-left text-[0.875rem] text-neutral-500 font-button-1-regular `}
     >
       <img
         className="flex-1 relative rounded-xl max-w-full overflow-hidden h-[6.25rem] object-cover"
@@ -34,10 +34,6 @@ const ProfilePlaylistCard = ({ className = "" }) => {
       </button>
     </div>
   );
-};
-
-ProfilePlaylistCard.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ProfilePlaylistCard;

@@ -1,15 +1,15 @@
 import OtpInput from "./OTPInput";
-import IncorrectOTPMsg from "./IncorrectOTPMsg";
 
-const OTPInputs = ({ className = "", onInput }) => {
+/**
+ * OTP Inputs container component
+ * @param {*} onInput Handle OTP inputs
+ * @returns A JSX element
+ */
+const OTPInputs = (props) => {
+  const { onInput } = props;
   return (
-    <div
-      className={`flex flex-col items-start justify-start gap-[8px] text-left text-base text-danger-500 font-button-1-semibold ${className}`}
-    >
-      <div
-        id="otpInput"
-        className="flex flex-row items-start justify-start gap-[13px]"
-      >
+    <div>
+      <div id="otpInput" className="otp-input-container">
         <OtpInput onInput={onInput} />
         <OtpInput onInput={onInput} />
         <OtpInput onInput={onInput} />
@@ -17,7 +17,11 @@ const OTPInputs = ({ className = "", onInput }) => {
         <OtpInput onInput={onInput} />
         <OtpInput onInput={onInput} />
       </div>
-      <IncorrectOTPMsg />
+      <span
+        className={`w-[335px] relative text-base leading-[24px] font-button-1-semibold text-danger-500 text-left hidden`}
+      >
+        Incorrect OTP
+      </span>
     </div>
   );
 };

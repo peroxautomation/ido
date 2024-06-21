@@ -1,6 +1,5 @@
 import ProfileMenuItem1 from "./ProfileMenuItem1";
 import ProfileMenuButton from "./ProfileMenuButton";
-import PropTypes from "prop-types";
 import Exit from "./Exit";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +7,8 @@ import { useNavigate } from "react-router-dom";
  * Popup nav menu for profile screen
  * @returns JSX element
  */
-const ProfileMenu = ({ className = "" }) => {
+const ProfileMenu = (props) => {
+  const {} = props;
   const navigate = useNavigate();
 
   /**
@@ -70,7 +70,7 @@ const ProfileMenu = ({ className = "" }) => {
   return (
     <div
       id="profileMenu"
-      className={`hidden absolute right-[0rem] top-[0rem] bg-neutral-700 h-screen flex flex-col items-end justify-start py-[2.5rem] px-[1.25rem] box-border gap-[1.5rem] text-center text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`hidden absolute right-[0rem] top-[0rem] bg-neutral-700 h-screen flex flex-col items-end justify-start py-[2.5rem] px-[1.25rem] box-border gap-[1.5rem] text-center text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <Exit onClick={onExitClick} />
       <div className="flex flex-col items-end justify-start gap-[11.25rem]">
@@ -88,9 +88,4 @@ const ProfileMenu = ({ className = "" }) => {
     </div>
   );
 };
-
-ProfileMenu.propTypes = {
-  className: PropTypes.string,
-};
-
 export default ProfileMenu;

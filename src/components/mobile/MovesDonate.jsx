@@ -1,11 +1,10 @@
-import PropTypes from "prop-types";
-
-const MovesDonate = ({ className = "", donate, onClick }) => {
+const MovesDonate = (props) => {
+  const { donate, onClick } = props;
   return (
-    !donate && (
+    donate && (
       <button
         onClick={onClick}
-        className={`cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 hidden ${className}`}
+        className={`cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0`}
       >
         <img
           className="absolute h-[29.17%] w-[41.67%] top-[33.33%] right-[50%] bottom-[37.5%] left-[8.33%] max-w-full overflow-hidden max-h-full"
@@ -25,11 +24,6 @@ const MovesDonate = ({ className = "", donate, onClick }) => {
       </button>
     )
   );
-};
-
-MovesDonate.propTypes = {
-  className: PropTypes.string,
-  donate: PropTypes.bool,
 };
 
 export default MovesDonate;

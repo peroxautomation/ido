@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * 
- * @param {*} month 
- * @param {*} year 
- * @returns 
+ * Get the number of days for the month
+ * @param {*} month The month
+ * @param {*} year the year of the month
+ * @returns
  */
 const getDaysInMonth = (month, year) => {
   if (year && month !== null) {
@@ -14,19 +14,31 @@ const getDaysInMonth = (month, year) => {
 };
 
 /**
- * Day wheel picker component used in DatePicker component
- * TODO: There is a bug with the day. It generates 30 days by default regardless of the month and year. Even for febuary until the both the year and the date are set
- * @param {*} param0 
- * @returns 
+ * Day picker wheel for DatePicker
+ * @param {*} selectedMonth the selected month
+ * @param {*} selectedYear the selecetd year
+ * @param {*} onDaySelect selected day handler
+ * @param {*} id component id
+ * @param {*} selectedClass selected class css
+ * @returns A JSX element
  */
-const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, selectedMonth, selectedYear }) => {
+const DayWheelPicker = (props) => {
+  /***************************************************************************** */
+  /********************************{ Variables }******************************** */
+  /***************************************************************************** */
+  const { selectedClass, id, onDaySelect, selectedMonth, selectedYear } = props;
   const wheelRef = useRef(null);
-  const [days, setDays] = useState(Array.from({length: 30}, (v, i) => i + 1));  //TODO: Initalize this to an empty array to have the day and year chosen before the day can be rendered
+  const [days, setDays] = useState(Array.from({ length: 30 }, (v, i) => i + 1)); //TODO: Initalize this to an empty array to have the day and year chosen before the day can be rendered
   const [selectedDayIndex, setSelectedDayIndex] = useState(null);
 
+  /**************************************************************************** */
+  /********************************{ Hooks }********************************* */
+  /**************************************************************************** */
   useEffect(() => {
     if (selectedMonth !== null && selectedYear !== null) {
-      const monthIndex = new Date(Date.parse(selectedMonth + " 1, 2020")).getMonth();
+      const monthIndex = new Date(
+        Date.parse(selectedMonth + " 1, 2020")
+      ).getMonth();
       const daysInMonth = getDaysInMonth(monthIndex, selectedYear);
       setDays(Array.from({ length: daysInMonth }, (_, i) => i + 1));
     }
@@ -41,7 +53,8 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
         const selectedDateElement = document.getElementById("selectedDate");
         if (!selectedDateElement) return;
 
-        const selectedDatePosition = selectedDateElement.getBoundingClientRect();
+        const selectedDatePosition =
+          selectedDateElement.getBoundingClientRect();
         const wheelChildren = wheel.children;
 
         let foundSelected = false;
@@ -82,6 +95,9 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
     }
   }, [days]);
 
+  /***************************************************************************** */
+  /********************************{ Dynamic component }*********************** */
+  /**************************************************************************** */
   const renderDays = () => {
     return [...days, ...days, ...days].map((day, index) => (
       <div
@@ -96,11 +112,7 @@ const DayWheelPicker = ({ className = "", selectedClass, id, onDaySelect, select
   };
 
   return (
-    <div
-      ref={wheelRef}
-      id={id}
-      className={`no-scrollbar relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row w-max overflow-y-scroll justify-items-center`}
-    >
+    <div ref={wheelRef} id={id} className={`no-scrollbar birthday-date-wheel`}>
       {renderDays()}
     </div>
   );

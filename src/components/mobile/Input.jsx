@@ -1,28 +1,20 @@
-import PropTypes from "prop-types";
 
 /**
  * Input component use in Start premium screen and others
  * @param {*} label the input label
  * @param {*} className Additional tailwind classes to include
  * @param {*} inputPlaceholder Input placeholder
+ * @param {*} isImportant flag if the input important
  * @param {*} isRequired flag if the input required
  * @returns
  */
-const Input = ({
-  className = "",
-  inputPlaceholder,
-  isRequired,
-  label,
-  value,
-  handleSetValue,
-}) => {
+const Input = (props) => {
+  const { inputPlaceholder, isImportant, isRequired, label, value, handleSetValue } = props;
   return (
-    <div
-      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] font-button-1-regular ${className}`}
-    >
-      <div className="self-stretch flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem]">
+    <div className={`input-1-container`}>
+      <div className="input-1-label">
         <div className="flex-1 relative leading-[1.5rem]">{label}</div>
-        {isRequired && (
+        {isImportant && (
           <div className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0">
             <svg
               width="24"
@@ -42,40 +34,17 @@ const Input = ({
         )}
       </div>
       <input
-        className="[border:none] [outline:none] font-button-1-regular text-[1rem] bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-[0.625rem] px-[1rem] text-neutral-100"
+        className="input-1-input"
         placeholder={inputPlaceholder}
         type="text"
         value={value ? value : ""}
         onInput={(e) => handleSetValue(e.currentTarget.value)}
       />
-      <div className="w-[20.938rem] hidden flex-row items-center justify-center py-[0.25rem] px-[0rem] box-border text-[0.875rem] text-neutral-600">
-        <div className="flex-1 relative leading-[1.25rem]">Helper text</div>
-      </div>
+      {isRequired && (
+        <div className="input-1-danger leading-[1.25rem]">Helper text</div>
+      )}
     </div>
   );
-};
-
-Input.propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.string,
-  hugeIconinterfacesolidinf: PropTypes.bool,
-  inputPlaceholder: PropTypes.string,
-  hugeIconinterfacesolidinf1: PropTypes.string,
-  hugeIconinterfacesolidinf2: PropTypes.string,
-  hugeIconinterfacesolidinf3: PropTypes.string,
-  hugeIconinterfacesolidinf4: PropTypes.string,
-
-  /** Style props */
-  inputAlignSelf: PropTypes.any,
-  inputPosition: PropTypes.any,
-  inputTop: PropTypes.any,
-  inputLeft: PropTypes.any,
-  inputWidth: PropTypes.any,
-  labelAlignSelf: PropTypes.any,
-  labelWidth: PropTypes.any,
-  inputAlignSelf1: PropTypes.any,
-  inputWidth1: PropTypes.any,
-  helperTextWidth: PropTypes.any,
 };
 
 export default Input;

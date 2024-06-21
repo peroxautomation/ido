@@ -1,7 +1,9 @@
 import UnsuccessfulIcon from "../components/mobile/UnsuccessfulIcon";
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
+import { useNavigate } from "react-router-dom";
 
 const SorryPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-center text-[1.25rem] text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
       <div className="absolute w-[20.938rem] flex flex-row items-center justify-center">
@@ -14,22 +16,13 @@ const SorryPage = () => {
           Sorry we cannot share your video due to our copyright policy!
         </div>
       </div>
-
-      <Button2
-        cTATop="unset"
-        cTALeft="1.25rem"
-        cTAWidth="calc(100% - 40px)"
-        cTARight="1.25rem"
-        cTABottom="2.5rem"
-        cTA="Back to home"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil@2x.png"
-        cTABackgroundColor="#cc0f3c"
-        cTAPosition="absolute"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-      />
+      <div className="absolute bottom-0 w-[90%] left-[1.25rem] right-[2.5rem]">
+        <PrimaryButton
+          onCTAClick={() => navigate('/home')}
+          cTA="Back to home"
+          isActive={true}
+        />
+      </div>
     </div>
   );
 };

@@ -12,6 +12,35 @@ import ProfileMenu from "../components/mobile/ProfileMenu";
  */
 const ProfilePrime = () => {
   let [currentSegment, setCurrentSegment] = useState("MyDance");
+  const userDance = [
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+    { data: "danceData" },
+  ];
+
+  const coverData = [
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "coverData" },
+    { data: "danceData" },
+  ];
+
+  const playlistData = [
+    { data: "playlistData" },
+    { data: "playlistData" },
+    { data: "playlistData" },
+  ];
 
   /**
    *  My dance segment
@@ -19,15 +48,9 @@ const ProfilePrime = () => {
    */
   const MyDance = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-cols-2 items-start justify-items-center gap-y-[0.9rem]">
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
+      {userDance.map((element, index) => (
+        <ProfileVideoCard key={index}  />
+      ))}
     </div>
   );
 
@@ -37,15 +60,9 @@ const ProfilePrime = () => {
    */
   const Cover = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-cols-2 items-start justify-items-center gap-y-[0.9rem]">
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
-      <ProfileVideoCard />
+      {coverData.map((element, index) => (
+        <ProfileVideoCard key={index} />
+      ))}
     </div>
   );
 
@@ -55,10 +72,9 @@ const ProfilePrime = () => {
    */
   const Playlist = () => (
     <div className="w-[100%] overflow-hidden shrink-0 grid grid-flow-row items-start justify-items-center gap-[0.937rem]">
-      <ProfilePlaylistCard />
-      <ProfilePlaylistCard />
-      <ProfilePlaylistCard />
-      <ProfilePlaylistCard />
+      {playlistData.map((element, index) => (
+        <ProfilePlaylistCard key={index} />
+      ))}
     </div>
   );
 

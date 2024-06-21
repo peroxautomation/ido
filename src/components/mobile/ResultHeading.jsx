@@ -1,12 +1,14 @@
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
-const ResultHeading = ({ className = "" }) => {
+const ResultHeading = (props) => {
+  const {} = props;
+  const navigate = useNavigate();
   return (
     <div
-      className={`absolute w-[95vh] top-[95vh] right-[-16.75rem] left-[1rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border [transform:_rotate(-90deg)] [transform-origin:0_0] text-center text-[1.25rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`absolute w-[95vh] top-[95vh] right-[-16.75rem] left-[1rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border [transform:_rotate(-90deg)] [transform-origin:0_0] text-center text-[1.25rem] text-neutral-100 font-button-1-regular `}
     >
       <img
-        onClick={() => history.back()}
+        onClick={() => navigate(-1)}
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
         alt=""
         src="/hugeiconarrowssoliddirectionleft-2.svg"
@@ -19,10 +21,6 @@ const ResultHeading = ({ className = "" }) => {
       />
     </div>
   );
-};
-
-ResultHeading.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ResultHeading;

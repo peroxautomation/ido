@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Input from "../components/mobile/Input";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom/dist";
 
@@ -94,7 +94,7 @@ const StartPremiumPlan = () => {
   return (
     <div className="w-full grid grid-flow-row justify-center relative bg-neutral-900 h-[100vh] overflow-hidden text-[1rem] text-neutral-100 font-button-2-bold">
       <Title pageName="Start premium plan" />
-      <div className="relative top-[5rem] overflow-hidden grid grid-flow-row justify-center w-full h-[14rem]">
+      <div className="relative top-[5rem] overflow-hidden grid grid-flow-row justify-items-center w-full h-[14rem] mb-2">
         <div className="self-stretch flex flex-row items-center justify-center">
           <div className="flex-1 flex flex-row items-center justify-center py-[0.5rem] px-[0rem]">
             <div className="flex flex-row items-center justify-center gap-[0.5rem]">
@@ -160,7 +160,6 @@ const StartPremiumPlan = () => {
           label="Card holder name"
           isRequired={false}
           inputPlaceholder="Enter card holder name"
-          className="w-full"
           value={card.cardhodlerName}
           handleSetValue={handleCardHolderName}
         />
@@ -168,33 +167,35 @@ const StartPremiumPlan = () => {
           label="Card number"
           isRequired={false}
           inputPlaceholder="Enter card number"
-          className="w-full"
           value={card.cardNumber}
           handleSetValue={handleCardNumber}
         />
         <div className="relative grid grid-flow-col gap-5 justify-self-center">
-          <Input
-            label="MM/YY"
-            isRequired={false}
-            inputPlaceholder="MM/YY"
-            className="relative w-[10rem]"
-            value={card.expiryDate}
-            handleSetValue={handleCarExpiryDate}
-          />
-          <Input
-            label="CVV"
-            isRequired={true}
-            inputPlaceholder=""
-            className="relative w-[10rem]"
-            value={card.cvv}
-            handleSetValue={handleCardCvv}
-          />
+          <div className="relative w-[10rem]">
+            <Input
+              label="MM/YY"
+              isRequired={false}
+              inputPlaceholder="MM/YY"
+              value={card.expiryDate}
+              handleSetValue={handleCarExpiryDate}
+            />
+          </div>
+          <div className="relative w-[10rem]">
+            <Input
+              label="CVV"
+              isImportant={true}
+              inputPlaceholder=""
+              value={card.cvv}
+              handleSetValue={handleCardCvv}
+            />
+          </div>
         </div>
-        <Button1
+        <PrimaryButton
           onCTAClick={onStartClick}
           cTA="Start premium plan"
           className="relative justify-self-center top-2 h-[3.7em]"
           showImage={true}
+          isActive={true}
         />
       </div>
     </div>

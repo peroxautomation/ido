@@ -1,7 +1,7 @@
 import MovesHeader from "../components/mobile/MovesHeader";
 import RotateScaleBtn from "../components/mobile/RotateScaleBtn";
 import MovesSlider from "../components/mobile/MovesSlider";
-import MovesLike from "../components/mobile/MovesLike";
+import MovesLikes from "../components/mobile/MovesLikes";
 import MovesRate from "../components/mobile/MovesRate";
 import MovesViews from "../components/mobile/MovesViews";
 import MovesComment from "../components/mobile/MovesComment";
@@ -58,14 +58,14 @@ const OthersView = () => {
             <MovesSlider />
           </div>
           <div className="self-stretch flex flex-row items-start justify-start py-[1rem] px-[1.25rem] gap-[1.25rem] max-w-[95vw]">
-            <MovesLike />
+            <MovesLikes />
             <MovesRate />
             <MovesViews />
             <MovesComment onClick={onCommentClick} />
             <MovesAddToPlaylist />
             <MovesShare className="!block" />
             <MovesChallengeIcon className="!block" />
-            <MovesDonate className="!block" onClick={onDonateClick} />
+            <MovesDonate donate={true} onClick={onDonateClick} />
           </div>
         </div>
       </div>

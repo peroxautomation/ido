@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
-
-const MyWalletBtn = ({ className = "", cTA, hugeIconinterfaceoutlinep, onClick }) => {
+const MyWalletBtn = (props) => {
+  const { cTA, hugeIconinterfaceoutlinep, onClick } = props;
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 flex-1 rounded-xl flex flex-row items-center justify-center ${className}`}
+      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 flex-1 rounded-xl flex flex-row items-center justify-center `}
     >
       <div className="relative text-[1rem] leading-[1.5rem] font-semibold font-button-1-regular text-neutral-100 text-center">
         {cTA}
@@ -16,12 +15,6 @@ const MyWalletBtn = ({ className = "", cTA, hugeIconinterfaceoutlinep, onClick }
       />
     </button>
   );
-};
-
-MyWalletBtn.propTypes = {
-  className: PropTypes.string,
-  cTA: PropTypes.string,
-  hugeIconinterfaceoutlinep: PropTypes.string,
 };
 
 export default MyWalletBtn;

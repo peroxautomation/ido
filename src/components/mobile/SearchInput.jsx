@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const SearchInput = ({ className = "" }) => {
+const SearchInput = (props) => {
+  const {} = props;
   return (
     <div
-      className={`relative top-[13vh] h-[2.75rem] w-[20.938rem] flex flex-row ${className} content-center`}
+      className={`relative top-[13vh] h-[2.75rem] w-[20.938rem] flex flex-row  content-center`}
     >
       <div className="w-[90vw] rounded-xl bg-white-8 flex flex-row items-start justify-start py-[0.5rem] px-[1rem] box-border gap-[0.5rem]">
         <div className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0">
@@ -21,10 +20,6 @@ const SearchInput = ({ className = "" }) => {
       </div>
     </div>
   );
-};
-
-SearchInput.propTypes = {
-  className: PropTypes.string,
 };
 
 export default SearchInput;

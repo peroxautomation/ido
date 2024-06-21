@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Generate years from start to end
+ * @param {*} startYear start year
+ * @param {*} endYear end year
+ * @returns
+ */
 const generateYears = (startYear, endYear) => {
   const years = [];
   for (let year = startYear; year <= endYear; year++) {
@@ -10,20 +16,24 @@ const generateYears = (startYear, endYear) => {
 
 /**
  * Year picker wheel for DatePicker
- * @param {*} param0 
+ * @param {*} selectedClass selected class css
+ * @param {*} id Component Id
+ * @param {*} onYearSelect year select handler
  * @returns A JSX element
  */
-const YearWheelPicker = ({
-  className = "",
-  selectedClass,
-  id,
-  onYearSelect,
-}) => {
+const YearWheelPicker = (props) => {
+  /***************************************************************************** */
+  /********************************{ Variables }******************************** */
+  /***************************************************************************** */
+  const { selectedClass, id, onYearSelect } = props;
   const currentYear = new Date().getFullYear();
   const years = generateYears(1900, currentYear);
   const wheelRef = useRef(null);
   const [selectedYearIndex, setSelectedYearIndex] = useState(null);
 
+  /**************************************************************************** */
+  /********************************{ Hooks }********************************* */
+  /**************************************************************************** */
   useEffect(() => {
     const wheel = wheelRef.current;
     if (wheel) {
@@ -75,6 +85,9 @@ const YearWheelPicker = ({
     }
   }, []);
 
+  /***************************************************************************** */
+  /********************************{ Dynamic component }*********************** */
+  /**************************************************************************** */
   const renderYears = () => {
     return [...years, ...years, ...years].map((year, index) => (
       <div
@@ -89,11 +102,7 @@ const YearWheelPicker = ({
   };
 
   return (
-    <div
-      ref={wheelRef}
-      id={id}
-      className={`no-scrollbar relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text ${className} grid grid-flow-row w-max overflow-y-scroll justify-items-center`}
-    >
+    <div ref={wheelRef} id={id} className={`no-scrollbar birthday-date-wheel`}>
       {renderYears()}
     </div>
   );

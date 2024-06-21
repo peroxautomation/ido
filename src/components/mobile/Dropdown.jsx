@@ -1,11 +1,13 @@
-import PropTypes from "prop-types";
-
 /**
  * Dropdown container component
- * @param {*} param0
+ * @param {*} name Dropdown name
+ * @param selected the selected dropdown item
+ * @param DropdownOptions function that dynamically renders dropdown list component
+ * @param isRequired toggle required message
  * @returns
  */
-const Dropdown = ({ className = "", name, selected, DropdownOptions }) => {
+const Dropdown = (props) => {
+  const { name, selected, DropdownOptions, isRequired } = props;
   /**
    * Toggle dropdown list
    * @param {*} event
@@ -15,11 +17,8 @@ const Dropdown = ({ className = "", name, selected, DropdownOptions }) => {
   };
 
   return (
-    <div
-      onClick={onCTAClick}
-      className={`relative self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
-    >
-      <div className="self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem]">
+    <div onClick={onCTAClick} className={`dropdown-primary`}>
+      <div className="dropdown-primary-selected">
         <div className="flex-1 relative leading-[1.5rem]">
           {selected != null ? selected : name}
         </div>
@@ -29,21 +28,12 @@ const Dropdown = ({ className = "", name, selected, DropdownOptions }) => {
           src="/hugeiconarrowssoliddirectiondown-01.svg"
         />
       </div>
-      <div className="w-[20.938rem] hidden flex-row items-center justify-start py-[0.25rem] px-[0rem] box-border text-[0.875rem]">
-        <div className="flex-1 relative leading-[1.25rem] text-danger-500">
-          Select your city {`${name}`}
-        </div>
-      </div>
-      <DropdownOptions></DropdownOptions>
+      {isRequired && (
+        <div className="dropdown-primary-danger">Select your {`${name}`}</div>
+      )}
+      {DropdownOptions}
     </div>
   );
-};
-
-Dropdown.propTypes = {
-  className: PropTypes.string,
-  showLabel: PropTypes.bool,
-  label: PropTypes.string,
-  dropdown: PropTypes.string,
 };
 
 export default Dropdown;

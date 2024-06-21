@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button2 from "../components/mobile/Button2";
 import Title from "../components/mobile/Title";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 
 /**
  * Delete account notice screen
@@ -50,23 +50,13 @@ const DeleteAccountNotice = () => {
           <p className="my-4">Do you want to continue?</p>
         </div>
       </div>
-      <Button2
-        onClick={onContinueClick}
-        cTATop="unset"
-        cTALeft="1.25rem"
-        cTAWidth="calc(100% - 40px)"
-        cTARight="1.25rem"
-        cTABottom="2.688rem"
-        cTA="Continue"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil@2x.png"
-        cTABackgroundColor="#cc0f3c"
-        cTAPosition="absolute"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-        cTAAlignSelf="unset"
-      />
+      <div className="bottom-0 absolute w-[90%] left-[1.25rem] right-[2.5rem]">
+        <PrimaryButton
+          onCTAClick={onContinueClick}
+          cTA="Continue"
+          isActive={true}
+        />
+      </div>
     </div>
   );
 };

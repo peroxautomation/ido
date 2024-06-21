@@ -1,10 +1,14 @@
-import PropTypes from "prop-types";
-
-const FaqQuestion = ({ className = "", onClick }) => {
+/**
+ * 
+ * @param {*} onClick 
+ * @returns 
+ */
+const FaqQuestion = (props) => {
+  const { onClick } = props;
   return (
     <div
       onClick={onClick}
-      className={`w-[20.938rem] bg-neutral-800 flex flex-row items-center justify-between py-[0.75rem] px-[1rem] box-border text-left text-[0.75rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`w-[20.938rem] bg-neutral-800 flex flex-row items-center justify-between py-[0.75rem] px-[1rem] box-border text-left text-[0.75rem] text-neutral-100 font-button-1-regular`}
     >
       <div className="relative leading-[1rem] font-semibold">
         Various versions have evolved over the years
@@ -15,10 +19,6 @@ const FaqQuestion = ({ className = "", onClick }) => {
       </div>
     </div>
   );
-};
-
-FaqQuestion.propTypes = {
-  className: PropTypes.string,
 };
 
 export default FaqQuestion;

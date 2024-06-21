@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const TextArea = ({ className = "", whatAspectsAreInspiredFro }) => {
+const TextArea = (props) => {
+  const { whatAspectsAreInspiredFro } = props;
   return (
     <div
-      className={`self-stretch flex flex-col items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`self-stretch flex flex-col items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <div className="self-stretch flex flex-row items-start justify-end gap-[0.375rem]">
         <div className="flex-1 relative leading-[1.5rem]">
@@ -22,10 +21,4 @@ const TextArea = ({ className = "", whatAspectsAreInspiredFro }) => {
     </div>
   );
 };
-
-TextArea.propTypes = {
-  className: PropTypes.string,
-  whatAspectsAreInspiredFro: PropTypes.string,
-};
-
 export default TextArea;

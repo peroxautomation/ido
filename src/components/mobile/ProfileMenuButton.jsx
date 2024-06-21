@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const ProfileMenuButton = ({ className = "" }) => {
+const ProfileMenuButton = (props) => {
+  const {} = props;
   return (
     <button
-      className={`cursor-pointer [border:none] py-[0.5rem] px-[0rem] bg-[transparent] w-[17.5rem] flex flex-row items-center justify-between box-border ${className}`}
+      className={`cursor-pointer [border:none] py-[0.5rem] px-[0rem] bg-[transparent] w-[17.5rem] flex flex-row items-center justify-between box-border `}
     >
       <div className="relative text-[1rem] leading-[1.5rem] font-button-1-regular text-neutral-100 text-center">
         Log out
@@ -15,10 +14,6 @@ const ProfileMenuButton = ({ className = "" }) => {
       />
     </button>
   );
-};
-
-ProfileMenuButton.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ProfileMenuButton;

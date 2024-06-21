@@ -17,19 +17,19 @@ const CreatorView = () => {
 
   /* Navigate to Сomparison page */
   const onViewResultClick = () => {
-    navigate('/moves/comparison-page')
-  }
+    navigate("/moves/comparison-page");
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
       <div className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] overflow-hidden bg-[url('/public/moves@3x.png')] bg-cover bg-no-repeat bg-[top]">
         <div className="absolute w-full top-[0rem] right-[0rem] left-[0rem] flex flex-col items-start justify-start">
-          <MovesHeader />
+          <MovesHeader movesInfo isCreator={true} />
         </div>
         <div className="absolute w-full right-[0rem] bottom-[0rem] left-[0rem] [background:linear-gradient(180deg,_rgba(0,_0,_0,_0),_rgba(0,_0,_0,_0.9))] grid grif- box-border gap-[1rem]">
           <div className="self-stretch flex flex-col items-end justify-self-center gap-[1.5rem] w-[90vw]">
             <div className="self-stretch flex flex-row items-center justify-between">
-              <MovesBtn 
+              <MovesBtn
                 placeholder={"View results"}
                 onClick={onViewResultClick}
                 className="text-nowrap w-[5.5rem] h-[2rem]"

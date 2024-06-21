@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom";
 import ProfileCTASection from "./ProfileCTASection";
 import ProfileEditBtn from "./ProfileEditBtn";
 import ProfileSegmentPicker from "./ProfileSegmentPicker";
-import PropTypes from "prop-types";
 
 /**
  * Profile screen top component
  * @returns A JSX element
  */
-const ProfileTop = ({ onSegmentClick, currentSegment, view = "User" }) => {
+const ProfileTop = (props) => {
+  const { onSegmentClick, currentSegment, view = "User" } = props;
   const navigate = useNavigate();
 
   /**
@@ -110,10 +110,6 @@ const ProfileTop = ({ onSegmentClick, currentSegment, view = "User" }) => {
       </div>
     </div>
   );
-};
-
-ProfileTop.propTypes = {
-  className: PropTypes.string,
 };
 
 export default ProfileTop;

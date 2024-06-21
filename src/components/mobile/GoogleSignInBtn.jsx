@@ -1,10 +1,13 @@
-import PropTypes from "prop-types";
-
-const GoogleSignInBtn = ({ className = "", onClick }) => {
+/**
+ * 
+ * @returns
+ */
+const GoogleSignInBtn = (props) => {
+  const { onClick } = props;
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 relative w-full rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem] ${className}`}
+      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 relative w-full rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem]`}
     >
       <img
         className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0"
@@ -16,10 +19,6 @@ const GoogleSignInBtn = ({ className = "", onClick }) => {
       </div>
     </button>
   );
-};
-
-GoogleSignInBtn.propTypes = {
-  className: PropTypes.string,
 };
 
 export default GoogleSignInBtn;

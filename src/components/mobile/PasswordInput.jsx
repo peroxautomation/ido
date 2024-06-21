@@ -1,22 +1,34 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 /**
  * Component for password inputs
- * @param {*} param0
+ * @param {*} inputAndWordPlaceholder input placeholder
+ * @param {*} label input label
+ * @param {*} id input id
+ * @param {*} passwordValue input value
+ * @param {*} handleSetPassword set value handler
+ * @param {*} validatePass  Function to validate password
  * @returns A JSX element
  */
-const PasswordInput = ({
-  inputAndWordPlaceholder,
-  label,
-  className = "",
-  id,
-  handleSetPassword,
-  passwordValue,
-  validatePass,
-}) => {
+const PasswordInput = (props) => {
+  const {
+    inputAndWordPlaceholder,
+    label,
+    id,
+    handleSetPassword,
+    passwordValue,
+    validatePass,
+  } = props;
+  /**************************************************************************************** */
+  /********************************{Component Variables}********************************** */
+  /*************************************************************************************** */
   const [isActive, setIsActive] = useState(false); // Hide password flag
   const [btnSource, setBtnSource] = useState("/hidePasswordIcon.svg"); // Hide password button source
   const [passwordType, setPaswordType] = useState("password"); // Toggle hide password
+
+  /************************************************************************************* */
+  /********************************{Component Methods}********************************** */
+  /************************************************************************************* */
   /**
    * Toggle show/hide password
    */
@@ -32,17 +44,16 @@ const PasswordInput = ({
       setPaswordType("text");
     }
   }, [btnSource, isActive, passwordType]);
+
   return (
-    <div
-      className={`self-stretch flex flex-col items-start justify-start text-left text-base text-white font-button-1-semibold ${className}`}
-    >
+    <div className={`primary-input-container`}>
       <div className="self-stretch flex flex-row items-start justify-end pt-0 px-0 pb-1">
         <div className="flex-1 relative leading-[24px]">{label}</div>
       </div>
       <div className="self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-between py-2.5 px-4">
         <input
           id={id}
-          className="[border:none] [outline:none] font-button-1-semibold text-base bg-[transparent] flex-1 flex flex-row items-center justify-start text-white"
+          className="password-input"
           placeholder={inputAndWordPlaceholder}
           type={`${passwordType}`}
           value={passwordValue ? passwordValue : ""}
@@ -60,11 +71,7 @@ const PasswordInput = ({
           />
         </button>
       </div>
-      <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm text-danger-500">
-        <div className="flex-1 relative leading-[20px]">
-          Passwords do not match
-        </div>
-      </div>
+     
     </div>
   );
 };

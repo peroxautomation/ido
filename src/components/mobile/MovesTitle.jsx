@@ -1,14 +1,16 @@
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import MovesBtn from "./MovesBtn";
 
-const MovesTitle = ({ className = ""}) => {
+const MovesTitle = (props) => {
+  const { isCreator = false } = props;
+  const navigate = useNavigate();
   return (
     <div
-      className={`self-stretch flex flex-row items-center justify-between text-center text-[0.75rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`self-stretch flex flex-row items-center justify-between text-center text-[0.75rem] text-neutral-100 font-button-1-regular `}
     >
       <img
-        onClick={ () => {history.back(); }}
-        className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
+        onClick={() => navigate(-1)}
+        className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 cursor-pointer"
         alt=""
         src="/hugeiconarrowssoliddirectionleft-2.svg"
       />
@@ -33,17 +35,10 @@ const MovesTitle = ({ className = ""}) => {
             Ronald Hilson
           </div>
         </div>
-        { /* TODO: If vidoe belongs to user hide this button */}
-        <MovesBtn placeholder={"Relate"}/>
+        {!isCreator && <MovesBtn placeholder={"Relate"} />}
       </div>
     </div>
   );
-};
-
-MovesTitle.propTypes = {
-  className: PropTypes.string,
-  miniBtn: PropTypes.bool,
-  unrelate: PropTypes.string,
 };
 
 export default MovesTitle;

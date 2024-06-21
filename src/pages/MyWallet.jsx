@@ -8,22 +8,21 @@ import OperationTypeDropdownList from "../components/mobile/OperationTypeDropdow
 import { useNavigate } from "react-router-dom";
 
 const MyWallet = () => {
-
   const navigate = useNavigate();
   // Show recent searches
   const onSearchEnter = () => {
-    document.getElementById('PaymentSearch').classList.toggle('hidden');
-  }
+    document.getElementById("PaymentSearch").classList.toggle("hidden");
+  };
 
   // Navigate to top-up screen
   const onTopUpClick = () => {
-    navigate('/profile/my-wallet/top-up')
-  }
+    navigate("/profile/my-wallet/top-up");
+  };
 
   // Navigate to widthdraw screen
   const onWidthdrawClick = () => {
-    navigate('/profile/my-wallet/widthdraw')
-  }
+    navigate("/profile/my-wallet/widthdraw");
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-items-center">
@@ -39,7 +38,7 @@ const MyWallet = () => {
           <MyWalletBtn
             cTA="Top up"
             onClick={onTopUpClick}
-            hugeIconinterfaceoutlinep="/hugeiconinterfaceoutlineplus2.svg"
+            hugeIconinterfaceoutlinep="/playlistPlusSolid.svg"
           />
           <MyWalletBtn
             cTA="Withdraw"
@@ -65,19 +64,19 @@ const MyWallet = () => {
             searchInputWidth="20.938rem"
             className="w-full"
           />
-           <PaymentSearchResults />
+          <PaymentSearchResults />
         </div>
         <div className="self-stretch h-[calc(100vh_-_27rem)] overflow-y-auto flex flex-col items-start justify-start gap-[1rem]">
-          <PaymentHistory prop="-$35" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="-$35" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
-          <PaymentHistory prop="+$35" spanColor="#0c9f6e" />
+          <PaymentHistory value="-$35" />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="-$35" />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
+          <PaymentHistory value="+$35" isPositive={true} />
         </div>
       </main>
     </div>

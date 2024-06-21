@@ -1,13 +1,26 @@
-const Button1 = ({ className = "", cTA, onCTAClick, showImage }) => {
+/**
+ * Primary button component
+ * @param cTA button call to action text
+ * @param onCTAClick button action to perform on click
+ * @param showImage display image
+ * @param isActive Toggle between button active state and inactive state
+ * @returns A JSX element
+ */
+const PrimaryButton = (props) => {
+  /************************************************************************************ */
+  /********************************{Component props}********************************** */
+  /*********************************************************************************** */
+  const { cTA, onCTAClick, showImage, isActive } = props;
+
   return (
     <button
       name="create-button-1"
-      onClick={onCTAClick}
-      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-primary-500 absolute w-[calc(100%_-_40px)] bottom-[2.5rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem] ${className}`}
+      onClick={isActive ? onCTAClick : null}
+      className={`btn-primary ${
+        isActive ? "btn-primary-active" : "btn-primary-inactive"
+      }`}
     >
-      <div className="relative text-[1rem] leading-[1.5rem] font-semibold font-button-1-regular text-neutral-100 text-center">
-        {cTA}
-      </div>
+      <div className="btn-primary-cta">{cTA}</div>
       {showImage && (
         <div>
           <svg
@@ -28,4 +41,4 @@ const Button1 = ({ className = "", cTA, onCTAClick, showImage }) => {
   );
 };
 
-export default Button1;
+export default PrimaryButton;

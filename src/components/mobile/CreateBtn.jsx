@@ -1,28 +1,27 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const CreateBtn = ({ className = "" }) => {
+/**
+ * Buttom navbar create button component
+ * @param {*} props
+ * @returns A JSX element
+ */
+const CreateBtn = (props) => {
+  const {} = props;
   const navigate = useNavigate();
+
   const onClick = () => {
-    navigate('/create')
-  }
+    navigate("/create");
+  };
 
   return (
-    <button
-      onClick={onClick}
-      className={`cursor-pointer [border:none] p-[0.5rem] bg-primary-500 absolute top-[-2rem] left-[calc(90vw_-_45vw)] rounded-[10em] flex flex-row items-start justify-start ${className}`}
-    >
+    <button onClick={onClick} className={`buttom-navbar-create-icon `}>
       <img
-        className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
+        className="buttom-navbar-create-icon-image"
         alt=""
-        src="/hugeiconinterfaceoutlineplus.svg"
+        src="/createIcon.svg"
       />
     </button>
   );
-};
-
-CreateBtn.propTypes = {
-  className: PropTypes.string,
 };
 
 export default CreateBtn;

@@ -1,38 +1,18 @@
 import SearchResultItem from "./SearchResultItem";
-import PropTypes from "prop-types";
 
-const PaymentSearchResults = ({ className = "" }) => {
+const PaymentSearchResults = (props) => {
+  const {} = props;
   return (
     <div
       id="PaymentSearch"
-      className={`hidden relative w-full shadow-[0px_8px_40px_rgba(0,_0,_0,_0.5)] rounded-2xl overflow-hidden flex flex-col ${className}`}
+      className={`hidden relative w-full shadow-[0px_8px_40px_rgba(0,_0,_0,_0.5)] rounded-2xl overflow-hidden flex flex-col `}
     >
-      <SearchResultItem
-        placeholder="Timur Gregorev"
-        item2BorderBottom="1px solid #1b1b1b"
-        className="w-full"
-      />
-      <SearchResultItem
-        placeholder="Diana Agaenko"
-        item2BorderBottom="1px solid #1b1b1b"
-        className="w-full"
-      />
-      <SearchResultItem
-        placeholder="12"
-        item2BorderBottom="1px solid #1b1b1b"
-        className="w-full"
-      />
-      <SearchResultItem
-        placeholder="Withdraw"
-        item2BorderBottom="unset"
-        className="w-full"
-      />
+      <SearchResultItem placeholder="Timur Gregorev" />
+      <SearchResultItem placeholder="Diana Agaenko" />
+      <SearchResultItem placeholder="12" />
+      <SearchResultItem placeholder="Withdraw" />
     </div>
   );
-};
-
-PaymentSearchResults.propTypes = {
-  className: PropTypes.string,
 };
 
 export default PaymentSearchResults;

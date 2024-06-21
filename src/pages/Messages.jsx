@@ -23,29 +23,29 @@ const Messages = () => {
       </div>
       <Title pageName="Chats" />
       <div className="absolute top-[10.25rem] left-[calc(50%_-_187.5px)] h-[calc(100vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start">
-        <ChatBox source="/rectangle-200219@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200220@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200221@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200222@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200223@2x.png" onClick={onChatClick}  />
-        <ChatBox source="/rectangle-200224@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200225@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200226@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200227@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200228@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200229@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200230@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200231@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200232@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200233@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200234@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200235@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200230@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200231@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200232@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200233@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200234@2x.png" onClick={onChatClick} />
-        <ChatBox source="/rectangle-200235@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200219@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200220@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200221@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200222@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200223@2x.png" onClick={onChatClick}  />
+        <ChatBox profileImgSrc="/rectangle-200224@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200225@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200226@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200227@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200228@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200229@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200230@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200231@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200232@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200233@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200234@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200235@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200230@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200231@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200232@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200233@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200234@2x.png" onClick={onChatClick} />
+        <ChatBox profileImgSrc="/rectangle-200235@2x.png" onClick={onChatClick} />
       </div>
     </div>
   );

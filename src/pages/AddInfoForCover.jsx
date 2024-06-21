@@ -1,69 +1,39 @@
 import { useNavigate } from "react-router-dom";
-import Button3 from "../components/mobile/Button2";
+import SecondaryButton from "../components/mobile/SecondaryButton";
 import Dropdown from "../components/mobile/Dropdown";
 import Title from "../components/mobile/Title";
+import CountryDropdown from "../components/mobile/CountryDropdown";
+import { useState } from "react";
 
 const AddInfoForCover = () => {
   const navigate = useNavigate();
-
+  const [selectedCountry, setSelectedCountry] = useState(null);
   // Navigate to the create new cover
   const onCancleClick = () => {
-    navigate('/create/cover');
-  }
+    navigate("/create/cover");
+  };
   // Navigate to the create new cover
   const onShareClick = () => {
-    navigate('/moves');
-  }
-
+    navigate("/moves/creator-view/:videoId");
+  };
+  console.log(document.referrer);
   return (
-    <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flows-row justify-items-center">
+    <div className="w-full fixed bg-neutral-900 h-screen overflow-hidden grid grid-flows-row justify-items-center">
       <Title pageName="New cover" />
-      <Dropdown
-        showLabel={false}
-        labelAlignSelf="unset"
-        labelWidth="20.938rem"
-        label="Label"
-        dropdown="Country"
-        dropdownAlignSelf="unset"
-        inputAlignSelf="unset"
-        inputWidth="20.938rem"
-        dropdownPosition="relative"
-        dropdownTop="6.75rem"
-        dropdownLeft="0em"
-      />
-      <div className="relative grid grid-flow-col gap-4 h-[2.7em] top-[35vh]">
-      <Button3
-        onClick={onCancleClick}
-        cTAWidth="10rem"
-        cTARight="0em"
-        cTABottom="0em"
-        cTATop="0em"
-        cTAPosition="relative"
-        cTALeft="0em"
-        cTABackgroundColor="rgba(255, 255, 255, 0.08)"
-        cTAGap="unset"
-        cTAFlex="unset"
-        cTA="Cancel"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil3@2x.png"
-        hugeIconeducationsolidpenWidth="1.5rem"
-        hugeIconeducationsolidpenHeight="1.5rem"
-      />
-      <Button3
-        onClick={onShareClick}
-        cTAWidth="10rem"
-        cTARight="0em"
-        cTABottom="0em"
-        cTATop="0em"
-        cTAPosition="relative"
-        cTALeft="0em"
-        cTABackgroundColor="#cc0f3c"
-        cTAGap="unset"
-        cTAFlex="unset"
-        cTA="Share"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil2@2x.png"
-        hugeIconeducationsolidpenWidth="1.5rem"
-        hugeIconeducationsolidpenHeight="1.5rem"
-      />
+      <div className="w-[90%] absolute top-[16vh]">
+        <Dropdown
+          selected={selectedCountry}
+          name="Country"
+          DropdownOptions={<CountryDropdown selectHandler={setSelectedCountry}></CountryDropdown>}
+        />
+      </div>
+      <div className="absolute grid grid-flow-col gap-4 h-[2.7em] w-[90%] bottom-10">
+        <SecondaryButton
+          onClick={onCancleClick}
+          className="bg-white-8 w-[10rem]"
+          cTA="Cancel"
+        />
+        <SecondaryButton onClick={onShareClick} cTA="Share" />
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
-
-const SelectMusicButton = ({ className = "", onCTAClick}) => {
+const SelectMusicButton = (props) => {
+  const { onCTAClick } = props;
   return (
     <div
       onClick={onCTAClick}
-      className={`absolute top-[18vh] flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-overline-semibold ${className}`}
+      className={`absolute top-[18vh] flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-overline-semibold `}
     >
       <div className="w-[20.938rem] rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] box-border gap-[0.5rem]">
         <img
@@ -21,10 +20,6 @@ const SelectMusicButton = ({ className = "", onCTAClick}) => {
       </div>
     </div>
   );
-};
-
-SelectMusicButton.propTypes = {
-  className: PropTypes.string,
 };
 
 export default SelectMusicButton;

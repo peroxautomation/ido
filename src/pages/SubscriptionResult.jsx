@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button1 from "../components/mobile/Button1";
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 
 const SubscriptionResult = () => {
   const navigate = useNavigate();
@@ -22,9 +21,10 @@ const SubscriptionResult = () => {
           </div>
         </div>
       </div>
-      <Button2
+      <PrimaryButton
         onClick={onBackClick}
         cTA="Back"
+        isActive={true}
       />
     </div>
   );

@@ -1,20 +1,25 @@
 /**
  * Component for email inputs
- * @param {*} param0
+ * @param {*} label Input label
+ * @param {*} inputPlaceholder Input placeholder
+ * @param {*} id Input id
+ * @param {*} emailValue value of the input
+ * @param {*} handleSetEmail set value handler
+ * @param {*} isRequired toggle required message
  * @returns A JSX element
  */
-const EmailInput = ({
-  className = "",
-  label,
-  inputPlaceholder,
-  id,
-  emailValue,
-  handleSetEmail,
-}) => {
+const EmailInput = (props) => {
+  const {
+    label,
+    inputPlaceholder,
+    id,
+    emailValue,
+    handleSetEmail,
+    isRequired,
+  } = props;
+
   return (
-    <div
-      className={`self-stretch flex flex-col items-start justify-start text-left text-base text-white font-button-1-semibold ${className}`}
-    >
+    <div className={`primary-input-container`}>
       <div className="self-stretch flex flex-row items-start justify-end pt-0 px-0 pb-1">
         <div className="flex-1 relative leading-[24px]">{label}</div>
         <img
@@ -24,15 +29,19 @@ const EmailInput = ({
       </div>
       <input
         id={id}
-        className="[border:none] [outline:none] font-button-1-semibold text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white"
+        className="email-input"
         placeholder={inputPlaceholder}
         type="email"
         value={emailValue ? emailValue : ""}
         onInput={(e) => handleSetEmail(e.currentTarget.value)}
       />
-      <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm text-darkslategray">
-        <div className="flex-1 relative leading-[20px]">Helper text</div>
-      </div>
+      {isRequired && (
+        <div className="w-[335px] hidden flex-row items-center justify-center py-1 px-0 box-border text-sm text-darkslategray">
+          <div className="flex-1 relative leading-[20px]">
+            Please enter your email
+          </div>
+        </div>
+      )}
     </div>
   );
 };

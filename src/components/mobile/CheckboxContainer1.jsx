@@ -1,6 +1,11 @@
-import { useMemo } from "react";
-
-const CheckboxContainer1 = ({ className = "", option1, handleCheck }) => {
+/**
+ * Primary checkbox component
+ * @param {*} option1 Checkbox value
+ * @param {*} handleCheck checkbox handler
+ * @returns A JSX element
+ */
+const CheckboxContainer1 = (props) => {
+  const { option1, handleCheck, className } = props;
   /**
    * Toggle selected icon for CheckboxContainer1
    * @param {*} event
@@ -22,10 +27,10 @@ const CheckboxContainer1 = ({ className = "", option1, handleCheck }) => {
   return (
     <div
       onClick={onSelect}
-      className={`w-[85vw] rounded-xl flex flex-col items-start bg-white-8 justify-start gap-[8px] text-left text-base text-white font-button-1-regular ${className}`}
+      className={`checkbox-primary-container ${className}`}
     >
       <div
-        className={`w-full flex flex-row items-center justify-start py-3 px-4 box-border gap-[8px]`}
+        className={`checkbox-primary-content`}
       >
         <svg
           className="block"

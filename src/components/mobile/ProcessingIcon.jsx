@@ -1,4 +1,8 @@
-const ProcessingIcon = ({ className = "" }) => {
+/**
+ * Animated loading/processing icon
+ * @returns A JSX element
+ */
+const ProcessingIcon = () => {
   return (
     <svg
       width="56"

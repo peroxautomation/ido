@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
 
-const ReceivedMessageBox = ({ className = "", messagesTop }) => {
+const ReceivedMessageBox = (props) => {
+  const messagesTop = props;
   const messagesStyle = useMemo(() => {
     return {
       top: messagesTop,
@@ -10,7 +10,7 @@ const ReceivedMessageBox = ({ className = "", messagesTop }) => {
 
   return (
     <div
-      className={`relative rounded-tl-none rounded-tr-xl rounded-b-xl bg-white-16 w-[16.5rem] flex flex-row items-center justify-center pt-[0.5rem] px-[0.75rem] pb-[1rem] box-border gap-[0.5rem] text-left text-[0.875rem] text-neutral-100 font-button-1-regular self-end ${className}`}
+      className={`relative rounded-tl-none rounded-tr-xl rounded-b-xl bg-white-16 w-[16.5rem] flex flex-row items-center justify-center pt-[0.5rem] px-[0.75rem] pb-[1rem] box-border gap-[0.5rem] text-left text-[0.875rem] text-neutral-100 font-button-1-regular self-end `}
       style={messagesStyle}
     >
       <div className="flex-1 relative leading-[1.25rem] z-[0]">{`All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary as necessary `}</div>
@@ -19,13 +19,6 @@ const ReceivedMessageBox = ({ className = "", messagesTop }) => {
       </div>
     </div>
   );
-};
-
-ReceivedMessageBox.propTypes = {
-  className: PropTypes.string,
-
-  /** Style props */
-  messagesTop: PropTypes.any,
 };
 
 export default ReceivedMessageBox;

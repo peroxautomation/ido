@@ -1,31 +1,36 @@
-import { useMemo } from "react";
-import Return from "./Return";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Title component
- * @param {*} param0 
+ * @param {*} pageName Page heading
  * @returns A JSX element
  */
-const Title = ({
-  className = "",
-  returnPage,
-  pageName,
-}) => {
-  
+const Title = (props) => {
+  /**************************************************************************************** */
+  /********************************{Component Variables}********************************** */
+  /*************************************************************************************** */
+  const navigate = useNavigate();
+  const { pageName } = props;
 
-
+  /**************************************************************************************** */
+  /********************************{Component Functions}********************************** */
+  /*************************************************************************************** */
+  /**
+   * Return to appropriate page
+   */
+  const onReturnClick = () => {
+    navigate(-1);
+  };
   return (
-    <header
-      className={`absolute w-[calc(100%_-_40px)] top-[40px] right-[20px] left-[20px] h-11 flex flex-row items-center justify-between py-2 px-0 box-border text-center text-xl text-white font-button-1-semibold ${className}`}
-    >
-      <Return />
-      <div className="relative leading-[28px] font-semibold">{pageName}</div>
-      <img
-        className="w-6 relative h-6 overflow-hidden shrink-0 object-contain opacity-[0]"
-        alt=""
-        src="/hugeiconarrowssoliddirectionleft-3@2x.png"
-      />
+    <header className={`title-primary`}>
+      <div className={`title-primary-return`} onClick={onReturnClick}>
+        <img
+          className="title-primary-return-image"
+          alt=""
+          src="/direaction-left.svg"
+        />
+      </div>
+      <div className="title-primary-heading">{pageName}</div>
     </header>
   );
 };

@@ -1,4 +1,14 @@
-const OtpInput = ({ className = "", onInput }) => {
+/**
+ * OTP Input component
+ * @param {*} onInput Handle OTP inputs
+ * @param {*} onInput Handle OTP inputs
+ * @returns A JSX element
+ */
+const OtpInput = (props) => {
+  const { onInput } = props;
+  /**************************************************************************************** */
+  /********************************{Component Functions}********************************** */
+  /*************************************************************************************** */
   const validateInput = (event) => {
     event.currentTarget.value = event.currentTarget.value.replace(/[^0-9]/g, "")
     onInput(); //Update OTP value state
@@ -6,7 +16,7 @@ const OtpInput = ({ className = "", onInput }) => {
   return (
     <input
       onInput={validateInput}
-      className={`[border:none] [outline:none] font-button-1-semibold text-xl bg-white bg-opacity-15 w-[45px] relative rounded-lg h-12 overflow-hidden shrink-0 py-2.5 px-[17px] box-border text-white ${className}`}
+      className={`otp-input`}
       type="text"
       maxLength={1}
     />

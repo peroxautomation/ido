@@ -1,40 +1,47 @@
-import PropTypes from "prop-types";
-
 /**
  * Searchbox input component
+ * @param searchPlaceholder Searchbox placeholder
+ * @param searchValue searchbox value
+ * @param handleSetValue  handle setting searchbox value
  * @returns JSX element
  */
-const SearchInput1 = ({
-  className = "",
-  hugeIconinterfacesolidsea,
-  searchPlaceholder,
-  onEnter,
-  onLeave
-}) => {
+const SearchInput1 = (props) => {
+  const { searchPlaceholder, searchValue, handleSetValue } = props;
+
+  /**
+   * Show the search options
+   */
+  const showResults = () => {
+    document.getElementById("searchOptions").classList.toggle("hidden");
+  };  
+
+  /**
+   * Hide the search options
+   */
+  const hideResults = () => {
+    console.log('left')
+    document.getElementById("searchOptions").classList.add("hidden");
+  };
+
   return (
     <div
-      onClick={onEnter}
-      onMouseLeave={onLeave}
-      className={`flex-1 rounded-xl bg-white-8 flex flex-row items-start justify-start py-[0.5rem] px-[1rem] gap-[0.5rem] ${className}`}
+      onClick={showResults}
+      className={`search-page-search-container w-full`}
     >
       <img
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
         alt=""
-        src={hugeIconinterfacesolidsea}
+        src="/searchIcon.svg"
       />
       <input
-        className="[border:none] [outline:none] font-button-2-bold text-[1rem] bg-[transparent] flex-1 relative leading-[1.5rem] text-neutral-100 text-left"
+        className="search-page-search-input"
         placeholder={searchPlaceholder}
         type="text"
+        value={searchValue ? searchValue : ""}
+        onInput={(s) => handleSetValue(s.currentTarget.value)}
       />
     </div>
   );
-};
-
-SearchInput1.propTypes = {
-  className: PropTypes.string,
-  hugeIconinterfacesolidsea: PropTypes.string,
-  searchPlaceholder: PropTypes.string,
 };
 
 export default SearchInput1;

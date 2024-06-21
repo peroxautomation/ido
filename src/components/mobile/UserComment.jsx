@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const UserComment = ({ className = "", ellipse1198 }) => {
+const UserComment = (props) => {
+  const { ellipse1198 } = props;
   return (
     <div
-      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <div className="self-stretch flex flex-row items-center justify-between">
         <div className="flex-1 flex flex-row items-center justify-start gap-[0.5rem]">
@@ -26,11 +25,6 @@ const UserComment = ({ className = "", ellipse1198 }) => {
       </div>
     </div>
   );
-};
-
-UserComment.propTypes = {
-  className: PropTypes.string,
-  ellipse1198: PropTypes.string,
 };
 
 export default UserComment;

@@ -1,4 +1,4 @@
-import Button1Inactive from "../components/mobile/Button1Inactive";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Dropdown1 from "../components/mobile/Dropdown1";
 import Title from "../components/mobile/Title";
 /**
@@ -42,7 +42,7 @@ const DonateSelectPayment = () => {
           </div>
         </div>
       </div>
-      <Button1Inactive
+      <PrimaryButton
         cTAPosition="absolute"
         cTAWidth="20.938rem"
         cTARight="unset"

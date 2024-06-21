@@ -1,11 +1,94 @@
-import Dropdown from "../components/mobile/Dropdown";
 import Title from "../components/mobile/Title";
-import Button1Inactive from "../components/mobile/Button1Inactive";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
+import Dropdown from "../components/mobile/Dropdown";
 import DropdownSearch from "../components/mobile/DropdownSearch";
 import DropdownItem1 from "../components/mobile/DropdownItem1";
+
+const countries = [
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Nigeria",
+];
+
+const states = [
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Nigeria",
+];
+
+const cities = [
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Afghanistan",
+  "Bahrain",
+  "Cambodia",
+  "Denmark",
+  "Ecuador",
+  "Finland",
+  "Germany",
+  "Zimbabwe",
+  "Nigeria",
+];
 /**
  * Select Country Page
  * @returns JSX element
@@ -24,9 +107,6 @@ const SelectCountry = () => {
   /********************************{Global Variables}********************************* */
   /*********************************************************************************** */
   const navigate = useNavigate();
-  const countryListId = "countryDropdownList";
-  const cityListId = "cityDropdownList";
-  const stateListId = "stateDropdownList";
 
   /*********************************************************************************** */
   /********************************{ Functions }************************************** */
@@ -103,133 +183,80 @@ const SelectCountry = () => {
     }
   };
 
+  const isActive = () => {
+    if (
+      countryInfo.city == null ||
+      countryInfo.country == null ||
+      countryInfo.state == null
+    )
+      return false;
+    else return true;
+  };
+
   /****************************************************************************************** */
   /********************************{ Local components }************************************** */
   /****************************************************************************************** */
+
+  /**
+   * Dynamic country list
+   * @returns A JSX element
+   */
   const CountryDropdownList = () => {
     return (
-      <div
-        className={`absolute top-[48px] hidden rounded-2xl h-[calc(70vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold z-10 w-full`}
-      >
+      <div className="dropdown-primary-list hidden">
         <DropdownSearch />
-        <DropdownItem1
-          placeholder="Afghanistan"
-          onSelectItem={onCountryClick}
-        />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCountryClick} />
-        <DropdownItem1
-          placeholder="Afghanistan"
-          onSelectItem={onCountryClick}
-        />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCountryClick} />
-        <DropdownItem1
-          placeholder="Afghanistan"
-          onSelectItem={onCountryClick}
-        />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCountryClick} />
-        <DropdownItem1 placeholder="Nigeria" onSelectItem={onCountryClick} />
+        {countries.map((element, index) => (
+          <DropdownItem1
+            placeholder={element}
+            key={index}
+            onSelectItem={onCountryClick}
+          />
+        ))}
       </div>
     );
   };
 
+  /**
+   * Dynamic state list
+   * @returns A JSX element
+   */
   const StateDropdownList = () => {
     return (
-      <div
-        className={`absolute top-[48px] hidden rounded-2xl h-[calc(70vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold z-10 w-full`}
-      >
+      <div className="dropdown-primary-list hidden">
         <DropdownSearch />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onStateClick} />
-        <DropdownItem1 placeholder="Nigeria" onSelectItem={onCountryClick} />
+        {states.map((element, index) => (
+          <DropdownItem1
+            placeholder={element}
+            key={index}
+            onSelectItem={onStateClick}
+          />
+        ))}
       </div>
     );
   };
 
+  /**
+   * Dynamic city list
+   * @returns A JSX element
+   */
   const CityDropdownList = () => {
     return (
-      <div
-        className={`absolute top-[48px] hidden rounded-2xl h-[calc(70vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold z-10 w-full`}
-      >
+      <div className="dropdown-primary-list hidden">
         <DropdownSearch />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Afghanistan" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Bahrain" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Cambodia" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Denmark" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Ecuador" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Finland" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Germany" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Zimbabwe" onSelectItem={onCityClick} />
-        <DropdownItem1 placeholder="Nigeria" onSelectItem={onCityClick} />
+        {cities.map((element, index) => (
+          <DropdownItem1
+            placeholder={element}
+            key={index}
+            onSelectItem={onCityClick}
+          />
+        ))}
       </div>
     );
   };
 
   return (
-    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        titleRight="unset"
-        titleLeft="20px"
-        returnPage="/sign-up/birthday"
-        pageName="Select country"
-        titleWidth="335px"
-        direactionLeft="/direaction-left.svg"
-      />
+    <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-items-center">
+      <Title pageName="Select country" />
       <section className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] flex flex-col items-start justify-start gap-[16px] text-left text-base text-neutral-100 font-button-1-regular">
         <Dropdown
           name="Country"
@@ -247,17 +274,13 @@ const SelectCountry = () => {
           DropdownOptions={CityDropdownList}
         />
       </section>
-      {countryInfo.city == null ||
-      countryInfo.country == null ||
-      countryInfo.state == null ? (
-        <Button1Inactive cTA="Next" />
-      ) : (
-        <Button1
+      <div className="absolute w-[90%] bottom-5">
+        <PrimaryButton
           cTA="Next"
           onCTAClick={onNextClick}
-          className="absolute w-[calc(100%_-_40px)] right-[1.25rem] bottom-[2.5rem] left-[1.25rem]"
+          isActive={isActive()}
         />
-      )}
+      </div>
     </div>
   );
 };

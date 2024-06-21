@@ -1,21 +1,39 @@
 import Genre from "./Genre";
 import GenreFocused from "./GenreFocused";
-import PropTypes from "prop-types";
 
-const Genres = ({ className = "" }) => {
+/**
+ * Home page genres container
+ * @returns
+ */
+const Genres = () => {
+  const genresArray = [
+    { name: "Hip Hop", src: "/rectangle-1972@2x.png" },
+    { name: "Rock", src: "/rectangle-1972@2x.png" },
+    { name: "Jazz", src: "/rectangle-1972@2x.png" },
+    { name: "Pop", src: "/rectangle-1972@2x.png" },
+    { name: "Classical", src: "/rectangle-1972@2x.png" },
+    { name: "Reggae", src: "/rectangle-1972@2x.png" },
+    { name: "Country", src: "/rectangle-1972@2x.png" },
+    { name: "Blues", src: "/rectangle-1972@2x.png" },
+  ];
+
+  const renderGenres = () => {
+    return genresArray.map((element, index) => (
+      <Genre name={element.name} key={index} src={element.src} />
+    ));
+  };
+
   return (
     <div
-      className={`relative top-[8.75rem] bg-neutral-900 w-[calc(100vw_-_2rem)] overflow-x-scroll z-10  h-[20vh] shrink-0 text-left text-[1rem] text-neutral-100 font-button-1-regular flex flex-row items-center ${className} gap-6 px-1`}
+      id="genreContainer"
+      className={`main-page-genre-container`}
     >
+      {/*renderGenres()*/}
       <Genre />
       <GenreFocused />
       <Genre />
     </div>
   );
-};
-
-Genres.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Genres;

@@ -7,6 +7,75 @@ import DeletePopup from "../components/mobile/DeletePopup";
  * @returns JSX element
  */
 const HistoryPage = () => {
+  const historyData = [
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+    {
+      src: "hugeiconinterfaceoutlinetrash.svg",
+      views: 122,
+      likes: 54,
+    },
+  ];
+
+  const renderHistoryVideos = () => {
+    return historyData.map((element, index) => (
+      <ProfileVideoCard2
+        key={index}
+        likes={element.likes}
+        views={element.views}
+        src={element.src}
+        current="Liked"
+      />
+    ));
+  };
   return (
     <div className="w-full fixed bg-neutral-900 h-[100vh] overflow-hidden">
       <img
@@ -14,41 +83,10 @@ const HistoryPage = () => {
         alt=""
         src="/devicemobile.svg"
       />
-      <Title
-        titleRight="1.25rem"
-        titleLeft="1.25rem"
-        hugeIconarrowssolHref="/main-page"
-        pageName="History"
-        titleWidth="calc(100% - 40px)"
-        direactionLeft="/direaction-left.svg"
-        returnPage="/home"
-      />
-      <section className="absolute w-[calc(100%_-_40px)] top-[6.75rem] right-[1.25rem] h-[82%] left-[1.25rem] overflow-y-scroll flex flex-col items-start justify-start gap-[1rem] text-left text-[0.875rem] text-neutral-100 font-button-2-bold">
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <div className="self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
-          <ProfileVideoCard2 current={"History"} />
-          <ProfileVideoCard2 current={"History"} />
-        </div>
-        <DeletePopup message={"Are you sure want to remove from history?"} />
+      <Title pageName="History" />
+      <section className="absolute w-[calc(100%_-_40px)] top-[6.75rem] right-[1.25rem] h-[calc(100vh_-_7.2rem)] left-[1.25rem] overflow-y-auto grid grid-cols-2 items-start justify-start gap-[1rem] text-left text-[0.875rem] text-neutral-100 font-button-2-bold">
+        {renderHistoryVideos()}
+        <DeletePopup message={"Are you sure want to remove from liked?"} />
       </section>
     </div>
   );

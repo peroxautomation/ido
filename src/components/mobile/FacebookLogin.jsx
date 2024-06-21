@@ -1,13 +1,16 @@
-const FacebookLogin = ({ className = "", onClick }) => {
+/**
+ * Facebook login button
+ * @param {*} onClick Action to perform when clicked on
+ * @returns
+ */
+const FacebookLogin = (props) => {
+  const { onClick } = props;
   return (
-    <div
-      onClick={onClick}
-      className={`[text-decoration:none] rounded-3xl bg-white-8 flex flex-row items-start justify-start p-3 ${className} cursor-pointer`}
-    >
+    <div onClick={onClick} className={`btn-social-media-login`}>
       <img
-        className="w-6 relative h-6 overflow-hidden shrink-0"
+        className="btn-social-media-login-image"
         alt=""
-        src="/social-icons1.svg"
+        src="/facebookIcon1.svg"
       />
     </div>
   );

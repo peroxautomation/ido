@@ -3,9 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   @apply leading-[normal] m-0;
 }
+
 *,
 ::before,
 ::after {
@@ -19,6 +21,336 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
+@layer components {
+  .btn-primary {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] relative w-full rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem] h-[44px] self-end mb-8;
+  }
+
+  .btn-primary-cta {
+    @apply relative text-[1rem] leading-[1.5rem] font-semibold text-neutral-100 text-center;
+  }
+
+  .btn-primary-active {
+    @apply bg-primary-500;
+  }
+
+  .btn-primary-inactive {
+    @apply bg-primary-100;
+  }
+
+  .btn-secondary {
+    @apply cursor-pointer rounded-md bg-neutral-800 flex flex-row items-center justify-center py-[0.35rem] px-[0.75rem] box-border text-right text-[0.75rem] text-neutral-100 hover:bg-neutral-800/80;
+  }
+
+  .title-primary {
+    @apply ml-4 absolute w-[calc(100%_-_40px)] top-[40px] h-11 flex flex-row items-center justify-between py-2 px-0 box-border text-center text-xl text-white font-button-1-semibold;
+  }
+
+  .title-primary-return {
+    @apply cursor-pointer [text-decoration:none] w-6 relative h-6 overflow-hidden shrink-0;
+  }
+
+  .title-primary-return-image {
+    @apply absolute h-[47.92%] w-[22.92%] top-[26.25%] right-[38.75%] bottom-[25.83%] left-[38.33%] max-w-full overflow-hidden max-h-full;
+  }
+
+  .title-primary-heading {
+    @apply relative leading-[28px] font-semibold flex-1;
+  }
+
+  /* Used in password and email input component*/
+  .primary-input-container {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-base text-white font-button-1-semibold;
+  }
+
+  .email-input {
+    @apply [border:none] [outline:none] font-button-1-semibold text-base bg-white-8 self-stretch rounded-[12px] flex flex-row items-center justify-center py-2.5 px-4 text-white;
+  }
+
+  .password-input {
+    @apply [border:none] [outline:none] font-button-1-semibold text-base bg-[transparent] flex-1 flex flex-row items-center justify-start text-white;
+  }
+
+  .btn-social-media-login {
+    @apply [text-decoration:none] rounded-3xl bg-white-8 flex flex-row items-start justify-start p-3 cursor-pointer;
+  }
+
+  .btn-social-media-login-image {
+    @apply w-6 relative h-6 overflow-hidden shrink-0
+  }
+
+  .incorrect-password-msg {
+    @apply flex flex-row items-center justify-start px-0 box-border gap-[8px] text-left text-sm text-danger-500 font-button-1-semibold;
+  }
+
+  .otp-input-container {
+    @apply flex flex-row items-start justify-start gap-[13px];
+  }
+
+  .otp-input {
+    @apply [border:none] [outline:none] font-button-1-semibold text-xl bg-white bg-opacity-15 w-[45px] relative rounded-lg h-12 overflow-hidden shrink-0 py-2.5 px-[17px] box-border text-white;
+  }
+
+  .birthday-date-wheel {
+    @apply relative w-[15px] h-[173px] text-right text-lg-4 text-neutral-100 font-sf-pro-text grid grid-flow-row w-max overflow-y-scroll justify-items-center;
+  }
+
+  .dropdown-primary {
+    @apply relative self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .dropdown-primary-selected {
+    @apply self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem];
+  }
+
+  .dropdown-primary-search {
+    @apply w-full bg-neutral-700 flex flex-row items-start justify-start py-2 px-4 box-border gap-[8px];
+  }
+
+  .dropdown-primary-search-input {
+    @apply [border:none] [outline:none] text-base bg-[transparent] flex-1 relative leading-[24px] text-white text-left;
+  }
+
+  .dropdown-primary-danger {
+    @apply flex-1 relative leading-[1.25rem] text-danger-500 text-[0.875rem];
+  }
+
+  .dropdown-primary-item {
+    @apply w-full bg-neutral-700 box-border flex flex-row items-center justify-start py-2.5 px-4 gap-[8px] text-left text-base text-white border-b-[1px] border-solid border-neutral-800;
+  }
+
+  .dropdown-primary-list {
+    @apply absolute top-[48px] rounded-2xl h-[calc(70vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white z-10 w-full;
+  }
+
+  .text-input-primary {
+    @apply [border:none] [outline:none] text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white;
+  }
+
+  .text-input-primary-label {
+    @apply self-stretch flex flex-row items-start pt-0 px-0 pb-1 flex-1 relative leading-[24px];
+  }
+
+  .text-input-primary-danger {
+    @apply flex-1 relative leading-[20px] text-sm text-danger-500 font-light pl-2;
+  }
+
+  .checkbox-primary-container {
+    @apply w-[85vw] rounded-xl flex flex-col items-start bg-white-8 justify-start gap-[8px] text-left text-base text-white;
+  }
+
+  .checkbox-primary-content {
+    @apply w-full flex flex-row items-center justify-start py-3 px-4 box-border gap-[8px];
+  }
+
+  .subscription-plan-picker {
+    @apply w-full self-stretch rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100;
+  }
+
+  .subscription-plan-picker-selected {
+    @apply flex-1 rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem];
+  }
+
+  .subscription-plan-picker-unselected {
+    @apply flex-1 rounded-xl flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem] text-neutral-500;
+  }
+
+  /* Used in Input component*/
+  .input-1-container {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-[1rem] w-full;
+  }
+
+  .input-1-label {
+    @apply self-stretch flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem];
+  }
+
+  .input-1-input {
+    @apply [border:none] [outline:none] text-[1rem] bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-[0.625rem] px-[1rem] text-neutral-100;
+  }
+
+  .input-1-danger {
+    @apply w-[20.938rem] flex-row items-center justify-center py-[0.25rem] px-[0rem] box-border text-[0.875rem] text-danger-500;
+  }
+
+  .confirmed-icon {
+    @apply w-[3.5rem] relative h-[3.5rem] overflow-hidden shrink-0;
+  }
+
+  .top-navbar {
+    @apply absolute w-full top-[2.5rem] right-[0rem] left-[0rem] [backdrop-filter:blur(20px)] bg-white-8 flex flex-row items-start justify-between py-[1rem] px-[1.25rem] box-border text-left text-[0.875rem] text-neutral-100;
+  }
+
+  .top-navbar-icon {
+    @apply w-[1.6rem] relative h-[1.6rem] overflow-hidden shrink-0 cursor-pointer;
+  }
+
+  .top-navbar-logo {
+    @apply relative text-[1.06rem] tracking-[0.1em] leading-[1.75rem] font-semibold text-neutral-100 text-left;
+  }
+
+  .main-page-genre-container {
+    @apply relative top-[8.75rem] bg-neutral-900 w-screen overflow-x-scroll z-10 h-[20vh] shrink-0 text-left text-[1rem] text-neutral-100 flex flex-row items-center gap-6 px-[1rem];
+  }
+
+  .main-page-genre {
+    @apply relative shadow-[0px_4px_10.4px_#000] rounded-xl box-border w-[10.5em] min-w-[10rem] h-[60%] overflow-hidden text-left text-[1rem] text-neutral-100 border-[0.5px] border-solid border-neutral-800;
+  }
+
+  .main-page-genre-text {
+    @apply absolute top-[41.43%] left-[35%] leading-[1.5rem]
+  }
+
+  .main-page-section-heading {
+    @apply w-[full] flex flex-row items-start justify-between py-[0.5rem] px-[0rem] box-border text-left text-[1rem] text-neutral-100 pr-2;
+  }
+
+  .main-page-section-heading-link {
+    @apply [text-decoration:none] relative leading-[1.5rem] text-primary-500 text-right;
+  }
+
+  .home-page-section {
+    @apply top-[2.5rem] left-[0rem] w-[93vw] overflow-x-auto flex flex-row items-start justify-start text-left text-[0.875rem] text-neutral-100;
+  }
+
+  .video-card {
+    @apply relative rounded-xl w-[10rem] min-h-full overflow-hidden text-left text-[0.875rem] text-neutral-100 mx-[0.5rem];
+  }
+
+  .video-card-icon {
+    @apply flex flex-row items-center justify-start text-left text-[0.875rem] text-neutral-100;
+  }
+
+  .video-card-icon-image {
+    @apply w-[1rem] relative h-[1rem] overflow-hidden shrink-0;
+  }
+
+  .video-card-icon-text {
+    @apply relative leading-[1.25rem] font-semibold;
+  }
+
+  .main-page-genre-image {
+    @apply absolute h-full w-full rounded-xl max-w-full overflow-hidden max-h-full object-cover;
+  }
+
+  .main-page-genre-focused {
+    @apply relative shadow-[0px_4px_23.5px_#000] rounded-xl box-border w-[15.5rem] min-w-[15.5em] h-[90%] overflow-hidden text-left text-[1rem] text-neutral-100 border-[0.5px] border-solid border-neutral-800;
+  }
+
+  .main-page-genre-focused-image {
+    @apply absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-xl max-w-full overflow-hidden max-h-full object-cover;
+  }
+
+  .buttom-navbar-icon {
+    @apply [text-decoration:none] w-[5rem] flex flex-row items-center justify-center py-[1rem] px-[0.5rem] box-border;
+  }
+
+  .buttom-navbar-icon-image {
+    @apply w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .buttom-navbar-create-icon {
+    @apply cursor-pointer [border:none] p-[0.5rem] bg-primary-500 absolute top-[-2rem] left-[calc(90vw_-_45vw)] rounded-[10em] flex flex-row items-start justify-start;
+  }
+
+  .buttom-navbar-create-icon-image {
+    @apply w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .buttom-navbar {
+    @apply m-0 absolute grid grid-cols-4 justify-items-center w-[100vw] right-[0rem] bottom-[0rem] left-[0rem] [backdrop-filter:blur(20px)] h-[3.5rem];
+  }
+
+  .home-page-section-video-card {
+    @apply flex-1 relative rounded-xl h-[10rem] overflow-hidden bg-cover bg-no-repeat bg-[top];
+  }
+
+  .btn-save-to-playlist {
+    @apply absolute top-[20%] right-[5%] rounded-lg bg-neutral-800 h-[2.5rem] grid grid-flow-col items-center justify-between p-[0.5rem] box-border gap-[0.5rem] text-[0.875rem] text-neutral-100;
+  }
+
+  .save-to-playlist-options {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0.5rem] right-[0.5rem] w-[1.5rem] h-[1.5rem] overflow-hidden;
+  }
+
+  .save-to-playlist-title {
+    @apply w-[20.938rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1rem] text-neutral-100;
+  }
+
+  .save-to-playlist-title-new-playlist {
+    @apply flex flex-row items-center justify-start gap-[0.25rem] text-primary-500;
+  }
+
+  .search-page-search-container {
+    @apply flex-1 rounded-xl bg-white-8 flex flex-row items-start justify-start py-[0.5rem] px-[1rem] gap-[0.5rem];
+  }
+
+  .search-page-search-input {
+    @apply [border:none] [outline:none] text-[1rem] bg-[transparent] flex-1 relative leading-[1.5rem] text-neutral-100 text-left;
+  }
+
+  .search-page-search-filter {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .search-page-search-filter-image {
+    @apply absolute h-3/4 w-9/12 top-[12.5%] right-[12.5%] bottom-[12.5%] left-[12.5%] max-w-full overflow-hidden max-h-full;
+  }
+
+  .search-page-search-options-container {
+    @apply absolute z-10 top-[calc(32%_-_10vh)] left-[1.25rem] rounded-xl overflow-hidden flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .search-page-search-options {
+    @apply w-[20.938rem] bg-neutral-700 box-border flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-800;
+  }
+
+  .search-filter-dropdown-ratings {
+    @apply absolute top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-10 max-h-[40vh] overflow-y-scroll;
+  }
+
+  .search-filter-dropdown-country {
+    @apply absolute w-full top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-20 max-h-[50vh] overflow-y-scroll;
+  }
+
+  .search-filter-dropdown-year {
+    @apply absolute w-full top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-10 max-h-[40vh] overflow-y-scroll;
+  }
+
+  .search-filter-dropdown {
+    @apply relative flex-1 w-[160px] flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .search-filter-dropdown-container {
+    @apply flex-1 relative leading-[1.5rem] self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem];
+  }
+
+  .search-filter-dropdown-image {
+    @apply w-[0.9rem] relative h-[1rem] top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-[0.9rem] overflow-hidden max-h-[0.9rem];
+  }
+
+  .search-filter-dropdown-genre {
+    @apply w-full absolute top-[2.9rem] rounded-2xl overflow-hidden flex flex-col items-start justify-start z-20 max-h-[50vh] overflow-y-scroll;
+  }
+
+  .save-to-playlist-popup {
+    @apply absolute z-10 w-full h-[40vh] right-[0rem] bottom-[0rem] left-[0rem] rounded-t-[2.5em] rounded-b-none bg-neutral-900 flex flex-col items-start justify-start py-[1.25rem] px-[1.25rem] box-border gap-[1rem] text-center text-[1rem] text-neutral-100;
+  }
+
+  .dropdown-2-item {
+    @apply w-full bg-neutral-700 box-border flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-800;
+  }
+}
+
+/*
+  1. Change the prop types
+  2. Make use of layer components
+  3. walk through the designs on figma
+  4. Change to vite format 
+  5. Make the lists more dynamic
+*/

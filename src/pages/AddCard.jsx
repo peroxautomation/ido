@@ -1,14 +1,11 @@
-import Button1 from "../components/mobile/Button1";
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 
 const AddCard = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
-      <Title
-        pageName="Add payment mehtod"
-      />
-      <div className="relative w-[calc(100%_-_40px)] top-[6.75rem] flex flex-col justify-start gap-[2.562rem]" >
+      <Title pageName="Add payment mehtod" />
+      <div className="relative w-[calc(100%_-_40px)] top-[6.75rem] flex flex-col justify-start gap-[2.562rem]">
         <div className="flex flex-col items-start justify-start gap-[1.5rem] w-[100%] items-center">
           <div className="flex flex-col items-start justify-start">
             <div className="w-[20.938rem] flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem] box-border">
@@ -94,9 +91,7 @@ const AddCard = () => {
             </div>
           </div>
         </div>
-        <Button1
-          cTA="Add card"
-        />
+        <PrimaryButton cTA="Add card" isActive={true} />
       </div>
     </div>
   );

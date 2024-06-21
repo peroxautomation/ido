@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-
-const MovesShare = ({ className = "" }) => {
+const MovesShare = (props) => {
+  const { onClick } = props;
   return (
     <button
-      className={`cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] ${className}`}
+      onClick={onClick}
+      className={`cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] `}
     >
       <img
         className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
@@ -12,10 +12,6 @@ const MovesShare = ({ className = "" }) => {
       />
     </button>
   );
-};
-
-MovesShare.propTypes = {
-  className: PropTypes.string,
 };
 
 export default MovesShare;

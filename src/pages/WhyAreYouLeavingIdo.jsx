@@ -1,4 +1,4 @@
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 import CheckboxContainer1 from "../components/mobile/CheckboxContainer1";
 import Input from "../components/mobile/Input";
@@ -11,7 +11,9 @@ const WhyAreYouLeavingIdo = () => {
    * On next click
    */
   const onNextClick = () => {
-    navigate("/profile/settings/delete-account/processing", {state: { proceedTo: '/profile/settings/delete-account-agreement'}});
+    navigate("/profile/settings/delete-account/processing", {
+      state: { proceedTo: "/profile/settings/delete-account-agreement" },
+    });
   };
 
   return (
@@ -33,49 +35,30 @@ const WhyAreYouLeavingIdo = () => {
           option1="Lost interest"
         />
         <CheckboxContainer1
-
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Didn't meet my expectations"
         />
         <CheckboxContainer1
-
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Found a better alternative"
         />
         <CheckboxContainer1
-
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Encountered too many bugs or issues"
         />
         <CheckboxContainer1
-
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="App is too difficult to use"
         />
         <CheckboxContainer1
-
           hugeIconinterfaceoutlinec="/hugeiconinterfaceoutlinecheckrectangle1.svg"
           option1="Not useful for my needs"
         />
         <Input inputPlaceholder="Other (please specify)" className="w-full" />
       </div>
-      <Button2
-        onClick={onNextClick}
-        cTATop="36.438rem"
-        cTALeft="1.25rem"
-        cTAWidth="20.938rem"
-        cTARight="unset"
-        cTABottom="unset"
-        cTA="Next"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-        cTABackgroundColor="#cc0f3c"
-        cTAPosition="absolute"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-        cTAAlignSelf="unset"
-      />
+      <div className="bottom-0 absolute w-[90%] left-[1.25rem] right-[2.5rem]">
+        <PrimaryButton onCTAClick={onNextClick} cTA="Next" isActive={true} />
+      </div>
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import MiniVideo1 from "./MiniVideo1";
-import PropTypes from "prop-types";
 
-const MiniVideosRow = ({
-  className = "",
-  miniVideosBackgroundImage,
-  miniVideosBackgroundSize,
-}) => {
+const MiniVideosRow = (props) => {
+  const {
+    miniVideosBackgroundImage,
+    miniVideosBackgroundSize,
+  } = props;
+  
   const miniVideos1Style = useMemo(() => {
     return {
       backgroundImage: miniVideosBackgroundImage,
@@ -16,7 +16,7 @@ const MiniVideosRow = ({
 
   return (
     <div
-      className={`relative self-stretch grid grid-cols-[25%_25%_25%_25%] items-start w-[90vw] justify-start ${className}`}
+      className={`relative self-stretch grid grid-cols-[25%_25%_25%_25%] items-start w-[90vw] justify-start `}
       style={miniVideos1Style}
     >
       <MiniVideo1 />
@@ -25,14 +25,6 @@ const MiniVideosRow = ({
       <MiniVideo1 miniVideosBackgroundImage="url('/mini-videos@2x.png')" />
     </div>
   );
-};
-
-MiniVideosRow.propTypes = {
-  className: PropTypes.string,
-
-  /** Style props */
-  miniVideosBackgroundImage: PropTypes.any,
-  miniVideosBackgroundSize: PropTypes.any,
 };
 
 export default MiniVideosRow;

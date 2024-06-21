@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const TitleOfChallengedVideo = ({ className = "", userName, rate }) => {
+const TitleOfChallengedVideo = (props) => {
+  const { userName, rate } = props;
   return (
     <div
-      className={`relative flex-1 flex flex-row justify-between text-center text-[1rem] text-neutral-100 font-button-1-regular ${className} w-max`}
+      className={`relative flex-1 flex flex-row justify-between text-center text-[1rem] text-neutral-100 font-button-1-regular  w-max`}
     >
       <div className="flex flex-row items-center justify-center gap-[0.5rem]">
         <div className="relative leading-[1.5rem] font-semibold text-left text-nowrap">
@@ -29,12 +28,6 @@ const TitleOfChallengedVideo = ({ className = "", userName, rate }) => {
       </div>
     </div>
   );
-};
-
-TitleOfChallengedVideo.propTypes = {
-  className: PropTypes.string,
-  userName: PropTypes.string,
-  rate: PropTypes.string,
 };
 
 export default TitleOfChallengedVideo;

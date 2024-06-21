@@ -1,11 +1,11 @@
 import RelateConfirmBtn from "./RelateConfirmBtn";
 import RelateDeleteBtn from "./RelateDeleteBtn";
-import PropTypes from "prop-types";
 
-const RelateRequestUser = ({ className = "", rectangle2002 }) => {
+const RelateRequestUser = (props) => {
+  const { rectangle2002 } = props;
   return (
     <div
-      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular `}
     >
       <div className="flex-1 flex flex-row items-center justify-start gap-[0.5rem]">
         <img
@@ -28,11 +28,6 @@ const RelateRequestUser = ({ className = "", rectangle2002 }) => {
       </div>
     </div>
   );
-};
-
-RelateRequestUser.propTypes = {
-  className: PropTypes.string,
-  rectangle2002: PropTypes.string,
 };
 
 export default RelateRequestUser;

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Title from "../components/mobile/Title";
 import EmailInput from "../components/mobile/EmailInput";
-import Button1 from "../components/mobile/Button1";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import { useCallback, useState } from "react";
 import GoogleLogin from "../components/mobile/GoogleLogin";
 import FacebookLogin from "../components/mobile/FacebookLogin";
@@ -78,15 +78,7 @@ const SignUp = () => {
 
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
-      <Title
-        titleRight="20px"
-        titleLeft="20px"
-        hugeIconarrowssolHref="/"
-        pageName="Sign up"
-        titleWidth="calc(100% - 40px)"
-        direactionLeft="/direaction-left.svg"
-        returnPage="/login"
-      />
+      <Title pageName="Sign up" />
       <main className="absolute w-[calc(100%_-_40px)] top-[108px] right-[20px] left-[20px] overflow-hidden flex flex-col items-start justify-start gap-[32px] text-center text-base text-neutral-100 font-button-1-regular">
         <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
           <EmailInput
@@ -96,10 +88,11 @@ const SignUp = () => {
             emailValue={email}
             handleSetEmail={setEmail}
           />
-          <Button1
+          <PrimaryButton
             cTA={"Continue"}
             onCTAClick={onSignInClick}
             className="relative top-1 left-[0em] right-[0em] w-full"
+            isActive={true}
           />
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[16px]">

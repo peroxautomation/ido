@@ -1,6 +1,7 @@
-import Button2 from "../components/mobile/Button2";
+import SecondaryButton from "../components/mobile/SecondaryButton";
 import Title from "../components/mobile/Title";
 import DeletePopup from "../components/mobile/DeletePopup";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 
 /**
  * Confirm Delete account screen
@@ -8,7 +9,8 @@ import DeletePopup from "../components/mobile/DeletePopup";
  */
 const ConfrimDeleteAccount = () => {
   const onDeletClick = (event) => {
-    const deletePopup = event.currentTarget.nextElementSibling;
+    const deletePopup = event.currentTarget.parentElement.nextElementSibling;
+
     deletePopup.classList.toggle("hidden");
   };
 
@@ -21,11 +23,13 @@ const ConfrimDeleteAccount = () => {
           Tapping "Delete account" will delete Ido account username.
         </div>
       </div>
-      <Button2
-        onClick={onDeletClick}
-        cTABottom="calc(100vh - 19rem)"
-        cTA="Delete account"
-      />
+      <div className="absolute w-[90%] left-[1.25rem] right-[2.5rem] top-[40%]">
+        <PrimaryButton
+          onCTAClick={onDeletClick}
+          cTA="Delete account"
+          isActive={true}
+        />
+      </div>
       <DeletePopup
         message={"Are you sure want to delete account?"}
         current={"DeleteAccount"}

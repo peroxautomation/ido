@@ -1,16 +1,21 @@
-import PropTypes from "prop-types";
-
-const ChatBox = ({ className = "", source, onClick }) => {
+/**
+ * Chatbox component
+ * @param profileImgSrc Profile image source
+ * @param onClick on click function
+ * @returns 
+ */
+const ChatBox = (props) => {
+  const { profileImgSrc, onClick } = props;
   return (
     <div
       onClick={onClick}
-      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular`}
     >
       <div className="flex-1 flex flex-row items-center justify-start gap-[0.5rem]">
         <img
           className="w-[3rem] relative rounded-3xl h-[3rem] object-cover"
           alt=""
-          src={source}
+          src={profileImgSrc}
         />
         <div className="flex-1 flex flex-col items-start justify-start">
           <div className="self-stretch relative leading-[1.5rem] font-semibold">
@@ -27,11 +32,6 @@ const ChatBox = ({ className = "", source, onClick }) => {
       </div>
     </div>
   );
-};
-
-ChatBox.propTypes = {
-  className: PropTypes.string,
-  rectangle2002: PropTypes.string,
 };
 
 export default ChatBox;

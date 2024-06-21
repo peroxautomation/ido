@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
-
-const MovesComment = ({ className = "", onClick }) => {
+const MovesComment = (props) => {
+  const { onClick } = props;
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer [border:none] p-0 bg-[transparent] flex flex-col items-center justify-start gap-[0.25rem] ${className}`}
+      className={`cursor-pointer [border:none] p-0 bg-[transparent] flex flex-col items-center justify-start gap-[0.25rem] `}
     >
       <div className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0">
         <img
@@ -18,10 +17,6 @@ const MovesComment = ({ className = "", onClick }) => {
       </div>
     </button>
   );
-};
-
-MovesComment.propTypes = {
-  className: PropTypes.string,
 };
 
 export default MovesComment;

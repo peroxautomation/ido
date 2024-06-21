@@ -1,12 +1,12 @@
 import PasswordInput from "../components/mobile/PasswordInput";
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 import Input from "../components/mobile/Input";
 import { useNavigate } from "react-router-dom";
 
 /**
  * Update password screen for profile settings
- * @returns 
+ * @returns
  */
 const UpdatePassword = () => {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ const UpdatePassword = () => {
    * Navigate to update password screen
    */
   const onUpdatePasswordClick = () => {
-    navigate('/profile/settings/forgot-password')
-  }
+    navigate("/profile/settings/forgot-password");
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-100 font-h3-semibold grid grid-flow-row justify-center">
@@ -74,10 +74,10 @@ const UpdatePassword = () => {
             </div>
           </div>
         </div>
-        <Button2
-          onClick={onUpdatePasswordClick}
-          className="top-[35vh] h-[3rem]"
+        <PrimaryButton
+          onCTAClick={onUpdatePasswordClick}
           cTA="Update password"
+          isActive={true}
         />
       </div>
     </div>

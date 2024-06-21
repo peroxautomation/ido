@@ -1,18 +1,13 @@
-import PropTypes from "prop-types";
-
-const MovesChallenge = ({ className = "", onCTAClick }) => {
+const MovesChallenge = (props) => {
+  const { onCTAClick } = props;
   return (
     <img
       onClick={onCTAClick}
-      className={`w-[1.5rem] relative h-[1.5rem] ${className}`}
+      className={`w-[1.5rem] relative h-[1.5rem] `}
       alt=""
       src="/content-container-conponents2.svg"
     />
   );
-};
-
-MovesChallenge.propTypes = {
-  className: PropTypes.string,
 };
 
 export default MovesChallenge;

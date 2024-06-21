@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
 
-const PlaylistVideoCard = ({ className = "", cardBackgroundImage }) => {
+const PlaylistVideoCard = () => {
+  const { cardBackgroundImage } = props;
   const card1Style = useMemo(() => {
     return {
       backgroundImage: cardBackgroundImage,
@@ -10,7 +10,7 @@ const PlaylistVideoCard = ({ className = "", cardBackgroundImage }) => {
 
   return (
     <div
-      className={`w-[10rem] relative rounded-xl h-[10rem] overflow-hidden shrink-0 bg-[url('/public/card4@3x.png')] bg-cover bg-no-repeat bg-[top] text-left text-[0.875rem] text-neutral-100 font-button-1-regular ${className}`}
+      className={`w-[10rem] relative rounded-xl h-[10rem] overflow-hidden shrink-0 bg-[url('/public/card4@3x.png')] bg-cover bg-no-repeat bg-[top] text-left text-[0.875rem] text-neutral-100 font-button-1-regular `}
       style={card1Style}
     >
       <div className="absolute top-[6.875rem] left-[0rem] [background:linear-gradient(180deg,_rgba(255,_255,_255,_0),_rgba(0,_0,_0,_0.5))] w-[10rem] h-[3.125rem]" />
@@ -37,13 +37,6 @@ const PlaylistVideoCard = ({ className = "", cardBackgroundImage }) => {
       />
     </div>
   );
-};
-
-PlaylistVideoCard.propTypes = {
-  className: PropTypes.string,
-
-  /** Style props */
-  cardBackgroundImage: PropTypes.any,
 };
 
 export default PlaylistVideoCard;

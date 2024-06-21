@@ -1,24 +1,25 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-
-const NavMessagesIcon = ({ className = "" }) => {
+/**
+ * Message icon for top navbar
+ * @param {*} props
+ * @returns A JSX element
+ */
+const NavMessagesIcon = (props) => {
+  const {} = props;
   const navigate = useNavigate();
+
   const onMessagesClick = () => {
-    navigate('/messages')
-  }
+    navigate("/messages");
+  };
 
   return (
     <img
       onClick={onMessagesClick}
-      className={`w-[1.6rem] relative h-[1.6rem] ${className}`}
+      className={`top-navbar-icon`}
       alt=""
       src="/NavMessagesIcon.svg"
     />
   );
-};
-
-NavMessagesIcon.propTypes = {
-  className: PropTypes.string,
 };
 
 export default NavMessagesIcon;

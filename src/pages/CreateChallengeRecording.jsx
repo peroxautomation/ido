@@ -7,14 +7,15 @@ import FlipCameraButton from "../components/mobile/FlipCameraButton";
 import { useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 const CreateChallengeRecording = () => {
   const navigate = useNavigate();
-  const {flow} = useParams();
+  const { flow } = useParams();
 
   // Navigate to Create Challege Preview
   const onNextClick = useCallback(() => {
-    navigate(`/create/${flow}/preview`, {state: {flow: flow}});
+    navigate(`/create/${flow}/preview`, {
+      state: { flow: flow, returnTo: `/create/${flow}/recording` },
+    });
   }, [navigate]);
 
   // Open Native gallery
@@ -31,21 +32,18 @@ const CreateChallengeRecording = () => {
   const onFlipClick = useCallback(() => {
     console.log("Flipping camera...");
   }, [navigate]);
-  
+
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-center text-[1rem] text-neutral-100 font-overline-semibold">
       <div className="relative top-[5vh] left-[calc(50%_-_167.5px)] w-[20.938rem] flex flex-row items-start justify-between">
-        <Exit1 />
-        <NextButton
-          onNextClick={onNextClick}
-          cta={"Next"}
-        />
+        <Exit1 ctaClick={() => navigate("/create")} />
+        <NextButton onNextClick={onNextClick} cta={"Next"} />
       </div>
       <RecordingVideoContainer className="left-[calc(50%_-_167.5px)] top-[15vh]" />
       <div className="relative top-[80vh] left-[calc(50%_-_167.5px)] w-[20.938rem] flex flex-row items-center justify-between">
         <SelectGalleryButton ctaClick={onGalleryClick} />
         <RecordButton ctaClick={onRecordClick} />
-        <FlipCameraButton ctaClick={onFlipClick}/>
+        <FlipCameraButton ctaClick={onFlipClick} />
       </div>
     </div>
   );

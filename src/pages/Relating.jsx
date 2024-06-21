@@ -8,7 +8,7 @@ const Relating = () => {
       <div className="absolute top-[6.75rem] w-[20.938rem] flex flex-row items-center justify-start">
         <RelatingSearchInput />
       </div>
-      <Title pageName="Relating" />
+      <Title pageName="Relating"/>
       <div className="absolute top-[10.25rem] left-[calc(50%_-_187.5px)] h-[calc(100vh_-_11rem)] overflow-y-auto flex flex-col items-start justify-start">
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
@@ -58,7 +58,7 @@ const Relating = () => {
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
-        <RelateUser rectangle2002="/rectangle-2002@2x.png" /> 
+        <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />
         <RelateUser rectangle2002="/rectangle-2002@2x.png" />

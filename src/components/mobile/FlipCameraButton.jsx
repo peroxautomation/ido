@@ -1,19 +1,14 @@
-import PropTypes from "prop-types";
-
-const FlipCameraButton = ({ ctaClick, className = "" }) => {
+const FlipCameraButton = (props) => {
+  const { ctaClick } = props;
   return (
     <div onClick={ctaClick}>
       <img
-        className={`w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 ${className}`}
+        className={`w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0`}
         alt=""
         src="/hugeiconarrowsoutlinereload.svg"
       />
     </div>
   );
-};
-
-FlipCameraButton.propTypes = {
-  className: PropTypes.string,
 };
 
 export default FlipCameraButton;

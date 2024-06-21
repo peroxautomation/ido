@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const CommentLikes = ({ className = "" }) => {
+const CommentLikes = (props) => {
+  const {} = props;
   return (
     <button
-      className={`cursor-pointer [border:none] py-[0.125rem] px-[0.375rem] bg-neutral-800 w-[2.5rem] rounded-3xs h-[1.25rem] flex flex-row items-start justify-start box-border gap-[0.25rem] ${className}`}
+      className={`cursor-pointer [border:none] py-[0.125rem] px-[0.375rem] bg-neutral-800 w-[2.5rem] rounded-3xs h-[1.25rem] flex flex-row items-start justify-start box-border gap-[0.25rem]`}
     >
       <img
         className="w-[1rem] relative h-[1rem]"
@@ -15,10 +14,6 @@ const CommentLikes = ({ className = "" }) => {
       </div>
     </button>
   );
-};
-
-CommentLikes.propTypes = {
-  className: PropTypes.string,
 };
 
 export default CommentLikes;

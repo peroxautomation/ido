@@ -3,12 +3,12 @@ import Dropdown from "../components/mobile/Dropdown";
 import RadioButtonDefault from "../components/mobile/RadioButtonDefault";
 import Radio1 from "../components/mobile/Radio1";
 import { useNavigate } from "react-router-dom";
-import Button1Inactive from "../components/mobile/Button1Inactive";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 import Title from "../components/mobile/Title";
 
 /**
  * Create challenge question 3 screen
- * @returns 
+ * @returns
  */
 const ChallengeQuestion3 = () => {
   const navigate = useNavigate();
@@ -81,23 +81,10 @@ const ChallengeQuestion3 = () => {
           dropdownLeft="unset"
         />
       </div>
-      <Title className="" returnPage="" pageName="New challenge" />
-      <Button1Inactive
-        cTATop="unset"
-        cTALeft="1.25rem"
-        cTAWidth="calc(100% - 40px)"
-        cTARight="1.25rem"
-        cTABottom="2.5rem"
-        cTA="Next"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil1@2x.png"
-        cTABackgroundColor="#efb5c3"
-        cTAPosition="absolute"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-        onCTAClick={onNextClick}
-      />
+      <Title className="" pageName="New challenge" />
+      <div className="absolute bottom-0 w-[90%] left-[1.25rem] right-[2.5rem]">
+        <PrimaryButton cTA="Next" onCTAClick={onNextClick} isActive={true} />
+      </div>
     </div>
   );
 };

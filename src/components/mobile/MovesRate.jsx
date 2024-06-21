@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-
-const MovesRate = ({ className = "" }) => {
+const MovesRate = (props) => {
+  const { onClick } = props;
   return (
     <button
-      className={`cursor-pointer [border:none] p-0 bg-[transparent] flex flex-col items-center justify-start gap-[0.25rem] ${className}`}
+      onClick={onClick}
+      className={`cursor-pointer [border:none] p-0 bg-[transparent] flex flex-col items-center justify-start gap-[0.25rem]`}
     >
       <div className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0">
         <img
@@ -17,10 +17,6 @@ const MovesRate = ({ className = "" }) => {
       </div>
     </button>
   );
-};
-
-MovesRate.propTypes = {
-  className: PropTypes.string,
 };
 
 export default MovesRate;

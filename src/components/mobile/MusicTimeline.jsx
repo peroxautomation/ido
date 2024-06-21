@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
-
-const MusicTimeline = ({ className = "" }) => {
+const MusicTimeline = (props) => {
+  const { } = props;
   return (
     <div
-      className={`flex flex-col items-center justify-start gap-[1rem] text-center text-[1rem] text-neutral-900 font-button-1-regular ${className}`}
+      className={`flex flex-col items-center justify-start gap-[1rem] text-center text-[1rem] text-neutral-900 font-button-1-regular `}
     >
       <div className="rounded-8xl bg-neutral-100 flex flex-row items-center justify-center py-[0.25rem] px-[1rem]">
         <div className="relative leading-[1.5rem] font-semibold">0:49</div>
@@ -24,8 +23,5 @@ const MusicTimeline = ({ className = "" }) => {
   );
 };
 
-MusicTimeline.propTypes = {
-  className: PropTypes.string,
-};
 
 export default MusicTimeline;

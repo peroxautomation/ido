@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button2 from "../components/mobile/Button2";
+import PrimaryButton from "../components/mobile/PrimaryButton";
 
 /**
  * Reset password result screen for the user settings
@@ -29,23 +29,9 @@ const ResetPasswordResult = ({ proceedTo }) => {
           </div>
         </div>
       </div>
-      <Button2
-        onClick={onBackClick}
-        cTATop="unset"
-        cTALeft="1.25rem"
-        cTAWidth="calc(100% - 40px)"
-        cTARight="1.25rem"
-        cTABottom="3.813rem"
-        cTA="Back"
-        hugeIconeducationsolidpen="/hugeiconeducationsolidpencil@2x.png"
-        cTABackgroundColor="#cc0f3c"
-        cTAPosition="absolute"
-        cTAGap="0.5rem"
-        cTAFlex="unset"
-        hugeIconeducationsolidpenWidth="1rem"
-        hugeIconeducationsolidpenHeight="1rem"
-        cTAAlignSelf="unset"
-      />
+      <div className="absolute bottom-0 w-[90%]">
+        <PrimaryButton onCTAClick={onBackClick} cTA="Back" isActive={true} />
+      </div>
     </div>
   );
 };
