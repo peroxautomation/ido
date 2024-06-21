@@ -7,14 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# dependencies
 node_modules
-yarn.lock
-package.lock
-config.js
-.env
-/.pnp
-.pnp.js
 dist
 dist-ssr
 *.local
