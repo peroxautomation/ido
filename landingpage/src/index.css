@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply leading-[normal] m-0;
+}
+*,
+::before,
+::after {
+  border-width: 0;
+}
+.desktop-btn-primary{
+  @apply cursor-pointer box-border hover:bg-primary-500/80 bg-primary-500 rounded-xs text-center text-base text-white
+
+}
+.desktop-btn-secondary{
+  @apply hover:opacity-80 cursor-pointer
+}
+.desktop-hrefbtn{
+  @apply cursor-pointer text-white hover:underline no-underline
+}
+.social-icon{
+  @apply w-6 relative h-6 object-cover
+}
+.touch-hrefbtn{
+  @apply active:underline
+}
+.touch-btn-primary{
+  @apply text-right text-xs active:bg-primary-500/80 rounded-md bg-primary-500
+}
+.touch-btn-secondary{
+  @apply active:bg-primary-500/70 rounded-xl bg-primary-500 text-center text-base text-white
+}
+.touch-btn-secondary-textxs{
+  @apply active:bg-primary-500/70 rounded-xl bg-primary-500 text-center text-xs text-white
+}
