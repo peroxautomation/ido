@@ -25,7 +25,7 @@ const YearDropdown = (props) => {
   return (
     <div
       id="yearDropdown"
-      className={`hidden search-filter-dropdown-year`}
+      className={`search-filter-dropdown-year`}
     >
       {renderYears()}
     </div>

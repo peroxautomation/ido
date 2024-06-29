@@ -1,15 +1,26 @@
 /**
  * Cover source component
- * @param cTA component label
+ * @param value component value/label
  * @param onClick function to set selected source
  */
 const CoverSource = (props) => {
-  const { cTA, onClick } = props;
+  const { value, onClick, selectedValue } = props;
+
+  /**
+   * Handle update selected video source
+   */
+  const onItemSelect = () => {
+    onClick(value);
+  };
+
   return (
     <div
-      className={`self-stretch rounded-xl bg-neutral-800 flex flex-row items-center justify-center py-[0.625rem] px-[0.5rem] text-center text-[1rem] text-primary-500 font-button-1-regular `}
+      onClick={onItemSelect}
+      className={`self-stretch rounded-xl flex flex-row items-center justify-center py-[0.625rem] px-[0.5rem] text-center text-[1rem] ${
+        selectedValue == value ? "text-neutral-800" : "text-primary-500"
+      } ${selectedValue == value ? "bg-primary-500" : "bg-neutral-800"}`}
     >
-      <div className="relative leading-[1.5rem] font-semibold">{cTA}</div>
+      <div className="relative leading-[1.5rem] font-semibold">{value}</div>
     </div>
   );
 };

@@ -4,7 +4,7 @@
  */
 const IncorrectPasswordMsg = () => {
   return (
-    <div id="incoorectPassword" className={`incorrect-password-msg hidden`}>
+    <div id="incoorectPassword" className={`incorrect-password-msg`}>
       <img
         className="w-4 relative h-4 overflow-hidden shrink-0"
         alt=""

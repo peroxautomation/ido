@@ -32,7 +32,7 @@ const PasswordInput = (props) => {
   /**
    * Toggle show/hide password
    */
-  const onToggleShowPassword = useCallback(() => {
+  const onToggleShowPassword = () => {
     const showPass = !isActive;
     setIsActive(!isActive);
 
@@ -43,7 +43,7 @@ const PasswordInput = (props) => {
       setBtnSource("/showPasswordIcon.svg");
       setPaswordType("text");
     }
-  }, [btnSource, isActive, passwordType]);
+  };
 
   return (
     <div className={`primary-input-container`}>

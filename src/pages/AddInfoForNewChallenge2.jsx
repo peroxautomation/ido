@@ -6,28 +6,34 @@ import Title from "../components/mobile/Title";
 import { useNavigate } from "react-router-dom";
 
 const AddInfoForNewChallenge2 = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
   const [selectedGenre, setSelectedGenre] = useState(null);
 
-  // Display dropdown menu
-  const onDropdownClick = () => {
-    document.querySelector("#challengeDropdownMenu").classList.toggle("hidden");
-  };
-
-  // Upload new challenge
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Upload new challenge
+   */
   const onUploadClick = () => {
     navigate("/create/new-challenge/uploading", {
       state: { flow: "/new-challenge" },
     });
   };
 
-  // Discard new challenge
+  /**
+   *  Discard new challenge
+   */
   const onDeleteClick = () => {
     navigate("/create");
   };
 
   return (
     <div className="w-full relative bg-neutral-900 h-[41.688rem] overflow-hidden">
+      <Title className="" pageName="New challenge" />
       <div className="w-[90%] absolute top-[16vh] left-[1.25rem] right-[2.5rem]">
         <Dropdown
           selected={selectedGenre}
@@ -45,8 +51,6 @@ const AddInfoForNewChallenge2 = () => {
         />
         <SecondaryButton onClick={onUploadClick} cTA="Upload" />
       </div>
-      <Title className="" pageName="New challenge" />
-      <GenreDropdown />
     </div>
   );
 };

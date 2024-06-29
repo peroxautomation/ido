@@ -1,10 +1,15 @@
-//TODO: Check the difference between this and ProfileMenuItem
+/**
+ * Menu item for ProfileMenu Component
+ * @param title Title of the 
+ * @param onClick On click function
+ * @returns 
+ */
 const ProfileMenuItem1 = (props) => {
   const { title, onClick } = props;
   return (
     <div
       onClick={onClick}
-      className={`w-[17.5rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1rem] text-neutral-100 font-button-1-regular `}
+      className={`profile-menu-item`}
     >
       <div className="relative leading-[1.5rem]">{title}</div>
       <img

@@ -2,10 +2,17 @@ import CompareFrame from "../components/mobile/CompareFrame";
 import TitleOfChallengedVideo from "../components/mobile/TitleOfChallengedVideo";
 import ResultHeading from "../components/mobile/ResultHeading";
 import { useNavigate } from "react-router-dom";
-import MovesBtn from "../components/mobile/MovesBtn";
+import CoverBtn from "../components/mobile/CoverBtn";
 
 const ComparisonPage = () => {
+  /************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
+
+  /************************************************************************* */
+  /***************************{Component Methods}*************************** */
+  /************************************************************************* */
   const onResultClick = () => {
     navigate("/moves/comparison-result");
   };
@@ -20,11 +27,9 @@ const ComparisonPage = () => {
         <TitleOfChallengedVideo userName="Ronald Hilson" rate="100%" />
         <CompareFrame imgSrc="/frame-7134@2x.png" />
       </div>
-      <MovesBtn
-        className="absolute top-[10vh] right-[70w] bottom-0 [transform:_rotate(-90deg)] text-nowrap w-[5.5rem] h-[2.4em]"
-        placeholder={"View results"}
-        onClick={onResultClick}
-      />
+      <div className="absolute top-[10vh] right-[70w] [transform:_rotate(-90deg)] text-nowrap w-[5.5rem] h-[2.4em] text-[0.85rem] text-neutral-100">
+        <CoverBtn cta={"View results"} ctaClick={onResultClick} />
+      </div>
     </div>
   );
 };

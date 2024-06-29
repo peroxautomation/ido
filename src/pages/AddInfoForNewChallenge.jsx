@@ -4,15 +4,25 @@ import { useNavigate, useParams } from "react-router-dom";
 import Title from "../components/mobile/Title";
 
 const AddInfoForNewChallenge = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
   const { flow } = useParams();
 
-  // Navigate to the select music page
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Navigate to the select music page
+   */
   const onSelectClick = () => {
     navigate(`/create/${flow}/select-music`, { state: { flow: flow } });
   };
 
-  //Navigate to question screen
+  /**
+   * Navigate to question screen
+   */
   const onNextClick = () => {
     if (flow === "new-challenge")
       navigate(`/create/new-challenge/challenge-question-1`);

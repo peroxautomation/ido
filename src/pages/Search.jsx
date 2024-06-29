@@ -11,6 +11,8 @@ import CountryDropdown from "../components/mobile/CountryDropdown";
 import YearDropdown from "../components/mobile/YearDropdown";
 import RatingsDropdown from "../components/mobile/RatingsDropdown";
 import PrimaryButton from "../components/mobile/PrimaryButton";
+import { useNavigate } from "react-router-dom";
+import SaveToPlaylistBtn from "../components/mobile/SaveToPlaylistBtn";
 
 const searchVideos = [
   {
@@ -75,6 +77,9 @@ const searchVideos = [
  * @returns JSX element
  */
 const Search = () => {
+  /************************************************************************************ */
+  /***************************{Component Variables & States}*************************** */
+  /************************************************************************************ */
   const [searchQuery, setSearchQuery] = useState(null);
   const [filters, setFilters] = useState({
     country: null,
@@ -83,7 +88,18 @@ const Search = () => {
     genre: null,
   });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const navigate = useNavigate();
+  const [isPopupActive, setIsPopupActive] = useState(false);
+  const [selectedId, setSelectedId] = useState(null); //Video with its options active
+  const [selectedPlaylists, setSelectedPlaylists] = useState([]);
+  const [isGenereActive, setIsGenreActive] = useState(false);
+  const [isCountryActive, setIsCountryActive] = useState(false);
+  const [isRatingActive, setIsRatingeActive] = useState(false);
+  const [isYearActive, setIsYearActive] = useState(false);
 
+  /**************************************************************************** */
+  /********************************{Methods}********************************** */
+  /*************************************************************************** */
   /**
    * Render search videos
    * @returns A an array of JSX elements
@@ -95,11 +111,84 @@ const Search = () => {
         likes={element.likes}
         views={element.views}
         src={element.src}
+        setSelected={setSelectedId}
+        videoId={index}
+        optionsMenu={
+          <SaveToPlaylistBtn onClick={togglePlaylistPopup}></SaveToPlaylistBtn>
+        }
+        onVideoClick={() =>
+          navigate("/moves/others/temp-id-123", {
+            state: { view: "others", videoId: `${selectedId}` },
+          })
+        }
       />
     ));
   };
 
-  console.log(filters);
+  /**
+   * Toglle playlist popup
+   * @param {*} id
+   */
+  const togglePlaylistPopup = (event) => {
+    event.stopPropagation();
+    setIsPopupActive(!isPopupActive);
+  };
+
+  /**
+   * Handle saving video
+   */
+  const handleSaveVideo = (event) => {
+    event.stopPropagation();
+    console.log(`Saving video with id ${selectedId}`);
+    setIsPopupActive(false);
+  };
+
+  /**
+   * Toggle genre dropdown list on and off
+   * */
+  const openGenre = () => {
+    setIsGenreActive(!isGenereActive);
+    //Close other dropdowns
+    setIsCountryActive(false);
+    setIsRatingeActive(false);
+    setIsYearActive(false);
+  };
+
+  /**
+   * Toggle country dropdown list on and off
+   * @param {*} event
+   */
+  const openCountry = () => {
+    setIsCountryActive(!isCountryActive);
+    //Close other dropdowns
+    setIsGenreActive(false);
+    setIsRatingeActive(false);
+    setIsYearActive(false);
+  };
+
+  /**
+   * Toggle ratings dropdown list on and off
+   *  */
+  const openRatings = () => {
+    setIsRatingeActive(!isRatingActive);
+    //Close other dropdowns
+    setIsCountryActive(false);
+    setIsGenreActive(false);
+    setIsYearActive(false);
+  };
+
+  /**
+   * Toggle year dropdown list on and off
+   * @param {*} event
+   */
+  const openYear = () => {
+    setIsYearActive(!isYearActive);
+    //Close other dropdowns
+    setIsCountryActive(false);
+    setIsGenreActive(false);
+    setIsRatingeActive(false);
+  };
+
   return !isFilterOpen ? (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden text-left text-[0.875rem] text-neutral-100 font-button-2-bold">
       <TopNavbar />
@@ -113,10 +202,22 @@ const Search = () => {
         {renderSearchVideos()}
       </main>
       <ButtomNavbar currentPage="Search" />
-      <SaveToPlaylistPopup />
+      {isPopupActive && <SaveToPlaylistPopup handleSave={handleSaveVideo} />}
     </div>
   ) : (
-    Filters(filters, setFilters, setIsFilterOpen)
+    Filters(
+      filters,
+      setFilters,
+      setIsFilterOpen,
+      openGenre,
+      openCountry,
+      openRatings,
+      openYear,
+      isGenereActive,
+      isCountryActive,
+      isRatingActive,
+      isYearActive
+    )
   );
 };
 
@@ -127,7 +228,19 @@ const Search = () => {
  * @param {*} handleSetIsOpen handler to close filter popup/screen
  * @returns A JSX Element
  */
-const Filters = (filters, setFilters, handleSetIsOpen) => {
+const Filters = (
+  filters,
+  setFilters,
+  handleSetIsOpen,
+  openGenre,
+  openCountry,
+  openRatings,
+  openYear,
+  isGenre,
+  isCountry,
+  isRatings,
+  isYear
+) => {
   /**
    * Handler to set countries
    * @param {*} country Country to set
@@ -173,40 +286,6 @@ const Filters = (filters, setFilters, handleSetIsOpen) => {
   };
 
   /**
-   * Toggle genre dropdown list on and off
-   * */
-  const openGenere = (event) => {
-    const element = event.currentTarget;
-    element.lastChild.classList.toggle("hidden");
-  };
-
-  /**
-   * Toggle country dropdown list on and off
-   * @param {*} event
-   */
-  const openCountry = (event) => {
-    const element = event.currentTarget;
-    element.lastChild.classList.toggle("hidden");
-  };
-
-  /**
-   * Toggle ratings dropdown list on and off
-   *  */
-  const openRatings = (event) => {
-    const element = event.currentTarget;
-    element.lastChild.classList.toggle("hidden");
-  };
-
-  /**
-   * Toggle year dropdown list on and off
-   * @param {*} event
-   */
-  const openYear = (event) => {
-    const element = event.currentTarget;
-    element.lastChild.classList.toggle("hidden");
-  };
-
-  /**
    * Close the filter
    */
   const onApplyClick = () => {
@@ -232,7 +311,8 @@ const Filters = (filters, setFilters, handleSetIsOpen) => {
         <div className="relative self-stretch flex flex-row items-start justify-start gap-[0.937rem]">
           <FilterDropdown
             dropdown={!filters.genre ? "Genre" : filters.genre}
-            onClick={openGenere}
+            onClick={openGenre}
+            isActive={isGenre}
             list={
               <GenreDropdown selectHandler={handleSetGenre}></GenreDropdown>
             }
@@ -240,6 +320,7 @@ const Filters = (filters, setFilters, handleSetIsOpen) => {
           <FilterDropdown
             dropdown={!filters.country ? "Country" : filters.country}
             onClick={openCountry}
+            isActive={isCountry}
             list={
               <CountryDropdown
                 selectHandler={handleSetCountry}
@@ -251,11 +332,13 @@ const Filters = (filters, setFilters, handleSetIsOpen) => {
           <FilterDropdown
             dropdown={!filters.year ? "Year" : filters.year}
             onClick={openYear}
+            isActive={isYear}
             list={<YearDropdown selectHandler={handleSetYear}></YearDropdown>}
           />
           <FilterDropdown
             dropdown={!filters.rating ? "Ratings" : filters.rating}
             onClick={openRatings}
+            isActive={isRatings}
             list={
               <RatingsDropdown
                 selectHandler={handleSetRating}

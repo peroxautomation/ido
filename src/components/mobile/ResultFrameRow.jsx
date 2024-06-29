@@ -1,16 +1,21 @@
 import ResultFrame from "./ResultFrame";
 
+/**
+ * Comparison result frame row
+ * @param {*} props
+ * @returns
+ */
 const ResultFrameRow = (props) => {
   const {} = props;
   return (
     <div
-      className={`flex flex-row items-start justify-start gap-[0.125rem] text-center text-[0.875rem] text-neutral-100 font-button-1-regular w-full `}
+      className={`comparison-result-frame-row`}
     >
-      <ResultFrame />
-      <ResultFrame />
-      <ResultFrame />
-      <ResultFrame />
-      <ResultFrame />
+      <ResultFrame rate={"64%"} />
+      <ResultFrame rate={"64%"} />
+      <ResultFrame rate={"64%"} />
+      <ResultFrame rate={"64%"} />
+      <ResultFrame rate={"64%"} />
     </div>
   );
 };

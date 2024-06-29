@@ -2,50 +2,38 @@ import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/mobile/PrimaryButton";
 import Radio1 from "../components/mobile/Radio1";
 import Title from "../components/mobile/Title";
-import RadioButtonDefault from "../components/mobile/RadioButtonDefault";
 import { useState } from "react";
 
 const ChallengeQuestion = () => {
-  const [hasPostedBefore, setHasPosted] = useState(false);
-  const [isActive, setIsActive] = useState(false);
-
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
+  const [hasPostedBefore, setHasPosted] = useState(null);
   const navigate = useNavigate();
-  const radioId = "RadioButtonDefault";
 
-  // Switch radio button
-  const onRadioClick = (event) => {
-    const buttons = document.querySelectorAll(`#${radioId} img`);
-
-    buttons.forEach((element, index) => {
-      if (index % 2 != 0) {
-        element.classList.add("hidden");
-      }
-    });
-
-    const selectedRadio = document.querySelector(
-      `#${radioId} input[name=hasPostedBefore]:checked`
-    );
-    const children = selectedRadio.parentNode.childNodes;
-
-    children[2].classList.toggle("hidden");
-    setHasPosted(selectedRadio.value); // Set state hasPostedBefore
-    setIsActive(true)
-    // Set button to active
-    const button = document.querySelector("button[name=create-button-1]");
-    button.classList.add("!bg-primary-500");
-  };
-
-  // Navigate to the appropriate page
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Navigate to the appropriate page
+   */
   const onContinueClick = () => {
-    const buttons = document.querySelectorAll(
-      "#RadioButtonDefault input[name=hasPostedBefore]"
-    );
+    const buttons = document.querySelectorAll("input[name=hasPostedBefore]");
+
     buttons.forEach((element) => {
       if (element.checked)
         if (element.value === "true")
           navigate("/create/new-challenge/sorry-page");
         else navigate("/create/new-challenge/challenge-question-2");
     });
+  };
+
+  /**
+   * Toggle is active button
+   */
+  const isButtonActive = () => {
+    if (hasPostedBefore != null) return true;
+    return false;
   };
 
   return (
@@ -55,27 +43,25 @@ const ChallengeQuestion = () => {
         <div className="relative leading-[1.75rem] font-semibold">
           Have you posted this video anywhere else?
           <Radio1
-            element={RadioButtonDefault}
-            value={true}
-            onRadioClick={onRadioClick}
             radioName={"hasPostedBefore"}
             label="Yes"
-            radioId={radioId}
+            value={true}
+            handleSetValue={setHasPosted}
+            selectedValue={hasPostedBefore}
           />
           <Radio1
-            element={RadioButtonDefault}
-            value={false}
-            onRadioClick={onRadioClick}
             radioName={"hasPostedBefore"}
             label="No"
-            radioId={radioId}
+            value={false}
+            handleSetValue={setHasPosted}
+            selectedValue={hasPostedBefore}
           />
         </div>
       </div>
       <div className="absolute bottom-0 w-[90%] left-[1.25rem] right-[2.5rem]">
         <PrimaryButton
           onCTAClick={onContinueClick}
-          isActive={isActive}
+          isActive={isButtonActive()}
           cTA="Continue"
         />
       </div>

@@ -1,3 +1,8 @@
+/**
+ * Roate/Scale video button
+ * @param {*} props 
+ * @returns 
+ */
 const RotateScaleBtn = (props) => {
   const {} = props;
   return (

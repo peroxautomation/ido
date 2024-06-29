@@ -3,10 +3,18 @@ import PrimaryButton from "../components/mobile/PrimaryButton";
 import ConfirmedIcon from "../components/mobile/ConfirmedIcon";
 
 const UploadSuccessful = () => {
+  /************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
 
+  /**************************************************************** */
+  /***************************{ Methods}*************************** */
+  /**************************************************************** */
   const onViewClick = () => {
-    navigate("/moves/creator-view/temp-video-id-12-34-45");
+    navigate("/moves/creator/temp-id-123", {
+      state: { view: "creator", videoId: "temp-id-123" },
+    });
   };
 
   return (

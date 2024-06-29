@@ -1,3 +1,8 @@
+/**
+ * Select video from gallery button
+ * @param ctaClick On click function
+ * @returns 
+ */
 const SelectGallery = (props) => {
   const { ctaClick } = props;
   return (

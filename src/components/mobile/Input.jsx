@@ -1,11 +1,13 @@
 
 /**
  * Input component use in Start premium screen and others
- * @param {*} label the input label
- * @param {*} className Additional tailwind classes to include
- * @param {*} inputPlaceholder Input placeholder
- * @param {*} isImportant flag if the input important
- * @param {*} isRequired flag if the input required
+ * @param label the input label
+ * @param className Additional tailwind classes to include
+ * @param inputPlaceholder Input placeholder
+ * @param isImportant flag if the input important
+ * @param isRequired flag if the input required
+ * @param value The input value
+ * @param handleSetValue Handler to update the value in parent component
  * @returns
  */
 const Input = (props) => {

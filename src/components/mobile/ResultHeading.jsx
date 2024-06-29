@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Moves comparison result heading component
+ * @param {*} props
+ * @returns
+ */
 const ResultHeading = (props) => {
   const {} = props;
   const navigate = useNavigate();
   return (
-    <div
-      className={`absolute w-[95vh] top-[95vh] right-[-16.75rem] left-[1rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border [transform:_rotate(-90deg)] [transform-origin:0_0] text-center text-[1.25rem] text-neutral-100 font-button-1-regular `}
-    >
+    <div className={`comparison-result-title`}>
       <img
         onClick={() => navigate(-1)}
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"

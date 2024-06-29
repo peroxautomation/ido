@@ -3,9 +3,11 @@
  * @param dropdown Name of the dropdown button
  * @param onClick button onclick event
  * @param list Dropdown list element
+ * @param isActive Boolean state to toogle dropdown
  */
 const FilterDropdown = (props) => {
-  const { dropdown, onClick, list } = props;
+  const { dropdown, onClick, list, isActive } = props;
+
   const DropdownList = list;
   return (
     <div className={`search-filter-dropdown`} onClick={onClick}>
@@ -19,7 +21,7 @@ const FilterDropdown = (props) => {
           />
         </div>
       </div>
-      {DropdownList}
+      {isActive && DropdownList}
     </div>
   );
 };

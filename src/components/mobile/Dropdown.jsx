@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 /**
  * Dropdown container component
  * @param {*} name Dropdown name
@@ -8,12 +10,14 @@
  */
 const Dropdown = (props) => {
   const { name, selected, DropdownOptions, isRequired } = props;
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
+
   /**
    * Toggle dropdown list
    * @param {*} event
    */
   const onCTAClick = (event) => {
-    event.currentTarget.lastChild.classList.toggle("hidden");
+    setIsDropdownActive(!isDropdownActive)
   };
 
   return (
@@ -31,7 +35,7 @@ const Dropdown = (props) => {
       {isRequired && (
         <div className="dropdown-primary-danger">Select your {`${name}`}</div>
       )}
-      {DropdownOptions}
+      {isDropdownActive && DropdownOptions}
     </div>
   );
 };

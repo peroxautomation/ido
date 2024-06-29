@@ -3,8 +3,16 @@ import Title from "../components/mobile/Title";
 import ResultFrameRow from "../components/mobile/ResultFrameRow";
 import { useState } from "react";
 
+/**
+ * Comparison result page
+ * @returns
+ */
 const ComparisonResult = () => {
+  /************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const [currentSegment, setCurrentSegment] = useState("all");
+
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-items-center items-baseline">
       <Title pageName="Result" />

@@ -1,6 +1,6 @@
 /**
  * Camera icon for create flows
- * @param {*} ctaClick on click function
+ * @param {*} onIconClick on click function
  * @param isHidden Boolean flag to hide the icon
  * @returns
  */

@@ -9,7 +9,7 @@ const ChatBox = (props) => {
   return (
     <div
       onClick={onClick}
-      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular`}
+      className={`w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100 `}
     >
       <div className="flex-1 flex flex-row items-center justify-start gap-[0.5rem]">
         <img

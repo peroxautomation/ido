@@ -1,3 +1,9 @@
+/**
+ * Next button used on create screens
+ * @param {*} onNextClick On click function
+ * @param cta button label
+ * @returns 
+ */
 const NextButton = (props) => {
   const { onNextClick, cta } = props;
   return (

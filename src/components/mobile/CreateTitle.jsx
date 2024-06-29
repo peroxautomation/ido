@@ -1,16 +1,18 @@
 
 
+/**
+ * Title for component for create cover, create challenge and create new challenge
+ * @param {*} titleText The title of the page 
+ * @returns 
+ */
 const CreateTitle = (props) => {
   const { titleText } = props;
   return (
     <div
-      className={`absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-overline-semibold `}
+      className={`create-title`}
     >
-      <div className="flex-1 rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem]">
+      <div className="create-title-text">
         <div className="relative leading-[1rem] font-semibold">{titleText}</div>
-      </div>
-      <div className="w-[10.469rem] rounded-xl hidden flex-row items-center justify-center py-[0.75rem] px-[0.25rem] box-border text-neutral-500">
-        <div className="relative leading-[1rem]">Cover</div>
       </div>
     </div>
   );

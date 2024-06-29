@@ -1,21 +1,80 @@
 import UserComment from "./UserComment";
-import CommentLikes from "./CommentLikes";
-import CommentReply from "./CommentReply";
 import CommentReplyInput from "./CommentReplyInput";
+import { useState } from "react";
 
+/**
+ * Comment box component
+ * @param comment The comment message/text
+ * @param datePosted The date the comment was posted
+ * @param userInfo A object of the user who posted the comment. { profileImageSrc, username, }
+ * @param likes The number of like sthe comment has
+ * @param updateLikes function to update likes
+ * @param id the id of the comment
+ * @param replies Array of comments
+ * @returns
+ */
 const CommentBox = (props) => {
-  const {} = props;
+  /************************************************************************* */
+  /********************************{Props}********************************** */
+  /************************************************************************* */
+  const { comment, datePosted, userInfo, likes, updateLikes, id, replies } =
+    props;
+  const [isReplyActive, setIsReplyActive] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
+  /************************************************************************* */
+  /********************************{Methods}******************************** */
+  /************************************************************************* */
+  /**
+   * Update comment like and apply css
+   */
+  const onLikeClick = () => {
+    if (!isLiked) {
+      setIsLiked(true);
+      updateLikes(true, id);
+    } else {
+      setIsLiked(false);
+      updateLikes(false, id);
+    }
+  };
+
+  /**
+   * Toggle reply input
+   */
+  const onReplyClick = () => {
+    setIsReplyActive(!isReplyActive);
+  };
+
+  /**
+   * TODO: Render comment replies
+   */
+  const renderReplies = () => {};
+
   return (
-    <div
-      className={`self-stretch flex flex-col items-end justify-start py-[1.5rem] px-[0rem] text-left text-[1rem] text-neutral-100 font-button-1-regular border-b-[1px] border-solid border-neutral-700`}
-    >
+    <div className={`comment-box`}>
       <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem]">
-        <UserComment ellipse1198="/ellipse-1198@2x.png" />
+        <UserComment
+          imageSrc={userInfo.profileImageSrc}
+          username={userInfo.username}
+          date={datePosted}
+          comment={comment}
+        />
         <div className="self-stretch flex flex-row items-center justify-start gap-[0.312rem]">
-          <CommentLikes />
-          <CommentReply />
+          <button onClick={onLikeClick} className={`comment-box-likes`}>
+            <img
+              src={isLiked ? "/heart-icon-filled.svg" : "/heart-icons.svg"}
+              alt=""
+              className="w-[16px] h-[16px]"
+            />
+            <div className="relative text-[0.75rem] leading-[1rem]  text-neutral-100 text-left">
+              {likes}
+            </div>
+          </button>
+          <button onClick={onReplyClick} className={`comment-box-reply-btn`}>
+            Reply
+          </button>
         </div>
-        <CommentReplyInput />
+        {isReplyActive && <CommentReplyInput />}
       </div>
     </div>
   );

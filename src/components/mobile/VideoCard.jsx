@@ -12,7 +12,9 @@ const VideoCard = (props) => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate("/moves/:videoId");
+    navigate("/moves/others/temp-id-123", {
+      state: { view: "others", videoId: "temp-id-123" },
+    });
   };
 
   return (

@@ -4,12 +4,9 @@ import Stars from "./Stars";
  * @param selectHandler Handler to set dropdown value
  */
 const RatingsDropdown = (props) => {
-  const { selectHandler } = props;
+  const { selectHandler, className } = props;
   return (
-    <div
-      id="ratingsDropdown"
-      className={`search-filter-dropdown-ratings hidden`}
-    >
+    <div className={`search-filter-dropdown-ratings ${className}`}>
       <Stars
         star1="/starIcon.svg"
         star2="/starIcon.svg"

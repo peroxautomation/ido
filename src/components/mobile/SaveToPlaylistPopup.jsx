@@ -5,15 +5,25 @@ import PrimaryButton from "./PrimaryButton";
 
 /**
  * Save to playlist popup
- * @param {*} videoId The id of the video to save
+ * @param {*} handleSave Handler to save the video
  * @returns
  */
 const SaveToPlaylistPopup = (props) => {
-  const { videoId } = props;
+  /************************************************************************************ */
+  /***************************{Component Variables & States}*************************** */
+  /************************************************************************************ */
+  const { handleSave } = props;
   const [checkedPlaylists, setCheckedPlaylist] = useState([]);
+  const playlistNames = [
+    "Ballet dances",
+    "Contemporary challenges",
+    "hip-hop challenges",
+    "hip-hop challenges",
+  ];
 
-  const playlistNames = ["Ballet dances", "Contemporary challenges",  "hip-hop challenges", "hip-hop challenges",];
-
+  /************************************************************************************ */
+  /***************************{Component Methods}************************************** */
+  /************************************************************************************ */
   /**
    * Handle saving video to playlist
    * @param {*} isAdd flag if the video is to be added or removed
@@ -44,15 +54,6 @@ const SaveToPlaylistPopup = (props) => {
   };
 
   /**
-   * On save click
-   */
-  const onSaveClick = () => {
-    //TODO: Save video to checkedPlaylists
-    const popup = document.getElementById("saveToPlaylistPopup");
-    popup.classList.toggle("hidden");
-  };
-
-  /**
    * Is the button active
    * @returns False if the button is active, else true.
    */
@@ -62,10 +63,7 @@ const SaveToPlaylistPopup = (props) => {
   };
 
   return (
-    <div
-      id="saveToPlaylistPopup"
-      className={`hidden save-to-playlist-popup`}
-    >
+    <div id="saveToPlaylistPopup" className={`save-to-playlist-popup`}>
       <AddToPlaylistTitle />
       <div className="h-[52%] overflow-y-auto grid grid-cols-1 w-full">
         {renderPlaylists()}
@@ -74,7 +72,7 @@ const SaveToPlaylistPopup = (props) => {
         <PrimaryButton
           cTA="save"
           isActive={isActive()}
-          onCTAClick={onSaveClick}
+          onCTAClick={handleSave}
         />
       </div>
     </div>

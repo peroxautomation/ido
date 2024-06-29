@@ -1,8 +1,13 @@
+/**
+ * Select music search input
+ * @param {*} props
+ * @returns
+ */
 const SearchInput = (props) => {
-  const {} = props;
+  const { value, handleValue } = props;
   return (
     <div
-      className={`relative top-[13vh] h-[2.75rem] w-[20.938rem] flex flex-row  content-center`}
+      className={`select-music-search`}
     >
       <div className="w-[90vw] rounded-xl bg-white-8 flex flex-row items-start justify-start py-[0.5rem] px-[1rem] box-border gap-[0.5rem]">
         <div className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0">
@@ -13,7 +18,9 @@ const SearchInput = (props) => {
           />
         </div>
         <input
-          className="[border:none] [outline:none] font-button-1-regular text-[1rem] bg-[transparent] flex-1 relative leading-[1.5rem] text-neutral-100 text-left"
+          value={value}
+          onInput={(e) => handleValue(e.currentTarget.value)}
+          className="select-music-search-input"
           placeholder="Search"
           type="text"
         />

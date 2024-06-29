@@ -24,7 +24,7 @@ const GenreDropdown = (props) => {
   };
 
   return (
-    <div id="genreDropdown" className={`hidden search-filter-dropdown-genre `}>
+    <div id="genreDropdown" className={`search-filter-dropdown-genre `}>
       {renderGenres()}
     </div>
   );

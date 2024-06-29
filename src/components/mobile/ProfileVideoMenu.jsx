@@ -1,25 +1,24 @@
-import ProfileMenuItem from "./ProfileMenuItem";
+import ProfileVideoMenuItem from "./ProfileVideoMenuItem";
 
+/**
+ * Options menu for profile video card 1
+ * @param onClickOption1 On click option 1 function
+ * @param onClickOption2 On click option 2 function
+ * @returns
+ */
 const ProfileVideoMenu = (props) => {
-  const {} = props;
-  const onDeleteClick = () => {
-    const element = document.getElementById("ProfileDeleteDancePopup");
-    element.classList.toggle("hidden");
-  };
+  const { onClickOption1, onClickOption2 } = props;
 
   return (
-    <div
-      className={`hidden absolute z-10 top-[20%] left-[15%] rounded-lg overflow-hidden flex flex-col items-start justify-start w-[80%]`}
-    >
-      <ProfileMenuItem
-        menuItemGap="unset"
-        menuItemAlignSelf="stretch"
-        saveToPlaylist="Edit dance"
+    <div className={`profile-video-card-menu`}>
+      <ProfileVideoMenuItem
+        onClick={onClickOption1}
+        placeholder="Edit dance"
         imageSrc="/hugeiconeducationoutlinepencil1.svg"
       />
-      <ProfileMenuItem
-        onClick={onDeleteClick}
-        saveToPlaylist="Delete dance"
+      <ProfileVideoMenuItem
+        onClick={onClickOption2}
+        placeholder="Delete dance"
         imageSrc="/hugeiconinterfaceoutlinetrash.svg"
       />
     </div>

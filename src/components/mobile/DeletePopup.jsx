@@ -1,38 +1,34 @@
-import { useNavigate } from "react-router-dom";
-import ProfileBtn from "./ProfileBtn";
+import DeletePopupBtn from "./DeletePopupBtn";
 
 /**
  * Delete popup component
- * @param message
- * @param current
- * @returns
+ * @param message The delete message to show
+ * @param onYesClick On yes click function
+ * @param onNoClick On no click function
+ * @returns A JSX element
  */
 const DeletePopup = (props) => {
-  const navigate = useNavigate();
-  const { message, current } = props;
+  /********************************************************************* */
+  /***************************{ Variables & States }******************** */
+  /********************************************************************* */
+  const { message, onYesClick, onNoClick } = props;
 
-  const onNoClick = () => {
-    const element = document.getElementById("ProfileDeleteDancePopup");
-    element.classList.toggle("hidden");
-  };
-
-  const onYesClick = () => {
-    if (current === "Subscription") navigate("/subscription-cancled");
-
-    if (current === "DeleteAccount") navigate("/home"); //TODO: Add to delete user data and navigate to home
-  };
+  /**************************************************************** */
+  /***************************{ Methods }************************** */
+  /**************************************************************** */
 
   return (
-    <div
-      id="ProfileDeleteDancePopup"
-      className={`absolute hidden z-20 top-[calc(50%_-_73.5px)] left-[calc(50%_-_124.5px)] rounded-2xl bg-neutral-700 w-[15.625rem] h-[9.25rem] overflow-hidden text-center text-[1.25rem] text-neutral-100 font-button-1-regular `}
-    >
+    <div id="ProfileDeleteDancePopup" className={`delete-popup`}>
       <div className="absolute top-[1rem] left-[calc(50%_-_109px)] leading-[1.75rem] font-semibold inline-block w-[13.625rem]">
         {message}
       </div>
       <div className="grid grid-flow-col">
-        <ProfileBtn onClick={onYesClick} cTA="Yes" />
-        <ProfileBtn onClick={onNoClick} cTA="No" className=" bg-primary-500" />
+        <DeletePopupBtn onClick={onYesClick} cTA="Yes" />
+        <DeletePopupBtn
+          onClick={onNoClick}
+          cTA="No"
+          className=" bg-primary-500"
+        />
       </div>
     </div>
   );

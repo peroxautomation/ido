@@ -2,11 +2,17 @@ import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/mobile/PrimaryButton";
 
 const SubscriptionResult = () => {
+  /*********************************************************************************** */
+  /********************************{Global vairables}********************************* */
+  /*********************************************************************************** */
   const navigate = useNavigate();
 
+  /*********************************************************************************** */
+  /********************************{ Functions }************************************** */
+  /*********************************************************************************** */
   const onBackClick = () => {
-    navigate('/profile');
-  }
+    navigate("/profile");
+  };
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-silver-200 font-button-1-regular flex flex-row justify-center">
       <div className="absolute top-[17.813rem] flex flex-col items-center justify-start gap-[1rem] text-center text-neutral-100">
@@ -21,11 +27,9 @@ const SubscriptionResult = () => {
           </div>
         </div>
       </div>
-      <PrimaryButton
-        onClick={onBackClick}
-        cTA="Back"
-        isActive={true}
-      />
+      <div className="absolute bottom-6 w-[90%]">
+        <PrimaryButton onCTAClick={onBackClick} cTA="Back" isActive={true} />
+      </div>
     </div>
   );
 };

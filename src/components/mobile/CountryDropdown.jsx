@@ -4,7 +4,7 @@ import DropdownItem2 from "./DropdownItem2";
  * @param selectHandler Handler to set dropdown value
  */
 const CountryDropdown = (props) => {
-  const { selectHandler } = props;
+  const { selectHandler, className } = props;
 
   const countries = [
     "Afghanistan",
@@ -26,7 +26,7 @@ const CountryDropdown = (props) => {
   return (
     <div
       id="countryDropdown"
-      className={`hidden search-filter-dropdown-country`}
+      className={`search-filter-dropdown-country ${className}`}
     >
       {renderCountries()}
     </div>

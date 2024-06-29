@@ -3,7 +3,7 @@ const Dropdown1 = (props) => {
   const { dropdown } = props;
   return (
     <div
-      className={`self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 font-button-1-regular `}
+      className={`self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100  `}
     >
       <img
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 hidden"

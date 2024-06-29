@@ -24,7 +24,7 @@ const CreatePicker = (props) => {
 
   return current === "new-challenge" ? (
     <div
-      className={`absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-overline-semibold `}
+      className={`create-picker`}
     >
       <SegmentedButton2 onClick={onChallengeClick} placeholder="Challenge" />
       <SegmentedButton2
@@ -35,7 +35,7 @@ const CreatePicker = (props) => {
     </div>
   ) : (
     <div
-      className={`absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100 font-overline-semibold `}
+      className={`create-picker `}
     >
       <SegmentedButton2
         onClick={onChallengeClick}

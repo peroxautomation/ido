@@ -3,7 +3,7 @@ const MovesFavourite = (props) => {
   return (
     <div
       onClick={onClick}
-      className={`flex flex-col items-center justify-start gap-[0.25rem] text-center text-[0.75rem] text-neutral-100 font-button-1-regular `}
+      className={`flex flex-col items-center justify-start gap-[0.25rem] text-center text-[0.75rem] text-neutral-100  `}
     >
       <img
         className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"

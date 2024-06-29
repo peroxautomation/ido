@@ -1,3 +1,8 @@
+/**
+ * Comparison result segment picker
+ * @param {*} props 
+ * @returns 
+ */
 const ResultSegmentedPicker = (props) => {
   const { currentSegment, setCurrent } = props;
 
@@ -12,7 +17,7 @@ const ResultSegmentedPicker = (props) => {
 
   return (
     <div
-      className={`relative top-[13vh] rounded-xl bg-neutral-800 w-[20.938rem] flex flex-row items-center justify-center text-left text-neutral-100 self-baseline`}
+      className={`comparison-result-segment-picker`}
     >
       <button onClick={() => setCurrent("all")}  className={currentSegment == 'all' ? selectedButton : normalButton}>
         <div   className={currentSegment == 'all' ? selectedText : normalText}>All</div>

@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+//active:bg-primary-500/80
+
 /* Login And Onboarding */
 import OnboardingPrime from "./pages/OnboardingPrime";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -51,8 +53,7 @@ import SorryPage from "./pages/SorryPage";
 
 /* Move pages */
 import Moves from "./pages/Moves";
-import CreatorView from "./pages/CreatorView";
-import OthersView from "./pages/OthersView";
+import MovesView from "./pages/MovesView";
 import ComparisonPage from "./pages/ComparisonPage";
 import ComparisonResult from "./pages/ComparisonResult";
 import FrameComparisonPage from "./pages/FrameComparisonPage";
@@ -61,7 +62,6 @@ import AddInfoForCover from "./pages/AddInfoForCover";
 /* Profile pages */
 import ProfilePrime from "./pages/ProfilePrime";
 import PlaylistInner from "./pages/PlaylistInner";
-import EditPlaylist from "./pages/EditPlaylist";
 import AnotherUserProfile from "./pages/AnotherUserProfile";
 import Relating from "./pages/Relating";
 import LikedVideos from "./pages/LikedVideos";
@@ -98,6 +98,7 @@ import WhyAreYouLeavingIdo from "./pages/WhyAreYouLeavingIdo";
 import ResetPasswordResult from "./pages/ResetPasswordResult";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
+import DonateResult from "./pages/DonateResult";
 
 function App() {
   return (
@@ -142,9 +143,8 @@ function App() {
       {/******************************************** { Search Screen } ***************************************************************/}
       <Route path="/search" element={<Search />} />
       {/******************************************** { Move Screen } ***************************************************************/}
-      <Route path="/moves/:videoId" element={<OthersView />} />
+      <Route path="/moves/:view/:videoId" element={<MovesView />} />
       <Route path="/moves" element={<Moves />} />
-      <Route path="/moves/creator-view/:videoId" element={<CreatorView />} />
       <Route path="/moves/comparison-page" element={<ComparisonPage />} />
       <Route path="/moves/comparison-result" element={<ComparisonResult />} />
       <Route
@@ -216,12 +216,10 @@ function App() {
       <Route path="/profile" element={<ProfilePrime />} />
       <Route path="/profile/:userId" element={<AnotherUserProfile />} />
       <Route path="/profile/playlist" element={<PlaylistInner />} />
-      <Route path="/profile/playlist-edit" element={<EditPlaylist />} />
       <Route path="/profile/relating" element={<Relating />} />
       <Route path="/profile/liked-videos" element={<LikedVideos />} />
       <Route path="/profile/history" element={<HistoryPage />} />
       <Route path="/notifications" element={<RelateRequest />} />{" "}
-      {/* Relaterequest or notifications page */}
       <Route path="/profile/faq" element={<FAQ />} />
       <Route path="/profile/contact-us" element={<ContactUs />} />
       <Route path="/profile/about-us" element={<About />} />
@@ -303,6 +301,14 @@ function App() {
       {/********************************************* {Donate Screens } *******************************************************************/}
       <Route path="/donate" element={<Donate />} />
       <Route path="/donate/select-payment" element={<DonateSelectPayment />} />
+      <Route
+        path="/donate/processing"
+        element={<Processing />}
+      />
+      <Route
+        path="/donate/result"
+        element={<DonateResult />}
+      />
       {/******************************************** { Chat Screens } ***************************************************************/}
       <Route path="/messages" element={<Messages />} />
       <Route path="/messages/:chatId" element={<MessagePage />} />

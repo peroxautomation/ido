@@ -2,7 +2,7 @@ const MessagePageHeader = (props) => {
   const { name, status } = props;
   return (
     <div
-      className={`absolute top-[2.5rem] left-[calc(50%_-_187.5px)] bg-white-8 w-[23.438rem] flex flex-row items-center justify-start py-[1rem] px-[1.25rem] box-border gap-[1rem] text-left text-[1rem] text-neutral-100 font-button-1-regular`}
+      className={`absolute top-[2.5rem] left-[calc(50%_-_187.5px)] bg-white-8 w-[23.438rem] flex flex-row items-center justify-start py-[1rem] px-[1.25rem] box-border gap-[1rem] text-left text-[1rem] text-neutral-100 `}
     >
       <img
         onClick={() => history.back()}

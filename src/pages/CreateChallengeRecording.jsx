@@ -1,4 +1,4 @@
-import Exit1 from "../components/mobile/Exit1";
+import Exit from "../components/mobile/Exit";
 import NextButton from "../components/mobile/NextButton";
 import RecordingVideoContainer from "../components/mobile/RecordingVideoContainer";
 import SelectGalleryButton from "../components/mobile/SelectGalleryButton";
@@ -36,7 +36,7 @@ const CreateChallengeRecording = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-center text-[1rem] text-neutral-100 font-overline-semibold">
       <div className="relative top-[5vh] left-[calc(50%_-_167.5px)] w-[20.938rem] flex flex-row items-start justify-between">
-        <Exit1 ctaClick={() => navigate("/create")} />
+        <Exit onClick={() => navigate(-1)} />
         <NextButton onNextClick={onNextClick} cta={"Next"} />
       </div>
       <RecordingVideoContainer className="left-[calc(50%_-_167.5px)] top-[15vh]" />

@@ -1,13 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
 import UploadBar from "../components/mobile/UploadBar";
 
+/**
+ * Uploading screen
+ * @returns 
+ */
 const Uploading = () => {
   const { flow } = useParams();
   const navigate = useNavigate();
 
   setTimeout(()=> {
     navigate(`/create/${flow}/upload-successful`)
-  }, 4000);
+  }, 3000);
   
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-silver font-button-1-regular">

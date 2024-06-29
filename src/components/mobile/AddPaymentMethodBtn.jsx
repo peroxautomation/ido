@@ -1,9 +1,23 @@
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Button to add a new payment method
+ * @param {*} props
+ * @returns
+ */
 const AddPaymentMethodBtn = (props) => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
   const {} = props;
-  // Navigate to add card
+
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Navigate to add card
+   */
   const onAddClick = () => {
     navigate("/profile/add-payment");
   };
@@ -11,9 +25,9 @@ const AddPaymentMethodBtn = (props) => {
   return (
     <button
       onClick={onAddClick}
-      className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-primary-500 w-[20.938rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem]`}
+      className={`add-payment-btn`}
     >
-      <div className="relative text-[1rem] leading-[1.5rem] font-semibold font-button-1-regular text-neutral-100 text-center">
+      <div className="relative text-[1rem] leading-[1.5rem] font-semibold  text-neutral-100 text-center">
         Add payment methd
       </div>
       <img

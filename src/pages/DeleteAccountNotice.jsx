@@ -7,7 +7,14 @@ import PrimaryButton from "../components/mobile/PrimaryButton";
  * @returns
  */
 const DeleteAccountNotice = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
+
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
   const onContinueClick = () => {
     navigate("/profile/verify-your-account");
   };
@@ -21,31 +28,31 @@ const DeleteAccountNotice = () => {
         </div>
         <div className="flex-1 relative leading-[1.5rem] mt-[5] h-[calc(100vh_-_15rem)] overflow-y-auto">
           <p className="my-4">
-            Your account will be deactivated for 30 days and won't be visible to
-            the public. During deactivation, you can reactivate your Ido account
-            anytime.
+            Your account will be deactivated for 30 days and won&prime;t be
+            visible to the public. During deactivation, you can reactivate your
+            Ido account anytime.
           </p>
           <p className="my-4">
             After 30 days, your account and data will be deleted permanently.
           </p>
           <p className="my-4">It you delete your account:</p>
           <p className="my-4">
-            • You won't be able to log in and use any Ido services with that
-            account
+            • You won&prime;t be able to log in and use any Ido services with
+            that account
           </p>
           <p className="my-4">• You will lose access to all your videos</p>
           <p className="my-4">
-            • Information that isn't stored in your account, such as direct
-            messages, may still be visible to others
+            • Information that isn&prime;t stored in your account, such as
+            direct messages, may still be visible to others
           </p>
           <p className="my-4">
-            • Information that isn't stored on Ido servers, such as drafts, will
-            be removed. You won't be able to download such information after
-            deleting your account.
+            • Information that isn&prime;t stored on Ido servers, such as
+            drafts, will be removed. You won&prime;t be able to download such
+            information after deleting your account.
           </p>
           <p className="my-4">
-            • You won't be able to get a refund on any items you purchased or
-            received.
+            • You won&prime;t be able to get a refund on any items you purchased
+            or received.
           </p>
           <p className="my-4">Do you want to continue?</p>
         </div>

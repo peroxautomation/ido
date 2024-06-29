@@ -1,8 +1,13 @@
+/**
+ * Play video button component for selected video
+ * @param {*} onClick On click function
+ * @returns A JSX Element
+ */
 const PlayButton = (props) => {
-  const { className, onClick } = props;
+  const { onClick } = props;
   return (
     <img
-      className={`cursor-pointer absolute top-[8.75rem] left-[calc(50%_-_28.5px)] w-[3.5rem] h-[3.5rem] overflow-hidden `}
+      className={`selected-video-play-btn`}
       alt=""
       src="/hugeiconmultimedia-and-audiosolidplay1.svg"
     />

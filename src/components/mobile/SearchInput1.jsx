@@ -6,26 +6,12 @@
  * @returns JSX element
  */
 const SearchInput1 = (props) => {
-  const { searchPlaceholder, searchValue, handleSetValue } = props;
+  const { searchPlaceholder, searchValue, handleSetValue, onEnter } = props;
 
-  /**
-   * Show the search options
-   */
-  const showResults = () => {
-    document.getElementById("searchOptions").classList.toggle("hidden");
-  };  
-
-  /**
-   * Hide the search options
-   */
-  const hideResults = () => {
-    console.log('left')
-    document.getElementById("searchOptions").classList.add("hidden");
-  };
 
   return (
     <div
-      onClick={showResults}
+      onClick={null}
       className={`search-page-search-container w-full`}
     >
       <img
@@ -34,6 +20,7 @@ const SearchInput1 = (props) => {
         src="/searchIcon.svg"
       />
       <input
+        onClick={onEnter}
         className="search-page-search-input"
         placeholder={searchPlaceholder}
         type="text"

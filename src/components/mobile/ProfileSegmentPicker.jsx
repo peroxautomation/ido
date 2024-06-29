@@ -1,3 +1,9 @@
+/**
+ * Profile segment picker component
+ * @param current The current segment 
+ * @param onClick On click function to update the current segment in the parent component
+ * @returns
+ */
 const ProfileSegmentPicker = (props) => {
   const { current, onClick } = props;
   const boxClass = "bg-neutral-700 rounded-xl";

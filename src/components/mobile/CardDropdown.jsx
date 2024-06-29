@@ -2,30 +2,29 @@
  * Card dropdown buttons for withdraw and top-up
  * @param value the value of the selected card
  * @param handleSetValue  function handler to update value
- * @returns
+ * @returns A JSX element
  */
 const CardDropdown = (props) => {
-  const { value, handleSetValue } = props;
-  // Show recent searches
-  const onDropdownClick = () => {
-    document.getElementById("CardDropdownMenu").classList.toggle("hidden");
-  };
+  const { value, onDropdownClick } = props;
+
   return (
     <div
       onClick={onDropdownClick}
-      className={`flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular`}
+      className={`flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 `}
     >
       <div className="w-[20.938rem] flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[0.25rem] box-border">
         <div className="flex-1 relative leading-[1.5rem]">Select card</div>
       </div>
       <div className="w-[20.938rem] rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] box-border gap-[0.5rem]">
         <img
-          className="w-[1.5rem] relative h-[1.5rem]"
+          className={`w-[1.5rem] relative h-[1.5rem] ${
+            value.type == null ? "hidden" : ""
+          } `}
           alt=""
-          src="/mastercard.svg"
+          src={value.type === "master" ? "/mastercard.svg" : "/visa.svg"}
         />
         <div className="flex-1 relative leading-[1.5rem]">
-          4169 8883 4320 1284
+          {value.number == null ? "Choose card" : value.number}
         </div>
         <img
           className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"

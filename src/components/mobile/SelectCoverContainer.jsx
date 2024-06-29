@@ -1,11 +1,16 @@
+/**
+ * Selected challenge/cover video thumbnail (cover)
+ * @param {*} selectedFrameSrc The selected frame source
+ * @returns
+ */
 const SelectCoverContainer = (props) => {
-  const {} = props;
+  const { selectedFrameSrc } = props;
 
   return (
     <img
-      className={`absolute top-[5.5rem] left-[1.25rem] rounded-2xl w-[20.938rem] h-[29.188rem] overflow-hidden object-cover `}
+      className={`selected-video-container`}
       alt=""
-      src="/choosing-video-container@2x.png"
+      src={selectedFrameSrc}
     />
   );
 };

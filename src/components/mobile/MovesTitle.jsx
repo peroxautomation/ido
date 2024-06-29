@@ -1,12 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import MovesBtn from "./MovesBtn";
 
+/**
+ * Moves title section
+ * @param {*} isCreator Boolean to check if on creators view
+ * @param creatorName Dance creator name
+ * @param onRelateClick On relate click function
+ * @param isRelating Boolean to check if the user is already relating to creator
+ * @returns
+ */
 const MovesTitle = (props) => {
-  const { isCreator = false } = props;
+  const { isCreator = false, creatorName, onRelateClick, isRelating } = props;
   const navigate = useNavigate();
   return (
     <div
-      className={`self-stretch flex flex-row items-center justify-between text-center text-[0.75rem] text-neutral-100 font-button-1-regular `}
+      className={`moves-header-title`}
     >
       <img
         onClick={() => navigate(-1)}
@@ -17,7 +25,7 @@ const MovesTitle = (props) => {
       <div className="flex flex-row items-center justify-end gap-[0.312rem]">
         <div className="w-[1.5rem] relative h-[2.25rem]">
           <img
-            className="relative w-[1.375rem] h-[0.875rem]"
+            className="relative w-[1.375rem] h-[0.875rem] top-6"
             alt=""
             src="/subtract1.svg"
           />
@@ -32,10 +40,12 @@ const MovesTitle = (props) => {
         </div>
         <div className="flex flex-row items-center justify-center text-left text-[1rem]">
           <div className="relative leading-[1.5rem] font-semibold">
-            Ronald Hilson
+            {creatorName}
           </div>
         </div>
-        {!isCreator && <MovesBtn placeholder={"Relate"} />}
+        {!isCreator && (
+          <MovesBtn handleRelate={onRelateClick} isRelating={isRelating} />
+        )}
       </div>
     </div>
   );

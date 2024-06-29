@@ -1,16 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import GoogleSignInBtn from "../components/mobile/GoogleSignInBtn";
 import Title from "../components/mobile/Title";
 
 const VerifyYourAccount = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
-  
+
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
   /**
    * Open google authentication
    */
-  const onGoogleClick = () =>{
-    navigate('/profile/settings/account-control/confirm-delete')
-  }
+  const onGoogleClick = () => {
+    navigate("/profile/settings/account-control/confirm-delete");
+  };
 
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-300 font-h3-semibold">
@@ -37,7 +42,19 @@ const VerifyYourAccount = () => {
             can confirm the Ido account username belongs to you.
           </div>
         </div>
-        <GoogleSignInBtn onClick={onGoogleClick} />
+        <button
+          onClick={onGoogleClick}
+          className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 relative w-full rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem]`}
+        >
+          <img
+            className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0"
+            alt=""
+            src="/google.svg"
+          />
+          <div className="relative text-[1rem] leading-[1.5rem] font-semibold font-h3-semibold text-neutral-100 text-center">
+            Continue with Google
+          </div>
+        </button>
       </div>
     </div>
   );

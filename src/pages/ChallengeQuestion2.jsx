@@ -1,41 +1,43 @@
 import Input from "../components/mobile/Input";
-import RadioButtonDefault from "../components/mobile/RadioButtonDefault";
 import TextArea from "../components/mobile/TextArea";
 import PrimaryButton from "../components/mobile/PrimaryButton";
 import Radio1 from "../components/mobile/Radio1";
 import { useNavigate } from "react-router-dom";
 import Title from "../components/mobile/Title";
+import { useState } from "react";
 
 const ChallengeQuestion2 = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
-  const radioId = "RadioButtonDefault2";
+  const [danceHasMeaning, setDanceHasMeaningg] = useState(null);
+  const [danceTitle, setDanceTitle] = useState("");
+  const [danceInspiration, setDanceInspiration] = useState("");
+  const [titleMeaning, setTitleMeaing] = useState("");
 
-  // Switch radio button
-  const onRadioClick = () => {
-    const buttons = document.querySelectorAll(`#${radioId} img`);
-
-    buttons.forEach((element, index) => {
-      if (index % 2 != 0) {
-        element.classList.add("hidden");
-      }
-    });
-
-    const selectedRadio = document.querySelector(
-      `#${radioId} input[name=hasPostedBefore]:checked`
-    );
-    const children = selectedRadio.parentNode.childNodes;
-
-    children[2].classList.toggle("hidden");
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Sets the button to active
+   * @returns
+   */
+  const isButtonActive = () => {
+    if (
+      danceHasMeaning !== null &&
+      danceTitle !== "" &&
+      danceInspiration !== ""
+    ) {
+      console.log(danceHasMeaning);
+      if (danceHasMeaning == "true" && titleMeaning == "") return false;
+      else return true;
+    } else return false;
   };
 
-  // Sets the button to active
-  const setButtonActive = () => {
-    // Set button to active
-    const button = document.querySelector("button[name=create-button-1]");
-    button.classList.add("!bg-primary-500");
-  };
-
-  // Navigate to new challenge questions 3
+  /**
+   * Navigate to new challenge questions 3
+   */
   const onNextClick = () => {
     navigate("/create/new-challenge/challenge-question-3");
   };
@@ -43,62 +45,51 @@ const ChallengeQuestion2 = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden text-left text-[1rem] text-neutral-100 font-button-1-regular">
       <Title className="" pageName="New challenge" />
-      <div className="absolute w-[calc(100%_-_40px)] top-[6.75rem] right-[1.25rem] left-[1.25rem] h-[69vh] overflow-y-auto flex flex-col items-start justify-start gap-[1rem]">
+      <div className="absolute w-[calc(100%_-_40px)] top-[6.75rem] right-[1.25rem] left-[1.25rem] h-[69vh] overflow-y-auto no-scrollbar flex flex-col items-start justify-start gap-[1rem]">
         <Input
-          inputAlignSelf="stretch"
-          inputPosition="unset"
-          inputTop="unset"
-          inputLeft="unset"
-          inputWidth="unset"
           label="What is the title of your dance?"
-          hugeIconinterfacesolidinf
           inputPlaceholder="Answer"
-          labelAlignSelf="stretch"
-          labelWidth="unset"
-          inputAlignSelf1="stretch"
-          inputWidth1="unset"
-          helperTextWidth="20.938rem"
+          value={danceTitle}
+          handleSetValue={setDanceTitle}
         />
         <div className="stretch flex flex-col items-start justify-start gap-[0.5rem]">
           <div className="relative leading-[1.75rem] font-semibold w-[20.938rem]">
             Does the title have any meaning?
             <Radio1
-              element={RadioButtonDefault}
-              value={true}
-              onRadioClick={onRadioClick}
-              radioName={"hasPostedBefore"}
+              radioName={"danceHasMeaning"}
               label="Yes"
-              radioId={radioId}
+              value={true}
+              handleSetValue={setDanceHasMeaningg}
+              selectedValue={danceHasMeaning}
             />
             <Radio1
-              element={RadioButtonDefault}
-              value={false}
-              onRadioClick={onRadioClick}
-              radioName={"hasPostedBefore"}
+              radioName={"danceHasMeaning"}
               label="No"
-              radioId={radioId}
+              value={false}
+              handleSetValue={setDanceHasMeaningg}
+              selectedValue={danceHasMeaning}
             />
           </div>
         </div>
-        <TextArea whatAspectsAreInspiredFro="If yes please explain your answer" />
+        <TextArea
+          label="If yes please explain your answer"
+          value={titleMeaning}
+          setValue={setTitleMeaing}
+          requiredMessage={"Please explain the meaning for your dance title"}
+        />
         <Input
-          inputAlignSelf="stretch"
-          inputPosition="unset"
-          inputTop="unset"
-          inputLeft="unset"
-          inputWidth="unset"
           label="What inspired the title of your dance?"
-          hugeIconinterfacesolidinf
           inputPlaceholder="Answer"
-          labelAlignSelf="stretch"
-          labelWidth="unset"
-          inputAlignSelf1="stretch"
-          inputWidth1="unset"
-          helperTextWidth="20.938rem"
+          value={danceInspiration}
+          handleSetValue={setDanceInspiration}
         />
       </div>
       <div className="absolute bottom-0 w-[90%] left-[1.25rem] right-[2.5rem]">
-        <PrimaryButton cTA="Next" onCTAClick={onNextClick} isActive={true} />
+        <PrimaryButton
+          cTA="Next"
+          onCTAClick={onNextClick}
+          isActive={isButtonActive()}
+        />
       </div>
     </div>
   );

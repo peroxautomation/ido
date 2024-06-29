@@ -37,6 +37,7 @@ const Login = () => {
   /*************************************************************************************** */
   const emailId = "loginEmail"; // Email input ID
   const userPass = "loginPass"; // Password input ID
+  const [passwordIncorrect, setPasswordIncorrect] = useState(false);
 
   /**************************************************************************************** */
   /********************************{Component Functions}********************************** */
@@ -105,7 +106,7 @@ const Login = () => {
                 passwordValue={password}
                 validatePass={null} // TODO: Add password validate function here
               />
-              <IncorrectPasswordMsg />
+             { passwordIncorrect && <IncorrectPasswordMsg />}
             </div>
             <div className="self-stretch flex flex-row items-start justify-end py-2 px-0 gap-[145px]">
               <Link

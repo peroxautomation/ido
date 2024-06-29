@@ -1,19 +1,23 @@
+/**
+ * Input for editing playlist title
+ * @param playlistTitle The value of the input
+ * @param handleSetTitle  handler to update the input
+ * @param placeholder placeholder for the input
+ * @returns A JSX element
+ */
 const PlaylistEditTitleInput = (props) => {
-  const {  playlistTitle, handleSetTitle } = props;
+  const { playlistTitle, handleSetTitle, placeholder } = props;
+
   return (
-    <div
-      className={`flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100 font-button-1-regular `}
-    >
+    <div className={`edit-playlist-input-tile`}>
       <div className="w-[20.938rem] flex flex-row items-start justify-end pt-[0rem] px-[0rem] pb-[0.25rem] box-border">
         <div className="flex-1 relative leading-[1.5rem]">Title</div>
-        <img
-          className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0 hidden"
-          alt=""
-        />
       </div>
       <input
-        className="[border:none] [outline:none] font-button-1-regular text-[1rem] bg-white-8 w-[20.938rem] rounded-xl flex flex-row items-center justify-start py-[0.625rem] px-[1rem] box-border text-neutral-100"
-        placeholder="Want to try"
+        value={playlistTitle}
+        onInput={(e) => handleSetTitle(e.currentTarget.value)}
+        className="edit-playlist-title-input"
+        placeholder={placeholder}
         type="text"
       />
       <div className="w-[20.938rem] hidden flex-row items-center justify-center py-[0.25rem] px-[0rem] box-border text-[0.875rem]">

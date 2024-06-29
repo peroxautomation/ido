@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import Exit1 from "../components/mobile/Exit1";
+import { useMemo, useState } from "react";
+import Exit from "../components/mobile/Exit";
 import NextButton from "../components/mobile/NextButton";
 import SelectCoverContainer from "../components/mobile/SelectCoverContainer";
 import SelectCoverFrame from "../components/mobile/SelectCoverFrame";
@@ -7,8 +7,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import CoverBtn from "../components/mobile/CoverBtn";
 
 const SelectCoverFromVideo = () => {
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
   const navigate = useNavigate();
   const { flow } = useParams();
+  const [selecetdFrame, setSelecetdFrame] = useState(
+    "/choosing-video-container@2x.png"
+  );
 
   // Style for the selected frame
   const selectedStyle = useMemo(() => {
@@ -21,14 +27,21 @@ const SelectCoverFromVideo = () => {
     };
   });
 
-  // Navigate to From Gallery
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  /**
+   * Navigate to From Gallery
+   */
   const onDeviceClick = () => {
     navigate(`/create/${flow}/select-cover/from-gallery`, {
       state: { flow: flow },
     });
   };
 
-  // Navigate to Add Info for Challenge
+  /**
+   * Navigate to Add Info for Challenge
+   */
   const onNextClick = () => {
     if (flow === "challenge")
       navigate(`/create/${flow}/confrim-upload`, { state: { flow: flow } });
@@ -36,11 +49,32 @@ const SelectCoverFromVideo = () => {
     else navigate(`/create/${flow}/add-info`, { state: { flow: flow } });
   };
 
+  /**
+   * Handle update selected frame
+   * @param {*} event 
+   * @param {*} selecetdFrame 
+   */
+  const onFrameSelect = (event, selecetdFrame) => {
+    const frame = event.currentTarget;
+    const frameContainer = frame.parentElement.children;
+
+    for (let items of frameContainer) {
+      items.style.width = null;
+      items.style.height = null;
+      items.style.overflow = null;
+      items.style.objectFit = null;
+      items.style.zIndex = null;
+    }
+
+    Object.assign(frame.style, selectedStyle);
+    setSelecetdFrame(selecetdFrame);
+  };
+
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-center text-[1rem] text-neutral-100 font-overline-semibold grid grid-flow-row justify-items-center">
       <div className="absolute top-[2.5rem] left-[calc(50%_-_167.5px)] w-[20.938rem] flex flex-row items-start justify-between">
-        <Exit1 ctaClick={() => history.back()} />
-        <div className="absolute left-[1.25rem] right-[2.5rem]">
+        <Exit onClick={() => navigate(-1)} />
+        <div className="absolute left-[1.25rem] right-[2.5rem] text-[0.75rem]">
           <CoverBtn cta="From device" ctaClick={onDeviceClick} />
         </div>
         <NextButton
@@ -48,20 +82,57 @@ const SelectCoverFromVideo = () => {
           onNextClick={onNextClick}
         />
       </div>
-      <SelectCoverContainer />
+      <SelectCoverContainer selectedFrameSrc={selecetdFrame} />
       <div className="relative flex flex-row top-[35.938rem] max-w-[90%] overflow-x-scroll overflow-y-hidden">
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame style={selectedStyle} />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
-        <SelectCoverFrame />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          style={selectedStyle}
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
+        <SelectCoverFrame
+          onClick={onFrameSelect}
+          src="/choosing-video-container@2x.png"
+        />
       </div>
     </div>
   );

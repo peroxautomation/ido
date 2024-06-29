@@ -1,10 +1,18 @@
+/**
+ * Video frames from user to selecct video thumbnail (cover)
+ * @param {*} style Selected style to be applied
+ * @param {*} onClick On click function
+ * @param {*} src Image frame
+ * @returns
+ */
 const SelectCoverFrame = (props) => {
-  const { style } = props;
+  const { style, onClick, src } = props;
   return (
     <img
-      className={`flex-shrink-0 relative w-[3.125rem] h-[3.5rem] overflow-hidden object-cover `}
+      onClick={(e) => onClick(e, src)}
+      className={`selected-video-frame`}
       alt=""
-      src="/edit-cover-img@2x.png"
+      src={src}
       style={style}
     />
   );

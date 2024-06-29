@@ -15,6 +15,7 @@ const ResetPassword = () => {
   /**************************************************************************** */
   const [password, setPassword] = useState(""); // password
   const [password2, setPassword2] = useState(""); // confirm password
+  const [passwordIncorrect, setPasswordIncorrect] = useState(false);
 
   /*********************************************************************************** */
   /********************************{Global vairables}********************************* */
@@ -26,7 +27,6 @@ const ResetPassword = () => {
   /*********************************************************************************** */
   /********************************{ Functions }************************************** */
   /*********************************************************************************** */
-
   /**
    * Toggle button active
    * @returns True if all conditions are met, else false.
@@ -48,12 +48,10 @@ const ResetPassword = () => {
    */
   const validatePasswords = () => {
     if (password.length != 0 && password2.length != 0) {
-      if (password === password2)
-        document.getElementById("incoorectPassword").classList.add("hidden");
-      else
-        document.getElementById("incoorectPassword").classList.remove("hidden");
+      if (password === password2) setPasswordIncorrect(false);
+      else setPasswordIncorrect(true);
     } else {
-      document.getElementById("incoorectPassword").classList.add("hidden");
+      setPasswordIncorrect(false);
     }
   };
 
@@ -84,7 +82,11 @@ const ResetPassword = () => {
           handleSetPassword={setPassword2}
           validatePass={validatePasswords}
         />
-        <IncorrectPasswordMsg />
+        {passwordIncorrect && (
+          <div className="w-full">
+            <IncorrectPasswordMsg />
+          </div>
+        )}
         <PrimaryButton
           cTA="Reset password"
           onCTAClick={onResetClick}

@@ -33,6 +33,13 @@ const SelectSubscription = () => {
   }, [navigate]);
 
   /**
+   * Navigate to previous page
+   */
+  const onExitClick = () => {
+    navigate("/sign-up/info");
+  };
+
+  /**
    * Free plan component
    */
   const freePlan = () => {
@@ -121,7 +128,7 @@ const SelectSubscription = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden">
       <section className="absolute w-full right-[0rem] top-[20vh] h-[calc(100vh_-_20vh)] left-[0rem] rounded-t-21xl rounded-b-none bg-neutral-800 grid grid-flow-row justify-items-center  pt-[1.25rem] px-[1.25rem] pb-[2.5rem] box-border gap-[2rem] text-center text-[2rem] text-neutral-100 font-button-2-bold">
-        <Exit className="justify-self-end" />
+        <Exit className="justify-self-end" onClick={onExitClick} />
         <PlanPicker setCurrent={setCurrentPlan} currPlan={selectedPlan} />
         {selectedPlan == "free" ? freePlan() : premiumPlan()}
         <PrimaryButton

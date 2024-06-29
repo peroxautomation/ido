@@ -1,27 +1,112 @@
 import MyWalletBtn from "../components/mobile/MyWalletBtn";
-import MyWalletSearchDropdown from "../components/mobile/MyWalletSearchDropdown";
+import MyWalletOperationDropdown from "../components/mobile/MyWalletOperationDropdown";
 import SearchInput1 from "../components/mobile/SearchInput1";
 import PaymentHistory from "../components/mobile/PaymentHistory";
 import Title from "../components/mobile/Title";
 import PaymentSearchResults from "../components/mobile/PaymentSearchResults";
 import OperationTypeDropdownList from "../components/mobile/OperationTypeDropdownList";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const MyWallet = () => {
+  /*********************************************************************************** */
+  /********************************{States & vairables}******************************* */
+  /*********************************************************************************** */
   const navigate = useNavigate();
-  // Show recent searches
+  const [isOperationActive, setIsOperationActive] = useState(false);
+  const [isPaymentResultActive, setIsPaymentResultActive] = useState(false);
+  const paymenyHistoryData = [
+    {
+      value: -35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: 35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: 35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: -35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: 35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: -35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+    {
+      value: -35,
+      time: "10:42",
+      name: "Sofia Kuchenko",
+      day: "Today",
+    },
+  ];
+  const [searchValue, setSearchValue] = useState(null);
+  const [operationValue, setOperationValue] = useState(null);
+
+  /*********************************************************************************** */
+  /********************************{ Functions }************************************** */
+  /*********************************************************************************** */
+  /**
+   * Show recent searches
+   */
   const onSearchEnter = () => {
-    document.getElementById("PaymentSearch").classList.toggle("hidden");
+    setIsPaymentResultActive(!isPaymentResultActive);
   };
 
-  // Navigate to top-up screen
+  /**
+   * Show operations dropdown
+   */
+  const onOperationsClick = () => {
+    setIsOperationActive(!isOperationActive);
+  };
+
+  /**
+   *  Navigate to top-up screen
+   */
   const onTopUpClick = () => {
     navigate("/profile/my-wallet/top-up");
   };
 
-  // Navigate to widthdraw screen
+  /**
+   * Navigate to widthdraw screen
+   */
   const onWidthdrawClick = () => {
     navigate("/profile/my-wallet/widthdraw");
+  };
+
+  /**
+   * Render users payment history
+   * @returns A list of JSX element
+   */
+  const renderPaymentHistory = () => {
+    return paymenyHistoryData.map((element, index) => (
+      <PaymentHistory
+        key={index}
+        value={element.value}
+        time={element.time}
+        name={element.name}
+        day={element.day}
+      ></PaymentHistory>
+    ));
   };
 
   return (
@@ -38,12 +123,12 @@ const MyWallet = () => {
           <MyWalletBtn
             cTA="Top up"
             onClick={onTopUpClick}
-            hugeIconinterfaceoutlinep="/playlistPlusSolid.svg"
+            imageSrc="/playlistPlusSolid.svg"
           />
           <MyWalletBtn
             cTA="Withdraw"
             onClick={onWidthdrawClick}
-            hugeIconinterfaceoutlinep="/hugeiconarrowssolidmaximize@2x.png"
+            imageSrc="/hugeiconarrowssolidmaximize@2x.png"
           />
         </div>
         <div className="self-stretch flex flex-col items-start justify-start text-left text-neutral-100">
@@ -52,31 +137,27 @@ const MyWallet = () => {
               Select operation type
             </div>
           </div>
-          <MyWalletSearchDropdown />
-          <OperationTypeDropdownList />
+          <MyWalletOperationDropdown
+            onClick={onOperationsClick}
+            value={operationValue}
+          />
+          {isOperationActive && (
+            <OperationTypeDropdownList onSelect={setOperationValue} />
+          )}
         </div>
-        <div className="self-stretch flex flex-col items-center justify-start w-full">
+        <div className="relative self-stretch flex flex-col items-center justify-start w-full">
           <SearchInput1
             onEnter={onSearchEnter}
-            hugeIconinterfacesolidsea="/hugeiconinterfacesolidsearch-021.svg"
+            searchValue={searchValue}
+            handleSetValue={setSearchValue}
             searchPlaceholder="Search"
-            searchInputFlex="unset"
-            searchInputWidth="20.938rem"
-            className="w-full"
           />
-          <PaymentSearchResults />
+          {isPaymentResultActive && (
+            <PaymentSearchResults onSelect={setSearchValue} />
+          )}
         </div>
         <div className="self-stretch h-[calc(100vh_-_27rem)] overflow-y-auto flex flex-col items-start justify-start gap-[1rem]">
-          <PaymentHistory value="-$35" />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="-$35" />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
-          <PaymentHistory value="+$35" isPositive={true} />
+          {renderPaymentHistory()}
         </div>
       </main>
     </div>

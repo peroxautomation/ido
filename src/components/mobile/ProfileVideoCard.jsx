@@ -1,41 +1,92 @@
 import { useNavigate } from "react-router-dom";
-import ProfileVideoMenu from "./ProfileVideoMenu";
 import SaveToPlaylistBtn from "./SaveToPlaylistBtn";
+import ProfileMenuItem from "./ProfileVideoMenuItem";
+import { useState } from "react";
 
-//TODO: Check the differnece between this and ProfileVideoCard1
+/**
+ * Profile video card for main profile screen
+ * @param view The current view. The user's or another person
+ * @param imgSrc The video cover image source
+ * @param viewCount The number of views the video has
+ * @param likeCount The number of likes the video has
+ * @param className Aditional classes to include
+ * @param videoOptions  The video options
+ * @param setSelected Handler to set the selected video id in parent
+ * @param videoId The video id
+ * @returns A jSX element
+ */
 const ProfileVideoCard = (props) => {
-  const { view = "User", onClick } = props;
+  /************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
+  const {
+    view = "user",
+    imgSrc,
+    viewCount,
+    likeCount,
+    className,
+    videoOptions,
+    setSelected,
+    videoId,
+  } = props;
   const navigate = useNavigate();
-  const onMenuClick = (event) => {
-    const element = event.currentTarget.parentElement.children[0];
-    element.classList.toggle("hidden");
+  const [isOptionsActive, setIsOptionsActive] = useState(false);
+  const Element = videoOptions;
+  /**************************************************************** */
+  /***************************{ Methods }************************** */
+  /**************************************************************** */
+
+  /**
+   * On video click
+   */
+  const onVideoClick = () => {
+    navigate("/moves/creator/temp-id-123", {
+      state: { view: "creator", videoId: "temp-id-123" },
+    });
+  };
+
+  /**
+   * Toggle the video options and update the selected video in parent.
+   * @param {*} event 
+   */
+  const onOptionsClick = (event) => {
+    event.stopPropagation();
+    setIsOptionsActive(!isOptionsActive);
+    setSelected(videoId); //Lag issue here! Update the selected video id in parent 
   };
 
   return (
     <div
-      onClick={() => navigate('/moves/creator-view/:videoId')}
-      className={`w-[10rem] relative z-0 rounded-xl h-[10rem] overflow-hidden shrink-0 bg-[url('/public/card1@3x.png')] bg-cover bg-no-repeat bg-[top] text-left text-[0.875rem] text-neutral-100 font-button-1-regular `}
+      onClick={onVideoClick}
+      className={`profile-video-card ${className}`}
+      style={{
+        backgroundImage: `url(/public/${imgSrc})`,
+      }}
     >
-      {view === "User" ? <ProfileVideoMenu /> : <SaveToPlaylistBtn />}
+      {isOptionsActive && Element}
       <div className="absolute top-[6.875rem] left-[0rem] [background:linear-gradient(180deg,_rgba(255,_255,_255,_0),_rgba(0,_0,_0,_0.5))] w-[10rem] h-[3.125rem]" />
-      <div className="absolute top-[8.25rem] left-[1.5rem] flex flex-row items-center justify-start gap-[0.125rem]">
+      <div className="absolute top-[85%] left-[1.5rem] flex flex-row items-center justify-start gap-[0.125rem]">
         <img
           className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0"
           alt=""
           src="/views-icon.svg"
         />
-        <div className="relative leading-[1.25rem] font-semibold">122</div>
+        <div className="relative leading-[1.25rem] font-semibold">
+          {viewCount}
+        </div>
       </div>
-      <div className="absolute top-[8.25rem] left-[6.313rem] flex flex-row items-center justify-start gap-[0.125rem]">
+      <div className="absolute top-[85%] left-[6.313rem] flex flex-row items-center justify-start gap-[0.125rem]">
         <img
           className="w-[1rem] relative h-[1rem] overflow-hidden shrink-0"
           alt=""
           src="/heart-icons.svg"
         />
-        <div className="relative leading-[1.25rem] font-semibold">54</div>
+        <div className="relative leading-[1.25rem] font-semibold">
+          {likeCount}
+        </div>
       </div>
       <div
-        onClick={onMenuClick}
+        onClick={onOptionsClick}
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0.5rem] right-[0.5rem] w-[1.5rem] h-[1.5rem] overflow-hidden"
       >
         <img

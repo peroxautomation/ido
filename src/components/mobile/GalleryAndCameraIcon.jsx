@@ -1,21 +1,25 @@
 import SelectGallery from "./SelectGallery";
 import CameraIcon from "./CameraIcon";
-import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Component for Camera icon and select from gallery button
+ * @param {*} flow The current create flow
+ * @returns
+ */
 const GalleryAndCameraIcon = (props) => {
   const navigate = useNavigate();
-  const { flow} = props;
-  
+  const { flow } = props;
+
   // Navigate to Challenge Recording
-  const onCameraClick = useCallback(() => {
+  const onCameraClick = () => {
     navigate(`/create/${flow}/recording`, { state: { flow: flow } });
-  }, [navigate]);
+  };
 
   // Open native gallery
-  const onGalleryClick = useCallback(() => {
+  const onGalleryClick = () => {
     console.log("Opening gallery...");
-  }, [navigate]);
+  };
 
   return (
     <div className="self-stretch flex flex-row items-start justify-between">

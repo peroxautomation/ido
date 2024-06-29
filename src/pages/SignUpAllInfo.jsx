@@ -22,6 +22,7 @@ const SignUpAllInfo = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [termsAndCondition, setTermsAndCondition] = useState(false);
+  const [passwordIncorrect, setPasswordIncorrect] = useState(false);
 
   /*********************************************************************************** */
   /********************************{Global Variables}********************************* */
@@ -35,17 +36,18 @@ const SignUpAllInfo = () => {
   /**
    * Password validator function
    */
+  /**
+   * Password validator function
+   */
   const validatePasswords = () => {
     if (password.length != 0 && password2.length != 0) {
-      if (password === password2)
-        document.getElementById("incoorectPassword").classList.add("hidden");
-      else
-        document.getElementById("incoorectPassword").classList.remove("hidden");
+      if (password === password2) setPasswordIncorrect(false);
+      else setPasswordIncorrect(true);
     } else {
-      document.getElementById("incoorectPassword").classList.add("hidden");
+      setPasswordIncorrect(false);
     }
   };
-
+  
   /**
    * Create user account
    */
@@ -96,7 +98,7 @@ const SignUpAllInfo = () => {
   const GenderDropdownList = () => {
     return (
       <div
-        className={`absolute top-[48px] hidden rounded-2xl h-max overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold z-10 w-full`}
+        className={`absolute top-[48px] rounded-2xl h-max overflow-y-auto flex flex-col items-start justify-start text-left text-base text-white font-button-2-semibold z-10 w-full`}
       >
         <DropdownItem1 placeholder="Male" onSelectItem={onGenderClick} />
         <DropdownItem1 placeholder="Female" onSelectItem={onGenderClick} />
@@ -113,7 +115,7 @@ const SignUpAllInfo = () => {
       <Title pageName="Sign up" />
       <main className="relative w-[calc(100%_-_40px)] h-[77%] top-[108px] right-[20px] left-[20px] gap-[16px] text-center text-base text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
         <div className="self-stretch flex flex-col items-start justify-start">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[16px] h-[35vh]">
+          <div className="relative self-stretch flex flex-col items-start justify-start gap-[16px] h-[35vh]">
             <TextInput1
               label="Username"
               TextInput1Placeholder="Enter username"
@@ -123,7 +125,7 @@ const SignUpAllInfo = () => {
             <Dropdown
               name="Select your gender"
               selected={gender}
-              DropdownOptions={GenderDropdownList}
+              DropdownOptions={GenderDropdownList()}
             />
             <PasswordInput
               inputAndWordPlaceholder="Create password"
@@ -140,20 +142,18 @@ const SignUpAllInfo = () => {
               handleSetPassword={setPassword2}
               validatePass={validatePasswords}
             />
-            <IncorrectPasswordMsg />
-          </div>
-          <div className="self-stretch flex flex-row items-start justify-start py-5 px-0 gap-[8px]">
+            {passwordIncorrect && <IncorrectPasswordMsg />}
             <CheckboxContainer1
               option1=" I agree to the terms and conditions"
-              className="relative leading-[24px] !bg-transparent !w-full"
+              className="leading-[24px] !bg-transparent !w-full"
               handleCheck={onTermsAndConditionCheck}
             />
+            <PrimaryButton
+              cTA="Create Account"
+              onCTAClick={onCreateClick}
+              isActive={isActive()}
+            />
           </div>
-          <PrimaryButton
-            cTA="Create Account"
-            onCTAClick={onCreateClick}
-            isActive={isActive()}
-          />
         </div>
       </main>
     </div>

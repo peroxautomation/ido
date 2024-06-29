@@ -1,6 +1,7 @@
 import Title from "../components/mobile/Title";
 import PrimaryButton from "../components/mobile/PrimaryButton";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 /**
  * Donate Screen
@@ -8,12 +9,17 @@ import { useNavigate } from "react-router-dom";
  */
 const Donate = () => {
   const navigate = useNavigate();
+  const [donateAmount, setDonateAmount] = useState("");
 
   // Navigate to top up processing page
   const onNextClick = () => {
     navigate("/donate/select-payment");
   };
 
+  const isButtonActive = () => {
+    if (donateAmount.length === 0) return false;
+    return true;
+  };
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-600 font-button-1-regular grid justify-center">
       <Title pageName="Donate" />
@@ -27,6 +33,8 @@ const Donate = () => {
             />
           </div>
           <input
+            onInput={(e) => setDonateAmount(e.currentTarget.value)}
+            value={donateAmount}
             className="w-[20.938rem] rounded-xl bg-white-8 flex flex-row py-[0.625rem] px-[1rem] box-border text-left text-white focus:outline-none text-[1em]"
             placeholder="Enter amount"
           />
@@ -34,7 +42,11 @@ const Donate = () => {
             <div className="flex-1 relative leading-[1.25rem]">Helper text</div>
           </div>
         </div>
-        <PrimaryButton onCTAClick={onNextClick} cTA="Next" isActive={true} />
+        <PrimaryButton
+          onCTAClick={onNextClick}
+          cTA="Next"
+          isActive={isButtonActive()}
+        />
       </div>
     </div>
   );

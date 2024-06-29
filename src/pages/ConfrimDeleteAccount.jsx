@@ -1,17 +1,33 @@
-import SecondaryButton from "../components/mobile/SecondaryButton";
 import Title from "../components/mobile/Title";
 import DeletePopup from "../components/mobile/DeletePopup";
 import PrimaryButton from "../components/mobile/PrimaryButton";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Confirm Delete account screen
  * @returns A JSX element
  */
 const ConfrimDeleteAccount = () => {
-  const onDeletClick = (event) => {
-    const deletePopup = event.currentTarget.parentElement.nextElementSibling;
+  /**************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
+  const [isPopupActive, setIsPopupActive] = useState(false);
+  const navigate = useNavigate();
 
-    deletePopup.classList.toggle("hidden");
+  /****************************************************************** */
+  /***************************{ Methods }*************************** */
+  /***************************************************************** */
+  const onDeletClick = () => {
+    setIsPopupActive(true);
+  };
+
+  const onYesClick = () => {
+    navigate("/home");
+  };
+
+  const onNoClick = () => {
+    setIsPopupActive(false);
   };
 
   return (
@@ -20,20 +36,24 @@ const ConfrimDeleteAccount = () => {
       <div className="relative top-[6.75rem] grid grid-flow-row items-center justify-center text-[1.25rem] text-neutral-200 w-[90%] h-[8rem]">
         <div className="">Delete account</div>
         <div className="">
-          Tapping "Delete account" will delete Ido account username.
+          Tapping &Prime;Delete account&Prime; will delete Ido account username.
         </div>
       </div>
-      <div className="absolute w-[90%] left-[1.25rem] right-[2.5rem] top-[40%]">
+      <div className="absolute w-[90%] left-[1.25rem] right-[2.5rem] top-[17rem]">
         <PrimaryButton
           onCTAClick={onDeletClick}
           cTA="Delete account"
           isActive={true}
         />
       </div>
-      <DeletePopup
-        message={"Are you sure want to delete account?"}
-        current={"DeleteAccount"}
-      ></DeletePopup>
+      {isPopupActive && (
+        <DeletePopup
+          message={"Are you sure want to delete account?"}
+          current={"DeleteAccount"}
+          onNoClick={onNoClick}
+          onYesClick={onYesClick}
+        ></DeletePopup>
+      )}
     </div>
   );
 };

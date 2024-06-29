@@ -1,8 +1,14 @@
+/**
+ *  Video challenge title component
+ * @param userName The creator's name
+ * @param rate The similarty rate
+ * @returns A JSX element
+ */
 const TitleOfChallengedVideo = (props) => {
   const { userName, rate } = props;
   return (
     <div
-      className={`relative flex-1 flex flex-row justify-between text-center text-[1rem] text-neutral-100 font-button-1-regular  w-max`}
+      className={`comparison-result-challenge-video-title`}
     >
       <div className="flex flex-row items-center justify-center gap-[0.5rem]">
         <div className="relative leading-[1.5rem] font-semibold text-left text-nowrap">

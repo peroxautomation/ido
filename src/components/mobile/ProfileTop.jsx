@@ -5,19 +5,38 @@ import ProfileSegmentPicker from "./ProfileSegmentPicker";
 
 /**
  * Profile screen top component
+ * @param onSegmentClick On click function for profile segment
+ * @param currentSegment current segment state variable
+ * @param view  The current view (user or another person)
+ * @param username the user's name
+ * @param postCount Number of post the user has
+ * @param relateCount Number of people the user is relating to
+ * @param bio The users bio page
+ * @param setMenuActive Handeler to toggle side menu
+ * @param isMenuActive  Side menu active state. True or false.
  * @returns A JSX element
  */
 const ProfileTop = (props) => {
-  const { onSegmentClick, currentSegment, view = "User" } = props;
+  /************************************************************************** */
+  /***************************{ Variables & States}*************************** */
+  /*************************************************************************** */
+  const {
+    onSegmentClick,
+    currentSegment,
+    view = "User",
+    username,
+    postCount,
+    relateCount,
+    bio,
+    profilePic,
+    setMenuActive,
+    isMenuActive,
+  } = props;
   const navigate = useNavigate();
 
-  /**
-   * Event listener to open the profile menu
-   */
-  const onMenuClick = () => {
-    document.getElementById("profileMenu").classList.toggle("hidden");
-  };
-
+  /**************************************************************** */
+  /***************************{ Methods}*************************** */
+  /**************************************************************** */
   /**
    * Navigate to relating screen
    */
@@ -32,7 +51,10 @@ const ProfileTop = (props) => {
       {view !== "User" ? (
         <span></span>
       ) : (
-        <div onClick={onMenuClick} className=" justify-self-end mt-6">
+        <div
+          onClick={() => setMenuActive(true)}
+          className=" justify-self-end mt-6"
+        >
           <svg
             width="60"
             height="60"
@@ -53,17 +75,17 @@ const ProfileTop = (props) => {
         <img
           className="w-[7.5rem] relative rounded-[50%] h-[7.5rem] object-cover"
           alt=""
-          src="/ellipse-1168@2x.png"
+          src={profilePic}
         />
         <div className="self-stretch flex flex-row items-center justify-center gap-[0.687rem]">
           <div className="w-[1.5rem] relative h-[2.25rem]">
             <img
-              className="relative w-[1.375rem] h-[0.875rem]"
+              className="relative w-[1.375rem] h-[0.875rem] top-6"
               alt=""
               src="/subtract1.svg"
             />
             <img
-              className="absolute h-[66.67%] w-full top-[0%] right-[0%] bottom-[33.33%] left-[0%] rounded-12xs-3 max-w-full overflow-hidden max-h-full"
+              className="absolute h-[66.67%] w-full bottom-[33.33%] left-[0%] rounded-12xs-3 max-w-full overflow-hidden max-h-full"
               alt=""
               src="/star-5.svg"
             />
@@ -72,14 +94,16 @@ const ProfileTop = (props) => {
             </div>
           </div>
           <div className="relative text-[1rem] leading-[1.5rem] text-left">
-            Julia Hilton
+            {username}
           </div>
         </div>
       </div>
       <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem] text-left text-[1.5rem]">
         <div className="w-[20.938rem] flex flex-row items-center justify-between py-[0rem] px-[1rem] box-border">
           <div className="flex-1 flex flex-col items-center justify-center border-r-[1px] border-solid border-neutral-700">
-            <div className="relative leading-[2rem] font-semibold">32</div>
+            <div className="relative leading-[2rem] font-semibold">
+              {postCount}
+            </div>
             <div className="relative text-[0.75rem] leading-[1rem] text-neutral-400">
               Posts
             </div>
@@ -88,7 +112,9 @@ const ProfileTop = (props) => {
             onClick={onRelatingClick}
             className="flex-1 flex flex-col items-center justify-center"
           >
-            <div className="relative leading-[2rem] font-semibold">993</div>
+            <div className="relative leading-[2rem] font-semibold">
+              {relateCount}
+            </div>
             <div className="relative text-[0.75rem] leading-[1rem] text-neutral-400">
               Relating
             </div>
@@ -96,8 +122,7 @@ const ProfileTop = (props) => {
         </div>
         <div className="self-stretch flex flex-row items-center justify-start text-[1rem]">
           <div className="w-[20.938rem] relative leading-[1.5rem] inline-block shrink-0">
-            Get ready to immerse yourself in the world of dance like never
-            before!
+            {bio}
           </div>
         </div>
       </div>

@@ -86,7 +86,7 @@ body {
   }
 
   .incorrect-password-msg {
-    @apply flex flex-row items-center justify-start px-0 box-border gap-[8px] text-left text-sm text-danger-500 font-button-1-semibold;
+    @apply relative flex flex-row items-center justify-start px-0 box-border gap-[8px] text-left text-sm text-danger-500 font-button-1-semibold;
   }
 
   .otp-input-container {
@@ -307,7 +307,7 @@ body {
   }
 
   .search-page-search-options {
-    @apply w-[20.938rem] bg-neutral-700 box-border flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-800;
+    @apply w-[20.938rem] bg-neutral-700 box-border flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-800 w-full;
   }
 
   .search-filter-dropdown-ratings {
@@ -344,6 +344,310 @@ body {
 
   .dropdown-2-item {
     @apply w-full bg-neutral-700 box-border flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-800;
+  }
+
+  .comments-container {
+    @apply z-20 absolute w-full right-[0rem] bottom-[0rem] left-[0rem] rounded-t-13xl rounded-b-none bg-neutral-800 h-[38rem] flex flex-col items-start justify-start py-[2.5rem] px-[1.25rem] box-border gap-[1rem] text-center text-[1.25rem] text-neutral-100;
+  }
+
+  .comments-container-input {
+    @apply [border:none] [outline:none] text-[1rem] bg-white-8 flex-1 rounded-xl flex flex-row items-start justify-start py-[0.5rem] px-[1rem] text-neutral-100;
+  }
+
+  .comments-container-input-btn {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .comment-box {
+    @apply self-stretch flex flex-col items-end justify-start py-[1.5rem] px-[0rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-700;
+  }
+
+  .comment-box-user-comment {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .comment-box-user-comment-image {
+    @apply w-[1.5rem] relative rounded-[50%] h-[1.5rem] object-cover;
+  }
+
+  .comment-box-user-comment-message {
+    @apply self-stretch relative text-[0.875rem] leading-[1.25rem] text-neutral-400;
+  }
+
+  .comment-box-user-comment-date {
+    @apply flex-1 relative text-[0.875rem] leading-[1.25rem] text-neutral-500 text-right;
+  }
+
+  .comment-box-likes {
+    @apply cursor-pointer [border:none] py-[0.125rem] px-[0.375rem] bg-neutral-800 w-[2.5rem] rounded-3xs h-[1.25rem] flex flex-row items-start justify-start box-border gap-[0.25rem];
+  }
+
+  .comment-box-reply-btn {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] relative text-[0.75rem] leading-[1rem] text-neutral-500 text-left inline-block;
+  }
+
+  .comment-box-input {
+    @apply [border:none] [outline:none] text-[0.75rem] bg-[transparent] flex-1 relative leading-[1rem] text-neutral-100 text-left;
+  }
+
+  .comment-box-input-btn {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] relative text-[0.75rem] leading-[1rem] font-semibold text-neutral-100 text-left inline-block;
+  }
+
+  .cover-btn {
+    @apply cursor-pointer relative left-[calc(50%_-_50.5px)] rounded-md bg-neutral-800 w-[6.313rem] text-[1em] flex flex-row items-center justify-center p-[0.5rem] box-border text-nowrap;
+  }
+
+  .moves-header {
+    @apply self-stretch flex flex-col items-end justify-start py-[1rem] px-[1.25rem] gap-[1rem] text-center text-[0.75rem] text-neutral-100;
+  }
+
+  .moves-header-text {
+    @apply self-stretch relative leading-[1.5rem] font-semibold;
+  }
+
+  .moves-header-title {
+    @apply self-stretch flex flex-row items-center justify-between text-center text-[0.75rem] text-neutral-100;
+  }
+
+  .moves-story-section {
+    @apply self-stretch flex flex-col items-start justify-start py-[1rem] px-[0rem] text-left text-[1rem] text-neutral-100 border-b-[1px] border-solid border-neutral-700;
+  }
+
+  .exit-btn {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .exit-btn-image {
+    @apply absolute h-[35.42%] w-[35.42%] top-[32.5%] right-[32.08%] bottom-[32.08%] left-[32.5%] rounded-12xs max-w-full overflow-hidden max-h-full;
+  }
+
+  .create-picker {
+    @apply absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100;
+  }
+
+  .create-picker-segment-button {
+    @apply flex-1 rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem] text-left text-[0.75rem] text-neutral-100;
+  }
+
+  .gallery-video-row {
+    @apply relative self-stretch grid grid-cols-[25%_25%_25%_25%] items-start w-[90vw] justify-start;
+  }
+
+  .gallery-video {
+    @apply flex-1 relative h-[5.125rem] w-[5.7rem] overflow-hidden bg-cover bg-no-repeat bg-[top]
+  }
+
+  .cover-input-container {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-600;
+  }
+
+  .cover-input {
+    @apply self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-center py-[0.625rem] px-[1rem] text-nowrap text-left text-white focus:outline-none text-[1em] h-[3em];
+  }
+
+  .cover-input-danger {
+    @apply w-[20.938rem] hidden flex-row items-center justify-center py-[0.25rem] px-[0rem] box-border text-[0.875rem];
+  }
+
+  .selected-video {
+    @apply absolute top-[calc(50%_-_225.5px)] left-[calc(50%_-_167.5px)] rounded-2xl w-[20.938rem] h-[20.938rem] overflow-hidden bg-cover bg-no-repeat bg-[top] text-center text-[0.75rem] text-neutral-100;
+  }
+
+  .selected-video-play-btn {
+    @apply cursor-pointer absolute top-[8.75rem] left-[calc(50%_-_28.5px)] w-[3.5rem] h-[3.5rem] overflow-hidden;
+  }
+
+  .selected-video-container {
+    @apply absolute top-[5.5rem] left-[1.25rem] rounded-2xl w-[20.938rem] h-[29.188rem] overflow-hidden object-cover;
+  }
+
+  .selected-video-frame {
+    @apply flex-shrink-0 relative w-[3.125rem] h-[3.5rem] overflow-hidden object-cover;
+  }
+
+  .create-title {
+    @apply absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] rounded-xl bg-neutral-800 flex flex-row items-center justify-center text-left text-[0.75rem] text-neutral-100;
+  }
+
+  .create-title-text {
+    @apply flex-1 rounded-xl bg-neutral-700 flex flex-row items-center justify-center py-[0.75rem] px-[0.25rem];
+  }
+
+  .select-music-btn {
+    @apply absolute top-[18vh] flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100
+  }
+
+  .select-music-info {
+    @apply flex-1 flex flex-row items-center justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100;
+  }
+
+  .select-music-row {
+    @apply w-[100%] flex flex-row items-center justify-between py-[0.75rem] px-[1.25rem] box-border;
+  }
+
+  .select-music-search {
+    @apply relative top-[13vh] h-[2.75rem] w-[20.938rem] flex flex-row content-center;
+  }
+
+  .select-music-search-input {
+    @apply [border:none] [outline:none] text-[1rem] bg-[transparent] flex-1 relative leading-[1.5rem] text-neutral-100 text-left;
+  }
+
+  .primary-radio {
+    @apply my-[1em] self-stretch flex flex-col items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100;
+  }
+
+  .textarea-container {
+    @apply self-stretch flex flex-col items-start justify-start gap-[0.5rem] text-left text-[1rem] text-neutral-100;
+  }
+
+  .textarea-input {
+    @apply [border:none] font-button-1-semibold bg-white-8 text-[1rem] [outline:none] self-stretch rounded-xl h-[8.75rem] flex flex-row items-start justify-start py-[0.5rem] px-[1rem] box-border text-neutral-100 w-[20.938rem];
+  }
+
+  .upload-bar {
+    @apply self-stretch flex flex-row items-center justify-start gap-[0.562rem] text-center text-[0.75rem] text-neutral-100;
+  }
+
+  .progress-bar-outter-container {
+    @apply flex-1 relative rounded-6xs bg-neutral-800 h-[0.875rem] overflow-hidden
+  }
+
+  .progress-bar-inside-container {
+    @apply absolute top-[0rem] left-[0rem] rounded-md bg-primary-500 h-[0.875rem] overflow-hidden;
+  }
+
+  .comparison-result-title {
+    @apply absolute w-[95vh] top-[95vh] right-[-16.75rem] left-[1rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border [transform:_rotate(-90deg)] [transform-origin:0_0] text-center text-[1.25rem] text-neutral-100;
+  }
+
+  .comparison-result-challenge-video-title {
+    @apply relative flex-1 flex flex-row justify-between text-center text-[1rem] text-neutral-100 w-max;
+  }
+
+  .comparison-result-segment-picker {
+    @apply relative top-[13vh] rounded-xl bg-neutral-800 w-[20.938rem] flex flex-row items-center justify-center text-left text-neutral-100 self-baseline;
+  }
+
+  .comparison-result-frame-row {
+    @apply flex flex-row items-start justify-start gap-[0.125rem] text-center text-[0.875rem] text-neutral-100 w-full;
+  }
+
+  .comparison-result-frame {
+    @apply relative w-[4.063rem] h-[5.063rem] overflow-hidden shrink-0 text-center text-[0.875rem] text-neutral-100;
+  }
+
+  .profile-edit-btn {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-primary-500 w-[20.938rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem];
+  }
+
+  .profile-cta-btn {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-neutral-800 w-[6.313rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem];
+  }
+
+  .profile-segment-picker {
+    @apply self-stretch rounded-xl bg-neutral-800 flex flex-row items-center justify-center
+  }
+
+  .profile-segment-picker-selected-btn {
+    @apply cursor-pointer [border:none] py-[0.75rem] px-[0.25rem] bg-[transparent] w-[7.063rem] text-neutral-100 rounded-xl flex flex-row items-center justify-center box-border;
+  }
+
+  .profile-video-card {
+    @apply w-[10rem] relative z-0 rounded-xl h-[10rem] overflow-hidden shrink-0 bg-cover bg-no-repeat bg-[top] text-left text-[0.875rem] text-neutral-100 overflow-visible;
+  }
+
+  .delete-popup {
+    @apply absolute z-20 top-[calc(50%_-_73.5px)] left-[calc(50%_-_124.5px)] rounded-2xl bg-neutral-700 w-[15.625rem] h-[9.25rem] overflow-hidden text-center text-[1.25rem] text-neutral-100;
+  }
+
+  .delete-popup-btn {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-neutral-800 relative top-[5.5rem] left-[1rem] rounded-xl w-[6.313rem] flex flex-row items-center justify-center box-border gap-[0.5rem];
+  }
+
+  .profile-playlist {
+    @apply relative w-[20.938rem] flex flex-row items-start justify-start py-[1rem] px-[0rem] box-border gap-[0.937rem] text-left text-[0.875rem] text-neutral-500;
+  }
+
+  .profile-playlist-btn {
+    @apply cursor-pointer [border:none] p-0 bg-[transparent] w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0;
+  }
+
+  .profile-video-card-menu {
+    @apply absolute z-10 top-[18%] left-[15%] rounded-lg overflow-hidden flex flex-col w-[80%] bg-neutral-800;
+  }
+
+  .profile-menu-btn {
+    @apply cursor-pointer [border:none] py-[0.5rem] px-[0rem] bg-[transparent] w-[17.5rem] flex flex-row items-center justify-between box-border;
+  }
+
+  .profile-menu {
+    @apply absolute right-[0rem] top-[0rem] bg-neutral-700 h-screen flex flex-col items-end justify-start py-[2.5rem] px-[1.25rem] box-border gap-[1.5rem] text-center text-[1rem] text-neutral-100;
+  }
+
+  .profile-menu-item {
+    @apply w-[17.5rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1rem] text-neutral-100;
+  }
+
+  .profile-video-menu-item {
+    @apply relative cursor-pointer [border:none] p-[0.5rem] bg-neutral-800 h-[2.5rem] grid grid-flow-col items-center box-border gap-[0.5rem] w-full text-nowrap top-[18%] left-[0.1rem] z-10 rounded-xl;
+  }
+
+  .edit-playlist-input-tile {
+    @apply flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .edit-playlist-title-input {
+    @apply [border:none] [outline:none] text-[1rem] bg-white-8 w-[20.938rem] rounded-xl flex flex-row items-center justify-start py-[0.625rem] px-[1rem] box-border text-neutral-100;
+  }
+
+  .edit-playlist-title {
+    @apply absolute w-[calc(100%_-_40px)] top-[2.5rem] right-[1.25rem] left-[1.25rem] h-[2.75rem] flex flex-row items-center justify-between py-[0.5rem] px-[0rem] box-border text-center text-[1.25rem] text-neutral-100;
+  }
+
+  .relate-user {
+    @apply w-[23.438rem] flex flex-row items-center justify-start py-[0.75rem] px-[1.25rem] box-border gap-[1.5rem] text-left text-[1rem] text-neutral-100;
+  }
+
+  .relate-user-btn {
+    @apply cursor-pointer [border:none] py-[0.25rem] px-[0.375rem] bg-neutral-800 w-[4rem] rounded-md flex flex-row items-center justify-center box-border;
+  }
+
+  .faq-question {
+    @apply w-[20.938rem] bg-neutral-800 flex flex-row items-center justify-between py-[0.75rem] px-[1rem] box-border text-left text-[0.75rem] text-neutral-100;
+  }
+
+  .faq-answer {
+    @apply w-[20.938rem] bg-neutral-800 box-border flex flex-row items-center justify-start pt-[0rem] px-[1rem] pb-[1rem] text-left text-[0.75rem] text-neutral-300 border-b-[1px] border-solid border-neutral-700;
+  }
+
+  .profile-menu-item-2 {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .notifications-toggle {
+    @apply self-stretch flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+  }
+
+  .add-payment-btn {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-primary-500 w-[20.938rem] rounded-xl flex flex-row items-center justify-center box-border gap-[0.5rem];
+  }
+
+  .payment-history {
+    @apply self-stretch flex flex-col items-start justify-start gap-[0.25rem] text-left text-[0.875rem] text-neutral-400;
+  }
+
+  .payment-search-results {
+    @apply absolute w-[99%] rounded-2xl overflow-hidden flex flex-col z-10 top-12;
+  }
+
+  .my-wallet-btn {
+    @apply cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-white-8 flex-1 rounded-xl flex flex-row items-center justify-center;
+  }
+
+  .my-wallet-search-dropdown {
+    @apply self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100;
   }
 }
 

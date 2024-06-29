@@ -1,6 +1,8 @@
 import Title from "../components/mobile/Title";
 import HomeSectionVideoCard from "../components/mobile/HomeSectionVideoCard";
 import SaveToPlaylistPopup from "../components/mobile/SaveToPlaylistPopup";
+import SaveToPlaylistBtn from "../components/mobile/SaveToPlaylistBtn";
+import { useState } from "react";
 const recentlyAddedData = [
   {
     src: "card1@3x.png",
@@ -64,9 +66,33 @@ const recentlyAddedData = [
  * @returns JSX element
  */
 const RecentlyAdded = () => {
+  /************************************************************************************ */
+  /***************************{Component Variables & States}*************************** */
+  /************************************************************************************ */
+  const [isPopupActive, setIsPopupActive] = useState(false);
+  const [selectedId, setSelectedId] = useState(null); //Video with its options active
+
   /**************************************************************************** */
   /********************************{Methods}********************************** */
   /**************************************************************************** */
+  /**
+   * Toglle playlist popup
+   * @param {*} id
+   */
+  const togglePlaylistPopup = (event) => {
+    event.stopPropagation();
+    setIsPopupActive(!isPopupActive);
+  };
+
+  /**
+   * Handle saving video
+   */
+  const handleSaveVideo = (event) => {
+    event.stopPropagation();
+    console.log(`Saving video with id ${selectedId}`);
+    setIsPopupActive(false);
+  };
+
   const renderRecentlyAdded = () => {
     return recentlyAddedData.map((element, index) => (
       <HomeSectionVideoCard
@@ -74,6 +100,11 @@ const RecentlyAdded = () => {
         likes={element.likes}
         views={element.views}
         src={element.src}
+        setSelected={setSelectedId}
+        videoId={index}
+        optionsMenu={
+          <SaveToPlaylistBtn onClick={togglePlaylistPopup}></SaveToPlaylistBtn>
+        }
       />
     ));
   };
@@ -84,7 +115,7 @@ const RecentlyAdded = () => {
       <section className="absolute w-[calc(100%_-_40px)] top-[6.75rem] right-[1.25rem] h-[calc(100vh_-_7.2rem)] left-[1.25rem] overflow-y-auto grid grid-cols-2 items-start justify-start gap-[1rem] text-left text-[0.875rem] text-neutral-100 font-button-2-bold">
         {renderRecentlyAdded()}
       </section>
-      <SaveToPlaylistPopup></SaveToPlaylistPopup>
+      {isPopupActive && <SaveToPlaylistPopup handleSave={handleSaveVideo} />}
     </div>
   );
 };

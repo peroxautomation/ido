@@ -149,39 +149,6 @@ const SelectCountry = () => {
     });
   };
 
-  /**
-   * Page event listener to close dropdown
-   * Not yet attached becuase it conflicts with the onCTAClick in Dropdown
-   */
-  const onPageClick = (event) => {
-    let countryDropdownList = document.getElementById("countryDropdownList");
-    let cityDropdownList = document.getElementById("cityDropdownList");
-    let stateDropdownList = document.getElementById("stateDropdownList");
-
-    if (
-      event.target != countryDropdownList &&
-      event.target.parentNode != countryDropdownList &&
-      event.target.parentNode.parentNode != countryDropdownList
-    ) {
-      countryDropdownList.classList.add("hidden");
-    }
-
-    if (
-      event.target != cityDropdownList &&
-      event.target.parentNode != cityDropdownList &&
-      event.target.parentNode.parentNode != cityDropdownList
-    ) {
-      cityDropdownList.classList.add("hidden");
-    }
-
-    if (
-      event.target != stateDropdownList &&
-      event.target.parentNode != stateDropdownList &&
-      event.target.parentNode.parentNode != stateDropdownList
-    ) {
-      stateDropdownList.classList.add("hidden");
-    }
-  };
 
   const isActive = () => {
     if (
@@ -241,7 +208,7 @@ const SelectCountry = () => {
    */
   const CityDropdownList = () => {
     return (
-      <div className="dropdown-primary-list hidden">
+      <div className="dropdown-primary-list">
         <DropdownSearch />
         {cities.map((element, index) => (
           <DropdownItem1
@@ -261,17 +228,17 @@ const SelectCountry = () => {
         <Dropdown
           name="Country"
           selected={countryInfo.country}
-          DropdownOptions={CountryDropdownList}
+          DropdownOptions={CountryDropdownList()}
         />
         <Dropdown
           name="State"
           selected={countryInfo.state}
-          DropdownOptions={StateDropdownList}
+          DropdownOptions={StateDropdownList()}
         />
         <Dropdown
           name="City"
           selected={countryInfo.city}
-          DropdownOptions={CityDropdownList}
+          DropdownOptions={CityDropdownList()}
         />
       </section>
       <div className="absolute w-[90%] bottom-5">

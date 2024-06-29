@@ -1,12 +1,40 @@
 import Title from "../components/mobile/Title";
-import CancelSubscriptionBtn from "../components/mobile/CancelSubscriptionBtn";
 import DeletePopup from "../components/mobile/DeletePopup";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Subscriptions page
- * @returns 
+ * @returns
  */
 const Subscriptions = () => {
+  /*********************************************************************************** */
+  /********************************{States & vairables}******************************* */
+  /*********************************************************************************** */
+  const [isPopupActive, setIspopActive] = useState(false);
+  const navigate = useNavigate();
+  /*********************************************************************************** */
+  /********************************{ Functions }************************************** */
+  /*********************************************************************************** */
+  const onButtonClick = () => {
+    setIspopActive(true);
+  };
+
+  /**
+   * On no delete click
+   */
+  const onNoClick = () => {
+    setIspopActive(false);
+  };
+
+  /**
+   * On yes delete click
+   */
+  const onYesClick = () => {
+    setIspopActive(false);
+    navigate('/subscription-cancled')
+  };
+
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden text-left text-[1rem] text-neutral-100 font-button-1-regular">
       <Title pageName="Subscriptions" />
@@ -52,8 +80,22 @@ const Subscriptions = () => {
           </div>
         </div>
       </div>
-      <CancelSubscriptionBtn />
-      <DeletePopup message={"Are you sure want to cancel subscription?"} current="Subscription" />
+      <button
+        onClick={onButtonClick}
+        className={`cursor-pointer [border:none] py-[0.625rem] px-[0.5rem] bg-neutral-800 absolute w-[calc(100%_-_200px)] right-[6.75rem] bottom-[15.688rem] left-[6.75rem] rounded-lg flex flex-row items-center justify-center box-border`}
+      >
+        <div className="relative text-[1rem] leading-[1.5rem] font-semibold  text-danger-500 text-center text-nowrap px-1">
+          Cancel subscription
+        </div>
+      </button>
+      {isPopupActive && (
+        <DeletePopup
+          message={"Are you sure want to cancel subscription?"}
+          current="Subscription"
+          onYesClick={onYesClick}
+          onNoClick={onNoClick}
+        />
+      )}
     </div>
   );
 };
