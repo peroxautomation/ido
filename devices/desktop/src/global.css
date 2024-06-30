@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/public/FontsFree-Net-SFProText-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/public/FontsFree-Net-SFProText-Semibold.ttf");
+  font-weight: 600;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply leading-[normal] m-0;
+}
+*,
+::before,
+::after {
+  border-width: 0;
+}
+
+@layer components {
+  .btn-primary-active {
+    @apply w-full cursor-pointer  rounded-[12px] flex flex-row items-center justify-center py-2.5 px-2 box-border gap-[8px] text-center text-base text-neutral-100 font-overline-regular bg-[#cc0f3c] hover:opacity-80;
+  }
+  .btn-primary-inactive {
+    @apply w-full cursor-pointer rounded-[12px] bg-white-8 flex flex-row items-center justify-center py-2.5 px-2 box-border gap-[8px] text-center text-base text-neutral-100 font-overline-regular hover:opacity-80;
+  }
+  .btn-secondary-active {
+    @apply cursor-pointer flex-1 rounded-[12px] bg-neutral-700 flex flex-row items-center justify-center py-3 px-1;
+  }
+  .btn-secondary-inactive {
+    @apply cursor-pointer flex-1 rounded-[12px] flex flex-row items-center justify-center py-3 px-1 text-neutral-500;
+  }
+  .modal-background {
+    @apply flex self-stretch w-screen h-screen bg-gray-200 relative;
+  }
+  .modal-position {
+    @apply flex flex-row justify-center items-start w-full h-full;
+  }
+  .modal_container {
+    @apply absolute w-[416px] top-[284px] rounded-3xl bg-neutral-800 max-w-full h-[456px] flex flex-col items-center justify-center py-3.5 px-4 box-border text-center text-base text-neutral-100 font-overline-regular;
+  }
+  .modal_background_tint {
+    @apply absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] bg-gray-200;
+  }
+}

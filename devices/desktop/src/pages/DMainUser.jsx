@@ -1,0 +1,235 @@
+import StateUserDeviceDesktop from "../components/StateUserDeviceDesktop";
+import DeviceTablet from "../components/DeviceTablet";
+import SizeDesktopCard from "../components/SizeDesktopCard";
+import StateWithLogining from "../components/StateWithLogining";
+import MenuItem from "../components/MenuItem";
+import GenreFrame from "../components/GenreFrame";
+
+const DMainUser = () => {
+  return (
+    <div className="w-full relative bg-neutral-900 h-[1024px] overflow-hidden">
+      <StateUserDeviceDesktop
+        hugeIconinterfaceoutlineh="/hugeiconinterfacesolidhome-04.svg"
+        hugeIconinterfacesolidsea="/hugeiconinterfacesolidsearch-02.svg"
+        hugeIconmultimediaAndAudi="/hugeiconinterfaceoutlinehome-04.svg"
+        hugeIcontimeAndDatesolidt="/hugeicontime-and-datesolidtimequarter-past1@2x.png"
+        heartIcons="/heart-icons.svg"
+        hugeIconfinanceAndPayment="/hugeiconfinance-and-paymentoutlinecard.svg"
+        hugeIconfinanceAndPayment1="/hugeiconfinance-and-paymentoutlinemoney-bagdollar.svg"
+        hugeIcondeviceoutlinenoti="/hugeicondeviceoutlinenotification-01.svg"
+        hugeIcondeviceoutlinesett="/hugeicondeviceoutlinesetting.svg"
+        hugeIconcommunicationoutl="/hugeiconcommunicationoutlinecall.svg"
+        hugeIconinterfaceoutlinei="/hugeiconinterfaceoutlineinformation.svg"
+        hugeIconinterfaceoutlineh1="/hugeiconinterfaceoutlinehelp.svg"
+        hugeIconinterfaceoutlines="/hugeiconinterfaceoutlinestar.svg"
+        showHugeIconinterfaceoutlines
+        stateUserDeviceDesktopHeight="calc(100% - 108px)"
+        stateUserDeviceDesktopPosition="absolute"
+        stateUserDeviceDesktopTop="108px"
+        stateUserDeviceDesktopBottom="0px"
+        stateUserDeviceDesktopLeft="0px"
+        menuDesktopBorder="none"
+        menuDesktopBackgroundColor="#fff"
+        menuDesktopBorderRadius="12px"
+        homeColor="#1b1b1b"
+        menuDesktopBorder1="none"
+        menuDesktopBackgroundColor1="transparent"
+        menuDesktopBorderRadius1="unset"
+        homeColor1="#fff"
+        menuDesktopBorder2="none"
+        menuDesktopBorderRadius2="unset"
+        menuDesktopBackgroundColor2="transparent"
+        homeColor2="#fff"
+        menuDesktopBorder3="none"
+        menuDesktopBorderRadius3="12px"
+        menuDesktopBackgroundColor3="rgba(255, 255, 255, 0.08)"
+        homeColor3="#fff"
+        menuDesktopBorderRadius4="unset"
+        menuDesktopBackgroundColor4="transparent"
+        menuDesktopBorder4="none"
+        heartIconsOverflow="unset"
+        homeColor4="#fff"
+        menuDesktopBorderRadius5="unset"
+        menuDesktopBackgroundColor5="transparent"
+        menuDesktopBorder5="none"
+        homeColor5="#fff"
+        menuDesktopBorder6="none"
+        menuDesktopBackgroundColor6="transparent"
+        menuDesktopBorder7="none"
+        menuDesktopBackgroundColor7="transparent"
+        menuDesktopBorder8="none"
+        menuDesktopBackgroundColor8="transparent"
+        menuDesktopBorderRadius6="unset"
+        menuDesktopBackgroundColor9="transparent"
+        menuDesktopBorder9="none"
+        homeColor6="#fff"
+        menuDesktopBorderRadius7="unset"
+        menuDesktopBackgroundColor10="transparent"
+        menuDesktopBorder10="none"
+        homeColor7="#fff"
+        menuDesktopBorderRadius8="unset"
+        menuDesktopBackgroundColor11="transparent"
+        menuDesktopBorder11="none"
+        homeColor8="#fff"
+        menuDesktopBorderRadius9="unset"
+        menuDesktopBackgroundColor12="transparent"
+        menuDesktopBorder12="none"
+        homeColor9="#fff"
+        menuDesktopBorderRadius10="unset"
+        menuDesktopBackgroundColor13="unset"
+        homeColor10="#fff"
+        menuDesktopBorder13="none"
+        menuDesktopBackgroundColor14="transparent"
+      />
+      <div className="absolute h-[calc(100%_-_368px)] w-[calc(100%_-_360px)] top-[352px] right-[48px] bottom-[16px] left-[312px] flex flex-col items-start justify-start gap-[40px]">
+        <div className="self-stretch flex-1 flex flex-col items-start justify-start">
+          <DeviceTablet
+            text="Trending now"
+            rightBtn
+            deviceTabletWidth="unset"
+            deviceTabletAlignSelf="stretch"
+          />
+          <div className="self-stretch flex-1 flex flex-row items-start justify-start gap-[24px]">
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+          </div>
+        </div>
+        <div className="self-stretch flex-1 flex flex-col items-start justify-start">
+          <DeviceTablet
+            text="Recently added"
+            rightBtn
+            deviceTabletWidth="unset"
+            deviceTabletAlignSelf="stretch"
+          />
+          <div className="self-stretch flex-1 flex flex-row items-start justify-start gap-[24px]">
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+            <SizeDesktopCard
+              likeText="783"
+              viewText="1043"
+              sizeDesktopCardBackgroundImage="url('/card1@3x.png')"
+              sizeDesktopCardPosition="relative"
+              sizeDesktopCardWidth="unset"
+              sizeDesktopCardHeight="unset"
+              sizeDesktopCardAlignSelf="stretch"
+              sizeDesktopCardFlex="1"
+              sizeDesktopCardTop="unset"
+              sizeDesktopCardLeft="unset"
+            />
+          </div>
+        </div>
+      </div>
+      <StateWithLogining
+        hugeIconinterfacesolidsea="/hugeiconinterfacesolidsearch-02.svg"
+        ellipse1254="/ellipse-12542@2x.png"
+        stateWithLoginingWidth="100%"
+        stateWithLoginingPosition="absolute"
+        stateWithLoginingTop="0px"
+        stateWithLoginingRight="0px"
+        stateWithLoginingLeft="0px"
+        userNameImgTextDecoration="none"
+      />
+      <MenuItem
+        text="Delete dance"
+        hugeIconecommerceoutlineb="/hugeiconinterfaceoutlinetrash2.svg"
+        menuItemPosition="absolute"
+        menuItemTop="459px"
+        menuItemLeft="433px"
+        menuItemRight="unset"
+        menuItemMargin="unset"
+      />
+      <GenreFrame
+        propBackgroundImage="url('/card4@3x.png')"
+        propBackgroundImage1="url('/card4@3x.png')"
+        propBackgroundImage2="url('/card4@3x.png')"
+        propBackgroundImage3="url('/card4@3x.png')"
+        propBackgroundImage4="url('/card4@3x.png')"
+        propBackgroundImage5="url('/card4@3x.png')"
+        propBackgroundImage6="url('/card4@3x.png')"
+        propBackgroundImage7="url('/card4@3x.png')"
+      />
+    </div>
+  );
+};
+
+export default DMainUser;

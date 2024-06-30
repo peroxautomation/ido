@@ -1,0 +1,63 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "neutral-900": "#0b0b0b",
+        "primary-500": "#cc0f3c",
+        "neutral-100": "#fff",
+        "neutral-600": "#424242",
+        "white-8": "rgba(255, 255, 255, 0.08)",
+        "white-16": "rgba(255, 255, 255, 0.16)",
+        "neutral-800": "#1b1b1b",
+        "neutral-700": "#252525",
+        "neutral-200": "#e9e9e9",
+        "danger-500": "#cc240e",
+        gray: {
+          100: "rgba(0, 0, 0, 0.4)",
+          200: "rgba(0, 0, 0, 0.7)",
+        },
+        "neutral-400": "#9a9a9a",
+        "neutral-500": "#6c6c6c",
+        "white-40": "rgba(255, 255, 255, 0.4)",
+        "primary-100": "#efb5c3",
+        "neutral-300": "#bbb",
+        "success-500": "#0c9f6e",
+        black: "#000",
+        darkslategray: "#28303f",
+      },
+      spacing: {},
+      fontFamily: {
+        "overline-regular": "Nunito",
+        "sf-pro-text": "'SF Pro Text'",
+      },
+      borderRadius: {
+        "12xs-3": "0.3px",
+        // xl: "20px",
+        xl: "12px",
+        smi: "13px",
+        "17xl": "36px",
+        "6xs": "7px",
+        "9xl": "28px",
+        "13xl": "32px",
+        "3xs": "10px",
+      },
+    },
+    fontSize: {
+      base: "16px",
+      sm: "14px",
+      "13xl": "32px",
+      "21xl": "40px",
+      xl: "20px",
+      "5xl": "24px",
+      xs: "12px",
+      "9xl": "28px",
+      "3xs": "10px",
+      inherit: "inherit",
+    },
+  },
+  corePlugins: {
+    preflight: false,
+  },
+};
