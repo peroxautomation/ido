@@ -170,7 +170,7 @@ const SelectCountry = () => {
    */
   const CountryDropdownList = () => {
     return (
-      <div className="dropdown-primary-list hidden">
+      <div className="dropdown-primary-list">
         <DropdownSearch />
         {countries.map((element, index) => (
           <DropdownItem1
@@ -189,7 +189,7 @@ const SelectCountry = () => {
    */
   const StateDropdownList = () => {
     return (
-      <div className="dropdown-primary-list hidden">
+      <div className="dropdown-primary-list">
         <DropdownSearch />
         {states.map((element, index) => (
           <DropdownItem1

@@ -95,16 +95,12 @@ const SelectMusic = () => {
    * @param {*} id
    */
   const onMusicPlay = (id) => {
-    const newArray = musicData.map((element) => ({
-      id: element.id,
-      musicImage: element.musicImage,
-      musicName: element.musicName,
-      artistName: element.artistName,
-      isPlaying: false,
-    }));
-
-    const playing = newArray.find((m) => m.id == id);
-    playing.isPlaying = true;
+    const newArray = musicData.map((element) => {
+      if (element.id == id) {
+        element.isPlaying = !element.isPlaying;
+      }
+      return element;
+    });
     setMusicData(newArray);
   };
 

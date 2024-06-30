@@ -47,14 +47,14 @@ const SignUpAllInfo = () => {
       setPasswordIncorrect(false);
     }
   };
-  
+
   /**
    * Create user account
    */
   const onCreateClick = () => {
     // Please sync "OTP" to the project
     console.log("Creating account...");
-    navigate("/select-subscription");
+    navigate("/sign-up/otp");
   };
 
   /**
@@ -113,8 +113,8 @@ const SignUpAllInfo = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden">
       <Title pageName="Sign up" />
-      <main className="relative w-[calc(100%_-_40px)] h-[77%] top-[108px] right-[20px] left-[20px] gap-[16px] text-center text-base text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
-        <div className="self-stretch flex flex-col items-start justify-start">
+      <main className="relative w-[90%] h-[77%] top-[108px] right-[20px] left-[20px] gap-[16px] text-center text-base text-neutral-100 font-button-1-regular grid grid-flow-row justify-items-center">
+        <div className="self-stretch flex flex-col items-start justify-start w-full">
           <div className="relative self-stretch flex flex-col items-start justify-start gap-[16px] h-[35vh]">
             <TextInput1
               label="Username"

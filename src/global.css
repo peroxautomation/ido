@@ -130,7 +130,7 @@ body {
   }
 
   .text-input-primary {
-    @apply [border:none] [outline:none] text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white;
+    @apply [border:none] [outline:none] text-base bg-white-8 self-stretch rounded-xl flex flex-row items-center justify-center py-2.5 px-4 text-white h-[44px];
   }
 
   .text-input-primary-label {
@@ -303,7 +303,7 @@ body {
   }
 
   .search-page-search-options-container {
-    @apply absolute z-10 top-[calc(32%_-_10vh)] left-[1.25rem] rounded-xl overflow-hidden flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
+    @apply relative z-10 w-full mt-2 rounded-xl overflow-hidden flex flex-col items-start justify-start text-left text-[1rem] text-neutral-100;
   }
 
   .search-page-search-options {
@@ -650,11 +650,3 @@ body {
     @apply self-stretch rounded-xl bg-white-8 flex flex-row items-center justify-start py-[0.625rem] px-[1rem] gap-[0.5rem] text-left text-[1rem] text-neutral-100;
   }
 }
-
-/*
-  1. Change the prop types
-  2. Make use of layer components
-  3. walk through the designs on figma
-  4. Change to vite format 
-  5. Make the lists more dynamic
-*/

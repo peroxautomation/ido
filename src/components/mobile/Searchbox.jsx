@@ -1,5 +1,7 @@
 import SearchInput1 from "./SearchInput1";
 import FilterBtn from "./FilterBtn";
+import SearchResults from "./SearchResults";
+import { useState } from "react";
 
 /**
  * Search container component
@@ -10,18 +12,21 @@ import FilterBtn from "./FilterBtn";
  */
 const Searchbox = (props) => {
   const { searchQuery, handleSetQuery, handleSetfilterOpen } = props;
+  const [isSearchResultActive, setIsSearchResultActive] = useState(false);
   return (
-    <div className="relative top-[calc(26%_-_10vh)] display flex flex-row w-[100vw] justify-center">
+    <div className="relative top-[calc(26%_-_10vh)] display grid grid-flow-row w-[100vw] justify-items-center">
       <div
         className={`relative w-[90%] flex flex-row items-center justify-start gap-[1rem]`}
       >
         <SearchInput1
+          onEnter={() => setIsSearchResultActive(!isSearchResultActive)}
           searchValue={searchQuery}
           handleSetValue={handleSetQuery}
           searchPlaceholder="Search"
         />
         <FilterBtn setIsFilterOpen={handleSetfilterOpen} />
       </div>
+      {isSearchResultActive && <SearchResults setSearchValue={handleSetQuery}/>}
     </div>
   );
 };

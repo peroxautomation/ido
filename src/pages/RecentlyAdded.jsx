@@ -3,6 +3,7 @@ import HomeSectionVideoCard from "../components/mobile/HomeSectionVideoCard";
 import SaveToPlaylistPopup from "../components/mobile/SaveToPlaylistPopup";
 import SaveToPlaylistBtn from "../components/mobile/SaveToPlaylistBtn";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const recentlyAddedData = [
   {
     src: "card1@3x.png",
@@ -71,7 +72,7 @@ const RecentlyAdded = () => {
   /************************************************************************************ */
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [selectedId, setSelectedId] = useState(null); //Video with its options active
-
+  const navigate = useNavigate()
   /**************************************************************************** */
   /********************************{Methods}********************************** */
   /**************************************************************************** */
@@ -105,6 +106,9 @@ const RecentlyAdded = () => {
         optionsMenu={
           <SaveToPlaylistBtn onClick={togglePlaylistPopup}></SaveToPlaylistBtn>
         }
+        onVideoClick={() => {
+          navigate("/moves/others/video-123");
+        }}
       />
     ));
   };

@@ -197,7 +197,6 @@ const Search = () => {
         handleSetQuery={setSearchQuery}
         handleSetfilterOpen={setIsFilterOpen}
       />
-      <SearchResults />
       <main className="absolute w-[calc(100%_-_40px)] top-[24%] right-[1.25rem] h-[67vh] left-[1.25rem] overflow-y-auto grid grid-cols-2 items-start justify-start gap-[1rem] text-left text-[0.875rem] text-neutral-100 font-button-2-bold">
         {renderSearchVideos()}
       </main>

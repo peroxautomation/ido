@@ -86,10 +86,7 @@ const StartPremiumPlan = () => {
     });
   };
 
-  console.log(card.cardhodlerName);
-  console.log(card.cardNumber);
-  console.log(card.cvv);
-  console.log(card.expiryDate);
+  console.log(card);
 
   return (
     <div className="w-full grid grid-flow-row justify-center relative bg-neutral-900 h-[100vh] overflow-hidden text-[1rem] text-neutral-100 font-button-2-bold">
@@ -170,8 +167,8 @@ const StartPremiumPlan = () => {
           value={card.cardNumber}
           handleSetValue={handleCardNumber}
         />
-        <div className="relative grid grid-flow-col gap-5 justify-self-center">
-          <div className="relative w-[10rem]">
+        <div className="relative grid grid-cols-2 gap-5 justify-self-center">
+          <div className="relative">
             <Input
               label="MM/YY"
               isRequired={false}
@@ -180,7 +177,7 @@ const StartPremiumPlan = () => {
               handleSetValue={handleCarExpiryDate}
             />
           </div>
-          <div className="relative w-[10rem]">
+          <div className="relative">
             <Input
               label="CVV"
               isImportant={true}

@@ -125,7 +125,7 @@ const SignUpQuestions = () => {
   return (
     <div className="w-full relative bg-neutral-900 h-screen overflow-hidden grid grid-flow-row justify-items-center">
       <Title pageName="Sign up" />
-      <main className="flex flex-col relative items-start top-[12vh] w-[85vw] h-[73vh] overflow-y-scroll overflow-x-clip">
+      <main className="flex flex-col relative items-start top-[12vh] w-[90%] h-[73vh] overflow-y-scroll overflow-x-clip">
         <section className="relative flex flex-col items-start justify-start gap-[8px] text-left text-base text-neutral-100  font-semibold">
           <TextInput1
             label="When did you start dancing?"

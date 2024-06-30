@@ -121,6 +121,7 @@ function App() {
       <Route path="/sign-up/country" element={<SelectCountry />} />
       <Route path="/sign-up/questions" element={<SignUpQuestions />} />
       <Route path="/sign-up/info" element={<SignUpAllInfo />} />
+      <Route path="/sign-up/otp" element={<OTP proceedTo={"/select-subscription"} />} />
       {/*************************************** { Onboarding subscription Screen } **************************************************/}
       <Route path="/select-subscription" element={<SelectSubscription />} />
       <Route
