@@ -13,6 +13,7 @@ const CommentContainer = (props) => {
   /**************************{Props and Variables}****************************** */
   /*************************************************************************** */
   const { onExitClick } = props;
+  /**TODO: Move this to parent component calling this component */
   const [commentsData, setCommentLikes] = useState([
     {
       id: 1,
@@ -126,7 +127,7 @@ const CommentContainer = (props) => {
           Comments
         </div>
       </div>
-      <div className="self-stretch rounded-t-xl rounded-b-none h-[26.25rem] overflow-y-auto shrink-0 flex flex-col items-start justify-start z-[1] text-left text-[1rem]">
+      <div className="self-stretch rounded-t-xl rounded-b-none max-h-[99%] overflow-y-auto shrink-0 flex flex-col items-start justify-start z-[1] text-left text-[1rem]">
         {renderComments()}
       </div>
       <CommentInput value={inputValue} handleSetValue={setInputValue} />
