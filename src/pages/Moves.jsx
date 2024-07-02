@@ -129,13 +129,18 @@ const Moves = () => {
    * Handle relate to user
    */
   const handleRelate = (videoId) => {
-    const newArray = videoData.map((element) => {
-      if (element.id == videoId) {
-        element.isRelating = !element.isRelating;
-      }
-      return element;
-    });
-    setVideoData(newArray);
+    setVideoData((prevVideoData) =>
+      prevVideoData.map((element) => {
+        if (element.id === videoId) {
+          const isRelating = !element.isRelating;
+          return {
+            ...element,
+            isRelating: isRelating,
+          };
+        }
+        return element;
+      })
+    );
   };
 
   /**
@@ -161,16 +166,23 @@ const Moves = () => {
    * Handle rating a video
    */
   const handleRateVideo = (videoId, value) => {
-    const newArray = videoData.map((element) => {
-      if (element.id == videoId) {
-        element.ratings = (element.ratings / 2 + (5 * (value - 1)) / 8).toFixed(
-          1
-        );
-        element.isRated = true;
-      }
-      return element;
-    });
-    setVideoData(newArray);
+    setVideoData((prevVideoData) =>
+      prevVideoData.map((element) => {
+        if (element.id === videoId) {
+          const newRatings = (element.ratings = (
+            element.ratings / 2 +
+            (5 * (value - 1)) / 8
+          ).toFixed(1));
+          const isRated = true;
+          return {
+            ...element,
+            ratings: newRatings,
+            isRated: isRated,
+          };
+        }
+        return element;
+      })
+    );
   };
 
   /**

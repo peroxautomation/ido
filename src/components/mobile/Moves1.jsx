@@ -4,7 +4,7 @@ import MovesBtn2 from "./MovesBtn2";
 import MovesHeader2 from "./MovesHeader2";
 import CommentContainer from "./CommentContainer";
 import StoryContainer from "./StoryContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RatingsDropdown from "./RatingsDropdown";
 import SaveToPlaylistPopup from "./SaveToPlaylistPopup";
 import CoverBtn from "./CoverBtn";
@@ -121,7 +121,12 @@ const Moves1 = (props) => {
       {isCommentContainerActive && (
         <CommentContainer onExitClick={onCommentExitClick} />
       )}
-      {isStoryActive && <StoryContainer storyData={videoData.stroyData} onExitClick={onStoryExitClick}/>}
+      {isStoryActive && (
+        <StoryContainer
+          storyData={videoData.stroyData}
+          onExitClick={onStoryExitClick}
+        />
+      )}
       <div className="absolute w-full top-[0rem] right-[0rem] left-[0rem] flex flex-col items-start justify-start">
         <MovesHeader2
           isCreator={false}
