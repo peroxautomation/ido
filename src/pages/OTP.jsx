@@ -1,0 +1,112 @@
+import { useEffect, useState } from "react";
+import Title from "../components/mobile/Title";
+import OTPInputs from "../components/mobile/OTPInputs";
+import { useNavigate } from "react-router-dom";
+/**
+ * OTP Page
+ * @returns JSX element
+ */
+const OTP = (props) => {
+  const { proceedTo } = props;
+  /**************************************************************************** */
+  /********************************{Form Data}********************************* */
+  /**************************************************************************** */
+  const [otp, setOtp] = useState("");
+  /*************************************************************************************** */
+  /********************************{ Component Variables }*********************************** */
+  /*************************************************************************************** */
+  const [countDown, setCountDown] = useState(30);
+  var currentTime = countDown;
+  const navigate = useNavigate();
+
+  /*************************************************************************************** */
+  /********************************{ Component Methods }********************************** */
+  /*************************************************************************************** */
+  /**
+   * Send OTP passowrd again
+   */
+  const onAskAgainClick = () => {
+    if (currentTime <= 0) {
+      console.log("Sending otp...");
+      setCountDown(30);
+    }
+  };
+
+  /**
+   * Dynamic timer component
+   * @returns A JSX element
+   */
+  const Timmer = () => {
+    useEffect(() => {
+      if (!countDown) return;
+
+      const intervalId = setInterval(() => {
+        setCountDown(countDown - 1);
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }, [countDown]);
+    return <div>{countDown}</div>;
+  };
+
+  /**
+   * Update OTP state
+   * @param {*} value
+   */
+  const onOTPEnter = () => {
+    const otpInputs = document.getElementById("otpInput").children;
+    let currOTP = "";
+    for (let input of otpInputs) {
+      currOTP += input.value.toString();
+    }
+    console.log(currOTP);
+    setOtp(currOTP);
+
+    //Validate OTP and navigate
+    if (currOTP.length == 6)
+      setTimeout(() => {
+        navigate(proceedTo);
+      }, 1000);
+  };
+
+  return (
+    <div className="w-full relative bg-neutral-900 h-[100vh] overflow-hidden">
+      <Title pageName="OTP verification" />
+      <main className="absolute top-[108px] left-[calc(50%_-_167.5px)] flex flex-col items-center justify-start gap-[24px] text-center text-xl text-white font-button-1-semibold">
+        <div className="flex flex-col items-center justify-center gap-[8px]">
+          <div className="w-[335px] flex flex-row items-center justify-center">
+            <div className="flex-1 relative leading-[28px] font-semibold">
+              Enter 6-digit code
+            </div>
+          </div>
+          <div className="w-[297px] flex flex-row items-center justify-end text-base">
+            <div className="flex-1 relative leading-[24px]">
+              Your code was sent to somemail@gmail.com
+            </div>
+          </div>
+        </div>
+        <OTPInputs onInput={onOTPEnter} />
+        <div className="flex flex-col items-start justify-start gap-[16px] text-left text-base">
+          <div className="w-[335px] flex flex-row items-center justify-center">
+            <div className="flex-1 relative leading-[24px] flex gap-2">
+              Resend code <Timmer></Timmer>
+            </div>
+          </div>
+          <div className="w-[335px] flex flex-row items-center justify-start py-2 px-0 box-border gap-[8px] text-center text-neutral-200">
+            <div className="relative leading-[24px] font-semibold">
+              Didin&apos;t get a code?
+            </div>
+            <button
+              className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base leading-[24px] font-semibold font-button-1-semibold text-primary-500 text-center inline-block"
+              onClick={onAskAgainClick}
+            >
+              Send again
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default OTP;
